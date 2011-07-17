@@ -709,17 +709,17 @@ public void HighAndLow(){
 				int r3 = 0;
 				r3 = Misc.random(6);
 				if (r3 == 0) {
-					sendMessage("<shad=15695415>[EPKZ News</col>]: Please vote everyday, ::vote You get 10m!");
+					sendMessage("<shad=15695415>[Project Benelux News</col>]: Please vote everyday, ::vote You get 10m!");
 				} else if (r3 == 1) {           
-					sendMessage("<shad=15695415>[EPKZ News</col>]: Donations are appreciated thanks =)");		
+					sendMessage("<shad=15695415>[Project Benelux News</col>]: Donations are appreciated thanks =)");		
 				} else if (r3 == 2) { 
-					sendMessage("<shad=15695415>[EPKZ News</col>]: Register online on : www.erased-pkz.comyr.com");
+					sendMessage("<shad=15695415>[Project Benelux News</col>]: Register online on : www.erased-pkz.comyr.com");
 				} else if (r3 == 3) {
-					sendMessage("<shad=15695415>[EPKZ News</col>]: Feel free to ask any staff for help, as long as their not busy!");
+					sendMessage("<shad=15695415>[Project Benelux News</col>]: Feel free to ask any staff for help, as long as their not busy!");
 				} else if (r3 == 4) {
-					sendMessage("<shad=15695415>[EPKZ News</col>]: Please report all bugs to a staff.");
+					sendMessage("<shad=15695415>[Project Benelux News</col>]: Please report all bugs to a staff.");
 				} else if (r3 == 5) {
-					sendMessage("<shad=15695415>[EPKZ News</col>]: Dont forget to click save in your quest tab!");
+					sendMessage("<shad=15695415>[Project Benelux News</col>]: Dont forget to click save in your quest tab!");
 				}
 			}
 		}, 160000); //milisecondsservermessage
