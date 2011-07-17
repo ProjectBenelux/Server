@@ -866,7 +866,7 @@ public boolean checkVotes(String playerName) {
                                 getItems().addItem(995, 10000000);
                                 sendMessage("Thanks for voting!");
                         }
-sendMessage("Alert##Welcome to Erased-Pkz!##Register on the forums by typing ::register !## Donate to Erased-Pkz to keep us 24/7.");
+sendMessage("Alert##Welcome to Project Benelux##Register on the forums by typing ::register !## Donate to Project Benelux to keep us 24/7.");
     			outStream.createFrame(249);
 			outStream.writeByteA(1);		// 1 for members, zero for free
 			outStream.writeWordBigEndianA(playerId);
@@ -1058,7 +1058,7 @@ setSidebarInterface(16, 17011); //summon
                        safeTimer--;
                 }
 
-			getPA().sendFrame126("Erasedpkz: "+PlayerHandler.getPlayerCount()+" Online", 29155); //Tab Title
+			getPA().sendFrame126("Project Benelux - "+PlayerHandler.getPlayerCount()+" Online", 29155); //Tab Title
 						getPA().sendFrame126("@gre@http://Erased-pkz.comyr.com/", 29164);
 			getPA().sendFrame126("@gre@Items kept on death ", 29165);
 			getPA().sendFrame126("@gre@Save Game ", 29166);
