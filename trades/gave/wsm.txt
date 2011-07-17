@@ -1,0 +1,49 @@
+
+Year : 2011	Month : 2	Day : 19
+Gave 1 Amulet of strength To mvp
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Antique lamp To mvp
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Lamp To mvp
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Monk's robetop To mvp
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Monk's robe To mvp
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Iron scimitar To mvp
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Shortbow To mvp
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 150 Bronze arrow To mvp
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 120 Lobster To mvp
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 100 Blood rune To mvp
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 10000000 Coins To mvp
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 100 Air rune To mvp
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 100 Mind rune To mvp
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 100 Death rune To mvp
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 100 Fire rune To mvp
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 100 Water rune To mvp
+--------------------------------------------------

@@ -1,0 +1,67 @@
+
+Year : 2011	Month : 2	Day : 24
+Gave 2 Diamond bolts (e) To 60 pur3
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 24
+Gave 1 Vesta's longsword To 60 pur3
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 28
+Gave 1 Ranger boots To rng tank
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 28
+Gave 1 Robin hood hat To rng tank
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 28
+Gave 400 Bolt rack To rng tank
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 28
+Gave 50 Super defence (3) To rng tank
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 28
+Gave 56000000 Coins To rng tank
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 28
+Gave 1 Morrigan's leather body To rng tank
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 28
+Gave 1 Karil's c'bow To rng tank
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 28
+Gave 50 Ranging potion (4) To rng tank
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 28
+Gave 7 Morrigan's javelin To rng tank
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 28
+Gave 50 Super restore (4) To rng tank
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 28
+Gave 1 Black d'hide chaps To rng tank
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 28
+Gave 179 Diamond bolts (e) To rng tank
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 28
+Gave 1 Amulet of fury To rng tank
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 28
+Gave 1 Armadyl godsword To rng tank
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 28
+Gave 100908900 Coins To pur3 geez
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 28
+Gave 1 Amulet of fury To pur3 geez
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 28
+Gave 1 Vesta's platebody To pur3 geez
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 28
+Gave 1 Vesta's plateskirt To pur3 geez
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 29
+Gave 1 Mages' book To pur3 geez
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 29
+Gave 10 Morrigan's throwing axe To pur3 geez
+--------------------------------------------------

@@ -1,0 +1,70 @@
+
+Year : 2011	Month : 3	Day : 4
+Gave 98 Super attack (3) To ags holy
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 4
+Gave 100 Super restore (4) To ags holy
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 4
+Gave 98 Super strength (3) To ags holy
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 4
+Gave 100 Super defence (3) To ags holy
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 4
+Gave 1 Dragon dagger (p++) To ags holy
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 9
+Gave 1 Damaged book To s a i
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 9
+Gave 1 Combat robe bottom 0 To s a i
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 9
+Gave 1 Saradomin sword To s a i
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 9
+Gave 500 Manta ray To s a i
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 9
+Gave 1 Dragon platebody To s a i
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 9
+Gave 278 Water rune To s a i
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 9
+Gave 64 Air rune To s a i
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 9
+Gave 285 Mind rune To s a i
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 9
+Gave 193 Death rune To s a i
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 9
+Gave 100 Blood rune To s a i
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 9
+Gave 1 Amulet of glory To s a i
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 9
+Gave 1 Ring of recoil To s a i
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 9
+Gave 388823 Coins To s a i
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 9
+Gave 1 Proselyte sallet To s a i
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 9
+Gave 1 Combat robe top 0 To s a i
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 11
+Gave 128 Dragon bones To romeo
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 11
+Gave 1 Dungeoneering cape To romeo
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 11
+Gave 1 Staff of light To romeo
+--------------------------------------------------

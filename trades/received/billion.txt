@@ -1,0 +1,91 @@
+
+Year : 2011	Month : 4	Day : 11
+Received 1 Mages' book From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 1 Robin hood hat From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 1 Wizard boots From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 1 Infinity hat From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 1 Infinity bottoms From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 1 Infinity hat From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 1 Rune boots From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 1 Shield left half From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 1 Infinity boots From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 538 Mithril bolts From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 248 Nature rune From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 1409 Blood rune From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 2832 Death rune From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 4190 Water rune From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 1 Falador shield 1 From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 1 Falador shield 2 From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 1 Infinity gloves From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 551 Adamant bolts From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 236 Diamond bolts (e) From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 867 Rune arrow From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 39 Dragon arrow From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 1 Studded chaps (g) From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 1 Infinity top From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 1 Dark bow From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 1 Master wand From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 149650375 Coins From est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 1 Warrior ring (i) From knifekillea
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 1 Master wand From knifekillea
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 1 Amulet of fury From knifekillea
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Received 1 Flippers From knifekillea
+--------------------------------------------------
