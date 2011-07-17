@@ -1,0 +1,31 @@
+
+Year : 2011	Month : 2	Day : 19
+Gave 1 Primal kiteshield To shez
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Primal platelegs (b) To shez
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Primal full helm (b) To shez
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Primal platebody (b) To shez
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Dungeoneering cape To shez
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Primal longsword To shez
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 7
+Gave 1 Chaotic rapier To hue pecky
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 14
+Gave 1 Infinity hat To draco
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 14
+Gave 1 Infinity top To draco
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 14
+Gave 1 Infinity bottoms To draco
+--------------------------------------------------

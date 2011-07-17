@@ -1,0 +1,31 @@
+
+Year : 2011	Month : 2	Day : 11
+Received 1 Amulet of glory (t1) From wertic
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 11
+Received 1 Amulet of glory (t) From wertic
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 11
+Received 1 Wizard robe (g) From wertic
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 11
+Received 1 Wizard robe (t) From wertic
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 11
+Received 1 Blue skirt (t) From wertic
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 11
+Received 1 Blue skirt (g) From wertic
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 11
+Received 1 Amulet of magic (t) From wertic
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 11
+Received 1 Strength amulet (t) From wertic
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 11
+Received 20000000 Coins From pk3r josh
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 11
+Received 1 Saradomin sword From pk3r josh
+--------------------------------------------------

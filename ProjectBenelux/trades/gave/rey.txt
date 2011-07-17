@@ -1,0 +1,49 @@
+
+Year : 2011	Month : 2	Day : 19
+Gave 10000000 Coins To kane
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Amulet of strength To kane
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Lamp To kane
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Monk's robe To kane
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Antique lamp To kane
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Monk's robetop To kane
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Iron scimitar To kane
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 100 Air rune To kane
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Shortbow To kane
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 150 Bronze arrow To kane
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 120 Lobster To kane
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 100 Blood rune To kane
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 100 Mind rune To kane
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 100 Death rune To kane
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 100 Fire rune To kane
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 100 Water rune To kane
+--------------------------------------------------

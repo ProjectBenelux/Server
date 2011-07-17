@@ -1,0 +1,61 @@
+
+Year : 2011	Month : 2	Day : 22
+Gave 783155454 Coins To kirboe
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 23
+Gave 1 Vesta's platebody To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 23
+Gave 1 Vesta's plateskirt To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 23
+Gave 1 Amulet of fury To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 23
+Gave 1 Chaotic maul To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 23
+Gave 1 Statius's full helm To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 23
+Gave 1 Ranger boots To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 23
+Gave 1 Statius's platelegs To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 23
+Gave 783155454 Coins To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 23
+Gave 1 Amulet of fury To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 23
+Gave 1 Statius's platebody To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 23
+Gave 1 Iron boots To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 25
+Gave 1 Statius's platebody To kirboe
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 25
+Gave 1 Statius's platelegs To kirboe
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 25
+Gave 1 Statius's full helm To kirboe
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 25
+Gave 1 Amulet of fury To kirboe
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 25
+Gave 1 Chaotic maul To kirboe
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 25
+Gave 1 Vesta's plateskirt To kirboe
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 25
+Gave 1 Vesta's platebody To kirboe
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 25
+Gave 798041777 Coins To kirboe
+--------------------------------------------------

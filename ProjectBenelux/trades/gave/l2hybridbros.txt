@@ -1,0 +1,262 @@
+
+Year : 2011	Month : 2	Day : 12
+Gave 500000500 Coins To slade
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Dragon boots To slade
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Berserker ring To slade
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Staff of light To slade
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Ahrim's hood 0 To slade
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Infinity boots To slade
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Dharok's helm 0 To slade
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Dharok's greataxe 0 To slade
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Dharok's platelegs 0 To slade
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Ahrim's robeskirt 0 To slade
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Ahrim's robetop 0 To slade
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Dharok's platebody 0 To slade
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Mages' book To slade
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Armadyl godsword To darkbrid
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 100000000 Coins To darkbrid
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Dragon dagger (p++) To ai rape
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Helm of neitiznot To ai rape
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Berserker ring To ai rape
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Amulet of fury To ai rape
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Dragonfire shield To ai rape
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Bandos tassets To ai rape
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Armadyl godsword To ai rape
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Primal longsword To ai rape
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Dragon boots To ai rape
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Dragon dagger (p++) To ai rape
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Infinity boots To ai rape
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Staff of light To ai rape
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Ahrim's robeskirt 0 To ai rape
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Ahrim's robetop 0 To ai rape
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Dragonfire shield To ai rape
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Primal longsword To ai rape
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Amulet of fury To ai rape
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Helm of neitiznot To ai rape
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Bandos tassets To ai rape
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Dragon boots To ai rape
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Berserker ring To ai rape
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Karil's skirt 0 To ai rape
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 100000000 Coins To bye bye
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 400000000 Coins To hue pecky
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1500534800 Coins To elmo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Watchtower t'port To ayki
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Watchtower t'port To onexeroo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Primal longsword To shez
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Primal longsword To shez
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Air talisman staff To shez
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Dragonfire shield To shez
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Ancient kiteshield To shez
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Clown shirt To shez
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Doomcore staff (b) To shez
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Ancient platelegs To shez
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 2145350242 Coins To shez
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Bandos godsword To shez
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Ancient platelegs To shez
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Primal longsword To shez
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Staff of light To hallur
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Staff of light To godz
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Chaotic staff To i love jad
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Staff of light To i love jad
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Staff of light To i love jad
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Staff of light To i love jad
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Staff of light To i love jad
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Staff of light To i love jad
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Staff of light To i love jad
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Staff of light To i love jad
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Staff of light To i love jad
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Staff of light To i love jad
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Staff of light To i love jad
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 14
+Gave 1 Bandos chestplate To i love jad
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 15
+Gave 1 Dragonfire shield To darkbrid
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 17
+Gave 1 Dragon claws To rangebur
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 17
+Gave 600000000 Coins To top hybrid
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 17
+Gave 1 Blue dragon mask To top hybrid
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 17
+Gave 1 Chaotic staff To top hybrid
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 17
+Gave 1 Dragon square shield To top hybrid
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 17
+Gave 1 Bandos boots To top hybrid
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 17
+Gave 1 Abyssal whip To top hybrid
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 17
+Gave 612605314 Coins To top hybrid
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 17
+Gave 1 Rocktail To xpk3rk1ngx
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 21
+Gave 1 Chaotic maul To pwnd pussy
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 21
+Gave 1 Red headband To pwnd pussy
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 21
+Gave 1 Green dragon mask To pwnd pussy
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 21
+Gave 1 Flippers To pwnd pussy
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 21
+Gave 1 Rocktail To koiuuyty
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 21
+Gave 1 Rocktail To koiuuyty
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 21
+Gave 1 Vial To gangstabean
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 21
+Gave 1 Chaotic maul To flamepow
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 21
+Gave 1 Armadyl godsword To flamepow
+--------------------------------------------------

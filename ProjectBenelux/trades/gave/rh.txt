@@ -1,0 +1,175 @@
+
+Year : 2011	Month : 2	Day : 19
+Gave 1 Amulet of strength To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 100 Fire rune To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 100 Water rune To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 100 Mind rune To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 100 Air rune To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Iron scimitar To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Shortbow To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 150 Bronze arrow To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 120 Lobster To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Monk's robe To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Monk's robetop To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Antique lamp To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Lamp To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 100 Blood rune To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 100 Death rune To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 10000000 Coins To romeo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Dragon gauntlets To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Witch skirt To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Red cape To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Abyssal whip To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 8 Tuna potato To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 13 Morrigan's javelin To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 960 Earth rune To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 384 Astral rune To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Overload (4) To x q str qx
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Armadyl godsword To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Primal longsword To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Dragon platebody To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Dragon defender To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Omni-talisman staff To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Dragon platelegs To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Dragonfire shield To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Dragon full helm To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Mithril dragon mask To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Statius's full helm To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Dragon boots To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Runic robe top (b) To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1370 Earth rune To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 548 Astral rune To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 32901 Death rune To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 39857 Water rune To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 23607 Blood rune To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Chaotic staff To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Dragon platebody To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Dharok's platelegs To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Dharok's greataxe To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 2 Bandos chestplate To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 2 Bandos tassets To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Dharok's platebody To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Dharok's helm To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1093932965 Coins To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Fox mask To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Infinity boots To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Frostbite dagger (b) To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Amulet of fury To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Statius's platebody To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Flameburst defender To minecraft
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 19
+Gave 1 Statius's platelegs To minecraft
+--------------------------------------------------

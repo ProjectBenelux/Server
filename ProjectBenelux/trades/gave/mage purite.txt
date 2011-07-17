@@ -1,0 +1,61 @@
+
+Year : 2011	Month : 2	Day : 24
+Gave 2050 Blood rune To 60 pur3
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 24
+Gave 4058 Death rune To 60 pur3
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 24
+Gave 5962 Water rune To 60 pur3
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 24
+Gave 1 Infinity hat To 60 pur3
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 24
+Gave 1 Infinity top To 60 pur3
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 24
+Gave 1 Infinity bottoms To 60 pur3
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 24
+Gave 1 Infinity boots To 60 pur3
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 24
+Gave 1 Infinity gloves To 60 pur3
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 24
+Gave 1 Mages' book To 60 pur3
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 24
+Gave 1 Staff of light To 60 pur3
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 24
+Gave 1 Amulet of fury To 60 pur3
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 24
+Gave 1 Bronze dragon mask To 60 pur3
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 24
+Gave 14729018 Coins To 60 pur3
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 29
+Gave 1 Staff of light To pur3 geez
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 29
+Gave 3000000 Coins To pur3 geez
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 30
+Gave 33 Dragon bones To pur3 pray
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 30
+Gave 10000000 Coins To pur3 geez
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 1
+Gave 1 Chaotic rapier To pur3 geez
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 1
+Gave 1 Saradomin godsword To pur3 geez
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 1
+Gave 1 Morrigan's leather chaps To pur3 geez
+--------------------------------------------------

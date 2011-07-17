@@ -1,0 +1,163 @@
+
+Year : 2011	Month : 4	Day : 11
+Gave 1 Amulet of strength To est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Gave 1 Initiate sallet To est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Gave 1 Initiate hauberk To est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Gave 1 Rune c'bow To est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Gave 100 Diamond bolts (e) To est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Gave 1 Mithril gauntlets To est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 11
+Gave 1 Robin hood hat To est str k0
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Mages' book To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Infinity boots To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Infinity top To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Infinity gloves To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Infinity bottoms To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Ancient staff To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Infinity hat To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 3215770 Coins To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Toktz-ket-xil To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Dragon scimitar To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Rock climbing boots To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Dragon gauntlets To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Helm of neitiznot To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Amulet of fury To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 268 Rune knife To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Dragon dagger (p++) To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Initiate hauberk To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Dragon platelegs To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 194 Rune arrow To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Magic shortbow To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Rune c'bow To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 50 Diamond bolts (e) To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Adamant gauntlets To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Combat hood 0 To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Combat robe top 0 To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 12 Gold ring To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 194 Big bones To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Combat robe bottom 0 To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Hell-kitten To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 49 Dragon dagger (p++) To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 49 Dragon scimitar To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 New crystal bow To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Adamant berserker shield 0 To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 60 Watchtower t'port To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 100 Varrock teleport To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Rune berserker shield 0 To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Falador shield 1 To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Summoning hood To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 100 Water rune To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Dragon dagger (p++) To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Dragon scimitar To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 50 Air rune To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 100 Death rune To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 50 Mind rune To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 100 Blood rune To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 100 Fire rune To trex
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 12
+Gave 1 Rock climbing boots To trex
+--------------------------------------------------

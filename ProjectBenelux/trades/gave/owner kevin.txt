@@ -1,0 +1,433 @@
+
+Year : 2011	Month : 2	Day : 10
+Gave 1 Chaotic maul To ayki
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 10
+Gave 1 Chaotic rapier To ayki
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 10
+Gave 1000000 Warrior guild token To vip pker
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 10
+Gave 25000000 Coins To sadama
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 11
+Gave 1 Dragon claws To vip pker
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 11
+Gave 1 Dragon claws To vip pker
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 11
+Gave 1 Dragon claws To vip pker
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 11
+Gave 1 Dragon claws To vip pker
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 11
+Gave 1 Dragon claws To vip pker
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 11
+Gave 1 Dragon claws To vip pker
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 11
+Gave 1 Cleaning cloth To jiglojay
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 11
+Gave 1 Green egg To jiglojay
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 11
+Gave 1 Abyssal whip To jiglojay
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 11
+Gave 1 Cleaning cloth To die mf
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 11
+Gave 1 Black elegant shirt To marky
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 11
+Gave 1 Black elegant legs To marky
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 11
+Gave 1 Steel gauntlets To marky
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 11
+Gave 1 Rock climbing boots To marky
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 50000000 Coins To javas
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Blue egg To zerk reap3r
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 2090632747 Coins To zerk reap3r
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Primal full helm (b) To game samus
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Primal platelegs (b) To game samus
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Primal gauntlets (b) To game samus
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Primal kiteshield (b) To game samus
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Primal platebody (b) To game samus
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Primal 2h sword (b) To game samus
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Royal crown To onexeroo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Divine sigil To josh
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Blessed spirit shield To game samus
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Corrupt dragon sq shield To game samus
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Corrupt dragon platelegs To game samus
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Corrupt dragon chainbody To game samus
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Corrupt dragon scimitar To game samus
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Corrupt dragon med helm To game samus
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Corrupt dragon plateskirt To game samus
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Feather headdress To nananenen
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Feather headdress To nananenen
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Feather headdress To nananenen
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Feather headdress To nananenen
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Feather headdress To nananenen
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Chocatrice cape To nananenen
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Blue tricorn hat To josh
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Purple tricorn hat To josh
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Brown tricorn hat To josh
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Grey tricorn hat To josh
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Black tricorn hat To josh
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Green tricorn hat To josh
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 12
+Gave 1 Red tricorn hat To josh
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Dragonfire shield To jiglojay
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Abyssal whip To jiglojay
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Dragon gauntlets To jiglojay
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Dragon boots To jiglojay
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Zamorak platebody To killerken137
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Zamorak godsword To killerken137
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Zamorak full helm To killerken137
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Zamorak platelegs To killerken137
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Zamorak kiteshield To killerken137
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Zamorak platebody To elmo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Zamorak platelegs To elmo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Zamorak full helm To elmo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Zamorak godsword To elmo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Saradomin platebody To killerken137
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Saradomin platelegs To killerken137
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Saradomin godsword To killerken137
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Saradomin full helm To killerken137
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Saradomin platebody To elmo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Saradomin platelegs To elmo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Saradomin full helm To elmo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Saradomin godsword To elmo
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Zamorak platebody To flamepow
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Saradomin platebody To flamepow
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Zamorak platelegs To flamepow
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Zamorak full helm To flamepow
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Saradomin platelegs To flamepow
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Saradomin full helm To flamepow
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Zamorak godsword To flamepow
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Saradomin godsword To flamepow
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 13
+Gave 1 Dragon boots To killerken137
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 18
+Gave 1 Divine sigil To cant own me
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 18
+Gave 1 Spirit shield To cant own me
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 18
+Gave 1 Blessed spirit shield To bow
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 18
+Gave 1 Vesta's chainbody To slade
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 20
+Gave 1 Bandos chestplate To dexster
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 20
+Gave 1 Armadyl godsword To dexster
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 20
+Gave 1 Amulet of fury To dexster
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 20
+Gave 1 Bandos tassets To dexster
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 20
+Gave 1 Bandos boots To dexster
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 20
+Gave 1 Helm of neitiznot To dexster
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 20
+Gave 1 Virtus mask To dexster
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 20
+Gave 1 Virtus platebody To dexster
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 20
+Gave 1 Virtus platelegs To dexster
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 21
+Gave 1 Chaotic rapier To koiuuyty
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 21
+Gave 1 Chaotic longsword To cant kill me
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 21
+Gave 1 Chaotic maul To i am a noob
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 21
+Gave 1 Chaotic staff To koiuuyty
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 21
+Gave 1 Chaotic c'bow To bye bye
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 21
+Gave 1 Chaotic kiteshield To moltag
+--------------------------------------------------
+Year : 2011	Month : 2	Day : 23
+Gave 1 Dragon claws To darkesthour
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 3
+Gave 1 Armadyl godsword To hybrid stick
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 3
+Gave 1 Dragonfire shield To hybrid stick
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 4
+Gave 1 Novite kiteshield To niff24
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 4
+Gave 1 Novite platebody To niff24
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 4
+Gave 1 Novite full helm To niff24
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 4
+Gave 1 Novite platelegs To niff24
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 4
+Gave 1 Novite rapier To niff24
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 4
+Gave 1 Primal maul To niff24
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 13
+Gave 1 Hand cannon To draco
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 13
+Gave 1 Hand cannon To draco
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 13
+Gave 1 Hand cannon To draco
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 13
+Gave 1 Hand cannon To draco
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 13
+Gave 1 Hand cannon To draco
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 13
+Gave 1 Hand cannon To draco
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 13
+Gave 1 Hand cannon To draco
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 13
+Gave 1 Hand cannon To draco
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 13
+Gave 1 Hand cannon To draco
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 13
+Gave 1 Hand cannon To draco
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 13
+Gave 1 Hand cannon To draco
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 13
+Gave 1 Hand cannon To draco
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 13
+Gave 1 Hand cannon To draco
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 13
+Gave 1 Hand cannon To draco
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 13
+Gave 1 Hand cannon To draco
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 13
+Gave 1 Hand cannon To draco
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 13
+Gave 1 Hand cannon To draco
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 13
+Gave 1 Hand cannon To draco
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 13
+Gave 1 Hand cannon To draco
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 13
+Gave 1 Hand cannon To draco
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 14
+Gave 1 Hand cannon To mart527
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 14
+Gave 1 Hand cannon To bye bye
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 14
+Gave 1 Dragon claws To mart527
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 14
+Gave 2146263000 Coins To xrkozx
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 14
+Gave 1 Dharok's helm To xrkozx
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 14
+Gave 1 Dragonfire shield To xrkozx
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 14
+Gave 1 Bandos chestplate To xrkozx
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 14
+Gave 1 Abyssal whip To xrkozx
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 14
+Gave 1 Bandos tassets To xrkozx
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 14
+Gave 1 Dragon defender To xrkozx
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 14
+Gave 1 Armadyl chestplate To xrkozx
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 14
+Gave 1 Helm of neitiznot To xrkozx
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 14
+Gave 1 Statius's full helm To xrkozx
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 14
+Gave 1 Armadyl chainskirt To xrkozx
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 14
+Gave 1 Bandos boots To xrkozx
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 14
+Gave 1 Statius's platebody To xrkozx
+--------------------------------------------------
+Year : 2011	Month : 3	Day : 14
+Gave 1 Zuriel's robe bottom To xrkozx
+--------------------------------------------------

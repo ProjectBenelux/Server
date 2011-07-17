@@ -1,0 +1,70 @@
+
+Year : 2011	Month : 4	Day : 18
+Gave 5 Green charm To x beau x
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 18
+Gave 3 Blue charm To x beau x
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 18
+Gave 4 Crimson charm To x beau x
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 18
+Gave 6 Green charm To x beau x
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 18
+Gave 7 Crimson charm To x beau x
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 18
+Gave 8 Gold charm To x beau x
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 18
+Gave 8 Blue charm To x beau x
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 18
+Gave 1 Gold charm To c e l l
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 18
+Gave 2 Green charm To c e l l
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 18
+Gave 3 Blue charm To c e l l
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 18
+Gave 2 Crimson charm To c e l l
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 18
+Gave 25000000 Coins To yoda
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 18
+Gave 25 Blue charm To c e l l
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 18
+Gave 21 Crimson charm To c e l l
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 18
+Gave 24 Gold charm To c e l l
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 18
+Gave 21 Green charm To c e l l
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 20
+Gave 15000000 Coins To yoda
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 20
+Gave 29832993 Coins To jakey
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 20
+Gave 33 Crimson charm To wizardz
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 20
+Gave 37 Blue charm To wizardz
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 20
+Gave 41 Green charm To wizardz
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 20
+Gave 50 Gold charm To wizardz
+--------------------------------------------------
+Year : 2011	Month : 4	Day : 21
+Gave 100000000 Coins To yoda
+--------------------------------------------------
