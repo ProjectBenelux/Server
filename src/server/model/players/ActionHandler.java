@@ -275,7 +275,7 @@ case 2471:
 		       return;
 		       }	
 		      if(c.absX == 2863 && c.absY == 5354) {
-	     	    	 c.getPA().movePlayer(2864, 5354, 6);
+	     	    	 c.getPA().movePlayer(2864, 5354, 2);
 		       c.Band -= 15;
 		       c.sendMessage("A magical force reseted your Bandos kill count!");
 		      }
@@ -294,7 +294,7 @@ case 2471:
 		       return;
 		       }		       
 		       if(c.absX == 2839 && c.absY == 5295) {
-		        c.getPA().movePlayer(2839, 5296, 6);
+		        c.getPA().movePlayer(2839, 5296, 2);
 		       c.Arma -= 15;
 		       c.sendMessage("A magical force reseted your Armadyl kill count!");
 		      }

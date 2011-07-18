@@ -2917,9 +2917,7 @@ public void addStarter() {
 		c.getItems().addItem(6106, 1);
 		c.getItems().addItem(6110, 1);
 		c.getItems().addItem(6111, 1);
-c.sendMessage("Welcome to ErasedPkz!");
-c.sendMessage("We Hope You Stay");
-c.sendMessage("::pure is now for all players!");
+		c.sendMessage("Welcome to Project Benelux");
 				c.getPA().showInterface(17250);
 				c.canChangeAppearance = true;
 	}

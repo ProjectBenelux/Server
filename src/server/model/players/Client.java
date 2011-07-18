@@ -1085,7 +1085,7 @@ setSidebarInterface(16, 17011); //summon
 			}
 		}
 		getPA().writeEnergy();
-			getPA().sendFrame126("@lre@ErasedPkz points: @gre@"+pkPoints+"  ", 29170);
+			getPA().sendFrame126("@lre@Project Benelux points: @gre@"+pkPoints+"  ", 29170);
 			getPA().sendFrame126("@lre@Exp Lock Status: @gre@"+xpLock+" ", 29171);
 			getPA().sendFrame126("", 29173);
 			getPA().sendFrame126("@lre@Slayer Task: @gre@"+Server.npcHandler.getNpcListName(slayerTask)+" ", 29174);
