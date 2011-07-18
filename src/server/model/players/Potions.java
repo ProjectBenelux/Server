@@ -38,7 +38,91 @@ public class Potions {
 				c.sendMessage("You have finished your potion.");
 			}
 			switch (itemId) {
-                                case 15332:
+                				case 15312: //Extreme Strength
+				drinkExtremePotion(itemId, 15313, slot, 2, false);
+				break;
+				case 15313: //Extreme Strength
+				drinkExtremePotion(itemId, 15314, slot, 2, false);
+				break;
+				case 15314: //Extreme Strength
+				drinkExtremePotion(itemId, 15315, slot, 2, false);
+				break;
+				case 15315: //Extreme Strength
+				drinkExtremePotion(itemId, 229, slot, 2, false);
+				break;
+				case 15308: //Extreme Attack
+				drinkExtremePotion(itemId, 15309, slot, 0, false);
+				break;
+				case 15309: //Extreme Attack
+				drinkExtremePotion(itemId, 15310, slot, 0, false);
+				break;
+				case 15310: //Extreme Attack
+				drinkExtremePotion(itemId, 15311, slot, 0, false);
+				break;
+				case 15311: //Extreme Attack
+				drinkExtremePotion(itemId, 229, slot, 0, false);
+				break;
+				case 15316: //Extreme Defence
+				drinkExtremePotion(itemId, 15317, slot, 1, false);
+				break;
+				case 15317: //Extreme Defence
+				drinkExtremePotion(itemId, 15318, slot, 1, false);
+				break;
+				case 15318: //Extreme Defence
+				drinkExtremePotion(itemId, 15319, slot, 1, false);
+				break;
+				case 15319: //Extreme Defence
+				drinkExtremePotion(itemId, 229, slot, 1, false);
+				break;
+				case 15324: //Extreme Ranging
+				drinkExtremePotion(itemId, 15325, slot, 4, false);
+				break;
+				case 15325: //Extreme Ranging
+				drinkExtremePotion(itemId, 15326, slot, 4, false);
+				break;
+				case 15326: //Extreme Ranging
+				drinkExtremePotion(itemId, 15327, slot, 4, false);
+				break;
+				case 15327: //Extreme Ranging
+				drinkExtremePotion(itemId, 229, slot, 4, false);
+				break;
+				case 15320: //Extreme Magic
+				drinkExtremePotion(itemId, 15321, slot, 6, false);
+				break;
+				case 15321: //Extreme Magic
+				drinkExtremePotion(itemId, 15322, slot, 6, false);
+				break;
+				case 15322: //Extreme Magic
+				drinkExtremePotion(itemId, 15323, slot, 6, false);
+				break;
+				case 15323: //Extreme Magic
+				drinkExtremePotion(itemId, 229, slot, 6, false);
+				break;
+				case 15328: //Super Prayer
+				drinkExtremePrayer(itemId, 15329, slot, true);
+				break;
+				case 15329: //Super Prayer
+				drinkExtremePrayer(itemId, 15330, slot, true);
+				break;
+				case 15330: //Super Prayer
+				drinkExtremePrayer(itemId, 15331, slot, true);
+				break;
+				case 15331: //Super Prayer
+				drinkExtremePrayer(itemId, 229, slot, true);
+				break;
+				case 15300: //Recover Special
+				recoverSpecial(itemId, 15301, slot);
+				break;
+				case 15301: //Recover Special
+				recoverSpecial(itemId, 15302, slot);
+				break;
+				case 15302: //Recover Special
+				recoverSpecial(itemId, 15303, slot);
+				break;
+				case 15303: //Recover Special
+				recoverSpecial(itemId, 229, slot);
+				break;
+				case 15332:
 				doOverload(itemId, 15333, slot);
 				break;
 				case 15333:
@@ -268,6 +352,65 @@ public void doOverload(int itemId, int replaceItem, int slot) {
 		c.getPA().refreshSkill(1);
 		c.getPA().refreshSkill(2);
 		c.getPA().refreshSkill(4);
+	}
+	
+	public void recoverSpecial(int itemId, int replaceItem, int slot) {
+		if (c.inWild()) {
+			c.sendMessage("You are unable to restore special in the wilderness.");
+			return;
+		} else if (c.specAmount >= 7.5) {
+			c.sendMessage("You are unable to drink the potion as your special is above 75%.");
+		} else {
+			if (System.currentTimeMillis() - c.restoreDelay >= 30000) {
+			c.specAmount += 2.5;
+			c.startAnimation(829);
+			c.sendMessage("As you drink drink the potion, you feel your special attack slightly regenerate.");
+			c.playerItems[slot] = replaceItem + 1;
+			c.getItems().resetItems(3214);
+			c.getItems().updateSpecialBar();
+			c.restoreDelay = System.currentTimeMillis();
+		} else {
+			c.sendMessage("You can only restore your special once every 30 seconds.");
+			}
+		}
+	}
+
+	public void drinkExtremePotion(int itemId, int replaceItem, int slot, int stat, boolean sup) {
+		c.startAnimation(829);
+		c.playerItems[slot] = replaceItem + 1;
+		c.getItems().resetItems(3214);
+		enchanceStat2(stat,sup);
+	}
+
+	public void drinkExtremePrayer(int itemId, int replaceItem, int slot, boolean rest) {
+		c.startAnimation(829);
+		c.playerItems[slot] = replaceItem + 1;
+		c.getItems().resetItems(3214);
+		c.playerLevel[5] += (c.getLevelForXP(c.playerXP[5]) * .38);
+		if (rest)
+			c.playerLevel[5] += 1;
+		if (c.playerLevel[5] > c.getLevelForXP(c.playerXP[5]))
+			c.playerLevel[5] = c.getLevelForXP(c.playerXP[5]);
+		c.getPA().refreshSkill(5);
+		if (rest)
+			restoreStats();
+	}
+
+	public void enchanceStat2(int skillID, boolean sup) {
+		c.playerLevel[skillID] += getExtremeStat(skillID, sup);
+		c.getPA().refreshSkill(skillID);
+	}
+
+	public int getExtremeStat(int skill, boolean sup) {
+		int increaseBy = 0;
+		if (sup)
+			increaseBy = (int)(c.getLevelForXP(c.playerXP[skill])*.25);
+		else
+			increaseBy = (int)(c.getLevelForXP(c.playerXP[skill])*.25) + 1;
+		if (c.playerLevel[skill] + increaseBy > c.getLevelForXP(c.playerXP[skill]) + increaseBy + 1) {
+			return c.getLevelForXP(c.playerXP[skill]) + increaseBy - c.playerLevel[skill];
+		}
+		return increaseBy;
 	}
 	
 	public void drinkAntiPoison(int itemId, int replaceItem, int slot, long delay) {
