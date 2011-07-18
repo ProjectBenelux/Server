@@ -364,6 +364,7 @@ case 2471:
 				if(c.playerEquipment[c.playerWeapon] == 4675 || c.playerEquipment[c.playerWeapon] == 15486 || c.playerEquipment[c.playerWeapon] == 15040) {
 				c.setSidebarInterface(0, 328);
 				}
+				c.startAnimation(645);
 				c.playerMagicBook = 2;
 				c.setSidebarInterface(6, 16640);
 				c.sendMessage("Your mind becomes stirred with thoughs of dreams.");
@@ -385,6 +386,7 @@ case 2471:
 				if(c.playerEquipment[c.playerWeapon] == 4675 || c.playerEquipment[c.playerWeapon] == 15486 || c.playerEquipment[c.playerWeapon] == 15040) {
 				c.setSidebarInterface(0, 328);
 				}
+				c.startAnimation(645);
 				c.playerMagicBook = 1;
 				c.setSidebarInterface(6, 12855);
 				c.sendMessage("An ancient wisdomin fills your mind.");

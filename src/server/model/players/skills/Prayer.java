@@ -43,6 +43,8 @@ public class Prayer {
 	}*/
 	public void bonesOnAltar(int id) {
 		c.getItems().deleteItem(id, c.getItems().getItemSlot(id), 1);
+		c.startAnimation(3705);
+		c.gfx0(624);
 		c.sendMessage("The gods are pleased with your offering.");
 		c.getPA().addSkillXP(getExp(id)*2*Config.PRAYER_EXPERIENCE, 5);
 		//handleZombie();

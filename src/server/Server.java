@@ -159,7 +159,7 @@ try {
 		/**
 		 * Server Successfully Loaded 
 		 */
-		System.out.println("Server listening on port 5.9.139.182:" + serverlistenerPort);
+		System.out.println("Server listening on port 5.127.47.134:" + serverlistenerPort);
 		/**
 		 * Main Server Tick
 		 */
