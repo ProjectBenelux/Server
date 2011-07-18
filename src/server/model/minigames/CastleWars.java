@@ -6,7 +6,6 @@ import server.model.players.Client;
 import server.util.Misc;
 import server.model.minigames.*;
 import server.Server;
-import server.model.players.*;
 /**
  * @Author Sanity for base
  * @Edited by Satan666

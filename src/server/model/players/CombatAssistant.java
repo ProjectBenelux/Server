@@ -1752,14 +1752,17 @@ c.degradeSHelm();
 				Server.playerHandler.players[i].damageTaken[c.playerId] += damage;
 				c.killedBy = Server.playerHandler.players[i].playerId;
 				Server.playerHandler.players[i].handleHitMask(damage);
-				if (damage2 != -1) {
-					//Server.playerHandler.players[i].playerLevel[3] -= damage2;
-					Server.playerHandler.players[i].dealDamage(damage2);
-					Server.playerHandler.players[i].damageTaken[c.playerId] += damage2;
-					Server.playerHandler.players[i].handleHitMask(damage2);
-				
-				}
-				o.getPA().refreshSkill(3);
+int [] rangeDouble = {11235};
+for (int j = 0; j < rangeDouble.length; j++) {
+if (damage2 != -1 && rangeDouble[j] == c.playerEquipment[c.playerWeapon]) {
+//Server.playerHandler.players[i].playerLevel[3] -= damage2;
+Server.playerHandler.players[i].dealDamage(damage2);
+Server.playerHandler.players[i].damageTaken[c.playerId] += damage2;
+
+Server.playerHandler.players[i].handleHitMask(damage2);
+
+}
+} 
 					
 				//Server.playerHandler.players[i].setHitUpdateRequired(true);	
 				Server.playerHandler.players[i].updateRequired = true;

@@ -1843,7 +1843,7 @@ return;
 				c.startAnimation(1979);
 				c.teleGfx = 0;
 				c.teleTimer = 11;
-				c.teleEndAnimation = 0;
+				c.teleEndAnimation = 8941;
 				c.gfx0(1681);
 			}
 			if(teleportType.equalsIgnoreCase("lunar")) {
