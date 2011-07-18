@@ -1491,17 +1491,20 @@ break;
 			c.takeAsNote = false;
 			break;
 			
-			
-			case 117048:
-			c.getPA().startTeleport(3087, 3498, 0, "modern");	
-			break;		
+				
 
 			//home teleports
 			case 4171:
-			
+			c.getPA().startTeleport(Config.START_LOCATION_X+Misc.random(2), Config.START_LOCATION_Y+Misc.random(2), 0, "modern");	
+			break;		
+
+			//home teleports
 			case 50056:
-			String type = c.playerMagicBook == 0 ? "modern" : "ancient";
-			c.getPA().startTeleport(3087, 3498, 0, type);	
+			c.getPA().startTeleport(Config.EDGEVILLE_X+Misc.random(2), Config.EDGEVILLE_Y+Misc.random(2), 0, "ancient");	
+			break;
+			
+			case 117048:
+			c.getPA().startTeleport(Config.EDGEVILLE_X+Misc.random(2), Config.EDGEVILLE_Y+Misc.random(2), 0, "lunar");
 			break;
 			
 			case 50235:
