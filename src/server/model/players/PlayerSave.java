@@ -136,6 +136,8 @@ public class PlayerSave
 						p.Culin = Boolean.parseBoolean(token2);
 					} else if (token.equals("Monkey-Kc")) {
 						p.monkeyk0ed = Integer.parseInt(token2);
+					} else if (token.equals("cw-games")) {
+                            			p.cwGames = Integer.parseInt(token2);
 					} else if (token.equals("brother-info")) {
 						p.barrowsNpcs[Integer.parseInt(token3[0])][1] = Integer.parseInt(token3[1]);
 					 } else if (token.equals("special-amount")) {
@@ -531,6 +533,9 @@ public class PlayerSave
 			characterfile.write("Monkey-Kc = ", 0, 12);
 			characterfile.write(Integer.toString(p.monkeyk0ed), 0, Integer.toString(p.monkeyk0ed).length());
 			characterfile.newLine();
+            		characterfile.write("cw-games = ", 0, 11);
+            		characterfile.write(Integer.toString(p.cwGames), 0, Integer.toString(p.cwGames).length());
+            		characterfile.newLine();
 			characterfile.write("void = ", 0, 7);
 			String toWrite = p.voidStatus[0] + "\t" + p.voidStatus[1] + "\t" + p.voidStatus[2] + "\t" + p.voidStatus[3] + "\t" + p.voidStatus[4];
 			characterfile.write(toWrite);

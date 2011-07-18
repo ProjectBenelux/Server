@@ -2,6 +2,7 @@ package server.model.players.packets;
 
 import server.model.players.Client;
 import server.model.players.PacketType;
+import server.model.minigames.*;
 import server.util.Misc;
 
 /**
@@ -40,6 +41,22 @@ c.getPA().requestUpdates();
 				}
 			}
 			switch(c.objectId) {
+                    /*
+                     * CastleWars
+                     */
+                    case 4387:
+                        CastleWars.addToWaitRoom(c, 1); //saradomin
+                        break;
+                    case 4388:
+                        CastleWars.addToWaitRoom(c, 2); // zamorak
+                        break;
+                    case 4408:
+                        CastleWars.addToWaitRoom(c, 3); //guthix
+                        break;
+                    case 4389: //sara
+                    case 4390: //zammy waiting room portal
+                        CastleWars.leaveWaitingRoom(c);
+                        break;
 				case 1733:
 					c.objectYOffset = 2;
 				break;

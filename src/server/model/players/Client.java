@@ -5,6 +5,7 @@ import java.util.Queue;
 import java.util.concurrent.Future;
 import java.net.URL;
 import java.net.MalformedURLException;
+import server.model.minigames.CastleWars;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,6 +15,7 @@ import server.Server;
 import java.net.URL;
 import server.model.npcs.*;
 import java.net.MalformedURLException;
+import server.model.minigames.*;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -677,17 +679,22 @@ public void HighAndLow(){
                 }
 		if(disconnected == true){
 	     getTradeAndDuel().declineTrade();
- }
+		}
 		if(session == null) 
 			return;
 		PlayerSave.saveGame(this);
 		Server.panel.removeEntity(playerName);
 		if (clanId >= 0)
 			Server.clanChat.leaveClan(playerId, clanId);
-		getPA().removeFromCW();
 		if (inPits) {
 		Server.fightPits.removePlayerFromPits(playerId);
 		}
+		        if (CastleWars.isInCwWait(this)) {
+            CastleWars.leaveWaitingRoom(this);
+        }
+        if (CastleWars.isInCw(this)) {
+            CastleWars.removePlayerFromCw(this);
+        }
 		Misc.println("[DEREGISTERED]: "+playerName+"");
 		PlayerSave.saveGame(this);
                 saveCharacter = true;

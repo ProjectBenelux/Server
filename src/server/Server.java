@@ -67,7 +67,6 @@ public class Server {
 	public static ShopHandler shopHandler = new ShopHandler();
 	public static ObjectHandler objectHandler = new ObjectHandler();
 	public static ObjectManager objectManager = new ObjectManager();
-	public static CastleWars castleWars = new CastleWars();
 	public static FightPits fightPits = new FightPits();
 	public static PestControl pestControl = new PestControl();
 	public static NPCDrops npcDrops = new NPCDrops();
@@ -176,6 +175,7 @@ try {
 				objectManager.process();
 				fightPits.process();
 				pestControl.process();
+				CastleWars.process();
 				cycleTime = engineTimer.elapsed();
 				if(cycleTime < 575)
 					sleepTime = cycleRate - cycleTime;

@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import server.Config;
+import server.model.minigames.*;
 import server.Server;
 import server.model.items.Item;
 import server.model.npcs.NPC;
@@ -160,6 +161,9 @@ public int vSpearLeft = 1000;
 	degradeTime, 
 	KC,
 	DC,
+	cwKills,
+    cwDeaths,
+    cwGames,
 	recoil = 0,	
 	ag1, 
 	puremaster, 
@@ -875,18 +879,18 @@ public boolean inMulti() {
 	public int playerTurn90CCWIndex = 0x336;
 	public int playerRunIndex = 824;
 
-	public int playerHat=0;
-	public int playerCape=1;
-	public int playerAmulet=2;
-	public int playerWeapon=3;
-	public int playerChest=4;
-	public int playerShield=5;
-	public int playerLegs=7;
-	public int playerHands=9;
-	public int playerFeet=10;
-	public int playerRing=12;
-	public int playerArrows=13;
-
+    public static int playerHat = 0;
+    public static int playerCape = 1;
+    public static int playerAmulet = 2;
+    public static int playerWeapon = 3;
+    public static int playerChest = 4;
+    public static int playerShield = 5;
+    public static int playerLegs = 7;
+    public static int playerHands = 9;
+    public static int playerFeet = 10;
+    public static int playerRing = 12;
+    public static int playerArrows = 13;
+	
 	public int playerAttack = 0;
 	public int playerDefence = 1;
 	public int playerStrength = 2;

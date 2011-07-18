@@ -8,6 +8,7 @@ import server.world.map.*;
 import java.util.Properties;
 import server.model.players.PlayerSave;
 import java.io.*;
+import server.model.minigames.*;
 import server.model.minigames.FightPits;
 import java.util.GregorianCalendar;
 import java.util.Calendar;
@@ -18,6 +19,9 @@ import server.event.EventManager;
 
 public class PlayerAssistant{
 public boolean teleTabTeleport(int x, int y, int height, String teleportType){
+        if (CastleWars.isInCw(c)) {
+            c.sendMessage("You cannot tele from a Castle Wars Game!");
+        }
         if(c.Jail == true){
                 c.sendMessage("You can't teleport out of Jail!");
         } else if(c.inJail() && c.Jail == true) {
@@ -1238,7 +1242,12 @@ public void writeEnergy() {
 
 	
     public void applyDead() {    
+	    int weapon = c.playerEquipment[c.playerWeapon];
 		c.respawnTimer = 15;
+				c.faceUpdate(0);
+		c.npcIndex = 0;
+		c.playerIndex = 0;
+		c.stopMovement();
 		c.isDead = false;
 		Client o = (Client) Server.playerHandler.players[c.killerId];
 		if(c.duelStatus != 6) {
@@ -1257,20 +1266,25 @@ public void writeEnergy() {
 				}
 			}
 		}
-		c.faceUpdate(0);
-		c.npcIndex = 0;
-		c.playerIndex = 0;
-		c.stopMovement();
-					if (c.duelStatus <= 4) {
-				c.sendMessage(Config.DEATH_MESSAGE);
-			} else if(c.duelStatus != 6 || !c.inArena()) {
-				c.sendMessage("You have lost the duel!");
-				o.getPA().movePlayer(
-						Config.DUELING_RESPAWN_X
-								+ (Misc.random(Config.RANDOM_DUELING_RESPAWN)),
-						Config.DUELING_RESPAWN_Y
-								+ (Misc.random(Config.RANDOM_DUELING_RESPAWN)), 0);
+
+        
+		if (c.duelStatus <= 4) {
+			if (CastleWars.isInCw(c)) {
+            c.cwDeaths += 1;
+            o.cwKills += 1;
+            }
+			c.sendMessage(Config.DEATH_MESSAGE);
+		} else if(c.duelStatus != 6 || !c.inArena()) {
+			c.sendMessage("You have lost the duel!");
+			o.getPA().movePlayer(
+			Config.DUELING_RESPAWN_X + (Misc.random(Config.RANDOM_DUELING_RESPAWN)),
+			Config.DUELING_RESPAWN_Y + (Misc.random(Config.RANDOM_DUELING_RESPAWN)), 0);
 			}
+		if (weapon == CastleWars.SARA_BANNER || weapon == CastleWars.ZAMMY_BANNER) {
+            c.getItems().removeItem(weapon, 3);
+            c.getItems().deleteItem2(weapon, 1);
+            CastleWars.dropFlag(c, weapon);
+            }
 		resetDamageDone();
 		c.DC++;
 		o.KC++;	
@@ -1577,7 +1591,7 @@ return;
 		
 		}
 		if(c.duelStatus <= 4 && !c.getPA().inPitsWait()) { // if we are not in a duel we must be in wildy so remove items
-			if (!c.inPits && !c.inFightCaves() && !c.inPcGame()) {
+			if (!CastleWars.isInCw(c) && !c.inPits && !c.inFightCaves() && !c.inPcGame()) {
 					c.getItems().resetKeepItems();
 				if((c.playerRights == 2 && Config.ADMIN_DROP_ITEMS) || c.playerRights != 2) {
 					if(!c.isSkulled && !c.isInArd()) {	// what items to keep
@@ -1617,7 +1631,15 @@ return;
 		}
 		if (c.pitsStatus == 1) {
 			movePlayer(2399, 5173, 0);
-		} else if(c.duelStatus <= 4) { // if we are not in a duel repawn to wildy
+		}
+		else if (CastleWars.isInCw(c)) {
+            if (CastleWars.getTeamNumber(c) == 1) {
+                c.getPA().movePlayer(2426 + Misc.random(3), 3076 - Misc.random(3), 1);
+            } else {
+                c.getPA().movePlayer(2373 + Misc.random(3), 3131 - Misc.random(3), 1);
+            }
+        }
+		else if(c.duelStatus <= 4) { // if we are not in a duel repawn to wildy
 			movePlayer(Config.RESPAWN_X, Config.RESPAWN_Y, 0);
 			c.isSkulled = false;
 			c.skullTimer = 0;
@@ -1706,6 +1728,10 @@ return;
 			c.sendMessage("You can't teleport during a duel!");
 			return;
 		}
+		if (CastleWars.isInCw(c)) {
+            c.sendMessage("You cannot tele from a Castle Wars Game!");
+            return;
+        }
 		if(c.inRFD()) {
 			c.sendMessage("You can't teleport out of this minigame!");
 			return;
@@ -2834,21 +2860,6 @@ if (c.xpLock == true || c.Jail == true) {
 		object(-1, 2372, 3119, -3, 10);
 	}
 	
-	public void removeFromCW() {
-		if (c.castleWarsTeam == 1) {
-			if (c.inCwWait) {
-				Server.castleWars.saradominWait.remove(Server.castleWars.saradominWait.indexOf(c.playerId));
-			} else {
-				Server.castleWars.saradomin.remove(Server.castleWars.saradomin.indexOf(c.playerId));
-			}
-		} else if (c.castleWarsTeam == 2) {
-			if (c.inCwWait) {
-				Server.castleWars.zamorakWait.remove(Server.castleWars.zamorakWait.indexOf(c.playerId));
-			} else {
-				Server.castleWars.zamorak.remove(Server.castleWars.zamorak.indexOf(c.playerId));
-			}		
-		}
-	}
 	
 public int antiFire() {
 		int toReturn = 0;

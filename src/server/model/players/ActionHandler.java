@@ -5,6 +5,7 @@ import server.Server;
 import server.model.objects.Object;
 import server.util.Misc;
 import server.util.ScriptManager;
+import server.model.minigames.CastleWarObjects;
 
 public class ActionHandler {
 	private Client c;
@@ -69,6 +70,7 @@ break;*/
 		c.getPA().addSkillXP(125*c.playerLevel[16], c.playerAgility);
 		c.getPA().refreshSkill(c.playerAgility);
 		break;
+		
 		
 		case 8972:
 		if((c.playerLevel[21] < 90) && (c.playerLevel[16] < 90)) {
@@ -519,17 +521,6 @@ break;
 			//Server.objectHandler.startObelisk(objectType);
 			Server.objectManager.startObelisk(objectType);
 		break;
-		case 4387:
-			Server.castleWars.joinWait(c,1);
-		break;
-		
-		case 4388:
-			Server.castleWars.joinWait(c,2);
-		break;
-		
-		case 4408:
-			Server.castleWars.joinWait(c,3);
-		break;
 		
 		case 9369:
 		
@@ -547,21 +538,43 @@ break;
 				c.getPA().movePlayer(2399, 5169, 0);
 			}	
 		break;
-		case 4411:
-		case 4415:
-		case 4417:
-		case 4418:
-		case 4419:
-		case 4420:
-		case 4469:
-		case 4470:
-		case 4911:
-		case 4912:
-		case 1747:
-		case 1757:
- 			Server.castleWars.handleObjects(c, objectType, obX, obY);
-		break;
-		
+            case 4411:
+            case 4415:
+            case 4417:
+            case 4418:
+            case 4419:
+            case 4420:
+            case 4469:
+            case 4470:
+            case 4911:
+            case 4912:
+            case 1747:
+            case 1757:
+            case 4437:
+            case 6281:
+            case 6280:
+            case 4472:
+            case 4471:
+            case 4406:
+            case 4407:
+            case 4458:
+            case 4902:
+            case 4903:
+            case 4900:
+            case 4901:
+            case 4461:
+            case 4463:
+            case 4464:
+            case 4377:
+            case 4378:
+                CastleWarObjects.handleObject(c, objectType, obX, obY);
+            case 1568:
+                if (obX == 3097 && obY == 3468) {
+                    c.getPA().movePlayer(3097, 9868, 0);
+                } else {
+                    CastleWarObjects.handleObject(c, obY, obY, obY);
+                }
+                break;
 		
 		
 

@@ -5,7 +5,8 @@ import server.Server;
 import server.model.players.Client;
 import server.util.Misc;
 import server.model.players.EarningPotential;
-import server.model.minigames.CastleWars;
+import server.model.minigames.*;
+
 
 public class ItemAssistant {
 
@@ -1351,13 +1352,13 @@ return false;
 }
                 /*
                  * Castle wars
-                 
+                 */
                 if (CastleWars.isInCw(c) || CastleWars.isInCwWait(c)) {
                     if (targetSlot == 1 || targetSlot == 0) {
                         c.sendMessage("You can't wear your own capes or hats in a Castle Wars Game!");
                         return false;
                     }
-                }*/
+                }
 			if(c.playerItems[slot] == (wearID+1)) {				
 				getRequirements(getItemName(wearID).toLowerCase(), wearID);	
 				targetSlot = Item.targetSlots[wearID];
@@ -1497,9 +1498,9 @@ return false;
                     /*
                      * Castle wars
                      */
-                    /*if (CastleWars.SARA_BANNER == toRemove || CastleWars.ZAMMY_BANNER == toRemove) {
+                    if (CastleWars.SARA_BANNER == toRemove || CastleWars.ZAMMY_BANNER == toRemove) {
                         CastleWars.dropFlag(c, toRemove);
-                    }*/
+                    }
 					if (toEquip == toRemove + 1 && Item.itemStackable[toRemove]) {
 						deleteItem(toRemove, getItemSlot(toRemove), toEquipN);
 						c.playerEquipmentN[targetSlot] += toEquipN;
@@ -1663,7 +1664,16 @@ return false;
 		synchronized(c) {
 			if(c.getOutStream() != null && c != null) {
 				if(c.playerEquipment[slot] > -1){
+					if ((c.playerEquipment[slot] == CastleWars.SARA_CAPE || c.playerEquipment[slot] == CastleWars.ZAMMY_CAPE)
+                            && (CastleWars.isInCw(c) || CastleWars.isInCwWait(c))) {
+                        c.sendMessage("You cannot unequip your castle wars cape during a game!");
+                        return;
+                    }
 					if(addItem(c.playerEquipment[slot], c.playerEquipmentN[slot])) {
+                        if (c.playerEquipment[slot] == CastleWars.SARA_BANNER || c.playerEquipment[slot] == CastleWars.ZAMMY_BANNER) {
+                            CastleWars.dropFlag(c, c.playerEquipment[slot]);
+                            c.getItems().deleteItem2(c.playerEquipment[slot], 1);
+                        }						
 						c.playerEquipment[slot]=-1;
 						c.playerEquipmentN[slot]=0;
 						sendWeapon(c.playerEquipment[c.playerWeapon], getItemName(c.playerEquipment[c.playerWeapon]));

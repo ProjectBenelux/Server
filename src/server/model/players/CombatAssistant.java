@@ -8,9 +8,11 @@ import server.model.players.PlayerSave;
 import server.event.EventManager;
 import server.model.npcs.NPC;
 import server.model.npcs.NPCHandler;
+import server.model.minigames.*;
 import server.event.EventContainer;
 import server.event.Event;
 import server.model.players.Weapon;
+import server.model.minigames.CastleWars;
 
 
 public class CombatAssistant{
@@ -3554,6 +3556,9 @@ case 15241:
 		if(Server.playerHandler.players[c.playerIndex] == null) {
 			return false;
 		}
+		if (CastleWars.isInCw(c)) {
+            return true;
+        }
 		if (c.playerIndex == c.playerId)
 			return false;
 		if (c.inPits && Server.playerHandler.players[c.playerIndex].inPits)
