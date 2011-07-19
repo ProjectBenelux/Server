@@ -160,7 +160,7 @@ try {
 		 * Server Successfully Loaded 
 		 */
                 //Change To IP to your Hamachi or anything else
-		System.out.println("Server listening on port 5.127.47.134:" + serverlistenerPort);
+		System.out.println("Server listening on port 5.9.139.182:" + serverlistenerPort);
 		/**
 		 * Main Server Tick
 		 */

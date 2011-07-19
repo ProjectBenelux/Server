@@ -87,8 +87,7 @@ public class Prayer {
 
 					c.sendMessage(altar ? "The gods are pleased with your offerings." : "You bury the bones.");
 					if(altar) {
-					c.getPA().createPlayersStillGfx(624, 3095, 3506, 0, 0);
-					//c.gfx0(624);
+					c.getPA().createPlayersStillGfx(624, 3097, 3500, 0, 0);
 					}
 				}	
 			}

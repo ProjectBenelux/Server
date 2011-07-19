@@ -115,7 +115,8 @@ public class ObjectManager {
 	
 		c.getPA().checkObjectSpawn(13617, 2044, 4521, 1, 10); //Barrelportal donor	
 		
-		c.getPA().checkObjectSpawn(411, 3093, 3506, 2, 10); // Curse Prayers
+		c.getPA().checkObjectSpawn(409, 3097, 3500, 2, 10); // Prayer Recharge
+		c.getPA().checkObjectSpawn(411, 3095, 3500, 2, 10); //Curse Prayers
 
 		c.getPA().checkObjectSpawn(13615, 2036, 4518, 0, 10);
 		c.getPA().checkObjectSpawn(13620, 2041, 4518, 0, 10);
@@ -141,8 +142,8 @@ public class ObjectManager {
 		c.getPA().checkObjectSpawn(1596, 3022, 10312, 1, 0);
 		c.getPA().checkObjectSpawn(1596, 3044, 10341, -1, 0);
 		c.getPA().checkObjectSpawn(1596, 3044, 10342, 1, 0);
-		c.getPA().checkObjectSpawn(6552, 3097, 3506, 2, 10); //ancient prayers
-		c.getPA().checkObjectSpawn(409, 3095, 3506, 2, 10);
+		c.getPA().checkObjectSpawn(6552, 3097, 3487, 2, 10); //ancient prayers
+
 		c.getPA().checkObjectSpawn(2213, 3047, 9779, 1, 10);
 		c.getPA().checkObjectSpawn(2213, 3080, 9502, 1, 10);
 		c.getPA().checkObjectSpawn(1530, 3093, 3487, 1, 10);
