@@ -2,6 +2,7 @@ package server.model.players.Content;
 
 import server.Config;
 import server.Server;
+import server.model.players.*;
 import server.event.EventManager;
 import server.event.Event;
 import server.event.EventContainer;
@@ -162,6 +163,39 @@ public void Button(Client c, int actionButtonId) {
 		//int actionButtonId = c.getInStream().readShort();
 
 			switch (actionButtonId){
+case 118098: //Vengeance
+	if(c.playerLevel[6] < 94) {
+		c.sendMessage("You need a magic level of 94 to cast this spell.");
+		return;
+	}
+	if(c.playerLevel[1] < 40) {
+		c.sendMessage("You need a defence level of 40 to cast this spell.");
+		return;
+	}
+	if(!c.getItems().playerHasItem(9075, 4) || !c.getItems().playerHasItem(557, 10) || !c.getItems().playerHasItem(560, 2)) {
+		c.sendMessage("You don't have the required runes to cast this spell.");
+		return;
+	}
+	if(System.currentTimeMillis() - c.lastCast < 30000) {
+		c.sendMessage("You can only cast vengeance every 30 seconds.");
+		return;
+	}
+	if(c.vengOn) {
+		c.sendMessage("You already have vengeance casted.");
+		return;
+	}
+	c.startAnimation(4410);
+	c.gfx100(726);//Just use c.gfx100
+	c.getItems().deleteItem2(9075, 4);
+	c.getItems().deleteItem2(557, 10);//For these you need to change to deleteItem(item, itemslot, amount);.
+	c.getItems().deleteItem2(560, 2);
+	c.getPA().addSkillXP(2000, 6);
+	c.stopMovement();
+	c.getPA().refreshSkill(6);
+	c.vengOn = true;
+	c.lastCast = System.currentTimeMillis();
+break;
+
 case 117104:
 timer = 6;
 if(c.playerLevel[6] > 68)
@@ -457,33 +491,65 @@ c.sendMessage("You need a higher magic level to cast this spell");
 
 break;
 
+case 30298:	
+	if (c.playerIndex > 0) {	
+	Player q = Server.playerHandler.players[c.playerIndex];			
+	final int oX = q.getX();
+	final int oY = q.getY();
+	if(c.playerLevel[6] < 93) {
+		c.sendMessage("You need a magic level of 93 to cast this spell.");
+	c.getCombat().resetPlayerAttack();
+	c.stopMovement();
+	c.turnPlayerTo(oX,oY);
+		return;
+	}
+                if (!q.acceptAid) {
+                c.sendMessage("This player has their accept Aid off, therefore you cannot veng them!");
+                return;
+                }
 
-
-case 30298:
-timer = 6;
-if(c.playerLevel[6] > 93)
-{
-if (System.currentTimeMillis() - castOnPlayer.lastVeng > 30000 || System.currentTimeMillis() - c.lastVeng > 30000) {
-if (c.getItems().playerHasItem(557,10) && c.getItems().playerHasItem(9075,3) && c.getItems().playerHasItem(560,2)) {
-c.getItems().deleteItem(astral, 3);
-c.getItems().deleteItem(death, 2);
-c.getItems().deleteItem(earth, 10);
-				castOnPlayer.vengOn = true;
-c.lastVeng = System.currentTimeMillis();
-				castOnPlayer.lastVeng = System.currentTimeMillis();
-				castOnPlayer.gfx100(725);
-				c.startAnimation(4411);
-} else {
-c.sendMessage("You do not have the required runes to cast this spell");
-}
-} else {
-c.sendMessage("Please wait 30 seconds before casting Vengance other");
-}
-} else {
-c.sendMessage("You need a higher magic level to cast this spell");
+	if(c.playerLevel[1] < 40) {
+		c.sendMessage("You need a defence level of 40 to cast this spell.");
+	c.getCombat().resetPlayerAttack();
+	c.stopMovement();
+	c.turnPlayerTo(oX,oY);
+		return;
+	}
+	if(!c.getItems().playerHasItem(9075, 3) || !c.getItems().playerHasItem(557, 10) || !c.getItems().playerHasItem(560, 2)) {
+		c.sendMessage("You don't have the required runes to cast this spell.");
+	c.getCombat().resetPlayerAttack();
+	c.stopMovement();
+	c.turnPlayerTo(oX,oY);
+		return;
+	}
+	if(System.currentTimeMillis() - c.lastCast < 30000) {
+		c.sendMessage("You can only cast vengeance every 30 seconds.");
+	c.getCombat().resetPlayerAttack();
+	c.stopMovement();
+	c.turnPlayerTo(oX,oY);
+		return;
+	}
+	if(q.vengOn) {
+		c.sendMessage("That player already have vengeance casted.");
+	c.getCombat().resetPlayerAttack();
+	c.stopMovement();
+	c.turnPlayerTo(oX,oY);
+		return;
+	}
+	c.startAnimation(4411);
+	q.gfx100(725);//Just use c.gfx100
+	c.getItems().deleteItem2(9075, 3);
+	c.getItems().deleteItem2(557, 10);//For these you need to change to deleteItem(item, itemslot, amount);.
+	c.getItems().deleteItem2(560, 2);
+	q.vengOn = true;
+	c.getPA().addSkillXP(2000, 6);
+	c.turnPlayerTo(oX,oY);
+	c.getPA().refreshSkill(6);
+	c.getCombat().resetPlayerAttack();
+	c.stopMovement();
+	c.lastCast = System.currentTimeMillis();
 }
 break;
-
 
 case 30048:
 timer = 6;
