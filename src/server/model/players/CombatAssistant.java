@@ -3005,10 +3005,10 @@ public void fireProjectilePlayer() {
 			c.specDamage = 1.20;
 			break;
 						case 19784: // korasi
-			c.startAnimation(4000);
+			c.startAnimation(1872);
 			c.specDamage = 2.00;
 			c.specAccuracy = 5.0;
-			c.gfx0(1247);
+			c.gfx0(1224);
 			c.hitDelay = getHitDelay(c.getItems().getItemName(c.playerEquipment[c.playerWeapon]).toLowerCase());
 			if (c.playerIndex > 0) {
 			Client o = (Client)Server.playerHandler.players[i];
@@ -3018,7 +3018,7 @@ public void fireProjectilePlayer() {
 			c.hitDelay = getHitDelay(c.getItems().getItemName(c.playerEquipment[c.playerWeapon]).toLowerCase());
 			}
 			if(Server.npcHandler.npcs[i] != null && c.npcIndex > 0) {
-			Server.npcHandler.npcs[i].gfx0(1248);
+			Server.npcHandler.npcs[i].gfx0(0);
 			c.specDamage = 2.00;
 			c.specAccuracy = 5.00;
 			c.hitDelay = getHitDelay(c.getItems().getItemName(c.playerEquipment[c.playerWeapon]).toLowerCase());
