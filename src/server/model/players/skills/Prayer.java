@@ -83,10 +83,12 @@ public class Prayer {
 					c.getItems().deleteItem(BONES[l][0], slot, 1);
 					c.getPA().addSkillXP((altar ? BONES[l][1] * 2 : BONES[l][1]) * PRAYER_XP, 5);
 					c.buryDelay = System.currentTimeMillis();
-					c.startAnimation((altar ? 896 : 827));
+					c.startAnimation((altar ? 3705 : 827));
+
 					c.sendMessage(altar ? "The gods are pleased with your offerings." : "You bury the bones.");
 					if(altar) {
-						c.getPA().createPlayersStillGfx(624, c.objectX, c.objectY, 0, 0);
+					c.getPA().createPlayersStillGfx(624, c.objectX, c.objectY, 0, 0);
+					//c.gfx0(624);
 					}
 				}	
 			}

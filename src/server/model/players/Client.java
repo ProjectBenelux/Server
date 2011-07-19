@@ -836,7 +836,7 @@ public void HighAndLow(){
 				} else if (r3 == 1) {           
 					sendMessage("<shad=15695415>[Project Benelux News</col>]: Donations are appreciated thanks =)");		
 				} else if (r3 == 2) { 
-					sendMessage("<shad=15695415>[Project Benelux News</col>]: Register online on : www.erased-pkz.comyr.com");
+					sendMessage("<shad=15695415>[Project Benelux News</col>]: We don't have forums yet, but stay tuned!");
 				} else if (r3 == 3) {
 					sendMessage("<shad=15695415>[Project Benelux News</col>]: Feel free to ask any staff for help, as long as their not busy!");
 				} else if (r3 == 4) {
