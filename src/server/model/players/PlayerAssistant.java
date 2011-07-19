@@ -167,7 +167,24 @@ public boolean teleTabTeleport(int x, int y, int height, String teleportType){
 			}
 		}
 	}
-
+	
+	public void destroyInterface(int itemId) {
+		String itemName = c.getItems().getItemName(itemId);
+		String[][] info = {{"Are you sure you want to destroy this item?", "14174"}, {"Yes.", "14175"}, {"No.", "14176"}, {"", "14177"}, {"Put info here", "14182"}, 
+							{"More info here", "14183"}, {itemName, "14184"}};
+		sendFrame34(itemId, 0, 14171, 1);
+		for (int i = 0; i < info.length; i++)
+			sendFrame126(info[i][0], Integer.parseInt(info[i][1]));
+		c.destroyItem = itemId;
+		sendFrame164(14170);
+	}
+	
+	public void destroyItem(int itemId) {
+		String itemName = c.getItems().getItemName(itemId);
+		c.getItems().deleteItem(itemId, 1);
+		c.sendMessage("Your " + itemName + " vanishes as you drop it on the ground.");
+		c.destroyItem = 0;
+	}
 			
 	public void chaosElementalEffect(Client c, int i) {
 		switch (i) {

@@ -34,6 +34,8 @@ public class Config {
 													9747,9753,9750,9768,9756,9759,9762,9801,9807,9783,9798,9804,9780,9795,9792,9774,9771,9777,9786,9810,9765}; // what items can't be traded or staked
 	public static final int[] UNDROPPABLE_ITEMS 	= 	{12470,12472,12474}; // what items can't be dropped
 	
+	public static final int[] DESTROYABLES 	= 	{10548, 10551}; // Destroyable items
+	
 	public static final int[] FUN_WEAPONS	=	{2460,2461,2462,2463,2464,2465,2466,2467,2468,2469,2470,2471,2471,2473,2474,2475,2476,2477}; // fun weapons for dueling
         public static final int[] CAT_ITEMS	=	{1555,6909,1556,12007,1557,1558,1559,1560,1561,1562,1563,1564,1565,7585,7584,12470,12472,12474,12513,12515,12517,12519,12521,12523,12476}; // fun weapons for dueling
 
