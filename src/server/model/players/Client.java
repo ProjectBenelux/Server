@@ -8,6 +8,7 @@ import java.net.MalformedURLException;
 import server.model.minigames.CastleWars;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
+import server.model.players.Content.*;
 import java.io.IOException;
 import org.apache.mina.common.IoSession;
 import server.Config;
@@ -28,6 +29,9 @@ import server.util.Misc;
 import server.model.players.skills.Summoning;
 import server.util.Stream;
 import server.util.MadTurnipConnection;
+import server.event.CycleEventHandler;
+import server.event.CycleEvent;
+import server.event.CycleEventContainer;
 import server.model.players.skills.*;
 import server.event.EventManager;
 import server.event.Event; 
@@ -75,6 +79,7 @@ public class Client extends Player {
 	private Woodcutting woodcutting = new Woodcutting(this);
 	private Mining mine = new Mining(this);
 	public Agility ag = new Agility(this);
+	public LunarByArrowz LunarByArrowz = new LunarByArrowz(this);
 	private Cooking cooking = new Cooking(this);
 	private Fishing fish = new Fishing(this);
 	private Crafting crafting = new Crafting(this);
@@ -211,6 +216,116 @@ public class Client extends Player {
 		inStream.currentOffset = 0;
 		buffer = new byte[Config.BUFFER_SIZE];
 	}
+	
+	public void cureAll() {
+		for (Player p : Server.playerHandler.players) {// loop so it effects all
+			Client person = (Client) p;
+			if (p != null && person.distanceToPoint(absX, absY) <= 2) {
+				Client castOn = (Client) p;// specific player's client
+				poisonDamage = -1;
+				castOn.sendMessage("You have been cured by " + playerName + ".");
+				startAnimation(4409);
+				castOn.gfx100(745);
+			}
+		}
+
+	}
+
+	public boolean indream;
+	public int dream;
+	public int req;
+
+	public void Dream() {
+		CycleEventHandler.getSingleton().addEvent(this, new CycleEvent() {
+			@Override
+			public void execute(CycleEventContainer c) {
+				if (playerLevel[3] == getLevelForXP(playerXP[3]) && indream != true) {
+					indream = false;
+					sendMessage("You Already have full hitpoints");
+				}
+
+				if (dream == 5) {
+					indream = true;
+					startAnimation(6295);
+					sendMessage("The sleeping has an effect on your health");
+				}
+
+				if (dream == 0) {
+					indream = true;
+					startAnimation(6296);
+					gfx0(1056);
+					playerLevel[3] += 1;
+					getPA().refreshSkill(3);
+				}
+
+				if (playerLevel[3] == getLevelForXP(playerXP[3]) && indream == true) {
+					indream = false;
+					sendMessage("You wake up for your dream");
+					startAnimation(6297);
+				}
+
+				if (indream == false) {
+					sendMessage("You wake up.");
+					c.stop();
+				}
+
+				if (System.currentTimeMillis() - logoutDelay < 10000 || followId > 0 || followId2 > 0 || spellId > 0) {
+					startAnimation(6297);
+					sendMessage("You wake up.");
+					indream = false;
+					c.stop();
+				}
+				if (dream > 0)
+					dream -= 1;
+				}
+				
+							@Override
+			public void stop() {
+				// ANYTHING YOU WANT TO DO WHEN THE EVENT STOPS, YOU CAN LEAVE
+				// IT EMPTY
+			}
+		}, 2);
+	}
+	
+	public void statrestore() {
+		for (Player p : Server.playerHandler.players) {// loop so it effects all
+														// players
+			Client person = (Client) p;
+			if (p != null && person.distanceToPoint(absX, absY) <= 2) {
+				Client castOn = (Client) p;// specific player's client
+				poisonDamage = -1;
+				castOn.sendMessage("" + playerName
+						+ " has shared there stat restore potion with you.");
+				startAnimation(4409);
+				castOn.gfx100(733);
+			}
+		}
+	}
+
+	public int currentHealth = playerLevel[playerHitpoints];
+	public int hurt = 2 * playerLevel[3];
+	
+		public void HealAll() {
+		for (Player p : Server.playerHandler.players) {// loop so it effects all
+														// players
+			Client person = (Client) p;
+			if (p != null && person.distanceToPoint(absX, absY) <= 1) {
+				Client castOn = (Client) p;// specific player's client
+				castOn.playerLevel[3] += 5;
+				castOn.getPA().refreshSkill(3);
+				getPA().refreshSkill(3);
+				castOn.sendMessage("You have been cured by " + playerName + ".");
+				startAnimation(4409);
+				castOn.gfx100(744);
+				castOn.currentHealth += hurt;
+				if (castOn.currentHealth > castOn.playerLevel[castOn.playerHitpoints])
+					castOn.currentHealth = castOn.playerLevel[castOn.playerHitpoints];
+				castOn.sendMessage("You have been healed by " + playerName
+						+ ".");
+			}
+		}
+	}
+				
 	public void frame1() // cancels all player and npc emotes within area!
     {
         for (Player p : PlayerHandler.players) {
@@ -447,7 +562,8 @@ mChapsLeft = 1000;
 	public int lastsummon;
 	public boolean summon;
 	
-	
+
+			
 		public void jadSpawn() {
 			//getPA().movePlayer(absX, absY, playerId * 4);
 			getDH().sendDialogues(41, 2618);
@@ -495,6 +611,7 @@ mChapsLeft = 1000;
 			}
 		}, 500);
 	}
+
 
 	public boolean specGfx = false;
 	public void handCannonSpec() {
@@ -1145,7 +1262,9 @@ setSidebarInterface(16, 17011); //summon
 			usingClaws = false;
 			clawType = 0;
 		}
-
+				if (LunarByArrowz.timer > 0) {
+			LunarByArrowz.timer -= 1;
+		}
 		if (wcTimer > 0) {
 			wcTimer--;
 		} else if (wcTimer == 0 && woodcut[0] > 0) {
@@ -1641,6 +1760,9 @@ public void fmwalkto(int i, int j)
 	
 	public IoSession getSession() {
 		return session;
+	}
+	public LunarByArrowz LunarByArrowz() {
+		return LunarByArrowz;
 	}
 	
 	public Potions getPotions() {

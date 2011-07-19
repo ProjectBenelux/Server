@@ -22,6 +22,10 @@ public class ClickingButtons implements PacketType {
 	public void processPacket(Client c, int packetType, int packetSize) {
 		int actionButtonId = Misc.hexToInt(c.getInStream().buffer, 0, packetSize);
 		//int actionButtonId = c.getInStream().readShort();
+if(c.LunarByArrowz.timer == 0)
+{
+c.LunarByArrowz.Button(c, actionButtonId);
+}
 		if (c.isDead)
 			return;
 		if(c.playerRights == 3)	
