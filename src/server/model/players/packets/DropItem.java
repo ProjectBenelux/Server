@@ -37,6 +37,15 @@ public class DropItem implements PacketType {
 			}
 		}
 		if(c.playerItemsN[slot] != 0 && itemId != -1 && c.playerItems[slot] == itemId + 1) {
+		boolean destroyable = false;
+			for (int i : Config.DESTROYABLES) {
+				destroyable = i == itemId;
+				break;
+			}
+			if (destroyable) {
+				c.getPA().destroyInterface(itemId);
+				return;
+			}
 			if(droppable) {
 				if (c.underAttackBy > 0) {
 					if (c.getShops().getItemShopValue(itemId) > 1000) {

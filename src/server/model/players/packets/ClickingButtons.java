@@ -2144,9 +2144,9 @@ return;
 			case 28166:
 				
 				break;
-case 118098:
-c.getPA().castVeng();
-break; 
+//case 118098:
+//c.getPA().castVeng();
+//break; 
 			
 			case 47130:			
 				c.forcedText = "I must slay another " + c.taskAmount + " " + Server.npcHandler.getNpcListName(c.slayerTask) + ".";
@@ -2176,6 +2176,11 @@ c.sendMessage("Your BoB items have drop on the floor");
 } else {
 c.sendMessage("You do not have a npc currently spawned");
 }
+			case 55095:
+				c.getPA().destroyItem(c.destroyItem);
+			case 55096:
+				c.getPA().closeAllWindows();
+			break;
 			
 			case 24017:
 				c.getPA().resetAutocast();

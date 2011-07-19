@@ -7,6 +7,7 @@ package server.model.players.packets;
 import server.model.items.UseItem;
 import server.model.players.Client;
 import server.model.players.PacketType;
+import server.model.players.skills.*;
 
 public class ItemOnObject implements PacketType {
 
@@ -25,6 +26,10 @@ public class ItemOnObject implements PacketType {
 		int itemId = c.getInStream().readUnsignedWord();
 		UseItem.ItemonObject(c, objectId, objectX, objectY, itemId);
 		
+		switch (objectId) {
+			case 409:
+				Prayer.useBonesOnAltar(c, objectId, itemId); break;
+		}
 	}
 
 }

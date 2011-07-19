@@ -1,6 +1,7 @@
 package server.model.players.packets;
 
 import server.model.players.Client;
+import server.model.players.skills.*;
 import server.model.players.PacketType;
 
 
@@ -225,8 +226,9 @@ public class ClickItem implements PacketType {
 		//ScriptManager.callFunc("itemClick_"+itemId, c, itemId, itemSlot);
 		if (c.getPotions().isPotion(itemId))
 			c.getPotions().handlePotion(itemId,itemSlot);
-		if (c.getPrayer().isBone(itemId))
-			c.getPrayer().buryBone(itemId, itemSlot);
+		if(Prayer.playerBones(c, itemId)) {
+			Prayer.buryBones(c, itemId,itemSlot);
+		}
 		if (itemId == 952) {
 			if(c.inArea(3553, 3301, 3561, 3294)) {
 				c.teleTimer = 3;

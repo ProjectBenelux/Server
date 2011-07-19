@@ -60,6 +60,7 @@ public int said = 0;
 
 		public boolean isNpc = false;
 	public int npcId2 = 0;
+	 public int destroyItem = 0;
 	public int barrageOrb = 0;
 public boolean hasNpc = false;
 public boolean hasNpc2 = false;
@@ -159,6 +160,7 @@ public int vSpearLeft = 1000;
 	public int
      safeTimer = 0,
 	degradeTime, 
+	ssHeal = 0,
 	KC,
 	DC,
 	cwKills,

@@ -84,7 +84,6 @@ public class Client extends Player {
 	private Fishing fish = new Fishing(this);
 	private Crafting crafting = new Crafting(this);
 	private Smithing smith = new Smithing(this);
-	private Prayer prayer = new Prayer(this);
 	private Curse curse = new Curse(this);
 	private Fletching fletching = new Fletching(this);
 	private SmithingInterface smithInt = new SmithingInterface(this);
@@ -1836,10 +1835,6 @@ public void fmwalkto(int i, int j)
 	
 	public SmithingInterface getSmithingInt() {
 		return smithInt;
-	}
-	
-	public Prayer getPrayer() { 
-		return prayer;
 	}
 
 	public Curse getCurse() { 

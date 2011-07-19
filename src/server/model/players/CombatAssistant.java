@@ -344,46 +344,44 @@ if(Server.npcHandler.npcs[i].index != c.playerId || c.wildLevel <= 1) {
 					if (!c.autocasting)
 						c.npcIndex = 0;
 				}
-					if(c.curseActive[18]) { // SoulSplit GFX's - CAUSES CRASH
-					if(c.oldNpcIndex > 0) {
-					if(Server.npcHandler.npcs[c.oldNpcIndex] != null) {
-					try {
-					if(c.curseActive[18] && !c.prayerActive[23] && c.playerLevel[3] <= 99) {
-						int heal = 2;
-						if(c.playerLevel[3] + heal >= c.getPA().getLevelForXP(c.playerXP[3])) {
-							c.playerLevel[3] = c.getPA().getLevelForXP(c.playerXP[3]);
-						} else {
-							c.playerLevel[3] += heal;
-						}
-						c.getPA().refreshSkill(3);
-					}
+			if(c.curseActive[18]) { // SoulSplit NPC
 					final int pX = c.getX();
- 					final int pY = c.getY();
-					final int nX = Server.npcHandler.npcs[c.oldNpcIndex].getX();
-					final int nY = Server.npcHandler.npcs[c.oldNpcIndex].getY();
+					final int pY = c.getY();
+					final int nX = Server.npcHandler.npcs[i].getX();
+					final int nY = Server.npcHandler.npcs[i].getY();
 					final int offX = (pY - nY)* -1;
 					final int offY = (pX - nX)* -1;
-					c.SSPLIT = true;
-					c.getPA().createPlayersProjectile2(pX, pY, offX, offY, 50, 50, 2263, 9, 9, c.oldNpcIndex + 1, 24, 0);
-					EventManager.getSingleton().addEvent(new Event() {
-					public void execute(EventContainer b) {
- 					Server.npcHandler.npcs[c.oldNpcIndex].gfx0(2264); // 1738
-					c.SSPLIT = false;
+					final Client giveHP = c;
+					//c.SSPLIT = true;
+					c.getPA().createPlayersProjectile2(pX, pY, offX, offY, 50, 50, 2263, 9, 9, - c.playerIndex - 1, 24, 0);
+				EventManager.getSingleton().addEvent(new Event() {
+				public void execute(EventContainer b) {
+ 					Server.npcHandler.npcs[c.npcIndex].gfx0(2264); // 1738
+					//c.SSPLIT = false;
 				        b.stop();
 					}
-					}, 500);
-					/*EventManager.getSingleton().addEvent(new Event() { // CAUSES CRASH
-					public void execute(EventContainer b) {
-					//c.getPA().createPlayersProjectile2(nX, nY, offX, offY, 50, 50, 2263, 9, 9, - c.playerId - 1, 24, 0);
+				}, 500);
+				EventManager.getSingleton().addEvent(new Event() {
+				public void execute(EventContainer b) { 
+					c.getPA().createPlayersProjectile2(nX, nY, offX, offY, 50, 50, 2263, 9, 9, - c.playerId - 1, 24, 0);
 				        b.stop();
 					}
-					}, 800);*/
-					} catch (Exception e) {
-					e.printStackTrace();
-				}
+				}, 800);
+
+				EventManager.getSingleton().addEvent(new Event() {
+				public void execute(EventContainer b) {
+						try {
+							int before = giveHP.ssHeal; // Debug
+							giveHP.playerLevel[giveHP.playerHitpoints] += before;
+							if(giveHP.playerLevel[giveHP.playerHitpoints] > giveHP.getLevelForXP(giveHP.playerXP[giveHP.playerHitpoints])) {
+								giveHP.playerLevel[giveHP.playerHitpoints] = giveHP.getLevelForXP(giveHP.playerXP[giveHP.playerHitpoints]);
+							}
+							giveHP.ssHeal -= before;
+						} catch(Exception e) { }
+						b.stop();
+					}
+				}, 1300); // Timer should be better.
 			}
-		}
-	}
 					
 					if(c.crystalBowArrowCount >= 250){
 						switch(c.playerEquipment[c.playerWeapon]) {
@@ -1380,37 +1378,44 @@ c.degradeSHelm();
 			}
 		}
 
-			if(c.curseActive[18]) { // SoulSplit GFX's - CAUSES CRASH
-		if(c.oldPlayerIndex > 0) {
-			if(Server.playerHandler.players[c.oldPlayerIndex] != null) {
-					try {
+			if(c.curseActive[18]) { // SoulSplit GFX's
 					final int pX = c.getX();
 					final int pY = c.getY();
 					final int nX = Server.playerHandler.players[i].getX();
 					final int nY = Server.playerHandler.players[i].getY();
 					final int offX = (pY - nY)* -1;
 					final int offY = (pX - nX)* -1;
-					c.SSPLIT = true;
-					c.getPA().createPlayersProjectile2(pX, pY, offX, offY, 50, 50, 2263, 9, 9, - c.oldPlayerIndex - 1, 24, 0);
+					final Client giveHP = c;
+					//c.SSPLIT = true;
+					c.getPA().createPlayersProjectile2(pX, pY, offX, offY, 50, 50, 2263, 9, 9, - c.playerIndex - 1, 24, 0);
 				EventManager.getSingleton().addEvent(new Event() {
 				public void execute(EventContainer b) {
- 					Server.playerHandler.players[c.oldPlayerIndex].gfx0(2264); // 1738
-					c.SSPLIT = false;
+ 					Server.playerHandler.players[c.playerIndex].gfx0(2264); // 1738
+					//c.SSPLIT = false;
 				        b.stop();
 					}
 				}, 500);
-				/*EventManager.getSingleton().addEvent(new Event() { // CAUSES CRASH
-				public void execute(EventContainer b) {
-					//c.getPA().createPlayersProjectile2(nX, nY, offX, offY, 50, 50, 2263, 9, 9, - c.playerId - 1, 24, 0);
+				EventManager.getSingleton().addEvent(new Event() {
+				public void execute(EventContainer b) { 
+					c.getPA().createPlayersProjectile2(nX, nY, offX, offY, 50, 50, 2263, 9, 9, - c.playerId - 1, 24, 0);
 				        b.stop();
 					}
-				}, 800);*/
-			} catch (Exception e) {
-			e.printStackTrace();
-		}
-		}
-	}
-}
+				}, 800);
+				EventManager.getSingleton().addEvent(new Event() {
+				public void execute(EventContainer b) {
+						try {
+							int before = giveHP.ssHeal; // Debug
+							giveHP.playerLevel[giveHP.playerHitpoints] += before;
+							if(giveHP.playerLevel[giveHP.playerHitpoints] > giveHP.getLevelForXP(giveHP.playerXP[giveHP.playerHitpoints])) {
+								giveHP.playerLevel[giveHP.playerHitpoints] = giveHP.getLevelForXP(giveHP.playerXP[giveHP.playerHitpoints]);
+							}
+							giveHP.ssHeal -= before;
+							//System.out.println(giveHP.playerName+" has been healed "+before+" HP."); // debugging purposes.
+						} catch(Exception e) { }
+						b.stop();
+					}
+				}, 1300); // Timer should be better.
+			}
 
 				if(usingBow && Config.CRYSTAL_BOW_DEGRADES) { // crystal bow degrading
 					if(c.playerEquipment[c.playerWeapon] == 4212) { // new crystal bow becomes full bow on the first shot

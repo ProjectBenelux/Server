@@ -164,8 +164,10 @@ public class AttackPlayer implements PacketType {
 				}
 			}		
 
-			if(castingSpellId == 30298) {
-			c.getPA().vengOther();
+			boolean LunarByArrowz = false;
+			
+			if(!LunarByArrowz) {
+			c.LunarByArrowz.CastingLunarOnPlayer(c, castingSpellId);
 			break;
 			}
 			

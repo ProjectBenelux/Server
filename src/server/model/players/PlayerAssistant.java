@@ -167,7 +167,24 @@ public boolean teleTabTeleport(int x, int y, int height, String teleportType){
 			}
 		}
 	}
-
+	
+	public void destroyInterface(int itemId) {
+		String itemName = c.getItems().getItemName(itemId);
+		String[][] info = {{"Are you sure you want to destroy this item?", "14174"}, {"Yes.", "14175"}, {"No.", "14176"}, {"", "14177"}, {"Put info here", "14182"}, 
+							{"More info here", "14183"}, {itemName, "14184"}};
+		sendFrame34(itemId, 0, 14171, 1);
+		for (int i = 0; i < info.length; i++)
+			sendFrame126(info[i][0], Integer.parseInt(info[i][1]));
+		c.destroyItem = itemId;
+		sendFrame164(14170);
+	}
+	
+	public void destroyItem(int itemId) {
+		String itemName = c.getItems().getItemName(itemId);
+		c.getItems().deleteItem(itemId, 1);
+		c.sendMessage("Your " + itemName + " vanishes as you drop it on the ground.");
+		c.destroyItem = 0;
+	}
 			
 	public void chaosElementalEffect(Client c, int i) {
 		switch (i) {
@@ -1346,98 +1363,7 @@ c.sendMessage("Your BoB items have drop on the floor");
 	/*
 *Vengeance
 */
-	public void castVeng() {
-	if(c.playerLevel[6] < 94) {
-		c.sendMessage("You need a magic level of 94 to cast this spell.");
-		return;
-	}
-	if(c.playerLevel[1] < 40) {
-		c.sendMessage("You need a defence level of 40 to cast this spell.");
-		return;
-	}
-	if(!c.getItems().playerHasItem(9075, 4) || !c.getItems().playerHasItem(557, 10) || !c.getItems().playerHasItem(560, 2)) {
-		c.sendMessage("You don't have the required runes to cast this spell.");
-		return;
-	}
-	if(System.currentTimeMillis() - c.lastCast < 30000) {
-		c.sendMessage("You can only cast vengeance every 30 seconds.");
-		return;
-	}
-	if(c.vengOn) {
-		c.sendMessage("You already have vengeance casted.");
-		return;
-	}
-	c.startAnimation(4410);
-	c.gfx100(726);//Just use c.gfx100
-	c.getItems().deleteItem2(9075, 4);
-	c.getItems().deleteItem2(557, 10);//For these you need to change to deleteItem(item, itemslot, amount);.
-	c.getItems().deleteItem2(560, 2);
-	addSkillXP(2000, 6);
-	c.stopMovement();
-	refreshSkill(6);
-	c.vengOn = true;
-	c.lastCast = System.currentTimeMillis();
-	}
 
-	public void vengOther() {	
-	if (c.playerIndex > 0) {	
-	Player q = Server.playerHandler.players[c.playerIndex];			
-	final int oX = q.getX();
-	final int oY = q.getY();
-	if(c.playerLevel[6] < 93) {
-		c.sendMessage("You need a magic level of 93 to cast this spell.");
-	c.getCombat().resetPlayerAttack();
-	c.stopMovement();
-	c.turnPlayerTo(oX,oY);
-		return;
-	}
-                if (!q.acceptAid) {
-                c.sendMessage("This player has their accept Aid off, therefore you cannot veng them!");
-                return;
-                }
-
-	if(c.playerLevel[1] < 40) {
-		c.sendMessage("You need a defence level of 40 to cast this spell.");
-	c.getCombat().resetPlayerAttack();
-	c.stopMovement();
-	c.turnPlayerTo(oX,oY);
-		return;
-	}
-	if(!c.getItems().playerHasItem(9075, 3) || !c.getItems().playerHasItem(557, 10) || !c.getItems().playerHasItem(560, 2)) {
-		c.sendMessage("You don't have the required runes to cast this spell.");
-	c.getCombat().resetPlayerAttack();
-	c.stopMovement();
-	c.turnPlayerTo(oX,oY);
-		return;
-	}
-	if(System.currentTimeMillis() - c.lastCast < 30000) {
-		c.sendMessage("You can only cast vengeance every 30 seconds.");
-	c.getCombat().resetPlayerAttack();
-	c.stopMovement();
-	c.turnPlayerTo(oX,oY);
-		return;
-	}
-	if(q.vengOn) {
-		c.sendMessage("That player already have vengeance casted.");
-	c.getCombat().resetPlayerAttack();
-	c.stopMovement();
-	c.turnPlayerTo(oX,oY);
-		return;
-	}
-	c.startAnimation(4411);
-	q.gfx100(725);//Just use c.gfx100
-	c.getItems().deleteItem2(9075, 3);
-	c.getItems().deleteItem2(557, 10);//For these you need to change to deleteItem(item, itemslot, amount);.
-	c.getItems().deleteItem2(560, 2);
-	q.vengOn = true;
-	addSkillXP(2000, 6);
-	c.turnPlayerTo(oX,oY);
-	refreshSkill(6);
-	c.getCombat().resetPlayerAttack();
-	c.stopMovement();
-	c.lastCast = System.currentTimeMillis();
-}
-}
 public boolean wearingCape(int cape) {
 int capes[] = {
 9747, 9748, 9750, 9751,
