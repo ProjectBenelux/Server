@@ -159,6 +159,7 @@ public int vSpearLeft = 1000;
 	public int
      safeTimer = 0,
 	degradeTime, 
+	ssHeal = 0,
 	KC,
 	DC,
 	cwKills,
