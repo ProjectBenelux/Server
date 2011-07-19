@@ -32,10 +32,10 @@ public class UseItem {
 				c.getWarriorsGuild().handleArmor(c, itemId, objectX, objectY);
 				}
 			break;
-			case 409:
-				if (c.getPrayer().isBone(itemId))
-					c.getPrayer().bonesOnAltar(itemId);
-			break;
+			//case 409:
+				//if (c.getPrayer().isBone(itemId))
+					//c.getPrayer().bonesOnAltar(itemId);
+			//break;
 		default:
 			if(c.playerRights == 3)
 				Misc.println("Player At Object id: "+objectID+" with Item id: "+itemId);
