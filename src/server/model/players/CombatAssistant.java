@@ -2973,12 +2973,12 @@ public void fireProjectilePlayer() {
 	**/
 	
 	public void activateSpecial(int weapon, int i){
-		if(Server.npcHandler.npcs[i] == null && c.npcIndex > 0) {
-			return;
-		}
-		if(Server.playerHandler.players[i] == null && c.playerIndex > 0) {
-			return;
-		}
+		//if(Server.npcHandler.npcs[i] == null && c.npcIndex > 0) {
+			//return;
+		//}
+		//if(Server.playerHandler.players[i] == null && c.playerIndex > 0) {
+			//return;
+		//}
 		c.doubleHit = false;
 		c.specEffect = 0;
 		c.projectileStage = 0;

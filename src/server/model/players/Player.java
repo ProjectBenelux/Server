@@ -369,7 +369,7 @@ public int vSpearLeft = 1000;
 								7038,0,7039,1,7040,2,7041,3,7042,4,7043,5,7044,6,7045,7,7046,8,7047,9,7048,10,7049,11,7050,12,7051,13,7052,14,7053,15,
 								47019,27,47020,25,47021,12,47022,13,47023,14,47024,15};
 								
-	//public String spellName = "Select Spell";
+	public String spellName = "Select Spell";
 	public void assignAutocast(int button) {
 		for (int j = 0; j < autocastIds.length; j++) {
 			if (autocastIds[j] == button) {
@@ -378,9 +378,9 @@ public int vSpearLeft = 1000;
 				autocastId = autocastIds[j+1];
 				c.getPA().sendFrame36(108, 1);
 				c.setSidebarInterface(0, 328);
-				//spellName = getSpellName(autocastId);
-				//spellName = spellName;
-				//c.getPA().sendFrame126(spellName, 354);
+				spellName = getSpellName(autocastId);
+				spellName = spellName;
+				c.getPA().sendFrame126(spellName, 354);
 				c = null;
 				break;
 			}		

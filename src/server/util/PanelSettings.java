@@ -339,9 +339,6 @@ public class PanelSettings {
 			Config.SERVER_NAME = p.SERVER_NAME_TEXT.getText();
 			Config.LOGOUT_MESSAGE = p.LOGOUT_BUTTON_TEXT.getText();
 			Config.DEATH_MESSAGE = p.DEATH_MESSAGE_TEXT.getText();
-			Config.ADMIN_CAN_TRADE = p.ADMINS_CAN_TRADE.isSelected();
-			Config.ADMIN_DROP_ITEMS = p.ADMINS_CAN_DROP.isSelected();
-			Config.ADMIN_CAN_SELL_ITEMS = p.ADMINS_CAN_SELL_ITEMS.isSelected();
 			Config.MINI_GAMES = p.MINI_GAMES.isSelected();
 			Config.LOCK_EXPERIENCE = p.LOCK_EXPERIENCE.isSelected();
 			Config.DOUBLE_EXP = p.DOUBLE_EXPERIENCE.isSelected();

@@ -47,9 +47,10 @@ public class Config {
 	public static boolean DOUBLE_EXP = true;
 	
 	
-	public static boolean ADMIN_CAN_TRADE;
-	public static boolean ADMIN_CAN_SELL_ITEMS;
-	public static boolean ADMIN_DROP_ITEMS;
+	public static final boolean ADMIN_CAN_TRADE = true; //can admins trade?
+	public static final boolean ADMIN_CAN_SELL_ITEMS = true; // can admins sell items?
+	public static final boolean ADMIN_DROP_ITEMS = true; // can admin drop items?
+
 	
 	public static final int START_LOCATION_X = 3094; // start here
 	public static final int START_LOCATION_Y = 3470;

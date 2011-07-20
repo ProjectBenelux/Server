@@ -98,9 +98,6 @@ public class ControlPanel extends JFrame {
 		SETTINGS_PANEL = new JPanel();
 		SERVER_NAME_LABEL = new JLabel();
 		SERVER_NAME_TEXT = new JTextField();
-		ADMINS_CAN_TRADE = new JCheckBox();
-		ADMINS_CAN_DROP = new JCheckBox();
-		ADMINS_CAN_SELL_ITEMS = new JCheckBox();
 		MINI_GAMES = new JCheckBox();
 		LOCK_EXPERIENCE = new JCheckBox();
 		DOUBLE_EXPERIENCE = new JCheckBox();
@@ -645,19 +642,6 @@ public class ControlPanel extends JFrame {
 		SERVER_NAME_TEXT.setText(Config.SERVER_NAME);
 		SERVER_NAME_TEXT.setToolTipText("Set the name of the server.");
 
-		ADMINS_CAN_TRADE.setSelected(Config.ADMIN_CAN_TRADE);
-		ADMINS_CAN_TRADE.setText("Admins can Trade");
-		ADMINS_CAN_TRADE.setToolTipText("Determins wether or not an admin can trade other players.");
-		
-		ADMINS_CAN_DROP.setText("Admins can Drop");
-		ADMINS_CAN_DROP.setSelected(Config.ADMIN_DROP_ITEMS);
-		ADMINS_CAN_DROP.setToolTipText("Determins if admins can drop an item.");
-
-		
-		ADMINS_CAN_SELL_ITEMS.setText("Admins can sell Items");
-		ADMINS_CAN_SELL_ITEMS.setSelected(Config.ADMIN_CAN_SELL_ITEMS);
-		ADMINS_CAN_SELL_ITEMS.setToolTipText("Determins if admins can sell items or not.");
-
 	
 		MINI_GAMES.setText("MiniGames Enabled");
 		MINI_GAMES.setSelected(Config.MINI_GAMES);
@@ -695,15 +679,12 @@ public class ControlPanel extends JFrame {
 			.addGroup(SETTINGS_PANELLayout.createSequentialGroup()
 				.addContainerGap()
 				.addGroup(SETTINGS_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-					.addComponent(ADMINS_CAN_SELL_ITEMS)
 					.addGroup(SETTINGS_PANELLayout.createSequentialGroup()
 						.addGroup(SETTINGS_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 							.addComponent(SERVER_NAME_LABEL)
 							.addGroup(SETTINGS_PANELLayout.createSequentialGroup()
 								.addGap(10, 10, 10)
 								.addComponent(SERVER_NAME_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-							.addComponent(ADMINS_CAN_TRADE)
-							.addComponent(ADMINS_CAN_DROP)
 							.addComponent(LOCK_EXPERIENCE)
 							.addComponent(MINI_GAMES)
 							.addComponent(DOUBLE_EXPERIENCE))
@@ -732,14 +713,11 @@ public class ControlPanel extends JFrame {
 					.addComponent(LOGOUT_BUTTON_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
 				.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
 				.addGroup(SETTINGS_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-					.addComponent(ADMINS_CAN_TRADE)
 					.addComponent(DEATH_MESSAGE_LABEL))
 				.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 				.addGroup(SETTINGS_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-					.addComponent(ADMINS_CAN_DROP)
 					.addComponent(DEATH_MESSAGE_TEXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
 				.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-				.addComponent(ADMINS_CAN_SELL_ITEMS)
 				.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 				.addGroup(SETTINGS_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 					.addGroup(SETTINGS_PANELLayout.createSequentialGroup()
@@ -1026,8 +1004,6 @@ public class ControlPanel extends JFrame {
 	// Variables declaration - do not modify
 	public JButton ADD_ITEM;
 	public JButton ADD_NPC_BUTTON;
-	public JCheckBox ADMINS_CAN_DROP;
-	public JCheckBox ADMINS_CAN_TRADE;
 	public JButton BAN_PLAYER;
 	public JButton CLEAR_CONSOLE_BUTTON;
 	public JLabel CLEAR_CONSOLE_LABEL;
@@ -1078,7 +1054,6 @@ public class ControlPanel extends JFrame {
 	public JPanel PLAYER_CONTROLS;
 	public JTabbedPane PLAYER_CONTROLS_TAB;
 	public JPanel PLAYER_EQUIPMENT;
-	public JCheckBox ADMINS_CAN_SELL_ITEMS;
 	public JPanel PLAYER_LOCATION;
 	public JPanel PLAYER_MISC;
 	public JPanel PLAYER_PANEL;
