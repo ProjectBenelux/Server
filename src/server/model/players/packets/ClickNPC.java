@@ -50,7 +50,7 @@ public class ClickNPC implements PacketType {
 			boolean usingBow = false;
 			boolean usingOtherRangeWeapons = false;
 			boolean usingArrows = false;
-			boolean usingCross = c.playerEquipment[c.playerWeapon] == 9185;
+			boolean usingCross = c.playerEquipment[c.playerWeapon] == 9185 && c.playerEquipment[c.playerWeapon] == 18357;
 			if (c.playerEquipment[c.playerWeapon] >= 4214 && c.playerEquipment[c.playerWeapon] <= 4223)
 				usingBow = true;
 			for (int bowId : c.BOWS) {
@@ -79,13 +79,13 @@ public class ClickNPC implements PacketType {
 				c.sendMessage("You have run out of arrows!");
 				break;
 			} 
-			if(c.getCombat().correctBowAndArrows() < c.playerEquipment[c.playerArrows] && Config.CORRECT_ARROWS && usingBow && !c.getCombat().usingCrystalBow() && c.playerEquipment[c.playerWeapon] != 9185) {
+			if(c.getCombat().correctBowAndArrows() < c.playerEquipment[c.playerArrows] && Config.CORRECT_ARROWS && usingBow && !c.getCombat().usingCrystalBow() && usingCross) {
 				c.sendMessage("You can't use "+c.getItems().getItemName(c.playerEquipment[c.playerArrows]).toLowerCase()+"s with a "+c.getItems().getItemName(c.playerEquipment[c.playerWeapon]).toLowerCase()+".");
 				c.stopMovement();
 				c.getCombat().resetPlayerAttack();
 				return;
 			}
-			if (c.playerEquipment[c.playerWeapon] == 9185 && !c.getCombat().properBolts()) {
+			if (usingCross && !c.getCombat().properBolts()) {
 				c.sendMessage("You must use bolts with a crossbow.");
 				c.stopMovement();
 				c.getCombat().resetPlayerAttack();

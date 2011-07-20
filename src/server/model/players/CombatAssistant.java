@@ -41,6 +41,7 @@ public class CombatAssistant{
 	* Attack Npcs
 	*/
 	public void attackNpc(int i) {	
+		boolean usingCross = c.playerEquipment[c.playerWeapon] == 9185 && c.playerEquipment[c.playerWeapon] == 18357;
 	  if (c.playerEquipment[c.playerWeapon] == 15241) {
           c.gfx0(2138);
           }
@@ -160,7 +161,7 @@ if(Server.npcHandler.npcs[i].index != c.playerId || c.wildLevel <= 1) {
 				boolean usingBow = false;
 				boolean usingArrows = false;
 				boolean usingOtherRangeWeapons = false;
-				boolean usingCross = c.playerEquipment[c.playerWeapon] == 9185;
+				
 				c.bonusAttack = 0;
 				c.rangeItemUsed = 0;
 				c.projectileStage = 0;
@@ -210,13 +211,13 @@ if(Server.npcHandler.npcs[i].index != c.playerId || c.wildLevel <= 1) {
 					c.npcIndex = 0;
 					return;
 				} 
-				if(correctBowAndArrows() < c.playerEquipment[c.playerArrows] && Config.CORRECT_ARROWS && usingBow && !usingCrystalBow() && c.playerEquipment[c.playerWeapon] != 9185) {
+				if(correctBowAndArrows() < c.playerEquipment[c.playerArrows] && Config.CORRECT_ARROWS && usingBow && !usingCrystalBow() && !usingCross) {
 					c.sendMessage("You can't use "+c.getItems().getItemName(c.playerEquipment[c.playerArrows]).toLowerCase()+"s with a "+c.getItems().getItemName(c.playerEquipment[c.playerWeapon]).toLowerCase()+".");
 					c.stopMovement();
 					c.npcIndex = 0;
 					return;
 				}
-							if (c.playerEquipment[c.playerWeapon] == 9185 && !properBolts()) {
+				if (usingCross && !properBolts()) {
 					c.sendMessage("You must use bolts with a crossbow.");
 					c.stopMovement();
 					resetPlayerAttack();
@@ -466,6 +467,7 @@ c.degradeSHelm();
 	
 
 	public void delayedHit(int i) { // npc hit delay
+	boolean usingCross = c.playerEquipment[c.playerWeapon] == 9185 && c.playerEquipment[c.playerWeapon] == 18357;
 		if (Server.npcHandler.npcs[i] != null) {
 			if (Server.npcHandler.npcs[i].isDead) {
 				c.npcIndex = 0;
@@ -499,7 +501,7 @@ c.degradeSHelm();
 				if (c.lastWeaponUsed == 11235 || c.lastWeaponUsed == 15701 || c.lastWeaponUsed == 15702 || c.lastWeaponUsed == 15703 || c.lastWeaponUsed == 15704 || c.lastWeaponUsed == 14481 || c.lastWeaponUsed == 14482 || c.bowSpecShot == 1)
 					damage2 = Misc.random(rangeMaxHit());
 				boolean ignoreDef = false;
-				if (Misc.random(5) == 1 && c.lastArrowUsed == 9243 && c.playerEquipment[c.playerWeapon] == 9185) {
+				if (Misc.random(5) == 1 && c.lastArrowUsed == 9243 && usingCross) {
 					ignoreDef = true;
 					Server.npcHandler.npcs[i].gfx0(758);
 				}
@@ -511,7 +513,7 @@ c.degradeSHelm();
 					damage = 0;
 				}
 				
-				if (Misc.random(4) == 1 && c.lastArrowUsed == 9242 && damage > 0 && c.playerEquipment[c.playerWeapon] == 9185) {
+				if (Misc.random(4) == 1 && c.lastArrowUsed == 9242 && damage > 0 && usingCross) {
 					Server.npcHandler.npcs[i].gfx0(754);
 					damage = Server.npcHandler.npcs[i].HP/5;
 					//c.handleHitMask(c.playerLevel[3]/10);
@@ -533,7 +535,7 @@ c.degradeSHelm();
 						damage2 = 8;
 					c.dbowSpec = false;
 				}
-				if (damage > 0 && Misc.random(5) == 1 && c.lastArrowUsed == 9244 && c.playerEquipment[c.playerWeapon] == 9185) {
+				if (damage > 0 && Misc.random(5) == 1 && c.lastArrowUsed == 9244 && usingCross) {
 					damage *= 1.45;
 					Server.npcHandler.npcs[i].gfx0(756);
 				}
@@ -804,6 +806,7 @@ c.degradeSHelm();
 	**/
 	
 		public void attackPlayer(int i) {
+		boolean usingCross = c.playerEquipment[c.playerWeapon] == 9185 && c.playerEquipment[c.playerWeapon] == 18357;
           if (c.playerEquipment[c.playerWeapon] == 15241) {
           c.gfx0(2138);
           }
@@ -836,7 +839,7 @@ c.degradeSHelm();
 
             for (int u : c.Bolts)  {
                 for (int y : c.BOWS)  {
-                    if(y == c.playerEquipment[c.playerWeapon] && c.playerEquipment[c.playerWeapon] != 9185 && u == c.playerEquipment[c.playerArrows]){
+                    if(y == c.playerEquipment[c.playerWeapon] && usingCross && u == c.playerEquipment[c.playerArrows]){
                         c.sendMessage("You can only use arrows with this bow.");
                         return;
                     }
@@ -930,7 +933,7 @@ c.degradeSHelm();
 				boolean usingBow = false;
 				boolean usingArrows = false;
 				boolean usingOtherRangeWeapons = false;
-				boolean usingCross = c.playerEquipment[c.playerWeapon] == 9185;
+				
 				c.projectileStage = 0;
 				
 				if (c.absX == Server.playerHandler.players[i].absX && c.absY == Server.playerHandler.players[i].absY) {
@@ -1032,7 +1035,7 @@ c.degradeSHelm();
 					c.npcIndex = 0;
 					return;
 				} 
-				if (c.playerEquipment[c.playerWeapon] == 9185 && !properBolts() && !c.usingMagic) {
+				if (usingCross && !properBolts() && !c.usingMagic) {
 					c.sendMessage("You must use bolts with a crossbow.");
 					c.stopMovement();
 					resetPlayerAttack();
@@ -1566,6 +1569,7 @@ c.degradeSHelm();
 	}
 	
 	public void playerDelayedHit(int i) {
+	boolean usingCross = c.playerEquipment[c.playerWeapon] == 9185 && c.playerEquipment[c.playerWeapon] == 18357;
 		if (Server.playerHandler.players[i] != null) {
 			if (Server.playerHandler.players[i].isDead || c.isDead || Server.playerHandler.players[i].playerLevel[3] <= 0 || c.playerLevel[3] <= 0) {
 				c.playerIndex = 0;
@@ -1621,7 +1625,7 @@ c.degradeSHelm();
 				if (c.lastWeaponUsed == 11235 || c.lastWeaponUsed == 15701 || c.lastWeaponUsed == 15702 || c.lastWeaponUsed == 15703 || c.lastWeaponUsed == 15704 || c.bowSpecShot == 1)
 					damage2 = Misc.random(rangeMaxHit());
 				boolean ignoreDef = false;
-				if (Misc.random(4) == 1 && c.lastArrowUsed == 9243 && c.playerEquipment[c.playerWeapon] == 9185) {
+				if (Misc.random(4) == 1 && c.lastArrowUsed == 9243 && usingCross) {
 					ignoreDef = true;
 					o.gfx0(758);
 				}					
@@ -1649,7 +1653,7 @@ c.degradeSHelm();
 						damage2 = 8;
 					c.dbowSpec = false;
 				}
-				if (damage > 0 && Misc.random(5) == 1 && c.lastArrowUsed == 9244 && c.playerEquipment[c.playerWeapon] == 9185) {
+				if (damage > 0 && Misc.random(5) == 1 && c.lastArrowUsed == 9244 && usingCross) {
 					damage *= 1.45;
 					o.gfx0(756);
 				}
