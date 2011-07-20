@@ -22,9 +22,9 @@ public class ClickingButtons implements PacketType {
 	public void processPacket(Client c, int packetType, int packetSize) {
 		int actionButtonId = Misc.hexToInt(c.getInStream().buffer, 0, packetSize);
 		//int actionButtonId = c.getInStream().readShort();
-if(c.LunarByArrowz.timer == 0)
+if(c.Lunar.timer == 0)
 {
-c.LunarByArrowz.Button(c, actionButtonId);
+c.Lunar.Button(c, actionButtonId);
 }
 		if (c.isDead)
 			return;

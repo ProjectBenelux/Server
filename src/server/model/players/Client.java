@@ -79,7 +79,7 @@ public class Client extends Player {
 	private Woodcutting woodcutting = new Woodcutting(this);
 	private Mining mine = new Mining(this);
 	public Agility ag = new Agility(this);
-	public LunarByArrowz LunarByArrowz = new LunarByArrowz(this);
+	public Lunar Lunar = new Lunar(this);
 	private Cooking cooking = new Cooking(this);
 	private Fishing fish = new Fishing(this);
 	private Crafting crafting = new Crafting(this);
@@ -1261,8 +1261,8 @@ setSidebarInterface(16, 17011); //summon
 			usingClaws = false;
 			clawType = 0;
 		}
-				if (LunarByArrowz.timer > 0) {
-			LunarByArrowz.timer -= 1;
+				if (Lunar.timer > 0) {
+			Lunar.timer -= 1;
 		}
 		if (wcTimer > 0) {
 			wcTimer--;
@@ -1760,8 +1760,8 @@ public void fmwalkto(int i, int j)
 	public IoSession getSession() {
 		return session;
 	}
-	public LunarByArrowz LunarByArrowz() {
-		return LunarByArrowz;
+	public Lunar Lunar() {
+		return Lunar;
 	}
 	
 	public Potions getPotions() {

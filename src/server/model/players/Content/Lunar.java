@@ -30,11 +30,11 @@ import server.model.players.Client;
 //566 = soul
 
 
-public class LunarByArrowz {
+public class Lunar {
 
 	public Client Client;
 
-	public LunarByArrowz(Client c) {
+	public Lunar(Client c) {
 		c = c;
 	}
 

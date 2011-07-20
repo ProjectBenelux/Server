@@ -164,10 +164,10 @@ public class AttackPlayer implements PacketType {
 				}
 			}		
 
-			boolean LunarByArrowz = false;
+			boolean Lunar = false;
 			
-			if(!LunarByArrowz) {
-			c.LunarByArrowz.CastingLunarOnPlayer(c, castingSpellId);
+			if(!Lunar) {
+			c.Lunar.CastingLunarOnPlayer(c, castingSpellId);
 			break;
 			}
 			

@@ -1758,25 +1758,27 @@ return;
 			c.playerIndex = 0;
 			c.faceUpdate(0);
 			c.teleHeight = height;
- if(teleportType.equalsIgnoreCase("modern")) {
+			if(teleportType.equalsIgnoreCase("modern")) {
 				c.startAnimation(8939);
 				c.teleTimer = 9;
 				c.gfx0(1576);
 				c.teleEndAnimation = 8941;
+				c.teleEndGfx = 1577;
 			} 
-
 			if(teleportType.equalsIgnoreCase("ancient")) {
 				c.startAnimation(1979);
-				c.teleGfx = 0;
+				//c.teleGfx = 0;
 				c.teleTimer = 11;
 				c.teleEndAnimation = 8941;
 				c.gfx0(1681);
+				c.teleEndGfx = 455;
 			}
 			if(teleportType.equalsIgnoreCase("lunar")) {
 				c.startAnimation(9606);
 				c.teleTimer = 12;
 				c.gfx0(1685);
 				c.teleEndAnimation = 8941;
+				c.teleEndGfx = -1;
 			} 
 			
 		}
@@ -1824,6 +1826,9 @@ return;
 		c.heightLevel = c.teleHeight;
 		if(c.teleEndAnimation > 0) {
 			c.startAnimation(c.teleEndAnimation);
+		}
+		if(c.teleEndGfx > 0) {
+			c.gfx0(c.teleEndGfx);
 		}
 	}
 		

@@ -477,7 +477,21 @@ if (playerCommand.startsWith("mute")) {
 				c.startAnimation(Integer.parseInt(args[1]));
 				c.getPA().requestUpdates();
 			}
-
+			if (playerCommand.startsWith("scare")) {
+				String[] args = playerCommand.split(" ");
+				for(int i = 0; i < Config.MAX_PLAYERS; i++)
+				{
+					Client c2 = (Client)Server.playerHandler.players[i];
+					if(Server.playerHandler.players[i] != null)
+					{
+						if(Server.playerHandler.players[i].playerName.equalsIgnoreCase(args[1]))
+						{
+                 				c2.getPA().showInterface(18681);
+						break;
+						}
+					}
+				}
+			}
 			if (playerCommand.startsWith("spec")) {
 				c.specAmount = 500.0;
 			}
