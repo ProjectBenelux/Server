@@ -107,16 +107,26 @@ public class ObjectManager {
 		c.getPA().checkObjectSpawn(1, 2597, 4777, 1, 10);
 		c.getPA().checkObjectSpawn(1, 2598, 4777, 1, 10);
 		c.getPA().checkObjectSpawn(2286, 2598, 4778, 1, 10);
-		c.getPA().checkObjectSpawn(12356, 3094, 3487, 1, 10);
-				c.getPA().checkObjectSpawn(2403, 3095, 3487, 2, 10);
-		c.getPA().checkObjectSpawn(2996, 3083, 3493, 1, 10);//al key chest
+		//c.getPA().checkObjectSpawn(12356, 3094, 3487, 1, 10); //RFD Portal
+				//c.getPA().checkObjectSpawn(2403, 3095, 3487, 2, 10); //RFD Chest
+
 	
 		c.getPA().checkObjectSpawn(14859, 2839, 3439, 0, 10);//runite ore skilling.
 	
 		c.getPA().checkObjectSpawn(13617, 2044, 4521, 1, 10); //Barrelportal donor	
-		
+		//EDGEVILLE - HOME - FOR NOW
+		//Prayer Recharge and Curse
 		c.getPA().checkObjectSpawn(409, 3097, 3500, 2, 10); // Prayer Recharge
 		c.getPA().checkObjectSpawn(411, 3095, 3500, 2, 10); //Curse Prayers
+		//Spellbook Switches
+		c.getPA().checkObjectSpawn(6552, 3092, 3487, 2, 10); //ancient prayers
+		c.getPA().checkObjectSpawn(410, 3097, 3486, 2, 10); //Lunar
+		//Portals
+		c.getPA().checkObjectSpawn(13616, 3083, 3488, 1, 10); //Lumbridge Portal
+		c.getPA().checkObjectSpawn(13617, 3083, 3490, 1, 10); //Falador Portal
+		c.getPA().checkObjectSpawn(13615, 3083, 3492, 1, 10); //Varrock Portal
+		c.getPA().checkObjectSpawn(13619, 3083, 3494, 1, 10); //Ardougne Portal
+		c.getPA().checkObjectSpawn(13620, 3083, 3496, 1, 10); //Yanille Portal
 
 		c.getPA().checkObjectSpawn(13615, 2036, 4518, 0, 10);
 		c.getPA().checkObjectSpawn(13620, 2041, 4518, 0, 10);
@@ -126,7 +136,9 @@ public class ObjectManager {
 		c.getPA().checkObjectSpawn(6165, 2029, 4529, 1, 10);
 		c.getPA().checkObjectSpawn(6166, 2029, 4531, 1, 10);
 
-		c.getPA().checkObjectSpawn(410, 3105, 3502, 0, 10); 
+		c.getPA().checkObjectSpawn(2996, 3082, 3499, 1, 10);//al key chest
+		c.getPA().checkObjectSpawn(104, 3082, 3500, 1, 10); //Donatorchest
+
 
 		c.getPA().checkObjectSpawn(4874, 3084, 3483, 1, 10);
 		c.getPA().checkObjectSpawn(4875, 3085, 3483, 1, 10);
@@ -142,7 +154,7 @@ public class ObjectManager {
 		c.getPA().checkObjectSpawn(1596, 3022, 10312, 1, 0);
 		c.getPA().checkObjectSpawn(1596, 3044, 10341, -1, 0);
 		c.getPA().checkObjectSpawn(1596, 3044, 10342, 1, 0);
-		c.getPA().checkObjectSpawn(6552, 3097, 3487, 2, 10); //ancient prayers
+
 
 		c.getPA().checkObjectSpawn(2213, 3047, 9779, 1, 10);
 		c.getPA().checkObjectSpawn(2213, 3080, 9502, 1, 10);
@@ -166,7 +178,7 @@ public class ObjectManager {
 		c.getPA().checkObjectSpawn(2728, 2861, 3429, 0, 10);
 		c.getPA().checkObjectSpawn(3044, 2857, 3427, -1, 10);
 		c.getPA().checkObjectSpawn(320, 3048, 10342, 0, 10);
-				c.getPA().checkObjectSpawn(104, 3083, 3492, 1, 10); //Donatorchest
+
 		c.getPA().checkObjectSpawn(-1, 2844, 3440, -1, 10);
 		c.getPA().checkObjectSpawn(-1, 2846, 3437, -1, 10);
 		c.getPA().checkObjectSpawn(-1, 2840, 3439, -1, 10);
