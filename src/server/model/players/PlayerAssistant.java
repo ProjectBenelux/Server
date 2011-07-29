@@ -119,6 +119,7 @@ public boolean teleTabTeleport(int x, int y, int height, String teleportType){
         return totalCash;
 	}	
 
+
 	public int getItemValue(int ItemID) {
 		int shopValue = 0;
 		for (int i = 0; i < Config.ITEM_LIMIT; i++) {
@@ -1360,9 +1361,7 @@ c.sendMessage("Your BoB items have drop on the floor");
 			}		
 		}	
 	}
-	/*
-*Vengeance
-*/
+
 
 public boolean wearingCape(int cape) {
 int capes[] = {
@@ -1501,21 +1500,7 @@ return false;
 		c.faceUpdate(-1);
 		c.freezeTimer = 0;
 		
-		if(c.playerRights == 3) {
-		for (int i = 0; i < 20; i++) {
-			c.playerLevel[i] = getLevelForXP(c.playerXP[i]);
-			c.getPA().refreshSkill(i);
-		}
-		c.getCombat().resetPrayers();
 
-		c.teleportToX = 3237;
-		c.teleportToY = 3523;
-PlayerSave.saveGame(c);
-c.getPA().resetTzhaar();
-requestUpdates();
-return;
-		
-		}
 		if(c.duelStatus <= 4 && !c.getPA().inPitsWait()) { // if we are not in a duel we must be in wildy so remove items
 			if (!CastleWars.isInCw(c) && !c.inPits && !c.inFightCaves() && !c.inPcGame()) {
 					c.getItems().resetKeepItems();
@@ -2824,6 +2809,17 @@ public int antiFire() {
 		c.playerItemsN[i] = backupInvItemsN[i]; c.playerItems[i] = backupInvItems[i];
 		}
 	}
+	
+	public void sendFrame34a(int frame, int item, int slot, int amount) {
+		c.outStream.createFrameVarSizeWord(34);
+		c.outStream.writeWord(frame);
+		c.outStream.writeByte(slot);
+		c.outStream.writeWord(item + 1);
+		c.outStream.writeByte(255);
+		c.outStream.writeDWord(amount);
+		c.outStream.endFrameVarSizeWord();
+	}
+	
 	
 	public boolean checkForFlags() {
 		int[][] itemsToCheck = {{995,100000000},{35,5},{667,5},{2402,5},{746,5},{4151,150},{565,100000},{560,100000},{555,300000},{11235,10}};

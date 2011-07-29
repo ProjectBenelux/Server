@@ -3097,20 +3097,24 @@ public void fireProjectilePlayer() {
 			
 				case 11694: // ags
 				c.startAnimation(7074);
-				c.specDamage = 1.30;
+				c.specDamage = 1.45;
 				c.specAccuracy = 4.55;
 				c.gfx0(1222);
 				c.hitDelay = getHitDelay(c.getItems().getItemName(c.playerEquipment[c.playerWeapon]).toLowerCase());
 				break;
 				
-				case 19780:
-				c.gfx100(1224);
-				c.startAnimation(1872);
-				c.specAccuracy = 5.00;
-				c.specDamage = 2.00;
-				c.ssSpec = true;
-				c.hitDelay = getHitDelay(c.getItems().getItemName(c.playerEquipment[c.playerWeapon]).toLowerCase());
-				break;
+
+case 19780:
+       c.gfx0(1247); c.startAnimation(4000); if
+      (c.playerIndex > 0) { Client opp = (Client)
+      Server.playerHandler.players[c.playerIndex]; if(opp != null)
+      opp.gfx0(1248); } else if (c.npcIndex > 0) { NPC opp =
+      Server.npcHandler.npcs[c.npcIndex]; if(opp != null) opp.gfx0(1248); }
+      c.specAccuracy = 5.00; c.specDamage = 2.00; c.ssSpec = true;
+      c.hitDelay = getHitDelay(c.getItems()
+      .getItemName(c.playerEquipment[c.playerWeapon]) .toLowerCase());
+      break;
+
 
 			case 11730:
 			c.gfx100(1224);
@@ -3363,7 +3367,7 @@ case 15241:
 			case 13905: 
 			case 13883: 
 			case 13879: 
-		case 19780: 
+
 		case 15486: 
                         case 10887:
 			if(c.specAmount >= 5) {
@@ -3386,6 +3390,13 @@ case 15241:
 			case 11730:
 			if(c.specAmount >= 10) {
 				c.specAmount -= 10;
+				c.getItems().addSpecialBar(weapon);
+				return true;
+			}
+			return false;
+			case 19780:
+			if(c.specAmount >= 6.5) {
+				c.specAmount -= 6.5;
 				c.getItems().addSpecialBar(weapon);
 				return true;
 			}

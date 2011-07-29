@@ -72,6 +72,7 @@ public int summonId;
 	public int UsedTimer;
 	public int UsedTimer2;
 	public boolean Karamel;
+	public boolean canStartSpecialAnim;
 	public boolean Dessourt;
 	public boolean Culin;
 	public int succeslvl;
@@ -97,6 +98,10 @@ public int vSpearLeft = 1000;
 	public boolean isCooking = false;
 	public int completedSetsMar, usedOnObjectID, usedOnobjectX, usedOnobjectY, CWPlayerIndex, TrownSpellTimer;
     public int playerHunter = 21;  	
+		public int WillKeepAmt1, WillKeepAmt2, WillKeepAmt3, WillKeepAmt4,
+			WillKeepItem1, WillKeepItem2, WillKeepItem3, WillKeepItem4,
+			WillKeepItem1Slot, WillKeepItem2Slot, WillKeepItem3Slot,
+			WillKeepItem4Slot, EquipStatus;
 	/**
 	 * A list of players in this region.
 	 */

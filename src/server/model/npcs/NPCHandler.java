@@ -442,6 +442,14 @@ newNPC.npcslot = slot;
 			if (Server.playerHandler.players[j] != null) {
 				if (goodDistance(Server.playerHandler.players[j].absX, Server.playerHandler.players[j].absY, npcs[i].absX, npcs[i].absY, 2 + distanceRequired(i) + followDistance(i)) || isFightCaveNpc(i) || isRFDNpc(i)) {
 					if ((Server.playerHandler.players[j].underAttackBy <= 0 && Server.playerHandler.players[j].underAttackBy2 <= 0) || Server.playerHandler.players[j].inMulti())
+						 if (npcs[i].npcType == 6260 || npcs[i].npcType == 6261 || npcs[i].npcType == 6263 || npcs[i].npcType == 6265 && Server.playerHandler.players[j].inBandos() == false)
+							continue;
+						 if (npcs[i].npcType == 6222 || npcs[i].npcType == 6223 || npcs[i].npcType == 6225|| npcs[i].npcType == 6227 && Server.playerHandler.players[j].inArma() == false)
+							continue;
+						 if (npcs[i].npcType == 6247 || npcs[i].npcType == 6248 || npcs[i].npcType == 6250 || npcs[i].npcType == 6252 && Server.playerHandler.players[j].inSara() == false)
+							continue;
+						 if (npcs[i].npcType == 6203 || npcs[i].npcType == 6204 || npcs[i].npcType == 6206 || npcs[i].npcType == 6208 && Server.playerHandler.players[j].inZammy() == false)
+							continue;
 						if (Server.playerHandler.players[j].heightLevel == npcs[i].heightLevel)
 							players.add(j);
 				}
@@ -1886,6 +1894,16 @@ Server.npcHandler.npcs[npcs[i].attacknpc].attacknpc = i;
 			return 2;
 		}
 	}
+	
+	public int getSummSpecialAnim(int id) {
+		switch(Server.npcHandler.npcs[id].npcType) {
+		case 6795:
+			return 8229;
+
+			default:
+			return -1;
+		}
+	}
 		
 	/**
 	* Npc respawn time
@@ -2016,6 +2034,7 @@ Server.npcHandler.npcs[npcs[i].attacknpc].attacknpc = i;
 	
 
 	public void process() {
+
 		for (int i = 0; i < maxNPCs; i++) {
 			if (npcs[i] == null) continue;
 			npcs[i].clearUpdateFlags();
@@ -2065,6 +2084,10 @@ npcs[i].underAttackBy2 = -1;
 npcs[i].updateRequired = true;
 npcs[i].dirUpdateRequired = true;
 npcs[i].getNextWalkingDirection();
+				}
+						if (c != null && c.canStartSpecialAnim == true) {
+					startAnimation(getSummSpecialAnim(i), i);
+					c.canStartSpecialAnim = false;
 				}
 
 

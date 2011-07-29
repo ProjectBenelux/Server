@@ -946,6 +946,14 @@ public class ItemAssistant {
 			case 11663:
 			case 11664:
 			case 11665:
+			case 19785:
+			case 19786:
+			case 19787:
+			case 19788:
+			case 19789:
+			case 19790:
+			case 19803:
+			case 19804:
 			c.attackLevelReq = 42;
 			c.rangeLevelReq = 42;
 			c.strengthLevelReq = 42;
@@ -1024,6 +1032,13 @@ public class ItemAssistant {
 			c.rangeLevelReq = 78;
 			break;
 
+			case 18349: // Chaotic
+			case 18351: // Chaotic
+			case 18353: // Chaotic
+			case 16425:
+			c.attackLevelReq = 82;
+			c.strengthLevelReq = 80;
+			break;
 			case 861:
 			c.rangeLevelReq = 50;
 			break;
@@ -1125,17 +1140,6 @@ public class ItemAssistant {
 			c.rangeLevelReq = 61;
 			return;
 
-			case 18349: //c rapier
-			c.attackLevelReq = 80;
-			return;
-
-			case 18351: //cls
-			c.attackLevelReq = 80;
-			return;
-
-			case 18353: //c maul
-			c.attackLevelReq = 80;
-			return;
 
 			case 18355: //c staff
 			c.attackLevelReq = 80;
@@ -1271,7 +1275,7 @@ public class ItemAssistant {
 			case 13905:
 			case 5698:
 			case 1305: // dragon long
-			case 19784: //Korasi's Longsword
+			case 19780: //Korasi's Longsword
 			case 11694:
 			case 11698:
 			case 11700:

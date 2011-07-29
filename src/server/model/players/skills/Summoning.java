@@ -4,6 +4,7 @@ import server.model.players.*;
 import server.Config;
 import server.Server;
 import server.util.Misc;
+import server.event.*;
 
 /**
 * @Author Sanity
@@ -89,6 +90,68 @@ c.getPA().sendFrame87(286, 0);
 				//c.ResetKeepItems();
 				//c.getPA().showInterface(17100);
 }
+public void handleScrollUpdates() {
+		/**
+		 * Handling scroll deleting, animations, gfx and the amount of scrolls string
+		 **/
+		c.getItems().deleteItem(scrollID, 1);
+		c.gfx0(1316);
+		c.startAnimation(7660);
+		CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
+				public void execute(CycleEventContainer b) {
+					if (c != null)
+						c.gfx0(1306);
+					b.stop();
+				}
+				public void stop(){
+
+				}
+		}, 2);
+		//replace 7026 with the childId for the text displaying your scroll amount
+		c.getPA().sendFrame126(""+c.getItems().getItemCount(scrollID), 7026);
+	}
+	
+	public int scrollID;
+
+	public void handleSummScroll(int npcID) {
+		if (c == null)
+			return;
+		switch(npcID) {
+		/**
+		 *  Switch used for storing all the scroll Ids asociated with the npc 
+		 **/
+			case 6795: // terrorbird
+			case 6794: 
+				scrollID = 12441; // tireless run scroll
+			break;
+			
+			// add more
+		}
+		if (c.getItems().playerHasItem(scrollID)) {
+			handleScrollUpdates();
+			startScrollUse(npcID);
+		} else {
+			c.sendMessage("You need scrolls to do that!");
+			return;
+		}
+	}
+
+
+	public void startScrollUse(int npcID) {
+		/**
+		 * This is handling the affect of the scroll on the player, so add the affects here
+		 **/
+		switch(npcID) {
+			
+			case 6795: //terrorbird
+				//c.getPA().runEnergy += (c.playerLevel[c.agility] / 10);
+				c.sendMessage("The terrorbird did something.");
+				c.canStartSpecialAnim = true;
+			break;
+			
+			//add more
+		}
+	}
 public void SummonNewNPC(int npcID) {
 int maxhit = 0;
 int attack = 0;

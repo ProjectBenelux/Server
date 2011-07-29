@@ -94,7 +94,10 @@ break;
 			c.SaveGame();
 			c.sendMessage("<col=1532693>Your Account Is Saved</col>");
 			break;
-			
+			case 66117:
+			if (c.lastsummon > 0)
+					c.Summoning.handleSummScroll(c.lastsummon);
+			break;
 			case 113237:
 			
 			if(!c.isSkulled) {	
@@ -483,13 +486,72 @@ c.getPA().showInterface(6960);
 				}
 				break;
 			case 108006:
-				if (c.xpLock == false) {
-					c.xpLock = true;
-					c.sendMessage("Your XP are now LOCKED!");
-				} else {
-					c.xpLock = false;
-					c.sendMessage("Your XP are now UNLOCKED!");
-				} 
+				//if (c.xpLock == false) {
+					//c.xpLock = true;
+					//c.sendMessage("Your XP are now LOCKED!");
+				//} else {
+				//	c.xpLock = false;
+				//	c.sendMessage("Your XP are now UNLOCKED!");
+				//} 
+						c.StartBestItemScan();
+		c.EquipStatus = 0;
+		for (int k = 0; k < 4; k++)
+			c.getPA().sendFrame34a(10494, -1, k, 1);
+		for (int k = 0; k < 39; k++)
+			c.getPA().sendFrame34a(10600, -1, k, 1);
+		if(c.WillKeepItem1 > 0)
+			c.getPA().sendFrame34a(10494, c.WillKeepItem1, 0, c.WillKeepAmt1);
+		if(c.WillKeepItem2 > 0)
+			c.getPA().sendFrame34a(10494, c.WillKeepItem2, 1, c.WillKeepAmt2);
+		if(c.WillKeepItem3 > 0)
+			c.getPA().sendFrame34a(10494, c.WillKeepItem3, 2, c.WillKeepAmt3);
+		if(c.WillKeepItem4 > 0)
+			c.getPA().sendFrame34a(10494, c.WillKeepItem4, 3, 1);
+		for(int ITEM = 0; ITEM < 28; ITEM++){
+			if(c.playerItems[ITEM]-1 > 0 && !(c.playerItems[ITEM]-1 == c.WillKeepItem1 && ITEM == c.WillKeepItem1Slot)
+ 			&& !(c.playerItems[ITEM]-1 == c.WillKeepItem2 && ITEM == c.WillKeepItem2Slot)
+ 			&& !(c.playerItems[ITEM]-1 == c.WillKeepItem3 && ITEM == c.WillKeepItem3Slot)
+ 			&& !(c.playerItems[ITEM]-1 == c.WillKeepItem4 && ITEM == c.WillKeepItem4Slot)){
+				c.getPA().sendFrame34a(10600, c.playerItems[ITEM]-1, c.EquipStatus, c.playerItemsN[ITEM]);
+				c.EquipStatus += 1;
+			} else if(c.playerItems[ITEM]-1 > 0 && (c.playerItems[ITEM]-1 == c.WillKeepItem1 && ITEM == c.WillKeepItem1Slot) && c.playerItemsN[ITEM] > c.WillKeepAmt1){
+				c.getPA().sendFrame34a(10600, c.playerItems[ITEM]-1, c.EquipStatus, c.playerItemsN[ITEM]-c.WillKeepAmt1);
+				c.EquipStatus += 1;
+			} else if(c.playerItems[ITEM]-1 > 0 && (c.playerItems[ITEM]-1 == c.WillKeepItem2 && ITEM == c.WillKeepItem2Slot) && c.playerItemsN[ITEM] > c.WillKeepAmt2){
+				c.getPA().sendFrame34a(10600, c.playerItems[ITEM]-1, c.EquipStatus, c.playerItemsN[ITEM]-c.WillKeepAmt2);
+				c.EquipStatus += 1;
+			} else if(c.playerItems[ITEM]-1 > 0 && (c.playerItems[ITEM]-1 == c.WillKeepItem3 && ITEM == c.WillKeepItem3Slot) && c.playerItemsN[ITEM] > c.WillKeepAmt3){
+				c.getPA().sendFrame34a(10600, c.playerItems[ITEM]-1, c.EquipStatus, c.playerItemsN[ITEM]-c.WillKeepAmt3);
+				c.EquipStatus += 1;
+			} else if(c.playerItems[ITEM]-1 > 0 && (c.playerItems[ITEM]-1 == c.WillKeepItem4 && ITEM == c.WillKeepItem4Slot) && c.playerItemsN[ITEM] > 1){
+				c.getPA().sendFrame34a(10600, c.playerItems[ITEM]-1, c.EquipStatus, c.playerItemsN[ITEM]-1);
+				c.EquipStatus += 1;
+			}
+		}
+		for(int EQUIP = 0; EQUIP < 14; EQUIP++){
+			if(c.playerEquipment[EQUIP] > 0 && !(c.playerEquipment[EQUIP] == c.WillKeepItem1 && EQUIP+28 == c.WillKeepItem1Slot)
+			&& !(c.playerEquipment[EQUIP] == c.WillKeepItem2 && EQUIP+28 == c.WillKeepItem2Slot)
+			&& !(c.playerEquipment[EQUIP] == c.WillKeepItem3 && EQUIP+28 == c.WillKeepItem3Slot)
+			&& !(c.playerEquipment[EQUIP] == c.WillKeepItem4 && EQUIP+28 == c.WillKeepItem4Slot)){
+				c.getPA().sendFrame34a(10600, c.playerEquipment[EQUIP], c.EquipStatus, c.playerEquipmentN[EQUIP]);
+				c.EquipStatus += 1;
+			} else if(c.playerEquipment[EQUIP] > 0 && (c.playerEquipment[EQUIP] == c.WillKeepItem1 && EQUIP+28 == c.WillKeepItem1Slot) && c.playerEquipmentN[EQUIP] > 1 && c.playerEquipmentN[EQUIP]-c.WillKeepAmt1 > 0){
+				c.getPA().sendFrame34a(10600, c.playerEquipment[EQUIP], c.EquipStatus, c.playerEquipmentN[EQUIP]-c.WillKeepAmt1);
+				c.EquipStatus += 1;
+			} else if(c.playerEquipment[EQUIP] > 0 && (c.playerEquipment[EQUIP] == c.WillKeepItem2 && EQUIP+28 == c.WillKeepItem2Slot) && c.playerEquipmentN[EQUIP] > 1 && c.playerEquipmentN[EQUIP]-c.WillKeepAmt2 > 0){
+				c.getPA().sendFrame34a(10600, c.playerEquipment[EQUIP], c.EquipStatus, c.playerEquipmentN[EQUIP]-c.WillKeepAmt2);
+				c.EquipStatus += 1;
+			} else if(c.playerEquipment[EQUIP] > 0 && (c.playerEquipment[EQUIP] == c.WillKeepItem3 && EQUIP+28 == c.WillKeepItem3Slot) && c.playerEquipmentN[EQUIP] > 1 && c.playerEquipmentN[EQUIP]-c.WillKeepAmt3 > 0){
+				c.getPA().sendFrame34a(10600, c.playerEquipment[EQUIP], c.EquipStatus, c.playerEquipmentN[EQUIP]-c.WillKeepAmt3);
+				c.EquipStatus += 1;
+			} else if(c.playerEquipment[EQUIP] > 0 && (c.playerEquipment[EQUIP] == c.WillKeepItem4 && EQUIP+28 == c.WillKeepItem4Slot) && c.playerEquipmentN[EQUIP] > 1 && c.playerEquipmentN[EQUIP]-1 > 0){
+				c.getPA().sendFrame34a(10600, c.playerEquipment[EQUIP], c.EquipStatus, c.playerEquipmentN[EQUIP]-1);
+				c.EquipStatus += 1;
+			}
+		}
+
+	          	c.ResetKeepItems();
+				c.getPA().showInterface(17100);
 			break;
 			case 107230:
 			if(c.isDonator == 0 || c.inWild()) {

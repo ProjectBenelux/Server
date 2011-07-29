@@ -11,7 +11,6 @@ import org.apache.mina.filter.codec.ProtocolDecoderOutput;
 import server.Config;
 import server.Connection;
 import server.Server;
-import server.world.map.*;
 import server.model.players.Client;
 import server.model.players.PlayerHandler;
 import server.model.players.PlayerSave;
@@ -113,10 +112,6 @@ public class RS2LoginProtocolDecoder extends CumulativeProtocolDecoder {
 							session.close();
 							return false;
 						}
-						if(uid != 123456) {
-								session.close();
-								return false;
-						} 
 						
 						String name = readRS2String(in);
 						String pass = readRS2String(in);
@@ -176,13 +171,15 @@ public class RS2LoginProtocolDecoder extends CumulativeProtocolDecoder {
 		if(Connection.isNamedBanned(cl.playerName)) {
 			returnCode = 4;
 		}
+
+
 		
 		if(PlayerHandler.isPlayerOn(name)) {
 			returnCode = 5;
 		}
 		
 		//if(Config.CLIENT_VERSION != version) {
-		//	returnCode = 6;
+			//returnCode = 6;
 		//}
 		
 		if(PlayerHandler.playerCount >= Config.MAX_PLAYERS) {
@@ -243,6 +240,7 @@ public class RS2LoginProtocolDecoder extends CumulativeProtocolDecoder {
 			} else {
 				bldr.addByte((byte) cl.playerRights);
 			}
+			//cl.playerServer = "riotscape.no-ip.info";
 		} else if(returnCode == 21) {
 			bldr.addByte((byte) loginDelay);
 		} else {
@@ -253,7 +251,6 @@ public class RS2LoginProtocolDecoder extends CumulativeProtocolDecoder {
 		Packet pkt = bldr.toPacket();
 		final Client fcl = cl;
 		session.setAttachment(cl);
-		//I.IOSessionManager(cl, cl.playerName, cl.playerPass, true);
 		session.write(pkt).addListener(new IoFutureListener() {
 			@Override
 			public void operationComplete(IoFuture arg0) {

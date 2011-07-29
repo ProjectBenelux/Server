@@ -632,6 +632,304 @@ mChapsLeft = 1000;
 			}
 		}, 25);
 	}
+		public void StartBestItemScan() {
+		if (isSkulled && !prayerActive[10]) {
+			ItemKeptInfo(0);
+			return;
+		}
+		FindItemKeptInfo();
+		ResetKeepItems();
+		BestItem1();
+	}
+
+	public void BestItem1() {
+		int BestValue = 0;
+		int NextValue = 0;
+		int ItemsContained = 0;
+		WillKeepItem1 = 0;
+		WillKeepItem1Slot = 0;
+		for (int ITEM = 0; ITEM < 28; ITEM++) {
+			if (playerItems[ITEM] > 0) {
+				ItemsContained += 1;
+				NextValue = (int) Math.floor(getShops().getItemShopValue(
+						playerItems[ITEM] - 1));
+				if (NextValue > BestValue) {
+					BestValue = NextValue;
+					WillKeepItem1 = playerItems[ITEM] - 1;
+					WillKeepItem1Slot = ITEM;
+					if (playerItemsN[ITEM] > 2 && !prayerActive[10]) {
+						WillKeepAmt1 = 3;
+					} else if (playerItemsN[ITEM] > 3 && prayerActive[10]) {
+						WillKeepAmt1 = 4;
+					} else {
+						WillKeepAmt1 = playerItemsN[ITEM];
+					}
+				}
+			}
+		}
+		for (int EQUIP = 0; EQUIP < 14; EQUIP++) {
+			if (playerEquipment[EQUIP] > 0) {
+				ItemsContained += 1;
+				NextValue = (int) Math.floor(getShops().getItemShopValue(
+						playerEquipment[EQUIP]));
+				if (NextValue > BestValue) {
+					BestValue = NextValue;
+					WillKeepItem1 = playerEquipment[EQUIP];
+					WillKeepItem1Slot = EQUIP + 28;
+					if (playerEquipmentN[EQUIP] > 2 && !prayerActive[10]) {
+						WillKeepAmt1 = 3;
+					} else if (playerEquipmentN[EQUIP] > 3 && prayerActive[10]) {
+						WillKeepAmt1 = 4;
+					} else {
+						WillKeepAmt1 = playerEquipmentN[EQUIP];
+					}
+				}
+			}
+		}
+		if (!isSkulled && ItemsContained > 1
+				&& (WillKeepAmt1 < 3 || (prayerActive[10] && WillKeepAmt1 < 4))) {
+			BestItem2(ItemsContained);
+		}
+	}
+
+	public void BestItem2(int ItemsContained) {
+		int BestValue = 0;
+		int NextValue = 0;
+		WillKeepItem2 = 0;
+		WillKeepItem2Slot = 0;
+		for (int ITEM = 0; ITEM < 28; ITEM++) {
+			if (playerItems[ITEM] > 0) {
+				NextValue = (int) Math.floor(getShops().getItemShopValue(
+						playerItems[ITEM] - 1));
+				if (NextValue > BestValue
+						&& !(ITEM == WillKeepItem1Slot && playerItems[ITEM] - 1 == WillKeepItem1)) {
+					BestValue = NextValue;
+					WillKeepItem2 = playerItems[ITEM] - 1;
+					WillKeepItem2Slot = ITEM;
+					if (playerItemsN[ITEM] > 2 - WillKeepAmt1
+							&& !prayerActive[10]) {
+						WillKeepAmt2 = 3 - WillKeepAmt1;
+					} else if (playerItemsN[ITEM] > 3 - WillKeepAmt1
+							&& prayerActive[10]) {
+						WillKeepAmt2 = 4 - WillKeepAmt1;
+					} else {
+						WillKeepAmt2 = playerItemsN[ITEM];
+					}
+				}
+			}
+		}
+		for (int EQUIP = 0; EQUIP < 14; EQUIP++) {
+			if (playerEquipment[EQUIP] > 0) {
+				NextValue = (int) Math.floor(getShops().getItemShopValue(
+						playerEquipment[EQUIP]));
+				if (NextValue > BestValue
+						&& !(EQUIP + 28 == WillKeepItem1Slot && playerEquipment[EQUIP] == WillKeepItem1)) {
+					BestValue = NextValue;
+					WillKeepItem2 = playerEquipment[EQUIP];
+					WillKeepItem2Slot = EQUIP + 28;
+					if (playerEquipmentN[EQUIP] > 2 - WillKeepAmt1
+							&& !prayerActive[10]) {
+						WillKeepAmt2 = 3 - WillKeepAmt1;
+					} else if (playerEquipmentN[EQUIP] > 3 - WillKeepAmt1
+							&& prayerActive[10]) {
+						WillKeepAmt2 = 4 - WillKeepAmt1;
+					} else {
+						WillKeepAmt2 = playerEquipmentN[EQUIP];
+					}
+				}
+			}
+		}
+		if (!isSkulled
+				&& ItemsContained > 2
+				&& (WillKeepAmt1 + WillKeepAmt2 < 3 || (prayerActive[10] && WillKeepAmt1
+						+ WillKeepAmt2 < 4))) {
+			BestItem3(ItemsContained);
+		}
+	}
+
+	public void BestItem3(int ItemsContained) {
+		int BestValue = 0;
+		int NextValue = 0;
+		WillKeepItem3 = 0;
+		WillKeepItem3Slot = 0;
+		for (int ITEM = 0; ITEM < 28; ITEM++) {
+			if (playerItems[ITEM] > 0) {
+				NextValue = (int) Math.floor(getShops().getItemShopValue(
+						playerItems[ITEM] - 1));
+				if (NextValue > BestValue
+						&& !(ITEM == WillKeepItem1Slot && playerItems[ITEM] - 1 == WillKeepItem1)
+						&& !(ITEM == WillKeepItem2Slot && playerItems[ITEM] - 1 == WillKeepItem2)) {
+					BestValue = NextValue;
+					WillKeepItem3 = playerItems[ITEM] - 1;
+					WillKeepItem3Slot = ITEM;
+					if (playerItemsN[ITEM] > 2 - (WillKeepAmt1 + WillKeepAmt2)
+							&& !prayerActive[10]) {
+						WillKeepAmt3 = 3 - (WillKeepAmt1 + WillKeepAmt2);
+					} else if (playerItemsN[ITEM] > 3 - (WillKeepAmt1 + WillKeepAmt2)
+							&& prayerActive[10]) {
+						WillKeepAmt3 = 4 - (WillKeepAmt1 + WillKeepAmt2);
+					} else {
+						WillKeepAmt3 = playerItemsN[ITEM];
+					}
+				}
+			}
+		}
+		for (int EQUIP = 0; EQUIP < 14; EQUIP++) {
+			if (playerEquipment[EQUIP] > 0) {
+				NextValue = (int) Math.floor(getShops().getItemShopValue(
+						playerEquipment[EQUIP]));
+				if (NextValue > BestValue
+						&& !(EQUIP + 28 == WillKeepItem1Slot && playerEquipment[EQUIP] == WillKeepItem1)
+						&& !(EQUIP + 28 == WillKeepItem2Slot && playerEquipment[EQUIP] == WillKeepItem2)) {
+					BestValue = NextValue;
+					WillKeepItem3 = playerEquipment[EQUIP];
+					WillKeepItem3Slot = EQUIP + 28;
+					if (playerEquipmentN[EQUIP] > 2 - (WillKeepAmt1 + WillKeepAmt2)
+							&& !prayerActive[10]) {
+						WillKeepAmt3 = 3 - (WillKeepAmt1 + WillKeepAmt2);
+					} else if (playerEquipmentN[EQUIP] > 3 - WillKeepAmt1
+							&& prayerActive[10]) {
+						WillKeepAmt3 = 4 - (WillKeepAmt1 + WillKeepAmt2);
+					} else {
+						WillKeepAmt3 = playerEquipmentN[EQUIP];
+					}
+				}
+			}
+		}
+		if (!isSkulled && ItemsContained > 3 && prayerActive[10]
+				&& ((WillKeepAmt1 + WillKeepAmt2 + WillKeepAmt3) < 4)) {
+			BestItem4();
+		}
+	}
+
+	public void BestItem4() {
+		int BestValue = 0;
+		int NextValue = 0;
+		WillKeepItem4 = 0;
+		WillKeepItem4Slot = 0;
+		for (int ITEM = 0; ITEM < 28; ITEM++) {
+			if (playerItems[ITEM] > 0) {
+				NextValue = (int) Math.floor(getShops().getItemShopValue(
+						playerItems[ITEM] - 1));
+				if (NextValue > BestValue
+						&& !(ITEM == WillKeepItem1Slot && playerItems[ITEM] - 1 == WillKeepItem1)
+						&& !(ITEM == WillKeepItem2Slot && playerItems[ITEM] - 1 == WillKeepItem2)
+						&& !(ITEM == WillKeepItem3Slot && playerItems[ITEM] - 1 == WillKeepItem3)) {
+					BestValue = NextValue;
+					WillKeepItem4 = playerItems[ITEM] - 1;
+					WillKeepItem4Slot = ITEM;
+				}
+			}
+		}
+		for (int EQUIP = 0; EQUIP < 14; EQUIP++) {
+			if (playerEquipment[EQUIP] > 0) {
+				NextValue = (int) Math.floor(getShops().getItemShopValue(
+						playerEquipment[EQUIP]));
+				if (NextValue > BestValue
+						&& !(EQUIP + 28 == WillKeepItem1Slot && playerEquipment[EQUIP] == WillKeepItem1)
+						&& !(EQUIP + 28 == WillKeepItem2Slot && playerEquipment[EQUIP] == WillKeepItem2)
+						&& !(EQUIP + 28 == WillKeepItem3Slot && playerEquipment[EQUIP] == WillKeepItem3)) {
+					BestValue = NextValue;
+					WillKeepItem4 = playerEquipment[EQUIP];
+					WillKeepItem4Slot = EQUIP + 28;
+				}
+			}
+		}
+	}
+
+	public void ItemKeptInfo(int Lose) {
+		for (int i = 17109; i < 17131; i++) {
+			getPA().sendFrame126("", i);
+		}
+		getPA().sendFrame126("Items you will keep on death:", 17104);
+		getPA().sendFrame126("Items you will lose on death:", 17105);
+		getPA().sendFrame126("Server", 17106);
+		getPA().sendFrame126("Max items kept on death:", 17107);
+		getPA().sendFrame126("~ " + Lose + " ~", 17108);
+		getPA().sendFrame126("The normal amount of", 17111);
+		getPA().sendFrame126("items kept is three.", 17112);
+		switch (Lose) {
+		case 0:
+		default:
+			getPA().sendFrame126("Items you will keep on death:", 17104);
+			getPA().sendFrame126("Items you will lose on death:", 17105);
+			getPA().sendFrame126("You're marked with a", 17111);
+			getPA().sendFrame126("@red@skull. @lre@This reduces the", 17112);
+			getPA().sendFrame126("items you keep from", 17113);
+			getPA().sendFrame126("three to zero!", 17114);
+			break;
+		case 1:
+			getPA().sendFrame126("Items you will keep on death:", 17104);
+			getPA().sendFrame126("Items you will lose on death:", 17105);
+			getPA().sendFrame126("You're marked with a", 17111);
+			getPA().sendFrame126("@red@Skull. @lre@This reduces the", 17112);
+			getPA().sendFrame126("items you keep from", 17113);
+			getPA().sendFrame126("three to zero!", 17114);
+			getPA().sendFrame126("However, you also have", 17115);
+			getPA().sendFrame126("@red@Protect @lre@Item prayer", 17118);
+			getPA().sendFrame126("active, which saves", 17119);
+			getPA().sendFrame126("you one extra item!", 17120);
+			break;
+		case 3:
+			getPA().sendFrame126(
+					"Items you will keep on death(if not skulled):", 17104);
+			getPA().sendFrame126(
+					"Items you will lose on death(if not skulled):", 17105);
+			getPA().sendFrame126("You have no factors", 17111);
+			getPA().sendFrame126("affecting the items", 17112);
+			getPA().sendFrame126("you keep.", 17113);
+			break;
+		case 4:
+			getPA().sendFrame126(
+					"Items you will keep on death(if not skulled):", 17104);
+			getPA().sendFrame126(
+					"Items you will lose on death(if not skulled):", 17105);
+			getPA().sendFrame126("You have the @red@Protect", 17111);
+			getPA().sendFrame126("@red@Item @lre@prayer active,", 17112);
+			getPA().sendFrame126("which saves you one", 17113);
+			getPA().sendFrame126("extra item!", 17114);
+			break;
+		case 5:
+			getPA().sendFrame126(
+					"Items you will keep on death(if not skulled):", 17104);
+			getPA().sendFrame126(
+					"Items you will lose on death(if not skulled):", 17105);
+			getPA().sendFrame126("@red@You are in a @red@Dangerous", 17111);
+			getPA().sendFrame126("@red@Zone, and will lose all", 17112);
+			getPA().sendFrame126("@red@if you die.", 17113);
+			getPA().sendFrame126("", 17114);
+			break;
+		}
+	}
+
+	public void ResetKeepItems() {
+		WillKeepItem1 = 0;
+		WillKeepItem1Slot = 0;
+		WillKeepItem2 = 0;
+		WillKeepItem2Slot = 0;
+		WillKeepItem3 = 0;
+		WillKeepItem3Slot = 0;
+		WillKeepItem4 = 0;
+		WillKeepItem4Slot = 0;
+		WillKeepAmt1 = 0;
+		WillKeepAmt2 = 0;
+		WillKeepAmt3 = 0;
+	}
+
+	public void FindItemKeptInfo() {
+		if (isSkulled && prayerActive[10])
+			ItemKeptInfo(1);
+		else if (!isSkulled && !prayerActive[10])
+			ItemKeptInfo(3);
+		else if (!isSkulled && prayerActive[10])
+			ItemKeptInfo(4);
+		else if (inPits || inFightCaves()) {
+			ItemKeptInfo(5);
+			if (isInFala() || isInArd()) {
+				ItemKeptInfo(6);
+			}
+		}
+	}
 	
 		public void clearQInterface() {
 		for(int iD = 29172; iD <= 29264;iD++){
@@ -1174,6 +1472,7 @@ setSidebarInterface(16, 17011); //summon
 	public long saveGameDelay;
 
 	public void process() {
+
 	if(inWild()) {
                         safeTimer = 10;
                 }
