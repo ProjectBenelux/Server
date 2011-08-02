@@ -118,6 +118,7 @@ public class ObjectManager {
 		//Prayer Recharge and Curse
 		c.getPA().checkObjectSpawn(409, 3097, 3500, 2, 10); // Prayer Recharge
 		c.getPA().checkObjectSpawn(411, 3095, 3500, 2, 10); //Curse Prayers
+		c.getPA().checkObjectSpawn(-1, 3096, 3501, -1, 10); //Removed the tree there
 		//Spellbook Switches
 		c.getPA().checkObjectSpawn(6552, 3092, 3487, 2, 10); //ancient prayers
 		c.getPA().checkObjectSpawn(410, 3097, 3486, 2, 10); //Lunar
