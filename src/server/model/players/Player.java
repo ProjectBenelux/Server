@@ -186,6 +186,7 @@ public int vSpearLeft = 1000;
 	altarPrayed = 0,
 	playerKilled,
 	pkPoints,
+	slayerPoints,
 	wcLevelReq,
 	totalPlayerDamageDealt,
 	killedBy,

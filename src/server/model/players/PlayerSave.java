@@ -168,7 +168,9 @@ public class PlayerSave
 					} else if (token.equals("isDonator")) {
 						p.isDonator = Integer.parseInt(token2);
 					} else if (token.equals("donatorChest")) {
-						p.donatorChest = Integer.parseInt(token2);						
+						p.donatorChest = Integer.parseInt(token2);	
+					} else if (token.equals("slayerPoints")) {
+						p.slayerPoints = Integer.parseInt(token2);						
 					} else if (token.equals("slayerTask")) {
 						p.slayerTask = Integer.parseInt(token2);					
 					} else if (token.equals("taskAmount")) {
@@ -452,6 +454,9 @@ public class PlayerSave
 			characterfile.write("donatorChest = ", 0, 15);
 			characterfile.write(Integer.toString(p.donatorChest), 0, Integer.toString(p.donatorChest).length());
 			characterfile.newLine();
+			characterfile.newLine();
+			characterfile.write("slayerPoints = ", 0, 15);
+			characterfile.write(Integer.toString(p.slayerPoints), 0, Integer.toString(p.slayerPoints).length());
 			characterfile.write("slayerTask = ", 0, 13);
 			characterfile.write(Integer.toString(p.slayerTask), 0, Integer.toString(p.slayerTask).length());
 			characterfile.newLine();

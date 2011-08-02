@@ -2838,14 +2838,14 @@ try {
 				if (c.taskAmount <= 0 ) {
 				if (npcs[i].npcType == 1645 || npcs[i].npcType == 1591 || npcs[i].npcType == 1618 || npcs[i].npcType == 1643 || npcs[i].npcType == 941 || npcs[i].npcType == 119 || npcs[i].npcType == 82 || npcs[i].npcType == 52 || npcs[i].npcType == 1612 || npcs[i].npcType == 117 || npcs[i].npcType == 1265 || npcs[i].npcType == 112 || npcs[i].npcType == 125) {
 					c.getPA().addSkillXP((npcs[i].MaxHP * 10) * Config.SLAYER_EXPERIENCE, 18);
-					c.pkPoints += 10;
+					c.slayerPoints += 10;
 					c.slayerTask = -1;
 					c.sendMessage("You completed your MEDIUM slayer task. Please see a slayer master to get a new one.");
 					c.sendMessage("You receive 10 EPP.");
 				}
 				if (npcs[i].npcType == 1624 || npcs[i].npcType == 1610 || npcs[i].npcType == 1592 || npcs[i].npcType == 1613 || npcs[i].npcType == 1615 || npcs[i].npcType == 55 || npcs[i].npcType == 84 || npcs[i].npcType == 49 || npcs[i].npcType == 1618 || npcs[i].npcType == 941 || npcs[i].npcType == 82 || npcs[i].npcType == 2783 || npcs[i].npcType == 1341) {
 					c.getPA().addSkillXP((npcs[i].MaxHP * 12) * Config.SLAYER_EXPERIENCE, 18);
-					c.pkPoints += 15;
+					c.slayerPoints += 20;
 					c.slayerTask = -1;
 					c.sendMessage("You completed your HARD slayer task. Please see a slayer master to get a new one.");
 					c.sendMessage("You receive 15 EPP.");
