@@ -141,11 +141,11 @@ public class ShopAssistant {
 			return;
 		}
 		if (c.myShopId == 73) {
-			c.sendMessage(c.getItems().getItemName(removeId)+": currently costs " + getSpecialItemValue(removeId) + " EPP.");
+			c.sendMessage(c.getItems().getItemName(removeId)+": currently costs " + getSpecialItemValue(removeId) + " Vote Points");
 			return;
 		}
 		if (c.myShopId == 74) {
-			c.sendMessage(c.getItems().getItemName(removeId)+": currently costs " + getSpecialItemValue(removeId) + " EPP.");
+			c.sendMessage(c.getItems().getItemName(removeId)+": currently costs " + getSpecialItemValue(removeId) + " PK Points");
 			return;
 		}
 		if (c.myShopId == 15) {
