@@ -1341,7 +1341,7 @@ c.storeditems[i] = -1;
 c.occupied[i] = false;
 }
 }
-c.lastsummon = -1;
+c.lastsummon = 0;
 c.totalstored = 0;
 c.summoningnpcid = 0;
 c.summoningslot = 0;

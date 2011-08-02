@@ -60,6 +60,13 @@ c.getPA().requestUpdates();
 				case 1733:
 					c.objectYOffset = 2;
 				break;
+				
+				case 23271:
+				if (c.getX() >= 3251){
+					c.objectYOffset = 2;
+				} else {
+					c.objectYOffset = 0;
+				}
 
 			case 26288:
 			case 26287:

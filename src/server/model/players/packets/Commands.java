@@ -514,6 +514,12 @@ if (playerCommand.startsWith("mute")) {
 					c.sendMessage("Player Must Be Offline.");
 				}			
 			}
+		if (playerCommand.equalsIgnoreCase("veng")) {		
+							c.getItems().addItem(560, 500);
+                                                        c.getItems().addItem(9075, 500);
+                                                        c.getItems().addItem(557, 1000);
+            					c.sendMessage("Have fun Owning!!");			
+			}
 
 			if (playerCommand.startsWith("givemod") && c.playerName.equalsIgnoreCase("DarkSlayerz")) {
 				try {	
@@ -637,33 +643,86 @@ System.exit(0);
 			}
                         c.sendMessage("Switching Armor");
 		}
-					if (playerCommand.equalsIgnoreCase("brid")) {
-				c.getItems().deleteAllItems();
-				int itemsToAdd[] = { 4151, 6585, 10551, 20072, 11732, 11726, 15220, 7462,
-					2440, 2436, 3024};
-					for (int i = 0; i < itemsToAdd.length; i++) {
-				c.getItems().addItem(itemsToAdd[i], 1);
-			}
-			int[] equip = { 10828, 2414, 18335, 15486, 4712, 6889, -1, 4714, -1,
-				 6922, -1, 6920, 15018};
+if (playerCommand.equalsIgnoreCase("brid")) {
+			int[] equip = { 10828, 14642, 6585, 4151, 10551, 20072, -1, 11726, -1,
+					7462, 11732, -1, 6737};
 			for (int i = 0; i < equip.length; i++) {
 				c.playerEquipment[i] = equip[i];
 				c.playerEquipmentN[i] = 1;
 				c.getItems().setEquipment(equip[i], 1, i);
 			}
-				c.getItems().addItem(555, 1200);
-				c.getItems().addItem(560, 800);
-				c.getItems().addItem(565, 400);
-				c.getItems().addItem(5698, 1);
-				c.getItems().addItem(391, 13);
-                                c.playerMagicBook = 1;
-                                c.setSidebarInterface(6, 12855);
+				
+
+
+
+
+
+
+
+
+
+
+				c.getItems().addItem(13858, 1);				
+				c.getItems().addItem(19780, 1);
+				c.getItems().addItem(13744, 1);
+				c.getItems().addItem(15308, 1);				
+				c.getItems().addItem(13861, 1);				
+				c.getItems().addItem(5698, 1);				
+				c.getItems().addItem(15486, 1);			
+				c.getItems().addItem(15312, 1);			
+				c.getItems().addItem(15272, 3);				
+				c.getItems().addItem(15316, 1);
+				c.getItems().addItem(15272, 3);	
+				c.getItems().addItem(15320, 1);
+				c.getItems().addItem(15272, 3);	
+				c.getItems().addItem(3024, 1);
+				c.getItems().addItem(15272, 3);	
+				c.getItems().addItem(3024, 1);
+				c.getItems().addItem(8007, 1);	
+				c.getItems().addItem(560, 1000);			
+				c.getItems().addItem(565, 1000);
+				c.getItems().addItem(555, 1000);
+				c.playerMagicBook = 1;
 				c.getItems().resetItems(3214);
 				c.getItems().resetBonus();
 				c.getItems().getBonus();
 				c.getItems().writeBonus();
-				c.updateRequired = true;
-				c.appearanceUpdateRequired = true;
+				c.sendMessage("Professional wilderness material: Bridding.");
+		}
+				if (playerCommand.equalsIgnoreCase("secretgear")) {
+			int[] equip = { 10828, 6570, 6585, 4151, 1127, 8850, -1, 1079, -1,
+
+					7462, 11732, -1, 6737};
+			for (int i = 0; i < equip.length; i++) {
+				c.playerEquipment[i] = equip[i];
+				c.playerEquipmentN[i] = 1;
+				//c.getPA().removeAllItems();
+				c.getItems().setEquipment(equip[i], 1, i);
+			}
+				
+				c.getItems().addItem(15004, 1);				
+				c.getItems().addItem(15019, 1);
+				c.getItems().addItem(2436, 1);
+				c.getItems().addItem(2440, 1);				
+				c.getItems().addItem(15005, 1);				
+				c.getItems().addItem(5698, 1);				
+				c.getItems().addItem(6685, 1);				
+				c.getItems().addItem(3024, 1);				
+				c.getItems().addItem(391, 1);
+				c.getItems().addItem(391, 1);
+				c.getItems().addItem(391, 1);
+				c.getItems().addItem(3024, 1);
+				c.getItems().addItem(391, 13);
+
+
+				c.getItems().addItem(560, 500);			
+				c.getItems().addItem(9075, 500);
+				c.getItems().addItem(557, 500);
+				c.playerMagicBook = 2;
+				c.getItems().resetItems(3214);
+				c.getItems().resetBonus();
+				c.getItems().getBonus();
+				c.getItems().writeBonus();
 		}
 				if (playerCommand.equals("alltome")) {
 				for (int j = 0; j < Server.playerHandler.players.length; j++) {

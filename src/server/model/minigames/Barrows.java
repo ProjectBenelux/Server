@@ -5,6 +5,8 @@ import server.util.Misc;
 
 public class Barrows {
 
+public static boolean wrongPuzzle = false;
+
 	public static final int[][] COFFIN_AND_BROTHERS = {
 	{6823, 2030},
 	{6772, 2029},

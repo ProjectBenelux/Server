@@ -426,7 +426,7 @@ newNPC.npcslot = slot;
 			if (Server.playerHandler.players[j] != null) {
 				if (j == npcs[i].spawnedBy)
 					return j;
-				if (goodDistance(Server.playerHandler.players[j].absX, Server.playerHandler.players[j].absY, npcs[i].absX, npcs[i].absY, 2 + distanceRequired(i) + followDistance(i)) || isFightCaveNpc(i) || isRFDNpc(i)) {
+				if (goodDistance(Server.playerHandler.players[j].absX, Server.playerHandler.players[j].absY, npcs[i].absX, npcs[i].absY, 2 + distanceRequired(i) + followDistance(i))) {
 					if ((Server.playerHandler.players[j].underAttackBy <= 0 && Server.playerHandler.players[j].underAttackBy2 <= 0) || Server.playerHandler.players[j].inMulti())
 						if (Server.playerHandler.players[j].heightLevel == npcs[i].heightLevel)
 							return j;
@@ -440,7 +440,7 @@ newNPC.npcslot = slot;
 		ArrayList<Integer> players = new ArrayList<Integer>();
 		for (int j = 0; j < Server.playerHandler.players.length; j++) {
 			if (Server.playerHandler.players[j] != null) {
-				if (goodDistance(Server.playerHandler.players[j].absX, Server.playerHandler.players[j].absY, npcs[i].absX, npcs[i].absY, 2 + distanceRequired(i) + followDistance(i)) || isFightCaveNpc(i) || isRFDNpc(i)) {
+				if (goodDistance(Server.playerHandler.players[j].absX, Server.playerHandler.players[j].absY, npcs[i].absX, npcs[i].absY, 2 + distanceRequired(i) + followDistance(i))) {
 					if ((Server.playerHandler.players[j].underAttackBy <= 0 && Server.playerHandler.players[j].underAttackBy2 <= 0) || Server.playerHandler.players[j].inMulti())
 						 if (npcs[i].npcType == 6260 || npcs[i].npcType == 6261 || npcs[i].npcType == 6263 || npcs[i].npcType == 6265 && Server.playerHandler.players[j].inBandos() == false)
 							continue;
@@ -476,6 +476,7 @@ newNPC.npcslot = slot;
 	
 	public boolean isAggressive(int i) {
 		switch (npcs[i].npcType) {
+
 			case 6260:
 			case 6261:
 			case 6263:
@@ -494,68 +495,26 @@ newNPC.npcslot = slot;
 			case 1157:
 			case 1156:
 			case 795:
-
 			case 8133:
 			case 3101:
 			case 3102:
 			case 5666:
 			case 3103:
-			
 			case 2892:
 			case 2894:
 			case 2881:
 			case 50:
 			case 2882:
 			case 2883:
-
 			case 6203:
 			case 6206:
 			case 6208:
 			case 6204:
-			return true;		
-		}
-		if (npcs[i].inWild() && npcs[i].MaxHP > 0 && npcs[i].npcType != 941)
-			return false;
-		if (isFightCaveNpc(i))
-			return true;
-		if (isRFDNpc(i))
-			return true;
-		return false;
-	}
-	
-	public boolean isFightCaveNpc(int i) {
-		switch (npcs[i].npcType) {
-			case 2627:
-			case 2630:
-			case 2631:
-			case 2741:
-			case 2743: 
-			case 2745:
-			return true;		
+		return true;	
 		}
 		return false;
-	}
+	}	
 
-	public boolean isRFDNpc(int i) {
-		switch (npcs[i].npcType) {
-			case 3493:
-			case 3494:
-			case 3495:
-			case 3496:
-			case 3491:
-			return true;		
-		}
-		return false;
-	}
-
-	public boolean isRFDNpc2(int i) {
-		switch (npcs[i].npcType) {
-			case 3495:
-			return true;		
-		}
-		return false;
-	}
-	
 	/**
 	* Summon npc, barrows, etc
 	**/
@@ -2319,8 +2278,8 @@ npcs[i].actionTimer = 7;
 						npcs[i].freezeTimer = 0;
 						npcs[i].applyDead = true;
 						killedBarrow(i);
-						if (isFightCaveNpc(i))
-							killedTzhaar(i);
+						//if (isFightCaveNpc(i))
+							//killedTzhaar(i);
 if(npcs[i].summon == true)
 npcs[i].summon = false;
 						npcs[i].actionTimer = 4; // delete time
@@ -4026,10 +3985,10 @@ case 1158:
 					if (c.playerLevel[3] - damage < 0) { 
 						damage = c.playerLevel[3];
 					}
-					if (damage == 0 && !isRFDNpc2(i)) { 
+					if (damage == 0) { 
 						c.gfx100(85);
 					}
-					if(npcs[i].endGfx > 0 && (!magicFailed || isFightCaveNpc(i))) {
+					if(npcs[i].endGfx > 0 && (!magicFailed )) {
 					c.gfx100(npcs[i].endGfx);
 					} else {
 						//c.gfx100(85);

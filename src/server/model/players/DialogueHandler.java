@@ -1,5 +1,8 @@
 package server.model.players;
 
+import server.event.*;
+import server.Server;
+
 public class DialogueHandler {
 
 	private Client c;
@@ -83,6 +86,10 @@ break;
 			c.dialogueAction = 101;
 			break;
 
+		case 117:
+			c.getPA().startTeleport(2595, 3087, c.playerId * 4, "modern");
+			Server.npcHandler.spawnNpc(c, 1119, 2591, 3086, c.heightLevel, 0, 150, 35, 500, 300, true, true);
+			break;
 		case 21:
 			sendNpcChat4("The way we play this game is simple. The way you win is", 
 					"You need to get a higher number than me and you win the", 

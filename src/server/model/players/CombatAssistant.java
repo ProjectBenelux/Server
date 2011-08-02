@@ -45,6 +45,10 @@ public class CombatAssistant{
 	  if (c.playerEquipment[c.playerWeapon] == 15241) {
           c.gfx0(2138);
           }
+		  	if(c.playerEquipment[c.playerWeapon] == 15241 && 15243 != c.playerEquipment[c.playerArrows]){
+                c.sendMessage("You can't use Hand Cannon without the shots! (You dumb?)");
+                return;
+			}
 		if (Server.npcHandler.npcs[i] != null) {
 			if (Server.npcHandler.npcs[i].isDead || Server.npcHandler.npcs[i].MaxHP <= 0) {
 				c.usingMagic = false;
@@ -810,6 +814,10 @@ c.degradeSHelm();
           if (c.playerEquipment[c.playerWeapon] == 15241) {
           c.gfx0(2138);
           }
+			if(c.playerEquipment[c.playerWeapon] == 15241 && 15243 != c.playerEquipment[c.playerArrows]){
+				c.sendMessage("You can't use Hand Cannon without the shots! (You dumb?)");
+			return;
+			}
                 if(c.vestaDelay > 0) {
                    resetPlayerAttack();
                    return;
@@ -839,7 +847,7 @@ c.degradeSHelm();
 
             for (int u : c.Bolts)  {
                 for (int y : c.BOWS)  {
-                    if(y == c.playerEquipment[c.playerWeapon] && usingCross && u == c.playerEquipment[c.playerArrows]){
+                    if(y == c.playerEquipment[c.playerWeapon] && usingCross && u == c.playerEquipment[c.playerArrows] && c.playerEquipment[c.playerWeapon] != 15241 && u == c.playerEquipment[c.playerArrows]){
                         c.sendMessage("You can only use arrows with this bow.");
                         return;
                     }
@@ -1015,6 +1023,7 @@ c.degradeSHelm();
 				}
 				
 				if(!usingCross && !usingArrows && usingBow && (c.playerEquipment[c.playerWeapon] < 4212 || c.playerEquipment[c.playerWeapon] > 4223) && !c.usingMagic) {
+					
 					c.sendMessage("You have run out of arrows!");
 					c.stopMovement();
 					resetPlayerAttack();
@@ -2645,12 +2654,12 @@ public void fireProjectilePlayer() {
 					}
 					c.getPA().createPlayersProjectile2(pX, pY, offX, offY, 50, 55, getRangeProjectileGFX(), 22, 22, c.oldPlayerIndex - 1, getStartDelay(), -1);
 					c.handCannonDestory();	
-					c.specGfx = false;
-				} else if (!c.msbSpec)
+					c.specGfx = false;	
+				} else if(!c.msbSpec)
 					c.getPA().createPlayersProjectile(pX, pY, offX, offY, 50, getProjectileSpeed(), getRangeProjectileGFX(), 43, 31, - c.oldPlayerIndex - 1, getStartDelay());
 				else if (c.msbSpec) {
+					c.getPA().createPlayersProjectile2(pX, pY, offX, offY, 50, getProjectileSpeed(), getRangeProjectileGFX(), 43, 31, - c.oldPlayerIndex - 1, getStartDelay(), 10);
 					c.msbSpec = false;
-					c.getPA().createPlayersProjectile2(pX, pY, offX, offY, 50, 55, getRangeProjectileGFX(), 22, 22, c.oldNpcIndex + 1, getStartDelay(), -1);
 				}
 				if (usingDbow())
 					c.getPA().createPlayersProjectile2(pX, pY, offX, offY, 50, getProjectileSpeed(), getRangeProjectileGFX(), 60, 31, - c.oldPlayerIndex - 1, getStartDelay(), 35);
@@ -2993,19 +3002,23 @@ public void fireProjectilePlayer() {
 			Server.playerHandler.players[i].killerId = c.playerId;
 		}
 		switch(weapon) {
-					case 15241: // hand cannon special effect
-			c.usingBow = true;
-			c.rangeItemUsed = c.playerEquipment[c.playerArrows];
-			c.getItems().deleteArrow();	
-			c.lastWeaponUsed = weapon;
-			c.startAnimation(12175);
-			c.specAccuracy = 1.5;
-			c.specDamage = 1.15;
-			c.hitDelay = getHitDelay(c.getItems().getItemName(c.playerEquipment[c.playerWeapon]).toLowerCase());
-			if (c.fightMode == 2)
-				c.attackTimer-=4;
-			c.handCannonSpec();
-			break;
+case 15241: // hand cannon spec!!
+c.usingBow = true;
+c.rangeItemUsed = c.playerEquipment[c.playerArrows];
+c.getItems().deleteArrow();	
+c.lastWeaponUsed = weapon;
+c.startAnimation(12175);
+c.specAccuracy = 8.5;
+c.specDamage = 2.25;
+c.hitDelay = 5;
+c.attackTimer-= 7;
+c.hitDelay = getHitDelay(c.getItems().getItemName(c.playerEquipment[c.playerWeapon]).toLowerCase());
+if (c.fightMode == 2)
+if (c.playerIndex > 0)
+fireProjectilePlayer();
+else if (c.npcIndex > 0)
+fireProjectileNpc();
+break;
 			case 1305: // dragon long
 			c.gfx100(248);
 			c.startAnimation(1058);
@@ -3104,16 +3117,27 @@ public void fireProjectilePlayer() {
 				break;
 				
 
-case 19780:
-       c.gfx0(1247); c.startAnimation(4000); if
-      (c.playerIndex > 0) { Client opp = (Client)
-      Server.playerHandler.players[c.playerIndex]; if(opp != null)
-      opp.gfx0(1248); } else if (c.npcIndex > 0) { NPC opp =
-      Server.npcHandler.npcs[c.npcIndex]; if(opp != null) opp.gfx0(1248); }
-      c.specAccuracy = 5.00; c.specDamage = 2.00; c.ssSpec = true;
-      c.hitDelay = getHitDelay(c.getItems()
-      .getItemName(c.playerEquipment[c.playerWeapon]) .toLowerCase());
-      break;
+			// korasi
+			case 19780:
+			c.startAnimation(4000);
+			c.specDamage = 2.00;
+			c.specAccuracy = 5.0;
+			c.gfx0(1247);
+			c.hitDelay = getHitDelay(c.getItems().getItemName(c.playerEquipment[c.playerWeapon]).toLowerCase());
+			if (c.playerIndex > 0) {
+			Client o = (Client)Server.playerHandler.players[i];
+                        o.gfx0(1248);
+			c.specDamage = 2.00;
+			c.specAccuracy = 5.00;
+			c.hitDelay = getHitDelay(c.getItems().getItemName(c.playerEquipment[c.playerWeapon]).toLowerCase());
+			}
+			if(Server.npcHandler.npcs[i] != null && c.npcIndex > 0) {
+			Server.npcHandler.npcs[i].gfx0(1248);
+			c.specDamage = 2.00;
+			c.specAccuracy = 5.00;
+			c.hitDelay = getHitDelay(c.getItems().getItemName(c.playerEquipment[c.playerWeapon]).toLowerCase());
+			}
+			break;
 
 
 			case 11730:
@@ -4089,8 +4113,8 @@ if(!c.inFunPk()){
 			return 9;
 			case 13879:
 			return 8;
-	case 15241: // hand cannon
-			return 12156;
+			case 15241:
+			return 9;
 			case 15037:
 			case 11730:
 			return 4;
@@ -4473,7 +4497,7 @@ if(!c.inFunPk()){
 	public boolean usingBolts() {
 		return c.playerEquipment[c.playerArrows] >= 9130 && c.playerEquipment[c.playerArrows] <= 9145 || c.playerEquipment[c.playerArrows] >= 9230 && c.playerEquipment[c.playerArrows] <= 9245 || c.playerEquipment[c.playerArrows] == 15243;
 	}
-	public int rangeMaxHit() {
+	/*public int rangeMaxHit() {
 		int rangeLevel = c.playerLevel[4];
 		double modifier = 1.0;
 		double wtf = c.specDamage;
@@ -4512,77 +4536,38 @@ if(!c.inFunPk()){
 		if (max < 1)
 			max = 1;
 		return (int)max;
-	}
+	}*/
 	
-	public int getRangeStr(int i) {
-		if (i == 4214)
-			return 70;
-		switch (i) {
-			//bronze to rune bolts
-			case 877://bronze bolts
-			return 10;
-			case 9140://iron bolts
-			return 46;
-			case 9141://steel bolts
-			return 64;
-			case 9142://mith bolts
-			return 82;
-			case 9241://emerald bolts e
-			return 85;
-			case 9240://saphhire bolts e
-			return 83;
-			case 9143://addy bolts
-			return 100;
-			case 9243://diamond bolts e
-			return 105;
-			case 9242://ruby bolts e
-			return 103;
-			case 9144://rune bolts
-			return 115;
-			case 9244://dragon bolts e
-			return 132;
-		case 13882:
-		case 13881:
-		case 13880:
-		case 13879:
-                        return 170;
-                        case 13883:
-                        return 130;
-
-			//bronze to dragon arrows
-			case 882:
-			return 7;
-			case 884:
-			return 10;
-			case 886:
-			return 16;
-			case 888:
-			return 22;
-			case 890:
-			return 31;
-			case 892:
-			case 4740:
-			return 35;
-			case 11212:
-			return 80;
-			//knifes
-			case 864:
-			return 3;
-			case 863:
-			return 4;
-			case 865:
-			return 7;
-			case 866:
-			return 10;
-			case 867:
-			return 14;
-			case 868:
-			return 54;
+public int getRangeStr(int i) {
+		int str = 0;
+		int[][] data = {
+			{877,  10}, {9140, 46}, {9145, 36}, {9141, 64}, 
+			{9142, 82}, {9143,100}, {9144,115}, {9236, 14}, 
+			{9237, 30}, {9238, 48}, {9239, 66}, {9240, 83}, 
+			{9241, 85}, {9242,103}, {9243,105}, {9244,117}, 
+			{9245,120}, {882, 7}, {884, 10}, {886, 16}, 
+			{888, 22}, {890, 31}, {892, 49},{15243, 60}, {4740, 55}, 
+			{11212, 60}, {806, 1}, {807, 3}, {808, 4}, 
+			{809, 7}, {810,10}, {811,14}, {11230,20},
+			{864, 3},  {863, 4}, {865, 7}, {866, 10}, 
+			{867, 14}, {868, 24}, {825, 6}, {826,10}, 
+			{827,12}, {828,18}, {829,28}, {830,42},
+			{800, 5}, {801, 7}, {802,11}, {803,16}, 
+			{804,23}, {805,36}, {9976, 0}, {9977, 15},
+			{4212, 70}, {4214, 70}, {4215, 70}, {4216, 70},
+			{4217, 70}, {4218, 70}, {4219, 70}, {4220, 70},
+			{4221, 70}, {4222, 70}, {4223, 70}, {6522, 49},
+			{10034, 15},
+		};
+		for(int l = 0; l < data.length; l++) {
+			if(i == data[l][0]) {
+				str = data[l][1];
+			}
 		}
-		return 0;
+		return str;
 	}
 	
-	/*public int rangeMaxHit() {
+	public int rangeMaxHit() {
         int rangehit = 0;
         rangehit += c.playerLevel[4] / 7.5;
         int weapon = c.lastWeaponUsed;
@@ -4668,6 +4653,9 @@ if(!c.inFunPk()){
         } else if (Arrows == 4740 && weapon == 4734) {//BoltRacks
 			rangehit = 3;
             rangehit += c.playerLevel[4] / 6;
+		} else if (Arrows == 15243) {//Hand cannon shots
+            rangehit = 4;
+            rangehit += c.playerLevel[4] / 6;
         } else if (Arrows == 11212) {//dragon arrows
             rangehit = 4;
             rangehit += c.playerLevel[4] / 5.5;
@@ -4721,6 +4709,10 @@ if(!c.inFunPk()){
 		if (c.fullVoidRange()) {
 			rangehit *= 1.10;
 		}
+		if(weapon == 15241) {
+			rangehit *= 1.35;
+		}
+		
 		if (c.fullVoidEliteRange()) {
 			rangehit *= 1.12;
 		}
@@ -4731,7 +4723,7 @@ if(!c.inFunPk()){
 		else if (c.prayerActive[19])
 			rangehit *= 1.15;
 		return rangehit;
-    }*/
+    }
 	
 	public boolean properBolts() {
 		return c.playerEquipment[c.playerArrows] >= 9140 && c.playerEquipment[c.playerArrows] <= 9144
@@ -4781,7 +4773,7 @@ if(!c.inFunPk()){
 			case 20171:
 			return 11212;
 
-			case 15241:
+			case 15241://hand cannon with Shots
 			return 15243;
 
 			case 18357:
@@ -4959,6 +4951,8 @@ if(!c.inFunPk()){
 		}
 		if (c.playerEquipment[c.playerWeapon] == 9185 || c.playerEquipment[c.playerWeapon] == 18357)
 			return 27;
+			if (c.playerEquipment[c.playerWeapon] == 15241)
+			return 2143;
 		switch(c.rangeItemUsed) {
 			case 13883:
                         		return 1839;

@@ -1,5 +1,6 @@
 package server;
 
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.text.DecimalFormat;
@@ -22,7 +23,7 @@ import server.net.ConnectionThrottleFilter;
 import server.util.ShutDownHook;
 import server.util.SimpleTimer;
 import server.util.log.Logger;
-import server.event.Event; 
+import server.event.Event;
 import server.event.EventContainer;
 import server.world.ItemHandler;
 import server.world.ObjectHandler;
@@ -45,8 +46,8 @@ import server.world.WalkingHandler;
  */
 
 public class Server {
-	
-	
+
+
 	public static boolean sleeping;
 	public static ControlPanel panel = new ControlPanel(true); // false if you want it off
 	public static int cycleRate;
@@ -58,9 +59,9 @@ public class Server {
 	private static SimpleTimer engineTimer, debugTimer;
 	private static long cycleTime, cycles, totalCycleTime, sleepTime;
 	private static DecimalFormat debugPercentFormat;
-	public static boolean shutdownServer = false;		
-	public static boolean shutdownClientHandler;			
-	public static int serverlistenerPort; 
+	public static boolean shutdownServer = false;
+	public static boolean shutdownClientHandler;
+	public static int serverlistenerPort;
 	public static ItemHandler itemHandler = new ItemHandler();
 	public static PlayerHandler playerHandler = new PlayerHandler();
 	public static NPCHandler npcHandler = new NPCHandler();
@@ -76,7 +77,7 @@ public class Server {
 	//public static WorldMap worldMap = new WorldMap();
 	public static long[] TIMES = new long[5];
 	//private static final WorkerThread engine = new WorkerThread();
-	
+
 	static {
 		if(!Config.SERVER_DEBUG) {
 			serverlistenerPort = 43594;
@@ -101,40 +102,40 @@ try {
 } catch(Exception ex) {
 	ex.printStackTrace();
 }
-		
+
 		/**
 		 * Starting Up Server
 		 */
-		 
+
 		System.setOut(new Logger(System.out));
 		System.setErr(new Logger(System.err));
 		System.out.println("Launching ErasedPkz...");
 		//MadTurnipConnection md = new MadTurnipConnection();
 	      //md.start();
-		
+
 		/**
 		 * World Map Loader
 		 */
 		//if(!Config.SERVER_DEBUG)
 			//VirtualWorld.init();
-		//WorldMap.loadWorldMap();	
+		//WorldMap.loadWorldMap();
 
 		/**
 		 * Script Loader
 		 */
 		//ScriptManager.loadScripts();
-		
+
 		/**
 		 * Accepting Connections
 		 */
 		acceptor = new SocketAcceptor();
 		connectionHandler = new ConnectionHandler();
-		
+
 		SocketAcceptorConfig sac = new SocketAcceptorConfig();
 		sac.getSessionConfig().setTcpNoDelay(false);
 		sac.setReuseAddress(true);
 		sac.setBacklog(100);
-		
+
 		throttleFilter = new ConnectionThrottleFilter(Config.CONNECTION_DELAY);
 		sac.getFilterChain().addFirst("throttleFilter", throttleFilter);
 		acceptor.bind(new InetSocketAddress(serverlistenerPort), connectionHandler, sac);
@@ -147,7 +148,7 @@ try {
 		Connection.initialize();
 		//PlayerSaving.initialize();
 		//MysqlManager.createConnection();
-		
+
 		/**
 		 * Clipped Following (NPC)
 		 */
@@ -157,7 +158,7 @@ try {
 		ex.printStackTrace();
 		}
 		/**
-		 * Server Successfully Loaded 
+		 * Server Successfully Loaded
 		 */
                 //Change To IP to your Hamachi or anything else
 		System.out.println("Server listening on port 5.9.139.182:" + serverlistenerPort);
@@ -170,7 +171,7 @@ try {
 					Thread.sleep(sleepTime);
 				engineTimer.reset();
 				itemHandler.process();
-				playerHandler.process();	
+				playerHandler.process();
 	                        npcHandler.process();
 				shopHandler.process();
 				objectManager.process();
@@ -190,12 +191,12 @@ try {
 			if (System.currentTimeMillis() - lastMassSave > 10000) {
 					for(Player p : PlayerHandler.players) {
 						if(p == null)
-							continue;						
+							continue;
 						PlayerSave.saveGame((Client)p);
 						System.out.println("Saved game for " + p.playerName + ".");
 						lastMassSave = System.currentTimeMillis();
 					}
-				
+
 				}
 			}
 		} catch (Exception ex) {
@@ -203,7 +204,7 @@ try {
 			System.out.println("A fatal exception has been thrown!");
 			for(Player p : PlayerHandler.players) {
 				if(p == null)
-					continue;						
+					continue;
 				PlayerSave.saveGame((Client)p);
 				System.out.println("Saved game for " + p.playerName + ".");
 			}
@@ -213,15 +214,15 @@ try {
 		sac = null;
 		System.exit(0);
 	}
-	
+
 	public static void processAllPackets() {
 		for (int j = 0; j < playerHandler.players.length; j++) {
 			if (playerHandler.players[j] != null) {
-				while(playerHandler.players[j].processQueuedPackets());			
-			}	
+				while(playerHandler.players[j].processQueuedPackets());
+			}
 		}
 	}
-	
+
 	public static boolean playerExecuted = false;
 	private static void debug() {
 		if (debugTimer.elapsed() > 360*1000 || playerExecuted) {
@@ -237,9 +238,9 @@ try {
 			playerExecuted = false;
 		}
 	}
-	
+
 	public static long getSleepTimer() {
 		return sleepTime;
 	}
-	
+
 }

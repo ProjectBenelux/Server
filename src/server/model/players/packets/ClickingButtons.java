@@ -5,6 +5,7 @@ import server.Server;
 import server.model.items.GameItem;
 import server.model.npcs.*;
 import server.model.players.Client;
+import server.model.players.*;
 import server.model.players.SkillMenu;
 import server.model.players.PacketType;
 import server.model.players.SkillGuides;
@@ -42,6 +43,42 @@ c.Lunar.Button(c, actionButtonId);
 		}
 	}
 		switch (actionButtonId){
+		
+/*case 17200:
+		if(c.absX == 3563 && c.absY == 9694){
+			c.sendMessage("You hear the doors locking mechanism grind open.");
+			c.getPA().object(6725, c.objectX, c.objectY, -1, 0);
+			c.getPA().removeAllWindows();
+			c.getPA().walkTo(-1,0);
+			EventManager.getSingleton().addEvent(new Event() {
+				public void execute(EventContainer p) {
+					c.getPA().object(6725, c.objectX, c.objectY, -2, 0);
+					p.stop();
+					}
+				}, 500);
+			} else {
+			c.sendMessage("You hear the doors locking mechanism grind open.");
+			c.getPA().object(6725, c.objectX, c.objectY, -2, 0);
+			c.getPA().removeAllWindows();
+			c.getPA().walkTo(0,1);
+			EventManager.getSingleton().addEvent(new Event() {
+				public void execute(EventContainer p) {
+					c.getPA().object(6725, c.objectX, c.objectY, -1, 0);
+					p.stop();
+					}
+				}, 500);
+			}
+			break;
+		case 17199:
+			c.getPA().removeAllWindows();
+			c.sendMessage("You got the riddle wrong, and it locks back up.");
+			server.model.minigames.Barrows.wrongPuzzle = true;
+			break;
+		case 17198:
+			c.getPA().removeAllWindows();
+			c.sendMessage("You got the riddle wrong, and it locks back up.");
+			server.model.minigames.Barrows.wrongPuzzle = true;
+			break;*/
 			//crafting + fletching interface:
 			case 89223: //Deposit Inventory
 				for(int itemID = 0; itemID < 101; itemID++) {
@@ -622,7 +659,6 @@ c.sendMessage("You do not have a npc currently spawned");
 					//lum
 					c.getPA().spellTeleport(3222, 3218, 0);//3222 3218 
 				}
-				
 				if (c.dialogueAction == 10) {
 					c.getPA().spellTeleport(2845, 4832, 0);
 					c.dialogueAction = -1;
@@ -1153,11 +1189,13 @@ break;
 						
 				}		
 			break;
+	//barrows door puzzles
+
 
 			case 9157://barrows tele to tunnels
 				if(c.dialogueAction == 1) {
-					int r = 4;
-					//int r = Misc.random(3);
+					//int r = 4;
+					int r = Misc.random(5);
 					switch(r) {
 						case 0:
 							c.getPA().movePlayer(3534, 9677, 0);
@@ -1174,9 +1212,9 @@ break;
 						case 3:
 							c.getPA().movePlayer(3568, 9677, 0);
 							break;
-						case 4:
-							c.getPA().movePlayer(3551, 9694, 0);
-							break;
+						//case 4:
+							//c.getPA().movePlayer(3551, 9694, 0);
+							//break;
 					}
 				} else if (c.dialogueAction == 2) {
 					c.getPA().movePlayer(2507, 4717, 0);		

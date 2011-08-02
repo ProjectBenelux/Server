@@ -216,6 +216,45 @@ public class Client extends Player {
 		buffer = new byte[Config.BUFFER_SIZE];
 	}
 	
+
+		/**
+         * Shakes the player's screen.
+         * Parameters 1, 0, 0, 0 to reset.
+         * @param verticleAmount How far the up and down shaking goes (1-4).
+         * @param verticleSpeed How fast the up and down shaking is.
+         * @param horizontalAmount How far the left-right tilting goes.
+         * @param horizontalSpeed How fast the right-left tiling goes..
+         */
+        public void shakeScreen(int verticleAmount, int verticleSpeed, int horizontalAmount, int horizontalSpeed) {
+                outStream.createFrame(35); // Creates frame 35.
+                outStream.writeByte(verticleAmount);
+                outStream.writeByte(verticleSpeed);
+                outStream.writeByte(horizontalAmount);
+                outStream.writeByte(horizontalSpeed);
+        }
+		
+         /**
+         * Resets the shaking of the player's screen.
+         */
+        public void resetShaking() {
+                shakeScreen(1, 0, 0, 0);
+        }
+		public void puzzleBarrow(Client c){
+        	getPA().sendFrame246(4545, 250, 6833);
+        	getPA().sendFrame126("1.", 4553);
+        	getPA().sendFrame246(4546, 250, 6832);
+        	getPA().sendFrame126("2.", 4554);
+        	getPA().sendFrame246(4547, 250, 6830);
+        	getPA().sendFrame126("3.", 4555);
+        	getPA().sendFrame246(4548, 250, 6829);
+        	getPA().sendFrame126("4.", 4556);
+        	getPA().sendFrame246(4550, 250, 3454);
+        	getPA().sendFrame246(4551, 250, 8746);
+        	getPA().sendFrame246(4552, 250, 6830);
+        	getPA().showInterface(4543);
+        }
+
+	
 	public void cureAll() {
 		for (Player p : Server.playerHandler.players) {// loop so it effects all
 			Client person = (Client) p;
@@ -573,7 +612,7 @@ mChapsLeft = 1000;
 				}
 				}, 10000);
 	}
-			public void handCannonDestory() {
+public void handCannonDestory() {
 		cannonTimer = 0;
 		int chance = playerLevel[playerFiremaking] * 5 + 25;
 		if(specGfx)
@@ -584,7 +623,7 @@ mChapsLeft = 1000;
 			if(cannonTimer <= 0) {
 				gfx0(2140);
     			playerEquipment[playerWeapon] = -1;
-    			sendMessage("Your hand cannon explodes!");
+    			sendMessage("Your hand cannon explodes LMFAO!");
     			int damage = Misc.random(15) + 1;
 				setHitDiff(damage);
 				setHitUpdateRequired(true);
@@ -610,8 +649,6 @@ mChapsLeft = 1000;
 			}
 		}, 500);
 	}
-
-
 	public boolean specGfx = false;
 	public void handCannonSpec() {
 		cannonTimer = 0;
@@ -1507,7 +1544,7 @@ setSidebarInterface(16, 17011); //summon
 			}
 		}
 		getPA().writeEnergy();
-			getPA().sendFrame126("@lre@Project Benelux points: @gre@"+pkPoints+"  ", 29170);
+			getPA().sendFrame126("@lre@PK points: @gre@"+pkPoints+"  ", 29170);
 			getPA().sendFrame126("@lre@Exp Lock Status: @gre@"+xpLock+" ", 29171);
 			getPA().sendFrame126("", 29173);
 			getPA().sendFrame126("@lre@Slayer Task: @gre@"+Server.npcHandler.getNpcListName(slayerTask)+" ", 29174);

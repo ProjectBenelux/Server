@@ -6,6 +6,7 @@ import server.model.objects.Object;
 import server.util.Misc;
 import server.util.ScriptManager;
 import server.model.minigames.CastleWarObjects;
+import server.event.*;
 
 public class ActionHandler {
 	private Client c;
@@ -19,12 +20,28 @@ public class ActionHandler {
 		int[] PvpItems = { 14876, 14877, 14878, 14879, 14880, 14881, 14882, 14883, 14884, 14885, 14886, 14888, 14889, 14890, 14891, 14892 };
 	int[] PvpPrices = { 10000000, 1000000, 500000, 35000, 800000,150000, 280000, 840000, 150000, 125000, 80000, 5000000, 240000, 108700, 200000, 284000 };
 	
+	public void wildyditch() {
+		{
+	if (c.absY <= c.objectY){
+		
+		c.startAnimation(6132);
+		c.getPA().walkTo(0, +3);
+		} else if (c.objectY < c.absY) {
+		c.startAnimation(6132);
+				c.getPA().walkTo(0, -3);
+				} 
+		}
+		}
 	public void firstClickObject(int objectType, int obX, int obY) {
 		c.clickObjectType = 0;
 		//c.sendMessage("Object type: " + objectType);
 		switch(objectType) {		
 		case 1765:
 			c.getPA().movePlayer(2271, 4680, 0);
+		break;
+		
+		 case 23271:
+		wildyditch();
 		break;
 		
 		/*case 9391://tzhaar viewing orb
@@ -456,6 +473,8 @@ case 2471:
 		break;
 		
 		case 2213:
+		case 11402:
+		case 26972:
 		case 14367:
 		case 11758:
 		case 3193:
@@ -584,6 +603,15 @@ break;
 		//barrows
 		//Chest
 		case 10284:
+			c.shakeScreen(3, 2, 3, 2); 
+			EventManager.getSingleton().addEvent(new Event() {
+					public void execute(EventContainer b) {
+						c.getPA().createPlayersProjectile(c.absX, c.absY, c.absX, c.absY, 60, 60, 60, 43, 31, - c.playerId - 1, 0);
+						c.handleHitMask(5);
+						b.stop();
+					}
+			}, 10000);
+			
 			if(c.barrowsKillCount < 5) {
 				c.sendMessage("You haven't killed all the brothers.");
 			}
@@ -599,7 +627,7 @@ break;
 				c.getItems().addItem(c.getPA().randomRunes(), Misc.random(150) + 100);
 				if (Misc.random(2) == 1)
 					c.getItems().addItem(c.getPA().randomBarrows(), 1);
-				c.getPA().startTeleport(3564, 3288, 0, "modern");
+				//c.getPA().startTeleport(3564, 3288, 0, "modern");
 			} else if(c.barrowsKillCount > 5 && c.getItems().freeSlots() <= 1) {
 				c.sendMessage("You need at least 2 inventory slot opened.");
 			}
