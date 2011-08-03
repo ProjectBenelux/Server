@@ -19,6 +19,131 @@ public class ClickItem implements PacketType {
 			return;
 			
 		}
+				switch(itemId) {
+			case 2827:// Draynor River Bank
+			c.clueScrollMap(7113, "1");
+			break;
+		case 2829:// Behind the Wizard's Tower
+			c.clueScrollMap(9275, "1");
+			break;
+		case 3518:// North of Falador, right near the statue
+			c.clueScrollMap(17537, "1");
+			break;
+		case 3520:// Varrock East Mine
+			c.clueScrollMap(7045, "1");
+			break;
+		case 3522:// Search the Crate at the Goblin's Houses near Castle Wars
+			c.clueScrollMap(9454, "1");
+			break;
+		case 3524:// Building in West Rimmington
+			c.clueScrollMap(9839, "1");
+			break;
+		case 3525:// Edge of the Ranged Guild
+			c.clueScrollMap(7162, "2");
+			break;
+		case 3598:// Falador Rock Garden
+			c.clueScrollMap(7271, "2");
+			break;
+		case 3599:// Outside of the Monks House near McDoogle Woods
+			c.clueScrollMap(9108, "2");
+			break;
+		case 3601:// Search the Crate in the Black Knight's Fortress
+			c.clueScrollMap(9507, "2");
+			break;
+		case 3602:// Chaos Altar West of the Khazard Battlefield (south west of Ardougne), dig right behind the altar
+			c.clueScrollMap(17888, "2");
+			break;
+		case 7236:// Miscellania, just to the East of the entrance to the Castle grounds.
+			c.clueScrollMap(17687, "2");
+			break;
+		case 7239:// Behind the House in Yanille Map
+			c.clueScrollMap(9043, "3");
+			break;
+		case 7241:// Level 50 wilderness, directly to the West of the larger volcano, to the Southeast of the Agility Course
+			c.clueScrollMap(17620, "3");
+			break;
+		case 7286:// Just to the South of the Legends Guild entrance, to the Northeast of Ardougne
+			c.clueScrollMap(17634, "3");
+			break;
+		case 7288:// Crate, Clocktower, South of the Ardougne Castle
+			c.clueScrollMap(9720, "3");
+			break;
+		case 7290:// Hobgoblin Point (Crafting Guild)
+			c.clueScrollMap(4305, "3");
+			break;
+		case 7292:// In a Building in West Ardougne
+			c.clueScrollMap(9359, "3");
+			break;
+		/* Text Clue Scrolls */
+		case 2678:// Talk to the Mage of Zamorak
+			c.clueScroll("Dressed in red,", "evil to the core,", "chaos is my path,", "peace be for none,", "ALL HAIL ZAMORAK!", "", "", "", "1");
+			break;
+		case 2831:// Talk to Romeo in Varrock Centre.
+			c.clueScroll("In an empty town,", "all alone I stand", "day after day, wishing", "that someone would just", "say 'hey', my love is", "asleep and I do nothing,", "destined for solitude I am...", "", "1");
+			break;
+		case 2833:// Talk to Emily in the Falador Bar.
+			c.clueScroll("You can have a cold one on me ", "and maybe more if you", "play your cards right.", "", "", "", "", "", "1");
+			break;
+		case 2835:// Talk to Tracker Gnome 1 outside of Falador Gates.
+			c.clueScroll("Gathering information on the", "giant breed known as 'humans' is", "tough work, thankfully the", "f-guards here can't see me!", "", "", "", "", "1");
+			break;
+		case 2837:// Talk to the Tracker Gnome 2 in Varrock Castle Courtyard.
+			c.clueScroll("Gathering information on the", "giant breed known as 'humans' is", "tough work, thankfully the", "v-guards here don't suspect me!", "", "", "", "", "1");
+			break;
+		case 2839:// Talk to the Tracker Gnome 3 in Ardougne Centre.
+			c.clueScroll("Gathering information on the", "giant breed known as 'humans' is", "tough work, thankfully the", "a-guards here don't suspect me!", "", "", "", "", "1");
+			break;
+		case 2841:
+			c.clueScroll("", "", "", "", "", "", "", "", "2");
+			break;
+		case 2843:
+			c.clueScroll("", "", "", "", "", "", "", "", "2");
+			break;
+		case 2845:
+			c.clueScroll("", "", "", "", "", "", "", "", "2");
+			break;
+		case 2847:
+			c.clueScroll("", "", "", "", "", "", "", "", "2");
+			break;
+		case 2848:
+			c.clueScroll("", "", "", "", "", "", "", "", "2");
+			break;
+		case 2849:
+			c.clueScroll("", "", "", "", "", "", "", "", "2");
+			break;
+		case 2851:
+			c.clueScroll("", "", "", "", "", "", "", "", "3");
+			break;
+		case 2853:
+			c.clueScroll("", "", "", "", "", "", "", "", "3");
+			break;
+		case 2855:
+			c.clueScroll("", "", "", "", "", "", "", "", "3");
+			break;
+		case 2856:
+			c.clueScroll("", "", "", "", "", "", "", "", "3");
+			break;
+		case 2857:
+			c.clueScroll("", "", "", "", "", "", "", "", "3");
+			break;
+		case 2858:
+			c.clueScroll("", "", "", "", "", "", "", "", "3");
+			break;
+		/* Reward Chests */
+		case 2826:// Tier 1 Chest
+			c.completeLevel1();
+			c.getItems().deleteItem(2826, c.getItems().getItemSlot(2826), 1);
+			break;
+		case 2828:// Tier 2 Chest
+			c.completeLevel2();
+			c.getItems().deleteItem(2828, c.getItems().getItemSlot(2828), 1);
+			break;
+		case 2830:// Tier 3 Chest
+			c.completeLevel3();
+			c.getItems().deleteItem(2830, c.getItems().getItemSlot(2830), 1);
+			break;
+
+		}
                 if(itemId == 8007) {
                    c.getItems().deleteItem(8007,c.getItems().getItemSlot(8007),1);
                    c.getPA().teleTabTeleport(3213, 3423, 0, "teleTab");

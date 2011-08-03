@@ -457,6 +457,7 @@ public class PlayerSave
 			characterfile.newLine();
 			characterfile.write("slayerPoints = ", 0, 15);
 			characterfile.write(Integer.toString(p.slayerPoints), 0, Integer.toString(p.slayerPoints).length());
+			characterfile.newLine();
 			characterfile.write("slayerTask = ", 0, 13);
 			characterfile.write(Integer.toString(p.slayerTask), 0, Integer.toString(p.slayerTask).length());
 			characterfile.newLine();

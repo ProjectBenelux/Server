@@ -169,7 +169,51 @@ public class Client extends Player {
 			}
 		}
 	}
-
+	public void clueScrollMap(int InterfaceID, String ClueLevel) {
+		getPA().showInterface(InterfaceID);
+		sendMessage("This is a level " + ClueLevel + " Clue Scroll.");
+	}
+	public void clueScrollDig(int deletedItem, int addedItem, String message) {
+		getItems().deleteItem(deletedItem, getItems().getItemSlot(deletedItem), 1);
+		getItems().addItem(addedItem, 1);
+		sendMessage("" + message + "");
+	}
+	public void clueScroll(String line1, String line2, String line3,
+			String line4, String line5, String line6, String line7,
+			String line8, String ClueLevel) {
+		getPA().showInterface(6965);
+		getPA().sendFrame126(line1, 6968);
+		getPA().sendFrame126(line2, 6969);
+		getPA().sendFrame126(line3, 6970);
+		getPA().sendFrame126(line4, 6971);
+		getPA().sendFrame126(line5, 6972);
+		getPA().sendFrame126(line6, 6973);
+		getPA().sendFrame126(line7, 6974);
+		getPA().sendFrame126(line8, 6975);
+		sendMessage("This is a level " + ClueLevel + " Clue Scroll.");
+	}
+	public void completeLevel1() {
+		
+			getItems().deleteItem(3591, 1);
+			sendMessage("You open the casket...");
+			sendMessage("Congratulations, you've completed the Treasure Trail!");
+			TreasureTrails.addClueReward(this, 0);	
+	}
+	public void completeLevel2() {
+		
+			getItems().deleteItem(3591, 1);
+			sendMessage("You open the casket...");
+			sendMessage("Congratulations, you've completed the Treasure Trail!");
+			TreasureTrails.addClueReward(this, 1);
+	}
+	public void completeLevel3() {
+		
+			getItems().deleteItem(3591, 1);
+			sendMessage("You open the casket...");
+			sendMessage("Congratulations, you've completed the Treasure Trail!");
+			TreasureTrails.addClueReward(this, 3);
+	}
+	
 	public int followDistance = 0;
 
 		public void follow(int slot, int type, int distance)
