@@ -19,22 +19,15 @@ public class RemoveItem implements PacketType {
 		String name = "null";
 	
 		switch(interfaceId) {
-case 7423:
-if(c.occupied[removeSlot] == true && c.storeditems[removeSlot] == removeId) 
-{
-c.getPA().Frame34(7423, -1, removeSlot, 1);
-c.getItems().addItem(removeId, 1);
-c.occupied[removeSlot] = false;
-c.storeditems[removeSlot] = 0;
-						c.getItems().resetTempItems();
-						c.getItems().resetBank();
-c.totalstored -= 1;
-}
-
-
-
-break;
-						case 1688:
+			case 7423:
+			if(c.inTrade) {
+				c.getTradeAndDuel().declineTrade(true);
+				return;
+			}
+			c.getItems().bankItem(removeId, removeSlot, 1);
+			c.getItems().resetItems(7423);
+			break;
+			case 1688:
 			if(c.inTrade) {
 				c.getTradeAndDuel().declineTrade(true);
 				return;
@@ -50,7 +43,7 @@ break;
 			c.getItems().bankItem(removeId, removeSlot, 1);
 			break;
 			
-						case 5382:
+			case 5382:
 			if(c.inTrade) {
 				c.getTradeAndDuel().declineTrade(true);
 				return;

@@ -161,10 +161,11 @@ public class TradeAndDuel{
 		c.inTrade = true;
 		c.canOffer = true;
 		c.tradeStatus = 1;
-			o.getPA().sendFrame126("" + Misc.formatPlayerName(c.playerName) +"" ,3451);
+		o.getPA().sendFrame126("" + Misc.formatPlayerName(c.playerName) +"" ,3451);
 		c.getPA().sendFrame126("" + Misc.formatPlayerName(o.playerName) +"" ,3451);
 		o.getPA().sendFrame126("Trading with: " + Misc.formatPlayerName(c.playerName) +"" ,3417);
 		c.getPA().sendFrame126("Trading with: " + Misc.formatPlayerName(o.playerName) +"" ,3417);
+
 		c.tradeRequested = false;
 		c.getItems().resetItems(3322);
 		resetTItems(3415);

@@ -15,20 +15,28 @@ public class Bank10 implements PacketType {
 					
 		switch(interfaceId){
 			case 1688:
-				c.getPA().useOperate(removeId);
+			if(c.inTrade) {
+				c.getTradeAndDuel().declineTrade(true);
+			}
+			c.getPA().useOperate(removeId);
 			break;
 			case 3900:
+			if(c.inTrade) {
+				c.getTradeAndDuel().declineTrade(true);
+			}
 			c.getShops().buyItem(removeId, removeSlot, 5);
 			break;
 			
 			case 3823:
+			if(c.inTrade) {
+				c.getTradeAndDuel().declineTrade(true);
+			}
 			c.getShops().sellItem(removeId, removeSlot, 5);
-			break;	
+			break;
 
 			case 5064:
-				if(c.inTrade) {
-				c.sendMessage("You can't store items while trading!");
-				return;
+			if(c.inTrade) {
+				c.getTradeAndDuel().declineTrade(true);
 			}
 			if(c.storing) {
 				
@@ -38,6 +46,9 @@ public class Bank10 implements PacketType {
 			break;
 			
 			case 5382:
+			if(c.inTrade) {
+				c.getTradeAndDuel().declineTrade(true);
+			}
 			if(c.storing) {
 				
 				return;

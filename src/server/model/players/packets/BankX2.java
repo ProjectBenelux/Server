@@ -20,17 +20,22 @@ public class BankX2 implements PacketType {
 		switch (c.xInterfaceId) {
 			case 5064:
 			if(c.inTrade) {
-				c.sendMessage("You can't store items while trading!");
-				return;
+				c.getTradeAndDuel().declineTrade(true);
 			}
 			c.getItems().bankItem(c.playerItems[c.xRemoveSlot] , c.xRemoveSlot, Xamount);
 			break;
 				
 			case 5382:
+			if(c.inTrade) {
+				c.getTradeAndDuel().declineTrade(true);
+			}
 			c.getItems().fromBank(c.bankItems[c.xRemoveSlot] , c.xRemoveSlot, Xamount);
 			break;
 
 			case 3322:
+			if(!c.getItems().playerHasItem(c.xRemoveId, Xamount)) {
+				Xamount = c.getItems().getItemAmount(c.xRemoveId);
+			}
 			if(c.duelStatus <= 0) {
             	c.getTradeAndDuel().tradeItem(c.xRemoveId, c.xRemoveSlot, Xamount);
             } else {				
@@ -39,6 +44,7 @@ public class BankX2 implements PacketType {
 			break;
 				
 			case 3415: 
+			
 			if(c.duelStatus <= 0) { 
             	c.getTradeAndDuel().fromTrade(c.xRemoveId, c.xRemoveSlot, Xamount);
 			} 

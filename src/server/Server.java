@@ -109,7 +109,7 @@ try {
 
 		System.setOut(new Logger(System.out));
 		System.setErr(new Logger(System.err));
-		System.out.println("Launching ErasedPkz...");
+		System.out.println("Launching Project Benelux...");
 		//MadTurnipConnection md = new MadTurnipConnection();
 	      //md.start();
 

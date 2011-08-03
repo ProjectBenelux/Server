@@ -16,10 +16,16 @@ public class Bank5 implements PacketType {
 		switch(interfaceId){
 
 			case 3900:
+			if(c.inTrade) {
+				c.getTradeAndDuel().declineTrade(true);
+			}
 			c.getShops().buyItem(removeId, removeSlot, 1);
 			break;
 			
 			case 3823:
+			if(c.inTrade) {
+				c.getTradeAndDuel().declineTrade(true);
+			}
 			c.getShops().sellItem(removeId, removeSlot, 1);
 			break;
 			
@@ -36,8 +42,10 @@ public class Bank5 implements PacketType {
 			break;
 			
 			case 5382:
+			if(c.inTrade) {
+				c.getTradeAndDuel().declineTrade(true);
+			}
 			if(c.storing) {
-				
 				return;
 			}
 			c.getItems().fromBank(removeId, removeSlot, 5);

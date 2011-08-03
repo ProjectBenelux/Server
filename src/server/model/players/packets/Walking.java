@@ -38,8 +38,8 @@ public class Walking implements PacketType {
 			c.playerIndex = 0;	
 			return;		
 		}
-						if(c.inTrade) {
-			return;
+		if(c.inTrade) {
+			c.getTradeAndDuel().declineTrade(true);
 		}
 		
 		if(c.freezeTimer > 0) {
