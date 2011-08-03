@@ -197,14 +197,14 @@ public class Client extends Player {
 			getItems().deleteItem(3591, 1);
 			sendMessage("You open the casket...");
 			sendMessage("Congratulations, you've completed the Treasure Trail!");
-			TreasureTrails.addClueReward(this, 0);	
+			TreasureTrails.addClueReward(this, 1);	
 	}
 	public void completeLevel2() {
 		
 			getItems().deleteItem(3591, 1);
 			sendMessage("You open the casket...");
 			sendMessage("Congratulations, you've completed the Treasure Trail!");
-			TreasureTrails.addClueReward(this, 1);
+			TreasureTrails.addClueReward(this, 2);
 	}
 	public void completeLevel3() {
 		

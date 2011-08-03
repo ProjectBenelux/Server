@@ -94,6 +94,19 @@ c.Lunar.Button(c, actionButtonId);
 					c.autoRet = 0;
 			break;
 			
+			case 1204:
+c.getPA().removeAllWindows();
+break;
+case 2048:
+c.getPA().removeAllWindows();
+break;
+case 1104:
+c.getPA().showInterface(100);
+break;
+case 1108:
+c.getPA().showInterface(400);
+break;
+			
 			
 			case 66122:
 switch(c.npcType) {

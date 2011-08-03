@@ -58,7 +58,7 @@ public class TreasureTrails {
 	
 	public static void addClueReward(Client c, int clueLevel) {
 		int chanceReward = Misc.random(2);
-		if(clueLevel == 0) {
+		if(clueLevel == 1) {
 			switch (chanceReward) {
 				case 0: 
 				displayReward(c, lowLevelReward[Misc.random(16)], 1, lowLevelReward[Misc.random(16)], 1, lowLevelStacks[Misc.random(3)], 1 + Misc.random(150)); 
@@ -70,7 +70,7 @@ public class TreasureTrails {
 				displayReward(c, lowLevelReward[Misc.random(16)], 1, -1, 1, -1, 1); 
 				break;
 			}
-		} else if(clueLevel == 1) {
+		} else if(clueLevel == 2) {
 			switch (chanceReward) {
 				case 0: 
 				displayReward(c, mediemLevelReward[Misc.random(13)], 1, mediemLevelReward[Misc.random(13)], 1, mediumLevelStacks[Misc.random(4)], 1 + Misc.random(200));
@@ -82,7 +82,7 @@ public class TreasureTrails {
 				displayReward(c, mediemLevelReward[Misc.random(13)], 1, -1, 1, -1, 1);
 				break;
 			}
-		} else if(clueLevel == 2) {
+		} else if(clueLevel == 3) {
 			switch (chanceReward) {
 				case 0: 
 				displayReward(c, highLevelReward[Misc.random(52)], 1, highLevelReward[Misc.random(52)], 1, highLevelStacks[Misc.random(5)], 1 + Misc.random(350)); 
