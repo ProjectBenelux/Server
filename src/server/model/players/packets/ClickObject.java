@@ -136,6 +136,8 @@ c.getPA().requestUpdates();
 				case 2878:
 					c.objectDistance = 3;
 				break;
+				case 1816:
+					c.objectYOffset = -1;
 				case 2558:
 					c.objectDistance = 0;
 					if (c.absX > c.objectX && c.objectX == 3044)
@@ -151,7 +153,6 @@ c.getPA().requestUpdates();
 				case 5959:
 				case 1815:
 				case 5960:
-				case 1816:
 					c.objectDistance = 0;
 				break;
 				

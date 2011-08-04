@@ -5,7 +5,7 @@ import server.Config;
 import server.util.Misc;
 
 /**
-* @Author Sanity
+* @Author Sanity : Highly Edited by Exorth`
 */
 
 public class Mining {
@@ -13,13 +13,14 @@ public class Mining {
 	Client c;
 	
 	private final int VALID_PICK[] = {1265,1267,1269,1273,1271,1275};
-	private final int[] PICK_REQS = {1,1,6,6,21,31,41,61};
+	private final int[] PICK_REQS = {1,1,6,6,21,31,1,61};
 	private final int[] RANDOM_GEMS = {1623,1621,1619,1617,1631};
-	private int oreType;
-	private int exp;
-	private int levelReq;
-	private int pickType;
-	private final int EMOTE = 624;
+	private int 
+		oreType,
+		exp,
+		levelReq,
+		pickType,
+		mineanim = 1;
 	
 	public Mining(Client c) {
 		this.c = c;
@@ -29,13 +30,35 @@ public class Mining {
 		c.turnPlayerTo(c.objectX, c.objectY);
 		if (goodPick() > 0) {
 			if (c.playerLevel[c.playerMining] >= levelReq) {
+				for (int id : VALID_PICK) {
+					if(id == c.playerEquipment[c.playerWeapon] && canminewithpick(c.playerEquipment[c.playerWeapon], c) || c.getItems().playerHasItem(id, 1) && canminewithpick(id, c)) {
+						if (id == 1265) {
+							mineanim = 625;
+						}
+						if (id == 1267) {
+							mineanim = 626;
+						}
+						if (id == 1269) {
+							mineanim = 627;
+						}
+						if (id == 1271) {
+							mineanim = 628;
+						}
+						if (id == 1273) {
+							mineanim = 629;
+						}
+						if (id == 1275) {
+							mineanim = 624;
+						}
+					}
+				}
 				this.oreType = oreType;
 				this.exp = exp;
 				this.levelReq = levelReq;
 				this.pickType = goodPick();
 				c.sendMessage("You swing your pick at the rock.");
 				c.miningTimer = getMiningTimer(oreType);
-				c.startAnimation(EMOTE);
+				c.startAnimation(mineanim);
 			} else {
 				resetMining();
 				c.sendMessage("You need a mining level of " + levelReq + " to mine this rock.");
@@ -51,7 +74,7 @@ public class Mining {
 	
 	public void mineOre() {
 		if (c.getItems().addItem(oreType,1)) {
-			c.startAnimation(EMOTE);
+			c.startAnimation(mineanim);
 			c.sendMessage("You manage to mine some ore.");
 			c.getPA().addSkillXP(exp * Config.MINING_EXPERIENCE, c.playerMining);
 			c.getPA().refreshSkill(c.playerMining);
@@ -89,6 +112,36 @@ public class Mining {
 			}		
 		}
 		return - 1;
+	}
+
+	private boolean canminewithpick(int i, Client c) {
+		switch (i) {
+		case 1265:
+		case 1267:
+			if (c.playerLevel[14] >= 1)
+				return true;
+			break;
+		case 1269:
+			if (c.playerLevel[14] >= 6)
+				return true;
+			break;
+		case 1273:
+			if (c.playerLevel[14] >= 21)
+				return true;
+			break;
+		case 1271:
+			if (c.playerLevel[14] >= 31)
+				return true;
+			break;
+		case 1275:
+			if (c.playerLevel[14] >= 41)
+				return true;
+		break;
+		default:
+			return false;
+			
+		}
+		return false;
 	}
 	
 	public int getMiningTimer(int ore) {

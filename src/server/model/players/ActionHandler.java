@@ -37,9 +37,14 @@ public class ActionHandler {
 		//c.sendMessage("Object type: " + objectType);
 		switch(objectType) {		
 		case 1765:
-			c.getPA().movePlayer(2271, 4680, 0);
+			c.getPA().movePlayer(3069, 10257, 0);
 		break;
-		
+		case 1816:
+			c.getPA().movePlayer(2273, 4680, 0);
+		break;
+		case 32015:
+			c.getPA().movePlayer(3017, 3848, 0);
+		break;
 		 case 23271:
 		wildyditch();
 		break;
@@ -420,10 +425,7 @@ case 2471:
 			}	
 		break;
 
-		
-		case 1816:
-			c.getPA().startTeleport2(2271, 4680, 0);			
-		break;
+
 		case 1817:
 			c.getPA().startTeleport(3086, 3493, 0, "modern");
 		break;
