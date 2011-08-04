@@ -12,7 +12,7 @@ public class Mining {
 	
 	Client c;
 	
-	private final int VALID_PICK[] = {1265,1267,1269,1273,1271,1275};
+	private final int VALID_PICK[] = {1265,1267,1269,1273,1271,1275, 15259};
 	private final int[] PICK_REQS = {1,1,6,6,21,31,1,61};
 	private final int[] RANDOM_GEMS = {1623,1621,1619,1617,1631};
 	private int 
@@ -49,6 +49,9 @@ public class Mining {
 						}
 						if (id == 1275) {
 							mineanim = 624;
+						}
+						if (id == 15259) {
+							mineanim = 12188;
 						}
 					}
 				}
