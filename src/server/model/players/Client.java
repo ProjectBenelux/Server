@@ -23,6 +23,7 @@ import java.io.IOException;
 import server.model.items.ItemAssistant;
 import server.model.shops.ShopAssistant;
 import server.net.HostList;
+import server.model.players.quests.*;
 import server.net.Packet;
 import server.net.StaticPacketBuilder;
 import server.util.Misc;
@@ -70,6 +71,8 @@ public class Client extends Player {
 	private WarriorsGuild warriorsGuild = new WarriorsGuild();
 	private PotionMixing potionMixing = new PotionMixing(this);
 	private Food food = new Food(this);
+	private ActionAssistant2 actionAssistant2 = new ActionAssistant2(this);
+	private DesertTreasure desertTreasure = new DesertTreasure(this);
 	private Gambling gamble = new Gambling(this);
 	/**
 	 * Skill instances
@@ -100,6 +103,7 @@ public class Client extends Player {
 	public int clawIndex;
 	public int clawType = 0;
 	private Future<?> currentTask;
+	public int currentRegion = 0;
 	public boolean officialClient = true;
 	public String lastKilled = "";
         /*public boolean checkVotes(String playerName) {
@@ -2179,6 +2183,12 @@ public void fmwalkto(int i, int j)
 	
 	public Cooking getCooking() {
 		return cooking;
+	}
+		public DesertTreasure getDT() {
+		return desertTreasure;
+	}
+		public ActionAssistant2 getAA2() {
+		return actionAssistant2;
 	}
 
 	public Gambling getGamble() {

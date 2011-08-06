@@ -20,6 +20,119 @@ public class DialogueHandler {
 		c.talkingNpc = npcId;
 		switch(dialogue) {
 		
+				/**
+		* Desert Treasure dialogue
+		*/
+		/*case 401:
+			sendNpcChat4("", "Do you want to start the quest", "Desert treasure?","", c.talkingNpc, "Archaeologist");
+			c.nextChat = 402;
+			break;
+		case 402:
+			sendNpcChat4("", "You will have to fight four high level bosses,", "after each boss you will be brought back", "here to refill your supplies if it is needed.", c.talkingNpc, "Archaeologist");
+			c.nextChat = 403;
+			break;
+		case 403:
+			sendOption2("Yes I want to fight!", "No thanks, I am not ready.");
+			//c.dtOption = true;
+			c.dialogueAction = 403;
+			break;
+		case 404:
+			sendPlayerChat1("Yes I want to fight!");
+			c.nextChat = 501;
+			break;
+		case 405:
+			sendPlayerChat1("No thanks, I am not ready.");
+			c.nextChat = 0;
+			break;
+		case 406:
+			sendNpcChat4("", "Congratulations! You have defeated "+Server.npcHandler.getNpcName(c.lastDtKill).replaceAll("_", " ")+".", "Come back and talk to me when you are", "ready to fight "+c.getDT().nextDtKill(Server.npcHandler.getNpcName(c.lastDtKill)).replaceAll("_", " ")+".", c.talkingNpc, "Archaeologist");
+			c.nextChat = 0;
+			break;
+		case 407:
+			sendNpcChat4("", "Welcome back, are you ready", "To fight "+c.getDT().nextDtKill(Server.npcHandler.getNpcName(c.lastDtKill)).replaceAll("_", " ")+"?", "", c.talkingNpc, "Archaeologist");
+			c.nextChat = 408;
+			break;
+		case 408:
+			sendOption2("Yes, I am ready!", "No, I am not ready.");
+			//c.dtOption2 = true;
+			c.dialogueAction = 408;
+			break;
+		case 501:
+			c.desertT++;
+			c.height = (c.playerId * 4);
+			c.getPA().movePlayer(3310, 9376, c.height);
+			Server.npcHandler.spawnNpc(c, 1977, 3318, 9376, c.height, 0, 130, 40, 70, 90, true, true);
+			c.getPA().removeAllWindows();
+			c.getPA().loadQuests();
+			c.inDt = true;
+			break;
+		case 502:
+			c.height = (c.lastDtKill == 1914 ? (c.playerId * 4) + 2 : (c.playerId * 4));
+			c.getPA().movePlayer(c.getDT().playerX(c.lastDtKill), c.getDT().playerY(c.lastDtKill), c.height);
+			c.getDT().getDtNpcInfo(c.getDT().nextDtNpcId(Server.npcHandler.getNpcName(c.lastDtKill)));
+			Server.npcHandler.spawnNpc(c, c.getDT().nextDtNpcId(Server.npcHandler.getNpcName(c.lastDtKill)), c.getDT().getDtX(c.lastDtKill), c.getDT().getDtY(c.lastDtKill), c.height, 0, c.dtHp, c.dtMax, c.dtAtk, c.dtDef, true, true);
+			c.getPA().removeAllWindows();
+			c.inDt = true;
+			break;*/
+					case 401:
+			sendNpcChat4("", "Do you want to start the quest", "Desert treasure?","", c.talkingNpc, "Archaeologist");
+			c.nextChat = 402;
+			break;
+		case 402:
+			sendNpcChat4("", "You will have to fight four high level bosses,", "after each boss you will be brought back", "here to refill your supplies if it is needed.", c.talkingNpc, "Archaeologist");
+			c.nextChat = 403;
+			break;
+		case 403:
+			sendOption2("Yes I want to fight!", "No thanks, I am not ready.");
+			c.dtOption = true;
+			break;
+		case 44:
+			sendPlayerChat1("Yes I want to fight!");
+			c.nextChat = 501;
+			break;
+		case 405:
+			sendPlayerChat1("No thanks, I am not ready.");
+			c.nextChat = 0;
+			break;
+		case 406:
+			sendNpcChat4("", "Congratulations! You have defeated "+Server.npcHandler.getNpcName(c.lastDtKill).replaceAll("_", " ")+".", "Come back and talk to me when you are", "ready to fight "+c.getDT().nextDtKill(Server.npcHandler.getNpcName(c.lastDtKill)).replaceAll("_", " ")+".", c.talkingNpc, "Archaeologist");
+			c.nextChat = 0;
+			break;
+		case 407:
+			sendNpcChat4("", "Welcome back, are you ready", "To fight "+c.getDT().nextDtKill(Server.npcHandler.getNpcName(c.lastDtKill)).replaceAll("_", " ")+"?", "", c.talkingNpc, "Archaeologist");
+			c.nextChat = 408;
+			break;
+		case 408:
+			sendOption2("Yes, I am ready!", "No, I am not ready.");
+			c.dtOption2 = true;
+			break;
+		case 409:
+			sendPlayerChat1("Yes, I am ready!");
+			c.nextChat = 502;
+			break;
+		case 500:
+			sendPlayerChat1("No, I am not ready.");
+			c.nextChat = 0;
+			break;
+		case 501:
+			c.desertT++;
+			c.height = (c.playerId * 4);
+			c.getPA().movePlayer(3310, 9376, c.height);
+			Server.npcHandler.spawnNpc(c, 1977, 3318, 9376, c.height, 0, 130, 40, 70, 90, true, true);
+			c.getPA().removeAllWindows();
+			c.getPA().loadQuests();
+			c.inDt = true;
+			break;
+		case 502:
+			c.height = (c.lastDtKill == 1914 ? (c.playerId * 4) + 2 : (c.playerId * 4));
+			c.getPA().movePlayer(c.getDT().playerX(c.lastDtKill), c.getDT().playerY(c.lastDtKill), c.height);
+			c.getDT().getDtNpcInfo(c.getDT().nextDtNpcId(Server.npcHandler.getNpcName(c.lastDtKill)));
+			Server.npcHandler.spawnNpc(c, c.getDT().nextDtNpcId(Server.npcHandler.getNpcName(c.lastDtKill)), c.getDT().getDtX(c.lastDtKill), c.getDT().getDtY(c.lastDtKill), c.height, 0, c.dtHp, c.dtMax, c.dtAtk, c.dtDef, true, true);
+			c.getPA().removeAllWindows();
+			c.inDt = true;
+			break;
+			
+		
 		case 1337:
 			sendOption2("PK'er Scoreboard", "Skiller Scoreboard");
 			c.dialogueAction = 1337;

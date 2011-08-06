@@ -157,6 +157,9 @@ public int vSpearLeft = 1000;
 	accountFlagged = false,
 	readRules = false,
 	msbSpec = false,
+	dtOption = false,
+	dtOption2 = false,
+	inDt = false,
 	newCmb = false,
 	isBanking = false
 	;
@@ -235,6 +238,7 @@ public int vSpearLeft = 1000;
 	desertTreasure = 0,
 	lastArrowUsed = -1,
 	clanId = -1,
+	height = 0, 
 	autoRet = 0,
 	pcDamage = 0,
 	xInterfaceId = 0,
@@ -251,6 +255,7 @@ public int vSpearLeft = 1000;
 	bonusAttack = 0,
 	newCombat = 0;
 	public String currentTime, date; 
+	
 	public String clanName, properName;
 	public int[] voidStatus = new int[5];
 	public int[] itemKeptId = new int [4]; 
@@ -276,7 +281,13 @@ public int vSpearLeft = 1000;
 	//Setting up the woodcutting variables.
     public boolean chopping = false;
     public int choptimer = 0;
+public int lastDtKill = 0;
+public int dtHp = 0, dtMax = 0, dtAtk = 0, dtDef = 0;
     public int logID = 0;
+	public int desertT;
+
+
+	public int questPoints = 0;	
 	public int donatorChest = 0; 
     public int chopreq = 0;
     public int chopXP = 0;
@@ -658,6 +669,18 @@ public final int[] CURSE_DRAIN_RATE = {
 			return true;
 		}
 		return false;
+	}
+	
+	public boolean withinDistance(int absX, int getY, int getHeightLevel) {
+		if (this.getHeightLevel() != getHeightLevel)
+			return false;
+		int deltaX = this.getX() - absX, deltaY = this.getY() - getY;
+		return deltaX <= 15 && deltaX >= -16 && deltaY <= 15 && deltaY >= -16;
+	}
+	
+	public int getHeightLevel;
+	public int getHeightLevel() {
+	return getHeightLevel;
 	}
 	
 	public boolean inArma() {		

@@ -43,6 +43,9 @@ c.Lunar.Button(c, actionButtonId);
 		}
 	}
 		switch (actionButtonId){
+					case 28166:
+		c.getDT().questInformation();
+		break;
 		
 /*case 17200:
 		if(c.absX == 3563 && c.absY == 9694){
@@ -1206,6 +1209,20 @@ break;
 
 
 			case 9157://barrows tele to tunnels
+				//Desert Treasure
+				if(c.dtOption) {
+					c.getDH().sendDialogues(501, -1);
+					c.dtOption = false;
+				}
+				if(c.dtOption2) {
+					if(c.lastDtKill == 0) {
+						c.getDH().sendDialogues(65, -1);
+					} else {
+						c.getDH().sendDialogues(502, -1);
+					}
+					c.dtOption2 = false;
+				}
+				//end Desert Treasure
 				if(c.dialogueAction == 1) {
 					//int r = 4;
 					int r = Misc.random(5);
@@ -1233,6 +1250,21 @@ break;
 					c.getPA().movePlayer(2507, 4717, 0);		
 				} else if (c.dialogueAction == 5) {
 					c.getSlayer().giveTask();
+				} else if (c.dialogueAction == 403) {
+							c.desertT++;
+			c.height = (c.playerId * 4);
+			c.getPA().movePlayer(3310, 9376, c.height);
+			Server.npcHandler.spawnNpc(c, 1977, 3318, 9376, c.height, 0, 130, 40, 70, 90, true, true);
+			c.getPA().removeAllWindows();
+			c.getPA().loadQuests();
+			c.inDt = true;
+				} else if (c.dialogueAction == 408) {
+			c.height = (c.lastDtKill == 1914 ? (c.playerId * 4) + 2 : (c.playerId * 4));
+			c.getPA().movePlayer(c.getDT().playerX(c.lastDtKill), c.getDT().playerY(c.lastDtKill), c.height);
+			c.getDT().getDtNpcInfo(c.getDT().nextDtNpcId(Server.npcHandler.getNpcName(c.lastDtKill)));
+			Server.npcHandler.spawnNpc(c, c.getDT().nextDtNpcId(Server.npcHandler.getNpcName(c.lastDtKill)), c.getDT().getDtX(c.lastDtKill), c.getDT().getDtY(c.lastDtKill), c.height, 0, c.dtHp, c.dtMax, c.dtAtk, c.dtDef, true, true);
+			c.getPA().removeAllWindows();
+			c.inDt = true;
 				} else if (c.dialogueAction == 6) {
 					c.getSlayer().giveTask2();
 				} else if (c.dialogueAction == 7) {
@@ -2254,9 +2286,6 @@ return;
 				c.gfx0(1537);
 			break;
 			/* END OF EMOTES */
-			case 28166:
-				
-				break;
 //case 118098:
 //c.getPA().castVeng();
 //break; 

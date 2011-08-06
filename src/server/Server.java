@@ -10,6 +10,8 @@ import org.apache.mina.transport.socket.nio.SocketAcceptor;
 import org.apache.mina.transport.socket.nio.SocketAcceptorConfig;
 
 import server.util.ControlPanel;
+import server.world.StillGraphicsManager;
+import server.world.PlayerManager;
 import server.event.EventManager;
 import server.model.npcs.NPCHandler;
 import server.model.npcs.NPCDrops;
@@ -47,7 +49,8 @@ import server.world.WalkingHandler;
 
 public class Server {
 
-
+private static StillGraphicsManager stillGraphicsManager = null;
+	public static PlayerManager playerManager = null;
 	public static boolean sleeping;
 	public static ControlPanel panel = new ControlPanel(true); // false if you want it off
 	public static int cycleRate;
@@ -131,6 +134,9 @@ try {
 		acceptor = new SocketAcceptor();
 		connectionHandler = new ConnectionHandler();
 
+		playerManager = PlayerManager.getSingleton();
+		playerManager.setupRegionPlayers();
+stillGraphicsManager = new StillGraphicsManager();
 		SocketAcceptorConfig sac = new SocketAcceptorConfig();
 		sac.getSessionConfig().setTcpNoDelay(false);
 		sac.setReuseAddress(true);
@@ -242,5 +248,11 @@ try {
 	public static long getSleepTimer() {
 		return sleepTime;
 	}
-
+	public static StillGraphicsManager getStillGraphicsManager() {
+		return stillGraphicsManager;
+	}
+	public static PlayerManager getPlayerManager() {
+		return playerManager;
+	}
+	
 }

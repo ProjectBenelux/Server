@@ -1295,6 +1295,19 @@ break;
                     c.fishtimer = c.getFishing().fishtime(c.fishies, c.fishreqt);
                 }
 		switch(npcType) {
+				case 1918:
+				if(c.desertT == 2) {
+					c.getDH().sendDialogues(602, -1);
+				} else if(c.desertT == 1 && c.lastDtKill != 0) {
+					c.getDH().sendDialogues(407, npcType);
+				} else if(c.desertT == 0) {
+					c.getDH().sendDialogues(401, npcType);
+				} else {
+					c.lastDtKill = 1977;
+					c.getDH().sendDialogues(603, npcType);
+
+				}
+		break;
 			case 706:
 				c.getDH().sendDialogues(9, npcType);
 			break;

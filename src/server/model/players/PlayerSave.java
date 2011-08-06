@@ -78,8 +78,13 @@ public class PlayerSave
                     			} else if (token.equals("Used-Puremaster")) {
                         			p.pure = Integer.parseInt(token2);
 					} else if (token.equals("character-energy")) {
-
 						p.playerEnergy = Integer.parseInt(token2);
+					} else if(token.equals("dt-kill")) {
+						p.lastDtKill = Integer.parseInt(token2);
+					} else if(token.equals("desert-treasure")) {
+						p.desertT = Integer.parseInt(token2);
+					} else if (token.equals("quest-points")) {
+						p.questPoints = Integer.parseInt(token2);
 					} else if (token.equals("tutorial-progress")) {
 						p.tutorial = Integer.parseInt(token2);	
 					} else if (token.equals("crystal-bow-shots")) {
@@ -376,6 +381,15 @@ public class PlayerSave
                   characterfile.write("character-full helm = ", 0, 22);
                   characterfile.write(Integer.toString(p.sHelmLeft), 0, Integer.toString(p.sHelmLeft).length());
                   characterfile.newLine();
+			characterfile.write("desert-treasure = ", 0, 18);
+			characterfile.write(Integer.toString(p.desertT), 0, Integer.toString(p.desertT).length());
+			characterfile.newLine();
+			characterfile.write("dt-kill = ", 0, 10);
+			characterfile.write(Integer.toString(p.lastDtKill), 0, Integer.toString(p.lastDtKill).length());
+			characterfile.newLine();
+			characterfile.write("quest-points = ", 0, 15);
+			characterfile.write(Integer.toString(p.questPoints), 0, Integer.toString(p.questPoints).length());
+			characterfile.newLine();
                   characterfile.write("character-platebody = ", 0, 22);
                   characterfile.write(Integer.toString(p.sTopLeft), 0, Integer.toString(p.sTopLeft).length());
                   characterfile.newLine();

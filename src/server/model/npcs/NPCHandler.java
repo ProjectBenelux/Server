@@ -565,6 +565,28 @@ newNPC.npcslot = slot;
 		}
 		npcs[slot] = newNPC;
 	}
+	public void getDtLastKill(int i) {
+		int dtNpcs[] = {
+			1975, 1914, 1977, 1913
+		};
+		for(int dtNpc : dtNpcs) {
+			if(npcs[i].npcType == dtNpc) {
+				Client p = (Client) Server.playerHandler.players[npcs[i].killedBy];
+				if(p != null) {
+					p.lastDtKill = dtNpc;
+				}
+			}
+		}
+	}
+	
+	public void checkDt(int i) {
+		if(npcs[i] != null) {
+			Client c = (Client) Server.playerHandler.players[npcs[i].spawnedBy];
+			if(c != null) {
+				c.getDT().handleDtKills(i);
+			}
+		}
+	}
 	
 	public void spawnNpc2(int npcType, int x, int y, int heightLevel, int WalkingType, int HP, int maxHit, int attack, int defence) {
 		// first, search for a free slot
@@ -2278,6 +2300,7 @@ npcs[i].actionTimer = 7;
 						npcs[i].freezeTimer = 0;
 						npcs[i].applyDead = true;
 						killedBarrow(i);
+						getDtLastKill(i);
 						//if (isFightCaveNpc(i))
 							//killedTzhaar(i);
 if(npcs[i].summon == true)
@@ -2865,7 +2888,20 @@ try {
 	}
 
 		
+		/**
+	* Npc names
+	**/
 	
+	public String getNpcName(int npcId) {
+		for (int i = 0; i < maxNPCs; i++) {
+			if (Server.npcHandler.NpcList[i] != null) {
+				if (Server.npcHandler.NpcList[i].npcId == npcId) {
+					return Server.npcHandler.NpcList[i].npcName;
+				}
+			}
+		}
+		return "-1";
+	}
 
 	
 	/**

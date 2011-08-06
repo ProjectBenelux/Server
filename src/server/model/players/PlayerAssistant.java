@@ -6,6 +6,7 @@ import server.model.npcs.NPCHandler;
 import server.util.Misc;
 import server.world.map.*;
 import java.util.Properties;
+import server.model.players.*;
 import server.model.players.PlayerSave;
 import java.io.*;
 import server.model.minigames.*;
@@ -204,6 +205,21 @@ public boolean teleTabTeleport(int x, int y, int height, String teleportType){
 		}
 	}
 
+	public static void QuestReward(Client c, String questName, int PointsGain, String Line1, String Line2, String Line3, String Line4, String Line5, String Line6, int itemID) {
+		c.getPA().sendFrame126("You have completed "+questName+"!",12144);
+		sendQuest(c, ""+(c.questPoints),12147);
+		//c.QuestPoints += PointsGain;
+		sendQuest(c, Line1,12150);
+		sendQuest(c, Line2,12151);
+		sendQuest(c, Line3,12152);
+		sendQuest(c, Line4,12153);
+		sendQuest(c, Line5,12154);
+		sendQuest(c, Line6,12155);
+		c.getPA().sendFrame246(12145, 250, itemID);
+		c.getPA().showInterface(12140);
+		Server.getStillGraphicsManager().stillGraphics(c,c.getX(), c.getY(), c.getHeightLevel(), 199, 0);
+
+	}
 	public void appendVengeanceNPC(int otherPlayer, int damage) {
 		if (damage <= 0)
 			return;
@@ -265,6 +281,14 @@ public boolean teleTabTeleport(int x, int y, int height, String teleportType){
 			c.outStream.endFrameVarSizeWord();
 		} catch (Exception e) {
 		}
+	}
+		public static void sendQuest(Client client, String s, int i) {
+		client.getOutStream().createFrameVarSizeWord(126);
+		client.getOutStream().writeString(s);
+		client.getOutStream().writeWordA(i);
+		client.getOutStream().endFrameVarSizeWord();
+		client.flushOutStream();
+
 	}
 
 	public String checkTimeOfDay()
@@ -333,6 +357,7 @@ c.sendMessage("A magical force reseted your kill count!");
 			
 		c.date = day + "/" + month + "/" + YEAR;	
 		c.currentTime = hour + ":" + minute + ":" + second;
+
 	}	
 	Properties p = new Properties();
 	
@@ -368,9 +393,146 @@ c.sendMessage("A magical force reseted your kill count!");
 		}
 	}
 	
-	public int CraftInt, Dcolor, FletchInt;
+		public void sendStillGraphics(int id, int heightS, int y, int x, int timeBCS) {
+		c.getOutStream().createFrame(85);
+		c.getOutStream().writeByteC(y - (c.mapRegionY * 8));
+		c.getOutStream().writeByteC(x - (c.mapRegionX * 8));
+		c.getOutStream().createFrame(4);
+		c.getOutStream().writeByte(0);// Tiles away (X >> 4 + Y & 7)
+											// //Tiles away from
+		// absX and absY.
+		c.getOutStream().writeWord(id); // Graphic ID.
+		c.getOutStream().writeByte(heightS); // Height of the graphic when
+													// cast.
+		c.getOutStream().writeWord(timeBCS); // Time before the graphic
+													// plays.
+		c.flushOutStream();
+	}
 	
+	public int CraftInt, Dcolor, FletchInt;
+		/**
+	* Quest tab information
+	**/
+	public void loadQuests() {		
+		c.getAA2().sendQuestTab();
+		c.getPA().sendFrame126("Free", 663);
+		//c.getPA().sendFrame126("", 7332);
+		//c.getPA().sendFrame126("", 7333);
+		//c.getPA().sendFrame126("", 7334);
+		//c.getPA().sendFrame126("@gre@Dwarf Cannon", 7336);
+		c.getPA().sendFrame126("", 7339);
+		c.getPA().sendFrame126("", 7338);
+		c.getPA().sendFrame126("", 7340);
+		c.getPA().sendFrame126("", 7346);
+		c.getPA().sendFrame126("", 7341);
+		c.getPA().sendFrame126("", 7342);
+		c.getPA().sendFrame126("", 7337);
+		c.getPA().sendFrame126("", 7343);
+		c.getPA().sendFrame126("", 7335);
+		c.getPA().sendFrame126("", 7344);
+		c.getPA().sendFrame126("", 7345);
+		c.getPA().sendFrame126("", 7347);
+		c.getPA().sendFrame126("", 7348);
+
+
+
+
+
+
+
+
+
+
+
+
+		/*Members Quests*/
+		sendFrame126("", 12772);
+
+
+
+
+
+
+
+
+
+		
+		// unknown id
+		c.getPA().sendFrame126("", 7352);
+		c.getPA().sendFrame126("", 12129);
+		c.getPA().sendFrame126("", 8438);
+		c.getPA().sendFrame126("", 12852);
+		c.getPA().sendFrame126("", 7354);
+		c.getPA().sendFrame126("", 7355);
+		c.getPA().sendFrame126("", 7356);
+		c.getPA().sendFrame126("", 8679);
+		c.getPA().sendFrame126("", 7459);
+		c.getPA().sendFrame126("", 7357);
+		c.getPA().sendFrame126("", 12836);
+		c.getPA().sendFrame126("", 7358);
+		c.getPA().sendFrame126("", 7359);
+		c.getPA().sendFrame126("", 14169);
+		c.getPA().sendFrame126("", 10115);
+		c.getPA().sendFrame126("", 14604);
+		c.getPA().sendFrame126("", 7360);
+		c.getPA().sendFrame126("", 12282);
+		c.getPA().sendFrame126("", 13577);
+		c.getPA().sendFrame126("", 12839);
+		c.getPA().sendFrame126("", 7361);
+		c.getPA().sendFrame126("", 11857);
+		c.getPA().sendFrame126("", 7362);
+		c.getPA().sendFrame126("", 7363);
+		c.getPA().sendFrame126("", 7364);
+		c.getPA().sendFrame126("", 10135);
+		c.getPA().sendFrame126("", 4508);
+		c.getPA().sendFrame126("", 11907);
+		c.getPA().sendFrame126("", 7365);
+		c.getPA().sendFrame126("", 7366);
+		c.getPA().sendFrame126("", 7367);
+		c.getPA().sendFrame126("", 13389);
+		c.getPA().sendFrame126("", 7368);
+		c.getPA().sendFrame126("", 11132);
+		c.getPA().sendFrame126("", 7369);
+		c.getPA().sendFrame126("", 12389);
+		c.getPA().sendFrame126("", 13974);
+		c.getPA().sendFrame126("", 7370);
+		c.getPA().sendFrame126("", 8137);
+		c.getPA().sendFrame126("", 7371);
+		c.getPA().sendFrame126("", 12345);
+		c.getPA().sendFrame126("", 7372);
+		c.getPA().sendFrame126("", 8115);
+		// unknown id
+		c.getPA().sendFrame126("", 8576);
+		c.getPA().sendFrame126("", 12139);
+		c.getPA().sendFrame126("", 7373);
+		c.getPA().sendFrame126("", 7374);
+		c.getPA().sendFrame126("", 8969);
+		c.getPA().sendFrame126("", 7375);
+		c.getPA().sendFrame126("", 7376);
+		c.getPA().sendFrame126("", 1740);
+		c.getPA().sendFrame126("", 3278);
+		c.getPA().sendFrame126("", 7378);
+		c.getPA().sendFrame126("", 6518);
+		c.getPA().sendFrame126("", 7379);
+		c.getPA().sendFrame126("", 7380);
+		c.getPA().sendFrame126("", 7381);
+		c.getPA().sendFrame126("", 11858);
+		// unknown id
+		c.getPA().sendFrame126("", 9927);
+		c.getPA().sendFrame126("", 7349);
+		c.getPA().sendFrame126("", 7350);
+		c.getPA().sendFrame126("", 7351);
+		c.getPA().sendFrame126("", 13356);
+		/*END OF ALL QUESTS*/
+
+
+
+
+
+
+	}
 	/**
+
 	 * MulitCombat icon
 	 * @param i1 0 = off 1 = on
 	 */
