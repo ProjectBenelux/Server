@@ -567,7 +567,7 @@ newNPC.npcslot = slot;
 	}
 	public void getDtLastKill(int i) {
 		int dtNpcs[] = {
-			1975, 1914, 1977, 1913
+			1974, 1914, 1977, 1913
 		};
 		for(int dtNpc : dtNpcs) {
 			if(npcs[i].npcType == dtNpc) {
