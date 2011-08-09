@@ -168,6 +168,12 @@ public class PlayerSave
 						p.Zammy = Integer.parseInt(token2);	
 					} else if (token.equals("Sara-KC")) {
 						p.Sara = Integer.parseInt(token2);	
+					} else if (token.equals("mediumPouchDecay")) {
+						p.mediumPouchDecay = Integer.parseInt(token2);
+					} else if (token.equals("largePouchDecay")) {
+						p.largePouchDecay = Integer.parseInt(token2);
+					} else if (token.equals("giantPouchDecay")) {
+						p.giantPouchDecay = Integer.parseInt(token2);
 					} else if (token.equals("pk-points")) {
 						p.pkPoints = Integer.parseInt(token2);	
 					} else if (token.equals("isDonator")) {
@@ -457,6 +463,14 @@ public class PlayerSave
 			characterfile.write("Sara-KC = ", 0, 10);
 			characterfile.write(Integer.toString(p.Sara), 0, Integer.toString(p.Sara).length());
 			characterfile.newLine();
+			characterfile.write("mediumPouchDecay = ", 0, 19);
+			characterfile.write(Integer.toString(p.mediumPouchDecay), 0, Integer.toString(p.mediumPouchDecay).length());
+			characterfile.newLine();
+			characterfile.write("largePouchDecay = ", 0, 18);
+			characterfile.write(Integer.toString(p.largePouchDecay), 0, Integer.toString(p.largePouchDecay).length());
+			characterfile.newLine();
+			characterfile.write("giantPouchDecay = ", 0, 18);
+			characterfile.write(Integer.toString(p.giantPouchDecay), 0, Integer.toString(p.giantPouchDecay).length());
 			characterfile.newLine();
 			characterfile.write("pk-points = ", 0, 12);
 			characterfile.write(Integer.toString(p.pkPoints), 0, Integer.toString(p.pkPoints).length());

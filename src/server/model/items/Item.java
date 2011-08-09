@@ -277,6 +277,7 @@ itemStackable[12160] = true;
 itemStackable[12163] = true;
 itemStackable[12155] = true;
 itemStackable[15243] = true;
+itemStackable[15273] = true;
 
 				} else {
 					itemStackable[counter] = true;

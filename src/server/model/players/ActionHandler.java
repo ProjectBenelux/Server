@@ -1311,6 +1311,11 @@ break;
 			case 706:
 				c.getDH().sendDialogues(9, npcType);
 			break;
+			//runecrafting pouches
+			case 2262:
+				c.getPA().addPouches();
+				break;
+			//end rune crafting pouches
 			case 1512:
 				c.getDH().sendDialogues(70, 4289);
 			break;
@@ -1670,6 +1675,11 @@ break;
 			case 527:
 				c.getShops().openShop(15);
 			break;
+			//Runecrafting Pouches
+			case 2262:
+				c.getPA().repairPouches();
+				break;
+			//End Runecrafting Pouches
 			case 528:
 				c.getShops().openShop(16);
 			break;

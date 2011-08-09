@@ -28,7 +28,14 @@ public int playerTradeWealth;
 	public int DCdown = 0, 	trade11;
 	
 	public int overloadcounter = 0;
-
+	
+	//Runecrafting Pouches
+	public int smallPouchP, smallPouchE;
+	public int mediumPouchP, mediumPouchE;
+	public int largePouchP, largePouchE;
+	public int giantPouchP, giantPouchE;
+	public int mediumPouchDecay, largePouchDecay, giantPouchDecay;
+	//End Runecrafing Pouches
 	public int FishID;
 	public int Arma, Zammy, Sara;
 	public int Dfscharges;

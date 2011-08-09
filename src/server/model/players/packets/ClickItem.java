@@ -329,20 +329,26 @@ public class ClickItem implements PacketType {
 		}
 		//End of artifacts By Hirukos
 		
-		
-		if (itemId >= 5509 && itemId <= 5514) {
-			int pouch = -1;
-			int a = itemId;
-			if (a == 5509)
-				pouch = 0;
-			if (a == 5510)
-				pouch = 1;
-			if (a == 5512)
-				pouch = 2;
-			if (a == 5514)
-				pouch = 3;
-			c.getPA().fillPouch(pouch);
-			return;
+				if (itemId == 5509) {
+			c.getPA().addSmallPouch();
+		}
+		if (itemId == 5510) {
+			c.getPA().addMediumPouch();
+		}
+		if (itemId == 5511) {
+			c.getPA().addMediumPouch();
+		}
+		if (itemId == 5512) {
+			c.getPA().addLargePouch();
+		}
+		if (itemId == 5513) {
+			c.getPA().addLargePouch();
+		}
+		if (itemId == 5514) {
+			c.getPA().addGiantPouch();
+		}
+		if (itemId == 5515) {
+			c.getPA().addGiantPouch();
 		}
 		if (c.getHerblore().isUnidHerb(itemId))
 			c.getHerblore().handleHerbClick(itemId);

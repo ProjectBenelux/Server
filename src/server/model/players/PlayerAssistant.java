@@ -2938,6 +2938,347 @@ if (c.xpLock == true || c.Jail == true) {
 		object(-1, 2372, 3119, -3, 10);
 	}
 	
+	private final int RUNE_ESS = 1436;
+	private final int PURE_ESS = 7936;
+
+	public final int SMALL_POUCH = 5509;
+	public final int MEDIUM_POUCH = 5510;
+	public final int LARGE_POUCH = 5512;
+	public final int GIANT_POUCH = 5514;
+
+	public final int BROKEN_MEDIUM_POUCH = 5511;
+	public final int BROKEN_LARGE_POUCH = 5513;
+	public final int BROKEN_GIANT_POUCH = 5515;
+
+	public int mediumPouchCapacity;
+	public int largePouchCapacity;
+	public int giantPouchCapacity;
+
+	public void addPouches() {
+		if (c.getItems().getItemCount(SMALL_POUCH) < 1 && c.getItems().getBankAmount(SMALL_POUCH) < 1) {
+			if (c.getItems().freeSlots() > 0) {
+				c.getItems().addItem(SMALL_POUCH, 1);
+			} else {
+				c.sendMessage("You have run out of inventory slots.");
+				return;
+			}
+		}
+		if ((c.getItems().getItemCount(MEDIUM_POUCH) < 1 && c.getItems().getBankAmount(MEDIUM_POUCH) < 1)) {
+			if ((c.getItems().getItemCount(BROKEN_MEDIUM_POUCH) < 1 && c.getItems().getBankAmount(BROKEN_MEDIUM_POUCH) < 1)) {
+				if (c.playerLevel[20] >= 25) {
+					if (c.getItems().freeSlots() > 0) {
+						c.getItems().addItem(MEDIUM_POUCH, 1);
+						c.mediumPouchDecay = 45;
+					} else {
+						c.sendMessage("You have run out of inventory slots.");
+						return;
+					}
+				}
+			}
+		}
+		if ((c.getItems().getItemCount(LARGE_POUCH) < 1 && c.getItems().getBankAmount(LARGE_POUCH) < 1)) {
+			if ((c.getItems().getItemCount(BROKEN_LARGE_POUCH) < 1 && c.getItems().getBankAmount(BROKEN_LARGE_POUCH) < 1)) {
+				if (c.playerLevel[20] >= 50) {
+					if (c.getItems().freeSlots() > 0) {
+						c.getItems().addItem(LARGE_POUCH, 1);
+						c.largePouchDecay = 29;
+					} else {
+						c.sendMessage("You have run out of inventory slots.");
+						return;
+					}
+				}
+			}
+		}
+		if ((c.getItems().getItemCount(GIANT_POUCH) < 1 && c.getItems().getBankAmount(GIANT_POUCH) < 1)) {
+			if ((c.getItems().getItemCount(BROKEN_GIANT_POUCH) < 1 && c.getItems().getBankAmount(BROKEN_GIANT_POUCH) < 1)) {
+				if (c.playerLevel[20] >= 75) {
+					if (c.getItems().freeSlots() > 0) {
+						c.getItems().addItem(GIANT_POUCH, 1);
+						c.giantPouchDecay = 10;
+					} else {
+						c.sendMessage("You have run out of inventory slots.");
+						return;
+					}
+				}
+			}
+		}
+	}
+
+	public void repairPouches() {
+		if (c.getItems().playerHasItem(BROKEN_MEDIUM_POUCH, 1)) {
+			c.getItems().deleteItem(BROKEN_MEDIUM_POUCH, 1);
+			c.getItems().addItem(MEDIUM_POUCH, 1);
+		}
+		if (c.getItems().playerHasItem(BROKEN_LARGE_POUCH, 1)) {
+			c.getItems().deleteItem(BROKEN_LARGE_POUCH, 1);
+			c.getItems().addItem(LARGE_POUCH, 1);
+		}
+		if (c.getItems().playerHasItem(BROKEN_GIANT_POUCH, 1)) {
+			c.getItems().deleteItem(BROKEN_GIANT_POUCH, 1);
+			c.getItems().addItem(GIANT_POUCH, 1);
+		}
+		c.mediumPouchDecay = 45;
+		c.largePouchDecay = 29;
+		c.giantPouchDecay = 10;
+	}
+
+	public void addSmallPouch() {
+		if (c.smallPouchP + c.smallPouchE >= 3)
+			return;
+		int pEss = c.getItems().getItemCount(PURE_ESS);
+		int rEss = c.getItems().getItemCount(RUNE_ESS);
+		if (pEss > 3)
+			pEss = 3;
+		if (rEss > 3)
+			rEss = 3;
+		for (int i = 0; i < pEss; i++) {
+			c.smallPouchP++;
+			c.getItems().deleteItem(PURE_ESS, 1);
+			if (c.smallPouchP + c.smallPouchE >= 3)
+				return;
+		}
+		for (int j = 0; j < rEss; j++) {
+			c.smallPouchE++;
+			c.getItems().deleteItem(RUNE_ESS, 1);
+			if (c.smallPouchP + c.smallPouchE >= 3)
+				return;
+		}
+	}
+
+	public void removeSmallPouch() {
+		if (c.smallPouchE == 0 && c.smallPouchP == 0)
+			return;
+		int pouchp = c.smallPouchP;
+		int pouche = c.smallPouchE;
+		for (int i = 0; i < c.smallPouchP; i++) {
+			int invSlots = c.getItems().freeSlots();
+			if (invSlots > 0) {
+				c.getItems().addItem(PURE_ESS, 1);
+				pouchp--;
+			} else {
+				c.sendMessage("You have run out of free inventory slots.");
+				c.smallPouchP = pouchp;
+				return;
+			}
+		}
+		c.smallPouchP = pouchp;
+		for (int i = 0; i < c.smallPouchE; i++) {
+			int invSlots = c.getItems().freeSlots();
+			if (invSlots > 0) {
+				c.getItems().addItem(RUNE_ESS, 1);
+				pouche--;
+			} else {
+				c.sendMessage("You have run out of free inventory slots.");
+				c.smallPouchE = pouche;
+				return;
+			}
+		}
+		c.smallPouchE = pouche;
+	}
+
+	public void addMediumPouch() {
+		if (c.mediumPouchDecay < 0)
+			mediumPouchCapacity = 3;
+		else
+			mediumPouchCapacity = 6;
+		if (c.mediumPouchP + c.mediumPouchE >= mediumPouchCapacity)
+			return;
+		if (c.mediumPouchDecay > 0)
+			c.mediumPouchDecay--;
+		if (c.mediumPouchDecay == 0) {
+			c.getItems().deleteItem(MEDIUM_POUCH, 1);
+			c.getItems().addItem(BROKEN_MEDIUM_POUCH, 1);
+			mediumPouchCapacity = 3;
+			c.mediumPouchDecay = -1;
+		}
+		if (c.mediumPouchP + c.mediumPouchE >= mediumPouchCapacity)
+			return;
+		int pEss = c.getItems().getItemCount(PURE_ESS);
+		int rEss = c.getItems().getItemCount(RUNE_ESS);
+		if (pEss > mediumPouchCapacity)
+			pEss = mediumPouchCapacity;
+		if (rEss > mediumPouchCapacity)
+			rEss = mediumPouchCapacity;
+		for (int i = 0; i < pEss; i++) {
+			c.mediumPouchP++;
+			c.getItems().deleteItem(PURE_ESS, 1);
+			if (c.mediumPouchP + c.mediumPouchE >= mediumPouchCapacity)
+				return;
+		}
+		for (int j = 0; j < rEss; j++) {
+			c.mediumPouchE++;
+			c.getItems().deleteItem(RUNE_ESS, 1);
+			if (c.mediumPouchP + c.mediumPouchE >= mediumPouchCapacity)
+				return;
+		}
+	}
+
+	public void removeMediumPouch() {
+		if (c.mediumPouchE == 0 && c.mediumPouchP == 0)
+			return;
+		int pouchp = c.mediumPouchP;
+		int pouche = c.mediumPouchE;
+		for (int i = 0; i < c.mediumPouchP; i++) {
+			int invSlots = c.getItems().freeSlots();
+			if (invSlots > 0) {
+				c.getItems().addItem(PURE_ESS, 1);
+				pouchp--;
+			} else {
+				c.sendMessage("You have run out of free inventory slots.");
+				c.mediumPouchP = pouchp;
+				return;
+			}
+		}
+		c.mediumPouchP = pouchp;
+		for (int i = 0; i < c.mediumPouchE; i++) {
+			int invSlots = c.getItems().freeSlots();
+			if (invSlots > 0) {
+				c.getItems().addItem(RUNE_ESS, 1);
+				pouche--;
+			} else {
+				c.sendMessage("You have run out of free inventory slots.");
+				c.mediumPouchE = pouche;
+				return;
+			}
+		}
+		c.mediumPouchE = pouche;
+	}
+
+	public void addLargePouch() {
+		if (c.largePouchDecay < 0)
+			largePouchCapacity = 6;
+		else
+			largePouchCapacity = 9;
+		if (c.largePouchP + c.largePouchE >= largePouchCapacity)
+			return;
+		if (c.largePouchDecay > 0)
+			c.largePouchDecay--;
+		if (c.largePouchDecay == 0) {
+			c.getItems().deleteItem(LARGE_POUCH, 1);
+			c.getItems().addItem(BROKEN_LARGE_POUCH, 1);
+			largePouchCapacity = 6;
+			c.largePouchDecay = -1;
+		}
+		if (c.largePouchP + c.largePouchE >= largePouchCapacity)
+			return;
+		int pEss = c.getItems().getItemCount(PURE_ESS);
+		int rEss = c.getItems().getItemCount(RUNE_ESS);
+		if (pEss > largePouchCapacity)
+			pEss = largePouchCapacity;
+		if (rEss > largePouchCapacity)
+			rEss = largePouchCapacity;
+		for (int i = 0; i < pEss; i++) {
+			c.largePouchP++;
+			c.getItems().deleteItem(PURE_ESS, 1);
+			if (c.largePouchP + c.largePouchE >= largePouchCapacity)
+				return;
+		}
+		for (int j = 0; j < rEss; j++) {
+			c.largePouchE++;
+			c.getItems().deleteItem(RUNE_ESS, 1);
+			if (c.largePouchP + c.largePouchE >= largePouchCapacity)
+				return;
+		}
+	}
+
+	public void removeLargePouch() {
+		if (c.largePouchE == 0 && c.largePouchP == 0)
+			return;
+		int pouchp = c.largePouchP;
+		int pouche = c.largePouchE;
+		for (int i = 0; i < c.largePouchP; i++) {
+			int invSlots = c.getItems().freeSlots();
+			if (invSlots > 0) {
+				c.getItems().addItem(PURE_ESS, 1);
+				pouchp--;
+			} else {
+				c.sendMessage("You have run out of free inventory slots.");
+				c.largePouchP = pouchp;
+				return;
+			}
+		}
+		c.largePouchP = pouchp;
+		for (int i = 0; i < c.largePouchE; i++) {
+			int invSlots = c.getItems().freeSlots();
+			if (invSlots > 0) {
+				c.getItems().addItem(RUNE_ESS, 1);
+				pouche--;
+			} else {
+				c.sendMessage("You have run out of free inventory slots.");
+				c.largePouchE = pouche;
+				return;
+			}
+		}
+		c.largePouchE = pouche;
+	}
+
+	public void addGiantPouch() {
+		if (c.giantPouchDecay < 0)
+			giantPouchCapacity = 9;
+		else
+			giantPouchCapacity = 12;
+		if (c.giantPouchP + c.giantPouchE >= giantPouchCapacity)
+			return;
+		if (c.giantPouchDecay > 0)
+			c.giantPouchDecay--;
+		if (c.giantPouchDecay == 0) {
+			c.getItems().deleteItem(GIANT_POUCH, 1);
+			c.getItems().addItem(BROKEN_GIANT_POUCH, 1);
+			giantPouchCapacity = 9;
+			c.giantPouchDecay = -1;
+		}
+		if (c.giantPouchP + c.giantPouchE >= giantPouchCapacity)
+			return;
+		int pEss = c.getItems().getItemCount(PURE_ESS);
+		int rEss = c.getItems().getItemCount(RUNE_ESS);
+		if (pEss > giantPouchCapacity)
+			pEss = giantPouchCapacity;
+		if (rEss > giantPouchCapacity)
+			rEss = giantPouchCapacity;
+		for (int i = 0; i < pEss; i++) {
+			c.giantPouchP++;
+			c.getItems().deleteItem(PURE_ESS, 1);
+			if (c.giantPouchP + c.giantPouchE >= giantPouchCapacity)
+				return;
+		}
+		for (int j = 0; j < rEss; j++) {
+			c.giantPouchE++;
+			c.getItems().deleteItem(RUNE_ESS, 1);
+			if (c.giantPouchP + c.giantPouchE >= giantPouchCapacity)
+				return;
+		}
+	}
+
+	public void removeGiantPouch() {
+		if (c.giantPouchE == 0 && c.giantPouchP == 0)
+			return;
+		int pouchp = c.giantPouchP;
+		int pouche = c.giantPouchE;
+		for (int i = 0; i < c.giantPouchP; i++) {
+			int invSlots = c.getItems().freeSlots();
+			if (invSlots > 0) {
+				c.getItems().addItem(PURE_ESS, 1);
+				pouchp--;
+			} else {
+				c.sendMessage("You have run out of free inventory slots.");
+				c.giantPouchP = pouchp;
+				return;
+			}
+		}
+		c.giantPouchP = pouchp;
+		for (int i = 0; i < c.giantPouchE; i++) {
+			int invSlots = c.getItems().freeSlots();
+			if (invSlots > 0) {
+				c.getItems().addItem(RUNE_ESS, 1);
+				pouche--;
+			} else {
+				c.sendMessage("You have run out of free inventory slots.");
+				c.giantPouchE = pouche;
+				return;
+			}
+		}
+		c.giantPouchE = pouche;
+	}
 	
 public int antiFire() {
 		int toReturn = 0;

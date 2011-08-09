@@ -167,7 +167,7 @@ stillGraphicsManager = new StillGraphicsManager();
 		 * Server Successfully Loaded
 		 */
                 //Change To IP to your Hamachi or anything else
-		System.out.println("Server listening on port 5.9.139.182:" + serverlistenerPort);
+		System.out.println("Server listening on port 5.175.193.189:" + serverlistenerPort);
 		/**
 		 * Main Server Tick
 		 */
