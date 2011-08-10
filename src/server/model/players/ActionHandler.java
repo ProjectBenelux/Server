@@ -45,6 +45,11 @@ public class ActionHandler {
 		case 32015:
 			c.getPA().movePlayer(3017, 3848, 0);
 		break;
+		//Summon pouch creation
+		case 28716:
+		c.getPA().showInterface(31350);
+		break;
+		//end summon pouch creation
 		 case 23271:
 		wildyditch();
 		break;

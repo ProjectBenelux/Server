@@ -606,6 +606,1149 @@ c.getPA().showInterface(6960);
 	          	c.ResetKeepItems();
 				c.getPA().showInterface(17100);
 			break;
+
+
+			//SUMMONING INTERFACE
+			case 122114://next
+			c.getPA().showInterface(31550);
+			break;
+			case 123058://previous
+			c.getPA().showInterface(31350);
+			break;
+
+
+		case 122119://Spirit Wolf
+		if (c.playerLevel[22] < 1) {
+				c.sendMessage("You need a level 1 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 7) && c.getItems().playerHasItem(12158, 1) && c.getItems().playerHasItem(2859, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 7);
+			c.getItems().deleteItem2(12158, 1);
+			c.getItems().deleteItem2(2859, 1);
+			c.getPA().closeAllWindows();
+			c.getPA().addSkillXP(5 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(12047, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122122://spirit spider
+		if (c.playerLevel[22] < 10) {
+				c.sendMessage("You need a level 10 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 8) && c.getItems().playerHasItem(12158, 1) && c.getItems().playerHasItem(6291, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 8);
+			c.getItems().deleteItem2(12158, 1);
+			c.getItems().deleteItem2(6291, 1);
+			c.getPA().addSkillXP(12 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8379, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122125://Thorny snail
+		if (c.playerLevel[22] < 13) {
+				c.sendMessage("You need a level 13 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 9) && c.getItems().playerHasItem(8341, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 9);
+			c.getItems().deleteItem2(8341, 1);
+			c.getPA().addSkillXP(23 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8360, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122128://granite crab
+		if (c.playerLevel[22] < 13) {
+				c.sendMessage("You need a level 13 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 7) && c.getItems().playerHasItem(8341, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 7);
+			c.getItems().deleteItem2(8341, 1);
+			c.getPA().addSkillXP(21 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8355, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122131://spirit mosquito
+		if (c.playerLevel[22] < 17) {
+				c.sendMessage("You need a level 17 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 1) && c.getItems().playerHasItem(8341, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 1);
+			c.getItems().deleteItem2(8341, 1);
+			c.getPA().addSkillXP(46 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8481, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122134://desert wyrm
+		if (c.playerLevel[22] < 18) {
+				c.sendMessage("You need a level 18 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 45) && c.getItems().playerHasItem(8342, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 45);
+			c.getItems().deleteItem2(8342, 1);
+			c.getPA().addSkillXP(31 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8374, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122137://spirit scorpion
+		if (c.playerLevel[22] < 19) {
+				c.sendMessage("You need a level 19 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 57) && c.getItems().playerHasItem(8343, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 57);
+			c.getItems().deleteItem2(8343, 1);
+			c.getPA().addSkillXP(82 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8377, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122140://Spirit Tz-Kih
+		if (c.playerLevel[22] < 22) {
+				c.sendMessage("You need a level 22 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 64) && c.getItems().playerHasItem(8343, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 64);
+			c.getItems().deleteItem2(8343, 1);
+			c.getPA().addSkillXP(96 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8496, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122143://Compost mound
+		if (c.playerLevel[22] < 28) {
+				c.sendMessage("You need a level 28 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 47) && c.getItems().playerHasItem(8342, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 47);
+			c.getItems().deleteItem2(8342, 1);
+			c.getPA().addSkillXP(46 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8395, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122146://vampire bat
+		if (c.playerLevel[22] < 31) {
+				c.sendMessage("You need a level 31 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 81) && c.getItems().playerHasItem(8343, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 81);
+			c.getItems().deleteItem2(8343, 1);
+			c.getPA().addSkillXP(136 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8376, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122149://honey badger
+		if (c.playerLevel[22] < 32) {
+				c.sendMessage("You need a level 32 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 84) && c.getItems().playerHasItem(8343, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 84);
+			c.getItems().deleteItem2(8343, 1);
+			c.getPA().addSkillXP(140 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8382, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122152://beaver
+		if (c.playerLevel[22] < 33) {
+				c.sendMessage("You need a level 33 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 72) && c.getItems().playerHasItem(8342, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 72);
+			c.getItems().deleteItem2(8342, 1);
+			c.getPA().addSkillXP(57 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8361, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122155://Void shifter
+		if (c.playerLevel[22] < 34) {
+				c.sendMessage("You need a level 34 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 74) && c.getItems().playerHasItem(8346, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 74);
+			c.getItems().deleteItem2(8346, 1);
+			c.getPA().addSkillXP(59 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8598, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122158://Void torcher
+		if (c.playerLevel[22] < 34) {
+				c.sendMessage("You need a level 34 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 74) && c.getItems().playerHasItem(8346, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 74);
+			c.getItems().deleteItem2(8346, 1);
+			c.getPA().addSkillXP(59 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8491, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122161://Void spinner
+		if (c.playerLevel[22] < 34) {
+				c.sendMessage("You need a level 34 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 74) && c.getItems().playerHasItem(8346, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 74);
+			c.getItems().deleteItem2(8346, 1);
+			c.getPA().addSkillXP(59 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8482, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122164://bull ant
+		if (c.playerLevel[22] < 40) {
+				c.sendMessage("You need a level 40 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 11) && c.getItems().playerHasItem(8341, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 11);
+			c.getItems().deleteItem2(8341, 1);
+			c.getPA().addSkillXP(52 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8393, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122167://Void ravager
+		if (c.playerLevel[22] < 34) {
+				c.sendMessage("You need a level 34 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 74) && c.getItems().playerHasItem(8346, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 74);
+			c.getItems().deleteItem2(8346, 1);
+			c.getPA().addSkillXP(59 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8600, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122170://evil turnip
+		if (c.playerLevel[22] < 42) {
+				c.sendMessage("You need a level 42 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 104) && c.getItems().playerHasItem(8343, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 104);
+			c.getItems().deleteItem2(8343, 1);
+			c.getPA().addSkillXP(184 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8375, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122173://spirit cockatrice
+		if (c.playerLevel[22] < 43) {
+				c.sendMessage("You need a level 43 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 88) && c.getItems().playerHasItem(8342, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 88);
+			c.getItems().deleteItem2(8342, 1);
+			c.getPA().addSkillXP(75 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8397, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122176://spirit guthatrice
+		if (c.playerLevel[22] < 43) {
+				c.sendMessage("You need a level 43 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 88) && c.getItems().playerHasItem(8342, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 88);
+			c.getItems().deleteItem2(8342, 1);
+			c.getPA().addSkillXP(75 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8398, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122179://spirit saratrice
+		if (c.playerLevel[22] < 43) {
+				c.sendMessage("You need a level 43 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 88) && c.getItems().playerHasItem(8342, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 88);
+			c.getItems().deleteItem2(8342, 1);
+			c.getPA().addSkillXP(75 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8399, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122182://spirit zamatrice
+		if (c.playerLevel[22] < 43) {
+				c.sendMessage("You need a level 43 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 88) && c.getItems().playerHasItem(8342, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 88);
+			c.getItems().deleteItem2(8342, 1);
+			c.getPA().addSkillXP(75 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8400, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122185://spirit pengatrice
+		if (c.playerLevel[22] < 43) {
+				c.sendMessage("You need a level 43 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 88) && c.getItems().playerHasItem(8342, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 88);
+			c.getItems().deleteItem2(8342, 1);
+			c.getPA().addSkillXP(75 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8401, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122188://spirit coraxatrice
+		if (c.playerLevel[22] < 43) {
+				c.sendMessage("You need a level 43 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 88) && c.getItems().playerHasItem(8342, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 88);
+			c.getItems().deleteItem2(8342, 1);
+			c.getPA().addSkillXP(75 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8402, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+
+		case 122191://spirit vulatrice
+		if (c.playerLevel[22] < 43) {
+				c.sendMessage("You need a level 43 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 88) && c.getItems().playerHasItem(8342, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 88);
+			c.getItems().deleteItem2(8342, 1);
+			c.getPA().addSkillXP(75 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8403, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122194://bloated leech
+		if (c.playerLevel[22] < 49) {
+				c.sendMessage("You need a level 49 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 117) && c.getItems().playerHasItem(8343, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 117);
+			c.getItems().deleteItem2(8343, 1);
+			c.getPA().addSkillXP(215 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8380, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122197://spirit terrorbird
+		if (c.playerLevel[22] < 52) {
+				c.sendMessage("You need a level 52 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 12) && c.getItems().playerHasItem(8341, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 12);
+			c.getItems().deleteItem2(8341, 1);
+			c.getPA().addSkillXP(68 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8354, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122200://abyssal parasite
+		if (c.playerLevel[22] < 54) {
+				c.sendMessage("You need a level 54 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 106) && c.getItems().playerHasItem(8342, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 106);
+			c.getItems().deleteItem2(8342, 1);
+			c.getPA().addSkillXP(94 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8368, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122203://spirit jelly
+		if (c.playerLevel[22] < 55) {
+				c.sendMessage("You need a level 55 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 151) && c.getItems().playerHasItem(8346, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 151);
+			c.getItems().deleteItem2(8346, 1);
+			c.getPA().addSkillXP(484 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8364, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 122206://ibis
+		if (c.playerLevel[22] < 56) {
+				c.sendMessage("You need a level 56 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 109) && c.getItems().playerHasItem(8342, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 109);
+			c.getItems().deleteItem2(8342, 1);
+			c.getPA().addSkillXP(98 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8477, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123063://spirit graahk
+		if (c.playerLevel[22] < 57) {
+				c.sendMessage("You need a level 57 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 154) && c.getItems().playerHasItem(8346, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 154);
+			c.getItems().deleteItem2(8346, 1);
+			c.getPA().addSkillXP(501 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8596, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+
+		case 123066://spirit kyatt
+		if (c.playerLevel[22] < 57) {
+				c.sendMessage("You need a level 57 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 153) && c.getItems().playerHasItem(8346, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 153);
+			c.getItems().deleteItem2(8346, 1);
+			c.getPA().addSkillXP(501 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8498, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123069://spirit larupia
+		if (c.playerLevel[22] < 57) {
+				c.sendMessage("You need a level 57 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 155) && c.getItems().playerHasItem(8346, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 155);
+			c.getItems().deleteItem2(8346, 1);
+			c.getPA().addSkillXP(501 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8484, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+
+		case 123072://Karamthulhu overlord
+		if (c.playerLevel[22] < 58) {
+				c.sendMessage("You need a level 58 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 144) && c.getItems().playerHasItem(8346, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 144);
+			c.getItems().deleteItem2(8346, 1);
+			c.getPA().addSkillXP(510 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8362, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123075://Smoke devil
+		if (c.playerLevel[22] < 61) {
+				c.sendMessage("You need a level 61 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 141) && c.getItems().playerHasItem(8343, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 141);
+			c.getItems().deleteItem2(8343, 1);
+			c.getPA().addSkillXP(268 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8392, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123078://stranger plant
+		if (c.playerLevel[22] < 64) {
+				c.sendMessage("You need a level 64 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 128) && c.getItems().playerHasItem(8343, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 128);
+			c.getItems().deleteItem2(8343, 1);
+			c.getPA().addSkillXP(281 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8373, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123081://war tortoise
+		if (c.playerLevel[22] < 67) {
+				c.sendMessage("You need a level 67 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 1) && c.getItems().playerHasItem(8341, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 1);
+			c.getItems().deleteItem2(8341, 1);
+			c.getPA().addSkillXP(58 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8366, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123084://fruit bat
+		if (c.playerLevel[22] < 69) {
+				c.sendMessage("You need a level 69 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 130) && c.getItems().playerHasItem(8342, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 130);
+			c.getItems().deleteItem2(8342, 1);
+			c.getPA().addSkillXP(121 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8367, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123087://ravenous locust
+		if (c.playerLevel[22] < 70) {
+				c.sendMessage("You need a level 70 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 79) && c.getItems().playerHasItem(8343, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 79);
+			c.getItems().deleteItem2(8343, 1);
+			c.getPA().addSkillXP(132 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8502, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123090://arctic bear
+		if (c.playerLevel[22] < 71) {
+				c.sendMessage("You need a level 71 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 14) && c.getItems().playerHasItem(8341, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 14);
+			c.getItems().deleteItem2(8341, 1);
+			c.getPA().addSkillXP(93 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8378, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123093://obsidian golem
+		if (c.playerLevel[22] < 73) {
+				c.sendMessage("You need a level 73 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 195) && c.getItems().playerHasItem(8346, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 195);
+			c.getItems().deleteItem2(8346, 1);
+			c.getPA().addSkillXP(642 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8488, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123096://praying mantis
+		if (c.playerLevel[22] < 75) {
+				c.sendMessage("You need a level 75 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 168) && c.getItems().playerHasItem(8343, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 168);
+			c.getItems().deleteItem2(8343, 1);
+			c.getPA().addSkillXP(329 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8356, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123099://forge regent
+		if (c.playerLevel[22] < 76) {
+				c.sendMessage("You need a level 76 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 141) && c.getItems().playerHasItem(8342, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 141);
+			c.getItems().deleteItem2(8342, 1);
+			c.getPA().addSkillXP(134 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8483, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123102://talon beast
+		if (c.playerLevel[22] < 77) {
+				c.sendMessage("You need a level 77 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 174) && c.getItems().playerHasItem(8343, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 174);
+			c.getItems().deleteItem2(8343, 1);
+			c.getPA().addSkillXP(1015 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8489, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123105://giant ent
+		if (c.playerLevel[22] < 78) {
+				c.sendMessage("You need a level 78 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 124) && c.getItems().playerHasItem(8342, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 124);
+			c.getItems().deleteItem2(8342, 1);
+			c.getPA().addSkillXP(136 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8357, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123108://fire titan
+		if (c.playerLevel[22] < 79) {
+				c.sendMessage("You need a level 79 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 198) && c.getItems().playerHasItem(8346, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 198);
+			c.getItems().deleteItem2(8346, 1);
+			c.getPA().addSkillXP(695 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8493, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123111://moss titan
+		if (c.playerLevel[22] < 79) {
+				c.sendMessage("You need a level 79 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 202) && c.getItems().playerHasItem(8346, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 202);
+			c.getItems().deleteItem2(8346, 1);
+			c.getPA().addSkillXP(695 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8494, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123114://hydra
+		if (c.playerLevel[22] < 80) {
+				c.sendMessage("You need a level 80 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 128) && c.getItems().playerHasItem(8342, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 128);
+			c.getItems().deleteItem2(8342, 1);
+			c.getPA().addSkillXP(140 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8363, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123117://spirit dagannoth
+		if (c.playerLevel[22] < 83) {
+				c.sendMessage("You need a level 83 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 1) && c.getItems().playerHasItem(8343, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 1);
+			c.getItems().deleteItem2(8343, 1);
+			c.getPA().addSkillXP(164 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8359, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123120://lava titan
+		if (c.playerLevel[22] < 83) {
+				c.sendMessage("You need a level 83 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 219) && c.getItems().playerHasItem(8346, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 219);
+			c.getItems().deleteItem2(8346, 1);
+			c.getPA().addSkillXP(730 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8486, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123123://swamp titan
+		if (c.playerLevel[22] < 85) {
+				c.sendMessage("You need a level 85 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 1) && c.getItems().playerHasItem(8343, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 150);
+			c.getItems().deleteItem2(8343, 1);
+			c.getPA().addSkillXP(373 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8480, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123126://rune minotaur
+		if (c.playerLevel[22] < 86) {
+				c.sendMessage("You need a level 86 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 1) && c.getItems().playerHasItem(8346, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 1);
+			c.getItems().deleteItem2(8346, 1);
+			c.getPA().addSkillXP(756 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8391, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123129://unicorn stallion
+		if (c.playerLevel[22] < 88) {
+				c.sendMessage("You need a level 88 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 140) && c.getItems().playerHasItem(8342, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 140);
+			c.getItems().deleteItem2(8342, 1);
+			c.getPA().addSkillXP(154 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8370, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123132://geyser titan
+		if (c.playerLevel[22] < 89) {
+				c.sendMessage("You need a level 89 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 222) && c.getItems().playerHasItem(8346, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 222);
+			c.getItems().deleteItem2(8346, 1);
+			c.getPA().addSkillXP(783 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8485, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123135://wolpertinger
+		if (c.playerLevel[22] < 92) {
+				c.sendMessage("You need a level 92 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 203) && c.getItems().playerHasItem(8343, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 203);
+			c.getItems().deleteItem2(8343, 1);
+			c.getPA().addSkillXP(404 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8394, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123138://abyssal titan
+		if (c.playerLevel[22] < 93) {
+				c.sendMessage("You need a level 93 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 112) && c.getItems().playerHasItem(8342, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 112);
+			c.getItems().deleteItem2(8342, 1);
+			c.getPA().addSkillXP(163 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8490, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123141://iron titan
+		if (c.playerLevel[22] < 95) {
+				c.sendMessage("You need a level 95 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 198) && c.getItems().playerHasItem(8343, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 198);
+			c.getItems().deleteItem2(8343, 1);
+			c.getPA().addSkillXP(417 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8602, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123144://pack yak
+		if (c.playerLevel[22] < 96) {
+				c.sendMessage("You need a level 96 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 211) && c.getItems().playerHasItem(8343, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 211);
+			c.getItems().deleteItem2(8343, 1);
+			c.getPA().addSkillXP(422 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8396, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+		
+		case 123147://steel titan
+		if (c.playerLevel[22] < 98) {
+				c.sendMessage("You need a level 98 Summoning to do this.");
+				return;
+				}
+		if (c.getItems().playerHasItem(12155, 1) && c.getItems().playerHasItem(18016, 178) && c.getItems().playerHasItem(8343, 1)) {
+			c.getItems().deleteItem2(12155, 1);
+			c.getItems().deleteItem2(18016, 178);
+			c.getItems().deleteItem2(8343, 1);
+			c.getPA().addSkillXP(435 * Config.SUMMONING_EXPERIENCE, 23);
+			c.getItems().addItem(8487, 1);
+			c.sendMessage("You created a Summoning Pouch.");
+			c.startAnimation(10530);
+			c.gfx0(1549);
+		} else {
+			c.sendMessage("You don't have the required items.");
+		}
+		break;
+
+		case 123150://unknown
+		if (c.playerLevel[22] < 99) {
+			c.sendMessage("You need a level 99 Summoning to do this.");
+			return;
+			}
+		c.sendMessage("This is still unknown...");
+		c.startAnimation(10530);
+		c.gfx0(1549);
+		break;
+
+		//END OF SUMMONING
 			case 107230:
 			if(c.isDonator == 0 || c.inWild()) {
 			c.sendMessage("You must be outside wilderness and be a donator to use this!");

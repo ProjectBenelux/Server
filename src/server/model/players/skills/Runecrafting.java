@@ -127,7 +127,7 @@ public class Runecrafting {
                         }
                         replaceEssence(RUNE_ESS, runeID, multiplier, i);
                         c.startAnimation(791);
-                        //c.frame174(481, 0, 0); for sound
+                        //c.frame174(481, 0, 0); 
                         c.gfx100(186);
                         return;
                     }

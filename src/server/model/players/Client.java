@@ -1568,7 +1568,6 @@ setSidebarInterface(16, 17011); //summon
 			getPA().sendFrame126("Project Benelux - "+PlayerHandler.getPlayerCount()+" Online", 29155); //Tab Title
 						getPA().sendFrame126("@gre@http://Erased-pkz.comyr.com/", 29164);
 			getPA().sendFrame126("@gre@Items kept on death ", 29165);
-			getPA().sendFrame126("@gre@Save Game ", 29166);
 			getPA().sendFrame126("@lre@Playername: @gre@"+ Misc.optimizeText(playerName) +" " , 29167);
 			if (playerRights == 4)
 			getPA().sendFrame126("@lre@Rank: @gre@Donator", 29168);

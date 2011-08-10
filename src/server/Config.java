@@ -78,6 +78,7 @@ public class Config {
 	public static final boolean PRAYER_LEVEL_REQUIRED = true; // need prayer level to use different prayers
 	public static final boolean MAGIC_LEVEL_REQUIRED = true; // need magic level to cast spell
 	public static final int GOD_SPELL_CHARGE = 300000; // how long does god spell charge last?
+	
 	public static final boolean RUNES_REQUIRED = true; // magic rune required?
 	public static final boolean CORRECT_ARROWS = true; // correct arrows for bows?
 	public static final boolean CRYSTAL_BOW_DEGRADES = false; // magic rune required?
@@ -181,6 +182,9 @@ public class Config {
 	public static final int WOODCUTTING_EXPERIENCE = 40;
 	public static final int MINING_EXPERIENCE = 45;
 	public static final int SMITHING_EXPERIENCE = 40;
+	public static final int SUMMONING_EXPERIENCE = 40;
+	public static final int SUMMONINGNPC_EXPERIENCE = 10;
+	public static final int SUMMONING_DRAINING = 10;
 	public static final int FARMING_EXPERIENCE = 40;
 	public static final int FIREMAKING_EXPERIENCE = 10;
 	public static final int HERBLORE_EXPERIENCE = 40;

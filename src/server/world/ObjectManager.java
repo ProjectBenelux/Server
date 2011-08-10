@@ -115,6 +115,8 @@ public class ObjectManager {
 	
 		c.getPA().checkObjectSpawn(13617, 2044, 4521, 1, 10); //Barrelportal donor	
 		//EDGEVILLE - HOME - FOR NOW
+		//Summononing
+		c.getPA().checkObjectSpawn(28716, 3077, 3485, 2, 10); //Summon Pouch Creation
 		//Prayer Recharge and Curse
 		c.getPA().checkObjectSpawn(409, 3097, 3500, 2, 10); // Prayer Recharge
 		c.getPA().checkObjectSpawn(411, 3095, 3500, 2, 10); //Curse Prayers
