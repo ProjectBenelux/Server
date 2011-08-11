@@ -16,7 +16,7 @@ public class WeaponEmotes {
 	*Weapon stand, walk, run, etc emotes
 	**/
 	
-	public void getPlayerAnimIndex(String weaponName){
+	public static void getPlayerAnimIndex(Client c, String weaponName){
 		c.playerStandIndex = 0x328;
 		c.playerTurnIndex = 0x337;
 		c.playerWalkIndex = 0x333;

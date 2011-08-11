@@ -3712,127 +3712,7 @@ if(!c.inFunPk()){
 	**/
 	
 	public void getPlayerAnimIndex(String weaponName){
-		c.playerStandIndex = 0x328;
-		c.playerTurnIndex = 0x337;
-		c.playerWalkIndex = 0x333;
-		c.playerTurn180Index = 0x334;
-		c.playerTurn90CWIndex = 0x335;
-		c.playerTurn90CCWIndex = 0x336;
-		c.playerRunIndex = 0x338;
-	
-		if(weaponName.contains("halberd") || weaponName.contains("guthan")) {
-			c.playerStandIndex = 809;
-			c.playerWalkIndex = 1146;
-			c.playerRunIndex = 1210;
-			return;
-		}	
-		if(weaponName.contains("dharok")) {
-			c.playerStandIndex = 0x811;
-			c.playerWalkIndex = 0x67F;
-			c.playerRunIndex = 0x680;
-			return;
-		}	
-		if(weaponName.contains("ahrim")) {
-			c.playerStandIndex = 809;
-			c.playerWalkIndex = 1146;
-			c.playerRunIndex = 1210;
-			return;
-		}
-		if(weaponName.contains("verac")) {
-			c.playerStandIndex = 0x328;
-			c.playerWalkIndex = 0x333;
-			c.playerRunIndex = 824;
-			return;
-		}
-		if (weaponName.contains("longsword") || weaponName.contains("scimitar") || weaponName.contains("silverlight") || weaponName.contains("korasi's"))  {
-			c.playerStandIndex = 12021;
-			c.playerRunIndex = 12023;
-			c.playerWalkIndex = 12024;
-			return;
-		}
-		if (weaponName.contains("wand") || weaponName.contains("staff") || weaponName.contains("staff") || weaponName.contains("spear")) {
-			c.playerStandIndex = 8980;
-			c.playerRunIndex = 1210;
-			c.playerWalkIndex = 1146;
-			return;
-		}
-		if(weaponName.contains("karil")) {
-			c.playerStandIndex = 2074;
-			c.playerWalkIndex = 2076;
-			c.playerRunIndex = 2077;
-			return;
-		}
-	if(weaponName.contains("2h sword") || weaponName.contains("godsword") || weaponName.contains("saradomin sw")) {
-			c.playerStandIndex = 7047;
-			c.playerWalkIndex = 7046;
-			c.playerRunIndex = 7039;
-			return;
-		}							
-		if(weaponName.contains("bow")) {
-			c.playerStandIndex = 808;
-			c.playerWalkIndex = 819;
-			c.playerRunIndex = 824;
-			return;
-		}
-
-		switch(c.playerEquipment[c.playerWeapon]) {	
-			case 18349: // rapier chaotic
-			c.playerStandIndex = 12021;
-			c.playerWalkIndex = 12024;
-			c.playerRunIndex = 12023;
-			break;
-			case 18353: // maul chaotic
-			c.playerStandIndex = 13217;
-			c.playerWalkIndex = 13218;
-			c.playerRunIndex = 13220;
-			break;
- 			case 4151:
-			case 15441: // whip
-			case 15442: // whip
-			case 15443: // whip
-			case 15444: // whip
-			c.playerStandIndex = 11973;
-			c.playerWalkIndex = 11975;
-			c.playerRunIndex = 1661;
-			break;
- 			case 15039:
-			c.playerStandIndex = 12000;
-			c.playerWalkIndex = 1663;
-			c.playerRunIndex = 1664;
-			break;
-			case 10887:
-			c.playerStandIndex = 5869;
-			c.playerWalkIndex = 5867;
-			c.playerRunIndex = 5868;
-			break;
-			case 6528:
-				c.playerStandIndex = 0x811;
-				c.playerWalkIndex = 2064;
-				c.playerRunIndex = 1664;
-			break;
-			case 4153:
-			c.playerStandIndex = 1662;
-			c.playerWalkIndex = 1663;
-			c.playerRunIndex = 1664;
-			break;
-			case 15241:
-			c.playerStandIndex = 12155;
-			c.playerWalkIndex = 12154;
-			c.playerRunIndex = 12154;
-			break;
-			case 11694:
-			case 11696:
-			case 11730:
-			case 11698:
-			case 11700:
-			c.playerStandIndex = 4300;
-			c.playerWalkIndex = 4306;
-			c.playerRunIndex = 4305;
-			break;
-			case 1305:
-			c.playerStandIndex = 809;
-			break;
-		}
+		WeaponEmotes.getPlayerAnimIndex(c, weaponName);
 	}
 	
 	/**
@@ -3840,7 +3720,7 @@ if(!c.inFunPk()){
 	**/
 	
 	public int getWepAnim(String weaponName) {
-		return WeaponEmotes.getWepAnim();
+		return WeaponEmotes.getWepAnim(c, weaponName);
 	}
 	
 	/**
