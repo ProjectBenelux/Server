@@ -140,7 +140,11 @@ public class WeaponEmotes {
 		}
 	}
 	
-		public int getWepAnim(String weaponName) {
+	/**
+	* Weapon emotes
+	**/
+	
+	public static int getWepAnim(Client c, String weaponName) {
 		if(c.playerEquipment[c.playerWeapon] <= 0) {
 			switch(c.fightMode) {
 				case 0:
@@ -272,7 +276,7 @@ public class WeaponEmotes {
 	/**
 	* Block emotes
 	*/
-		public int getBlockEmote() {
+		public static int getBlockEmote(Client c) {
 	
 		//if(s.endsWith("defender")) {
 			//return 7;

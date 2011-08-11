@@ -3840,139 +3840,14 @@ if(!c.inFunPk()){
 	**/
 	
 	public int getWepAnim(String weaponName) {
-		if(c.playerEquipment[c.playerWeapon] <= 0) {
-			switch(c.fightMode) {
-				case 0:
-				return 422;			
-				case 2:
-				return 423;			
-				case 1:
-				return 451;
-			}
-		}
-		if(weaponName.contains("knife") || weaponName.contains("dart") || weaponName.contains("javelin") || weaponName.contains("thrownaxe")){
-			return 806;
-		}
-		if(weaponName.contains("halberd")) {
-			return 440;
-		}
-		if(weaponName.startsWith("dragon dagger")) {
-			return 402;
-		}	
-		if(weaponName.endsWith("dagger")) {
-			return 412;
-		}		
- 				if(weaponName.contains("2h sword") || weaponName.contains("godsword") || weaponName.contains("saradomin sword")) {
-			switch(c.fightMode) {
-				case 0:
-				return 7041;		
-				case 2:
-				return 7042;			
-				case 1:
-				return 7048;
-			}	
-			}	
-		if(weaponName.contains("scimitar") || weaponName.contains("longsword") || weaponName.contains("korasi's")) {
-			switch(c.fightMode) {
-				case 0:
-				return 12029;	
-				case 1: // New Scimmi models
-				return 12029;		
-				case 2:
-				return 12029;	
-				case 3:
-				return 12028;		
-			}
-		}
-		if(weaponName.contains("rapier")) {
-			switch(c.fightMode) {
-				case 0:
-				return 386;	
-				case 1:
-				return 386;		
-				case 2:
-				return 386;	
-				case 3:
-				return 386;
-			}
-		}
-              if(weaponName.contains("dharok")) {
-                   switch(c.fightMode) {
-                          case 0: 
-                          return 2067;
-                          case 1: 
-                          return 2067;
-                          case 2: 
-                          return 2067;
-                          case 3:
-                          return 2066;
-			}
-		}
-		if(weaponName.contains("sword")) {
-			return 451;
-		}
-		if(weaponName.contains("karil")) {
-			return 2075;
-		}
-		if(weaponName.contains("chaotic crossbow")) {
-			return 4230;
-		}
-		if(weaponName.contains("bow") && !weaponName.contains("'bow")) {
-			return 426;
-		}
-		if (weaponName.contains("'bow"))
-			return 4230;
-			
-		switch(c.playerEquipment[c.playerWeapon]) { // if you don't want to use strings
-			case 6522:
-			return 2614;
-                        case 13905:
-			return 2080;
-			case 4153: // granite maul
-			return 1665;
-			case 4726: // guthan 
-			return 2080;
-			case 13879:
-			case 13883:
-			return 806;
-			case 14484: //  Dclaw
-			return 393;
-			case 15039: //  Chaotic maul
-			return 2661;
-			case 15241:
-			return 12153;
-			case 4747: // torag
-			return 0x814;
-			case 4710: // ahrim
-			return 406;
-			case 18353:
-			return 13055;
-			case 18349:
-			return 386;
-			case 4755: // verac
-			return 2062;
-			case 4734: // karil
-			return 2075;
-			case 10887:
-			return 5865;
-			case 4151:
-			case 15441: // whip
-			case 15442: // whip
-			case 15443: // whip
-			case 15444: // whip
-			return 1658;
-			case 6528:
-			return 2661;
-			default:
-			return 451;
-		}
+		return WeaponEmotes.getWepAnim();
 	}
 	
 	/**
 	* Block emotes
 	*/
 	public int getBlockEmote() {
-		return WeaponEmotes.getBlockEmote();
+		return WeaponEmotes.getBlockEmote(c);
 	}
 	
 	/**
