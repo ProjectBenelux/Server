@@ -216,6 +216,18 @@ public int npcslot;
 		FocusPointX = -1;
 		FocusPointY = -1;
 	}
+			public void dealDamage(int amt) {
+			if(hitUpdateRequired && !hitUpdateRequired2) {
+				hitUpdateRequired = true;
+				hitDiff2 = amt;
+			}
+			if (!hitUpdateRequired) {
+				hitUpdateRequired = true;
+				hitDiff = amt;
+			}
+			updateRequired = true;
+			HP -= amt;
+		}
 
 	
 	public int getNextWalkingDirection() {

@@ -3503,6 +3503,17 @@ public void useOperate(int itemId) {
 		Server.fightCaves.spawnNextWave(c);
 		c.jadSpawn();
 	}
+		public void sendItemArray(int frameId, int itemId, int slot, int itemAmount) {
+		synchronized(c) {
+			c.getOutStream().createFrameVarSizeWord(34);
+			c.getOutStream().writeWord(frameId);
+			c.getOutStream().writeByte(slot);
+			c.getOutStream().writeWord(itemId+1);
+			c.getOutStream().writeByte(255);
+			c.getOutStream().writeDWord(itemAmount);
+			c.getOutStream().endFrameVarSizeWord();
+		}
+	}
 	
 	public void appendPoison(int damage) {
 		if (System.currentTimeMillis() - c.lastPoisonSip > c.poisonImmune) {

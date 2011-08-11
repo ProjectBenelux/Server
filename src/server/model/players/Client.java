@@ -1565,19 +1565,6 @@ setSidebarInterface(16, 17011); //summon
                        safeTimer--;
                 }
 
-			getPA().sendFrame126("Project Benelux - "+PlayerHandler.getPlayerCount()+" Online", 29155); //Tab Title
-						getPA().sendFrame126("@gre@http://Erased-pkz.comyr.com/", 29164);
-			getPA().sendFrame126("@gre@Items kept on death ", 29165);
-			getPA().sendFrame126("@lre@Playername: @gre@"+ Misc.optimizeText(playerName) +" " , 29167);
-			if (playerRights == 4)
-			getPA().sendFrame126("@lre@Rank: @gre@Donator", 29168);
-			else if (playerRights == 3)
-			getPA().sendFrame126("@lre@Rank: @gre@Owner", 29168);
-			else if (playerRights == 2)
-			getPA().sendFrame126("@lre@Rank: @gre@Admin", 29168);
-			else if (playerRights == 1)
-			getPA().sendFrame126("@lre@Rank: @gre@Mod", 29168);
-			getPA().sendFrame126("@lre@Combat Level: @gre@" +combatLevel+ " ", 29169);
 					if(!isResting) {
 			if (playerEnergy < 100 && System.currentTimeMillis() - lastIncrease >= getPA().raiseTimer()) {
 				playerEnergy += 1;

@@ -8,6 +8,7 @@ import server.Config;
 import server.model.minigames.*;
 import server.Server;
 import server.model.items.Item;
+import server.model.minigames.partyroom.PartyItem;
 import server.model.npcs.NPC;
 import server.model.npcs.NPCHandler;
 import server.util.ISAACRandomGen;
@@ -28,14 +29,21 @@ public int playerTradeWealth;
 	public int DCdown = 0, 	trade11;
 	
 	public int overloadcounter = 0;
-	
-	//Runecrafting Pouches
+	//Minigames
+	//Party Room
+	public PartyItem[] partyItems = new PartyItem[9];
+	//Skills
+	//RuneCrafting
+	//Pouches
 	public int smallPouchP, smallPouchE;
 	public int mediumPouchP, mediumPouchE;
 	public int largePouchP, largePouchE;
 	public int giantPouchP, giantPouchE;
 	public int mediumPouchDecay, largePouchDecay, giantPouchDecay;
 	//End Runecrafing Pouches
+	//Cooking
+	public int cookedFishID;
+	public int CookingEmote;
 	public int FishID;
 	public int Arma, Zammy, Sara;
 	public int Dfscharges;
@@ -54,8 +62,7 @@ public int playerTradeWealth;
 						public int leechAttackDelay;
 							public int leechRangedDelay;
 public int said = 0;
-	public int cookedFishID;
-	public int CookingEmote;
+
 
 	public int gwdelay;
 	public double getstr, getatt, getdef, getranged, getmagic;
@@ -82,6 +89,15 @@ public int summonId;
 	public boolean canStartSpecialAnim;
 	public boolean Dessourt;
 	public boolean Culin;
+	//Combat
+	//General
+	public boolean ignoreDefence;
+	//Ranged
+	public double crossbowDamage;
+	public boolean rangeEndGFXHeight = false;
+	public int boltDamage = 0;
+	
+	//End Combat
 	public int succeslvl;
 	public int xamount;
 	public int monkeyk0ed;

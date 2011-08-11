@@ -13,6 +13,8 @@ import server.event.EventContainer;
 import server.event.Event;
 import server.model.players.Weapon;
 import server.model.minigames.CastleWars;
+import server.model.players.combat.ranged.*;
+import server.model.players.combat.*;
 
 
 public class CombatAssistant{
@@ -1633,22 +1635,11 @@ c.degradeSHelm();
 				int PrayerDrain = damage / 4;
 				if (c.lastWeaponUsed == 11235 || c.lastWeaponUsed == 15701 || c.lastWeaponUsed == 15702 || c.lastWeaponUsed == 15703 || c.lastWeaponUsed == 15704 || c.bowSpecShot == 1)
 					damage2 = Misc.random(rangeMaxHit());
-				boolean ignoreDef = false;
-				if (Misc.random(4) == 1 && c.lastArrowUsed == 9243 && usingCross) {
-					ignoreDef = true;
-					o.gfx0(758);
-				}					
+				boolean ignoreDef = false;				
 				if(Misc.random(10+o.getCombat().calculateRangeDefence()) > Misc.random(10+calculateRangeAttack()) && !ignoreDef) {
 					damage = 0;
 				}
-				
-				if (Misc.random(4) == 1 && c.lastArrowUsed == 9242 && damage > 0) {
-					Server.playerHandler.players[i].gfx0(754);
-					damage = Server.npcHandler.npcs[i].HP/5;
-					c.handleHitMask(c.playerLevel[3]/10);
-					c.dealDamage(c.playerLevel[3]/10);
-					c.gfx0(754);
-				}
+			
 				if (c.lastWeaponUsed == 11235 || c.lastWeaponUsed == 15701 || c.lastWeaponUsed == 15702 || c.lastWeaponUsed == 15703 || c.lastWeaponUsed == 15704 || c.bowSpecShot == 1) {
 					if (Misc.random(10+o.getCombat().calculateRangeDefence()) > Misc.random(10+calculateRangeAttack()))
 						damage2 = 0;
@@ -1662,13 +1653,14 @@ c.degradeSHelm();
 						damage2 = 8;
 					c.dbowSpec = false;
 				}
-				if (damage > 0 && Misc.random(5) == 1 && c.lastArrowUsed == 9244 && usingCross) {
-					damage *= 1.45;
-					o.gfx0(756);
-				}
-				if (damage > 0 && Misc.random(5) == 1 && c.lastArrowUsed == 9245) {
-					damage *= 1.55;
-					o.gfx0(753);
+				if(c.playerEquipment[3] == 9185) {
+					if(Misc.random(5) == 1) {
+						if(damage > 0) {
+							c.boltDamage = damage;
+							CrossbowEffects.crossbowSpecial(c,i);
+							damage *= c.crossbowDamage;
+						}
+					}
 				}
 				if(o.prayerActive[17] || o.curseActive[8] && System.currentTimeMillis() - o.protRangeDelay > 1500) { // if prayer active reduce damage by half 
 					damage = (int)damage * 60 / 100;
@@ -3980,99 +3972,7 @@ if(!c.inFunPk()){
 	* Block emotes
 	*/
 	public int getBlockEmote() {
-	
-		//if(s.endsWith("defender")) {
-			//return 7;
-			//}
-		switch(c.playerEquipment[c.playerShield]) {
-		
-		//DEFENDERS
-		case 8844:
-		case 8845:
-		case 8846:
-		case 8847:
-		case 8848:
-		case 8849:
-		case 8850:
-		case 20072:
-		return 4177;
-		
-		//Shields
-		case 11283:
-		case 11284:
-		case 11285:
-		case 13734:
-		case 13736:
-		case 13738:
-		case 13740:
-		case 13742:
-		case 13744:
-		case 1187:
-		case 13506:
-		case 13964:
-		case 1201:
-		case 6524:
-		case 1540:
-		return 1156;
-		
-
-		}
-		switch(c.playerEquipment[c.playerWeapon]) {
-		
-			case 19780:
-			return 12030;
-			
-			case 4755:
-			return 2063;
-			
-			case 10887:
-			return 5866;
-
-			case 4153:
-			return 1666;
-			
-			case 15241:
-			return 12156;
-			
-			//Staffs
-			case 15486:
-			case 15502:
-			case 4675:
-			case 13406:
-			return 12004;
-
-			case 18353:
-			return 13054;
-
-			case 18349:
-			return 13038;
-
-			case 4151:
-			case 15441: // whip
-			case 15442: // whip
-			case 15443: // whip
-			case 15444: // whip
-			return 11974;
-			
-			//2H Block
-			case 11694:
-			case 11698:
-			case 11700: // scimmy anim 12030
-			case 11696:
-			case 11730:
-			return 7050;
-			
-			//Scimitars
-			case 4587:
-			case 13477:
-			case 13979:
-			return 12030;
-			
-		    case 861:
-			return -1;
-			default:
-			return 404;
-		}
+		return WeaponEmotes.getBlockEmote();
 	}
 	
 	/**
@@ -4438,292 +4338,24 @@ if(!c.inFunPk()){
 	**/
 	
 	public int calculateRangeAttack() {
-		int attackLevel = c.playerLevel[4];
-		attackLevel *= c.specAccuracy;
-       	if (c.fullVoidRange() || c.fullPernix() || c.fullVoidEliteRange())
-            attackLevel += c.getLevelForXP(c.playerXP[c.playerRanged]) * 0.2;
-		if (c.prayerActive[3])
-			attackLevel *= 1.05;
-		else if (c.prayerActive[11])
-			attackLevel *= 1.92;
-		else if (c.prayerActive[19])
-			attackLevel *= 1.15;
-		//dbow spec
-		if (c.fullVoidRange() && c.specAccuracy > 1.15) {
-			attackLevel *= 1.95;		
-		}
-		if (c.fullVoidRange()) {
-			attackLevel *= 1.95;		
-		}
-		if (c.fullVoidEliteRange() && c.specAccuracy > 1.15) {
-			attackLevel *= 1.95;		
-		}
-		if (c.fullVoidEliteRange()) {
-			attackLevel *= 1.95;		
-		}
-		if (c.zaryteBow()) {
-			attackLevel *= 1.95;		
-		}
-		if (c.cCbow()) {
-			attackLevel *= 1.96;		
-		}
-		if (c.fullPernix()) {
-			attackLevel *= 1.95;		
-		}
-		if (c.faithfulShield()) {
-			attackLevel *= 1.30;
-		}
-        return (int) (attackLevel + (c.playerBonus[4] * 2.15));
+		return RangeMaxHit.calculateRangeAttack(c);
 	}
 	
 	public int calculateRangeDefence() {
-		int defenceLevel = c.playerLevel[1];
-        if (c.prayerActive[0]) {
-            defenceLevel += c.getLevelForXP(c.playerXP[c.playerDefence]) * 0.05;
-        } else if (c.prayerActive[5]) {
-            defenceLevel += c.getLevelForXP(c.playerXP[c.playerDefence]) * 0.1;
-        } else if (c.prayerActive[13]) {
-            defenceLevel += c.getLevelForXP(c.playerXP[c.playerDefence]) * 0.17;
-        } else if (c.prayerActive[24]) {
-            defenceLevel += c.getLevelForXP(c.playerXP[c.playerDefence]) * 0.2;
-        } else if (c.prayerActive[25]) {
-            defenceLevel += c.getLevelForXP(c.playerXP[c.playerDefence]) * 0.25;
-        } else if (c.curseActive[19]) { // turmoil
-            defenceLevel += c.getLevelForXP(c.playerXP[c.playerDefence]) * 0.15 + c.getdef;
-        }
-        return (int) (defenceLevel + c.playerBonus[9] + (c.playerBonus[9] / 2));
+		return RangeMaxHit.calculateRangeDefence(c);
 	}
 	
 	public boolean usingBolts() {
 		return c.playerEquipment[c.playerArrows] >= 9130 && c.playerEquipment[c.playerArrows] <= 9145 || c.playerEquipment[c.playerArrows] >= 9230 && c.playerEquipment[c.playerArrows] <= 9245 || c.playerEquipment[c.playerArrows] == 15243;
 	}
-	/*public int rangeMaxHit() {
-		int rangeLevel = c.playerLevel[4];
-		double modifier = 1.0;
-		double wtf = c.specDamage;
-		int itemUsed = c.usingBow ? c.lastArrowUsed : c.lastWeaponUsed;
-		if (c.prayerActive[3])
-			modifier += 0.07;
-		else if (c.prayerActive[11])
-			modifier += 0.19;
-		else if (c.prayerActive[19])
-			modifier += 0.16;
-		if (c.playerEquipment[c.playerWeapon] == 9185)
-			modifier += 0.25;
-		if (c.playerEquipment[c.playerWeapon] == 18357)
-			modifier += 0.28;
-		if (c.playerEquipment[c.playerWeapon] == 20172)
-			modifier += 0.26;
-		if (c.playerEquipment[c.playerAmulet] == 15126)
-			modifier += 0.05;
-		if (c.fullVoidRange())
-			modifier += 0.15;
-		if (c.fullVoidEliteRange())
-			modifier += 0.16;
-		if (c.zaryteBow())
-			modifier +=.30;
-		if (c.cCbow())
-			modifier += .42;
-		if (c.faithfulShield())
-			modifier +=.06;
-		if (c.fullPernix())
-			modifier += .20;
-		double c = modifier * rangeLevel;
-		int rangeStr = getRangeStr(itemUsed);
-		double max =(c + 18) * (rangeStr + 64) / 640;
-		if (wtf != 1)
-			max *= wtf;
-		if (max < 1)
-			max = 1;
-		return (int)max;
-	}*/
 	
-public int getRangeStr(int i) {
-		int str = 0;
-		int[][] data = {
-			{877,  10}, {9140, 46}, {9145, 36}, {9141, 64}, 
-			{9142, 82}, {9143,100}, {9144,115}, {9236, 14}, 
-			{9237, 30}, {9238, 48}, {9239, 66}, {9240, 83}, 
-			{9241, 85}, {9242,103}, {9243,105}, {9244,117}, 
-			{9245,120}, {882, 7}, {884, 10}, {886, 16}, 
-			{888, 22}, {890, 31}, {892, 49},{15243, 60}, {4740, 55}, 
-			{11212, 60}, {806, 1}, {807, 3}, {808, 4}, 
-			{809, 7}, {810,10}, {811,14}, {11230,20},
-			{864, 3},  {863, 4}, {865, 7}, {866, 10}, 
-			{867, 14}, {868, 24}, {825, 6}, {826,10}, 
-			{827,12}, {828,18}, {829,28}, {830,42},
-			{800, 5}, {801, 7}, {802,11}, {803,16}, 
-			{804,23}, {805,36}, {9976, 0}, {9977, 15},
-			{4212, 70}, {4214, 70}, {4215, 70}, {4216, 70},
-			{4217, 70}, {4218, 70}, {4219, 70}, {4220, 70},
-			{4221, 70}, {4222, 70}, {4223, 70}, {6522, 49},
-			{10034, 15},
-		};
-		for(int l = 0; l < data.length; l++) {
-			if(i == data[l][0]) {
-				str = data[l][1];
-			}
-		}
-		return str;
+	public int getRangeStr(int i) {
+		return RangeData.getRangeStr(i);
 	}
 	
 	public int rangeMaxHit() {
-        int rangehit = 0;
-        rangehit += c.playerLevel[4] / 7.5;
-        int weapon = c.lastWeaponUsed;
-        int Arrows = c.lastArrowUsed;
-        if (weapon == 4223) {//Cbow 1/10
-            rangehit = 2;
-            rangehit += c.playerLevel[4] / 7;
-        } else if (weapon == 4222) {//Cbow 2/10
-            rangehit = 3;
-            rangehit += c.playerLevel[4] / 7;
-        } else if (weapon == 4221) {//Cbow 3/10
-            rangehit = 3;
-            rangehit += c.playerLevel[4] / 6.5;
-        } else if (weapon == 4220) {//Cbow 4/10
-            rangehit = 4;
-            rangehit += c.playerLevel[4] / 6.5;
-        } else if (weapon == 4219) {//Cbow 5/10
-            rangehit = 4;
-            rangehit += c.playerLevel[4] / 6;
-        } else if (weapon == 4218) {//Cbow 6/10
-            rangehit = 5;
-            rangehit += c.playerLevel[4] / 6;
-        } else if (weapon == 4217) {//Cbow 7/10
-            rangehit = 5;
-            rangehit += c.playerLevel[4] / 5.5;
-        } else if (weapon == 4216) {//Cbow 8/10
-            rangehit = 6;
-            rangehit += c.playerLevel[4] / 5.5;
-        } else if (weapon == 4215) {//Cbow 9/10
-            rangehit = 6;
-            rangehit += c.playerLevel[4] / 5;
-        } else if (weapon == 4214) {//Cbow Full
-            rangehit = 7;
-            rangehit += c.playerLevel[4] / 5;
-        } else if (weapon == 6522) {
-            rangehit = 5;
-            rangehit += c.playerLevel[4] / 6;
-        } else if (weapon == 9029) {//dragon darts
-            rangehit = 8;
-            rangehit += c.playerLevel[4] / 10;
-        } else if (weapon == 811 || weapon == 868) {//rune darts
-            rangehit = 2;
-            rangehit += c.playerLevel[4] / 8.5;
-        } else if (weapon == 13879) {
-	    rangehit = 10;
-	    rangehit += c.playerLevel[4] / 17;
-        } else if (weapon == 13880) {
-	    rangehit = 10;
-	    rangehit += c.playerLevel[4] / 17;
-        } else if (weapon == 13881) {
-	    rangehit = 10;
-	    rangehit += c.playerLevel[4] / 17;
-        } else if (weapon == 13882) {
-	    rangehit = 10;
-	    rangehit += c.playerLevel[4] / 17;
-        } else if (weapon == 13883) {
-	    rangehit = 7;
-	    rangehit += c.playerLevel[4] / 17;
-        } else if (weapon == 20171) {
-	    rangehit = 11;
-	    rangehit += c.playerLevel[4] / 17;
-        } else if (weapon == 18357) {
-	    rangehit = 12;
-	    rangehit += c.playerLevel[4] / 17;
-        } else if (weapon == 15241) {
-	    rangehit = 10;
-	    rangehit += c.playerLevel[4] / 17;
-        } else if (weapon == 810 || weapon == 867) {//adamant darts
-            rangehit = 2;
-            rangehit += c.playerLevel[4] / 9;
-        } else if (weapon == 809 || weapon == 866) {//mithril darts
-            rangehit = 2;
-            rangehit += c.playerLevel[4] / 9.5;
-        } else if (weapon == 808 || weapon == 865) {//Steel darts
-            rangehit = 2;
-            rangehit += c.playerLevel[4] / 10;
-        } else if (weapon == 807 || weapon == 863) {//Iron darts
-            rangehit = 2;
-            rangehit += c.playerLevel[4] / 10.5;
-        } else if (weapon == 806 || weapon == 864) {//Bronze darts
-            rangehit = 1;
-            rangehit += c.playerLevel[4] / 11;
-        } else if (Arrows == 4740 && weapon == 4734) {//BoltRacks
-			rangehit = 3;
-            rangehit += c.playerLevel[4] / 6;
-		} else if (Arrows == 15243) {//Hand cannon shots
-            rangehit = 4;
-            rangehit += c.playerLevel[4] / 6;
-        } else if (Arrows == 11212) {//dragon arrows
-            rangehit = 4;
-            rangehit += c.playerLevel[4] / 5.5;
-        } else if (Arrows == 892) {//rune arrows
-            rangehit = 3;
-            rangehit += c.playerLevel[4] / 6;
-        } else if (Arrows == 890) {//adamant arrows
-            rangehit = 2;
-            rangehit += c.playerLevel[4] / 7;
-        } else if (Arrows == 888) {//mithril arrows
-            rangehit = 2;
-            rangehit += c.playerLevel[4] / 7.5;
-        } else if (Arrows == 886) {//steel arrows
-            rangehit = 2;
-            rangehit += c.playerLevel[4] / 8;
-        } else if (Arrows == 884) {//Iron arrows
-            rangehit = 2;
-            rangehit += c.playerLevel[4] / 9;
-        } else if (Arrows == 882) {//Bronze arrows
-            rangehit = 1;
-            rangehit += c.playerLevel[4] / 9.5;
-        } else if (Arrows == 9244) {
-			rangehit = 8;
-			rangehit += c.playerLevel[4] / 3;
-		} else if (Arrows == 9139) {
-			rangehit = 12;
-			rangehit += c.playerLevel[4] / 4;
-		} else if (Arrows == 9140) {
-			rangehit = 2;
-            			rangehit += c.playerLevel[4] / 7;
-		} else if (Arrows == 9141) {
-			rangehit = 3;
-            			rangehit += c.playerLevel[4] / 6;
-		} else if (Arrows == 9142) {
-			rangehit = 4;
-            			rangehit += c.playerLevel[4] / 6;
-		} else if (Arrows == 9143) {
-			rangehit = 7;
-			rangehit += c.playerLevel[4] / 5;
-		} else if (Arrows == 9144) {
-			rangehit = 7;
-			rangehit += c.playerLevel[4] / 4.5;
-		}
-        int bonus = 0;
-        bonus -= rangehit / 10;
-        rangehit += bonus;
-        if (c.specDamage != 1)
-			rangehit *= c.specDamage;
-		if (rangehit == 0)
-			rangehit++;
-		if (c.fullVoidRange()) {
-			rangehit *= 1.10;
-		}
-		if(weapon == 15241) {
-			rangehit *= 1.35;
-		}
-		
-		if (c.fullVoidEliteRange()) {
-			rangehit *= 1.12;
-		}
-		if (c.prayerActive[3])
-			rangehit *= 1.05;
-		else if (c.prayerActive[11])
-			rangehit *= 1.10;
-		else if (c.prayerActive[19])
-			rangehit *= 1.15;
-		return rangehit;
-    }
+		return RangeMaxHit.maxHit(c);
+	}
 	
 	public boolean properBolts() {
 		return c.playerEquipment[c.playerArrows] >= 9140 && c.playerEquipment[c.playerArrows] <= 9144
@@ -4783,99 +4415,9 @@ public int getRangeStr(int i) {
 	}
 	
 	public int getRangeStartGFX() {
-		switch(c.rangeItemUsed) {
-			            
-			case 863:
-			return 220;
-			case 864:
-			return 219;
-			case 865:
-			return 221;
-			case 866: // knives
-			return 223;
-			case 867:
-			return 224;
-			case 868:
-			return 225;
-			case 869:
-			return 222;
-			
-			case 806:
-			return 232;
-			case 807:
-			return 233;
-			case 808:
-			return 234;
-			case 809: // darts
-			return 235;
-			case 810:
-			return 236;
-			case 811:
-			return 237;
-			
-			case 825:
-			return 206;
-			case 826:
-			return 207;
-			case 827: // javelin
-			return 208;
-			case 828:
-			return 209;
-			case 829:
-			return 210;
-			case 830:
-			return 211;
-
-			case 800:
-			return 42;
-			case 801:
-			return 43;
-			case 802:
-			return 44; // axes
-			case 803:
-			return 45;
-			case 804:
-			return 46;
-			case 805:
-			return 48;
-								
-			case 882:
-			return 19;
-			
-			case 884:
-			return 18;
-			
-			case 886:
-			return 20;
-
-			case 888:
-			return 21;
-			
-			case 890:
-			return 22;
-			
-			case 892:
-			return 24;
-			
-			case 11212:
-			return 26;
-			
-			case 4212:
-			case 4214:
-			case 4215:
-			case 4216:
-			case 4217:
-			case 4218:
-			case 4219:
-			case 4220:
-			case 4221:
-			case 4222:
-			case 4223:
-			return 250;
-			
-		}
-		return -1;
+		return RangeData.getRangeStartGFX(c);
 	}
+
 
 	public void drawback() {
     if (c.playerEquipment[c.playerArrows] == 882){
@@ -4940,183 +4482,19 @@ public int getRangeStr(int i) {
 
 		
 	public int getRangeProjectileGFX() {
-		if (c.dbowSpec) {
-			return 1099;
-		}
-		if(c.bowSpecShot > 0) {
-			switch(c.rangeItemUsed) {
-				default:
-				return 249;
-			}
-		}
-		if (c.playerEquipment[c.playerWeapon] == 9185 || c.playerEquipment[c.playerWeapon] == 18357)
-			return 27;
-			if (c.playerEquipment[c.playerWeapon] == 15241)
-			return 2143;
-		switch(c.rangeItemUsed) {
-			case 13883:
-                        		return 1839;
-			case 13882:
-			case 13881:
-			case 13880:
-			case 13879:
-                        		return 1837;
-			case 863:
-			return 213;
-			case 864:
-			return 212;
-			case 865:
-			return 214;
-			case 866: // knives
-			return 216;
-			case 867:
-			return 217;
-			case 868:
-			return 218;	
-			case 869:
-			return 215;  
-
-			case 806:
-			return 226;
-			case 807:
-			return 227;
-			case 808:
-			return 228;
-			case 809: // darts
-			return 229;
-			case 810:
-			return 230;
-			case 811:
-			return 231;	
-
-			case 825:
-			return 200;
-			case 826:
-			return 201;
-			case 827: // javelin
-			return 202;
-			case 828:
-			return 203;
-			case 829:
-			return 204;
-			case 830:
-			return 205;	
-			
-			case 6522: // Toktz-xil-ul
-			return 442;
-
-			case 800:
-			return 36;
-			case 801:
-			return 35;
-			case 802:
-			return 37; // axes
-			case 803:
-			return 38;
-			case 804:
-			return 39;
-			case 805:
-			return 40;
-
-			case 882:
-			return 10;
-			
-			case 884:
-			return 9;
-			
-			case 886:
-			return 11;
-
-			case 888:
-			return 12;
-			
-			case 890:
-			return 13;
-			
-			case 892:
-			return 15;
-			
-			case 11212:
-			return 17;
-			
-			case 4740: // bolt rack
-			return 27;
-
-
-			
-			case 4212:
-			case 4214:
-			case 4215:
-			case 4216:
-			case 4217:
-			case 4218:
-			case 4219:
-			case 4220:
-			case 4221:
-			case 4222:
-			case 4223:
-			case 20171:
-			case 18357:
-			case 15241:
-			return 249;
-			
-			
-		}
-		return -1;
+		return RangeData.getRangeProjectileGFX(c);
 	}
 	
 	public int getProjectileSpeed() {
-		if (c.dbowSpec)
-			return 100;
-		return 70;
+		return RangeData.getProjectileSpeed(c);
 	}
 	
 	public int getProjectileShowDelay() {
-		switch(c.playerEquipment[c.playerWeapon]) {
-			case 863:
-			case 864:
-			case 865:
-			case 866: // knives
-			case 867:
-			case 868:
-			case 869:
-			
-			case 806:
-			case 807:
-			case 808:
-			case 809: // darts
-			case 810:
-			case 811:
-			
-			case 825:
-			case 826:
-			case 827: // javelin
-			case 828:
-			case 829:
-			case 830:
-			
-			case 800:
-			case 801:
-			case 802:
-			case 803: // axes
-			case 804:
-			case 805:
-			
-			case 4734:
-            			case 9185:
-			case 18357:
-			case 4935:
-			case 4936:
-			case 4937:
-			case 20172:
-			case 15241:
-			return 15; 
-			
-		
-			default:
-			return 5;
-		}
+		return RangeData.getProjectileShowDelay(c);
 	}
+		public void appendMutliChinchompa(int npcId) {
+		RangeExtras.appendMutliChinchompa(c, npcId);
+	}	
 
 	/**
 	* Mage
