@@ -3216,10 +3216,7 @@ break;
 			case 4153: // maul
 			c.startAnimation(1667);
 			c.hitDelay = getHitDelay(c.getItems().getItemName(c.playerEquipment[c.playerWeapon]).toLowerCase());
-			/*if (c.playerIndex > 0)
-				gmaulPlayer(i);
-			else
-				gmaulNpc(i);*/
+				handleGmaul();
 			c.gfx100(337);
 			break;
 			
@@ -4912,7 +4909,7 @@ c.sendMessage("You absord the fire breath and charge your Dragonfire shield.");
 	
 	
 	
-	public void handleGmaulPlayer() {
+	public void handleGmaul() {
 		if (c.playerIndex > 0) {
 			Client o = (Client)Server.playerHandler.players[c.playerIndex];
 			if (c.goodDistance(c.getX(), c.getY(), o.getX(), o.getY(), c.getCombat().getRequiredDistance())) {

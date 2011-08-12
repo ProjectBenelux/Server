@@ -2491,7 +2491,7 @@ break;
 			break;
 			
 			case 29038:
-			if(c.playerEquipment[c.playerWeapon] == 13902) {
+			if(c.playerEquipment[c.playerWeapon] == 4153) {
 			c.specBarId = 7486;
 			c.usingSpecial = !c.usingSpecial;
 			c.getItems().updateSpecialBar();
@@ -2503,7 +2503,7 @@ break;
 				c.usingSpecial = true;
 				c.specAmount -= 5;
 			}*/
-			c.getCombat().handleGmaulPlayer();
+			c.getCombat().handleGmaul();
 			c.getItems().updateSpecialBar();
 			}
 			break;
