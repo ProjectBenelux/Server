@@ -217,7 +217,7 @@ if(Server.npcHandler.npcs[i].index != c.playerId || c.wildLevel <= 1) {
 					c.npcIndex = 0;
 					return;
 				} 
-				if(correctBowAndArrows() < c.playerEquipment[c.playerArrows] && Config.CORRECT_ARROWS && usingBow && !usingCrystalBow() && !usingCross) {
+				if(correctBowAndArrows() < c.playerEquipment[c.playerArrows] && Config.CORRECT_ARROWS && usingBow && !usingCrystalBow() && c.playerEquipment[c.playerWeapon] != 9185 && !c.usingMagic) {
 					c.sendMessage("You can't use "+c.getItems().getItemName(c.playerEquipment[c.playerArrows]).toLowerCase()+"s with a "+c.getItems().getItemName(c.playerEquipment[c.playerWeapon]).toLowerCase()+".");
 					c.stopMovement();
 					c.npcIndex = 0;
@@ -507,24 +507,11 @@ c.degradeSHelm();
 				if (c.lastWeaponUsed == 11235 || c.lastWeaponUsed == 15701 || c.lastWeaponUsed == 15702 || c.lastWeaponUsed == 15703 || c.lastWeaponUsed == 15704 || c.lastWeaponUsed == 14481 || c.lastWeaponUsed == 14482 || c.bowSpecShot == 1)
 					damage2 = Misc.random(rangeMaxHit());
 				boolean ignoreDef = false;
-				if (Misc.random(5) == 1 && c.lastArrowUsed == 9243 && usingCross) {
-					ignoreDef = true;
-					Server.npcHandler.npcs[i].gfx0(758);
-				}
-
-				
+			
 				if(Misc.random(Server.npcHandler.npcs[i].defence) > Misc.random(10+calculateRangeAttack()) && !ignoreDef) {
 					damage = 0;
 				} else if (Server.npcHandler.npcs[i].npcType == 2881 || Server.npcHandler.npcs[i].npcType == 2883 || Server.npcHandler.npcs[i].npcType == 3340 && !ignoreDef) {
 					damage = 0;
-				}
-				
-				if (Misc.random(4) == 1 && c.lastArrowUsed == 9242 && damage > 0 && usingCross) {
-					Server.npcHandler.npcs[i].gfx0(754);
-					damage = Server.npcHandler.npcs[i].HP/5;
-					//c.handleHitMask(c.playerLevel[3]/10);
-					c.dealDamage(c.playerLevel[3]/10);
-					c.gfx0(754);					
 				}
 				
 				if (c.lastWeaponUsed == 11235 || c.lastWeaponUsed == 15701 || c.lastWeaponUsed == 15702 || c.lastWeaponUsed == 15703 || c.lastWeaponUsed == 15704 ||  c.bowSpecShot == 1) {
@@ -541,9 +528,14 @@ c.degradeSHelm();
 						damage2 = 8;
 					c.dbowSpec = false;
 				}
-				if (damage > 0 && Misc.random(5) == 1 && c.lastArrowUsed == 9244 && usingCross) {
-					damage *= 1.45;
-					Server.npcHandler.npcs[i].gfx0(756);
+				if(c.playerEquipment[3] == 9185) {
+					if(Misc.random(5) == 1) {
+						if(damage > 0) {
+							c.boltDamage = damage;
+							CrossbowEffects.crossbowSpecial(c,i);
+							damage *= c.crossbowDamage;
+						}
+					}
 				}
 				
 				if (Server.npcHandler.npcs[i].HP - damage < 0) { 
@@ -787,6 +779,7 @@ c.degradeSHelm();
 			
 		}
 	}
+	
 	
 	public void fireProjectileNpc() {
 		if(c.oldNpcIndex > 0) {
@@ -1580,7 +1573,7 @@ c.degradeSHelm();
 	}
 	
 	public void playerDelayedHit(int i) {
-	boolean usingCross = c.playerEquipment[c.playerWeapon] == 9185 && c.playerEquipment[c.playerWeapon] == 18357;
+	boolean usingCross = c.playerEquipment[c.playerWeapon] == 9185 || c.playerEquipment[c.playerWeapon] == 18357;
 		if (Server.playerHandler.players[i] != null) {
 			if (Server.playerHandler.players[i].isDead || c.isDead || Server.playerHandler.players[i].playerLevel[3] <= 0 || c.playerLevel[3] <= 0) {
 				c.playerIndex = 0;

@@ -108,7 +108,7 @@ public class RangeData {
 
 	public static int getRangeProjectileGFX(Client c) {
 		if (c.dbowSpec) {
-			return c.playerEquipment[c.playerArrows] == 11212 ? 1099 : 1101;
+			return 1099;
 		}
 		if(c.bowSpecShot > 0) {
 			switch(c.rangeItemUsed) {
@@ -116,49 +116,120 @@ public class RangeData {
 				return 249;
 			}
 		}
-		boolean castingMagic = (c.usingMagic || c.mageFollow || c.autocasting || c.spellId > 0);
-		if(castingMagic) {
-			return -1;
-		}
-		if (c.playerEquipment[c.playerWeapon] == 9185)
+		if (c.playerEquipment[c.playerWeapon] == 9185 || c.playerEquipment[c.playerWeapon] == 18357)
 			return 27;
-		int str = -1;
-		int[][] data = {
-			//	KNIFES
-			{863, 213}, {864, 212}, {865, 214}, {866, 216},
-			{867, 217}, {868, 218}, {869, 215},
+			if (c.playerEquipment[c.playerWeapon] == 15241)
+			return 2143;
+		switch(c.rangeItemUsed) {
+			case 13883:
+                        		return 1839;
+			case 13882:
+			case 13881:
+			case 13880:
+			case 13879:
+                        		return 1837;
+			case 863:
+			return 213;
+			case 864:
+			return 212;
+			case 865:
+			return 214;
+			case 866: // knives
+			return 216;
+			case 867:
+			return 217;
+			case 868:
+			return 218;	
+			case 869:
+			return 215;  
 
-			//	DARTS
-			{806, 226}, {807, 227}, {808, 228}, {809, 229},
-			{810, 230}, {811, 231},
+			case 806:
+			return 226;
+			case 807:
+			return 227;
+			case 808:
+			return 228;
+			case 809: // darts
+			return 229;
+			case 810:
+			return 230;
+			case 811:
+			return 231;	
 
-			//	JAVELINS
-			{825, 200}, {826, 201}, {827, 202}, {828, 203},
-			{829, 204}, {830, 205},
+			case 825:
+			return 200;
+			case 826:
+			return 201;
+			case 827: // javelin
+			return 202;
+			case 828:
+			return 203;
+			case 829:
+			return 204;
+			case 830:
+			return 205;	
+			
+			case 6522: // Toktz-xil-ul
+			return 442;
 
-			//	AXES
-			{800, 36}, {801, 35}, {802, 37}, {803, 38},
-			{804, 39}, {805, 40},
+			case 800:
+			return 36;
+			case 801:
+			return 35;
+			case 802:
+			return 37; // axes
+			case 803:
+			return 38;
+			case 804:
+			return 39;
+			case 805:
+			return 40;
 
-			//	ARROWS
-			{882, 10}, {884, 9}, {886, 11}, {888, 12},
-			{890, 13}, {892, 15}, {11212, 1120},
+			case 882:
+			return 10;
+			
+			case 884:
+			return 9;
+			
+			case 886:
+			return 11;
 
-			//	CHINCHOMPA
-			{10033, 908}, {10034, 909},
+			case 888:
+			return 12;
+			
+			case 890:
+			return 13;
+			
+			case 892:
+			return 15;
+			
+			case 11212:
+			return 17;
+			
+			case 4740: // bolt rack
+			return 27;
 
-			//	OTHERS
-			{6522, 442}, {4740, 27},
-			{4212, 249}, {4214, 249}, {4215, 249}, {4216, 249},
-			{4217, 249}, {4218, 249}, {4219, 249}, {4220, 249},
-			{4221, 249}, {4222, 249}, {4223, 249},
-		};
-		for(int l = 0; l < data.length; l++) {
-			if(c.rangeItemUsed == data[l][0]) {
-				str = data[l][1];
-			}
+
+			
+			case 4212:
+			case 4214:
+			case 4215:
+			case 4216:
+			case 4217:
+			case 4218:
+			case 4219:
+			case 4220:
+			case 4221:
+			case 4222:
+			case 4223:
+			case 20171:
+			case 18357:
+			case 15241:
+			return 249;
+			
+			
 		}
-		return str;
+		return -1;
 	}
 
 	public static int getRangeEndGFX(Client c) {

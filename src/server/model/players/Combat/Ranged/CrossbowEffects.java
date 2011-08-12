@@ -92,6 +92,7 @@ public class CrossbowEffects {
 				c.ignoreDefence = true;
 				break;
 			case 9244: // Dragon's Breath
+				c.ignoreDefence = true;
 				createCombatGFX(c, i, 756, false);
 				if(c.playerEquipment[c.playerShield] != 1540 || c.playerEquipment[c.playerShield] != 11283
 					|| c.playerEquipment[c.playerShield] != 11284) {
