@@ -18,9 +18,18 @@ public class ConnectionHandler implements IoHandler {
 
 	@Override
 	public void messageReceived(IoSession arg0, Object arg1) throws Exception {
-		if(arg0.getAttachment() != null) {
-			Client plr = (Client) arg0.getAttachment();
-			plr.queueMessage((Packet) arg1);
+		if (arg0.getAttachment() != null) {
+			Packet packet = (Packet)arg1;
+			Client client = (Client) arg0.getAttachment();
+			if(packet.getId() == 41) {
+				client.timeOutCounter = 0;
+			        client.wearId = packet.readUnsignedWord();
+				client.wearSlot = packet.readUnsignedWordA();
+				client.interfaceId = packet.readUnsignedWordA();
+				client.getItems().wearItem(client.wearId, client.wearSlot);
+			} else {
+				client.queueMessage((Packet) arg1);
+			}
 		}
 	}
 

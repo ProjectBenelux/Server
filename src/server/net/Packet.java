@@ -70,6 +70,15 @@ public final class Packet {
 	public Packet(IoSession session, int pID, byte[] pData) {
 		this(session, pID, pData, false);
 	}
+	public int readUnsignedWord() {
+		caret += 2;
+		return ((pData[caret - 2] & 0xff) << 8) + (pData[caret - 1] & 0xff);
+	}
+
+	public int readUnsignedWordA() {
+		caret += 2;
+		return ((pData[caret - 2] & 0xff) << 8) + (pData[caret - 1] - 128 & 0xff);
+	}
 
 	/**
 	 * Returns the IO session associated with the packet, if any.
