@@ -9,11 +9,13 @@ import java.util.ArrayList;
 import server.Config;
 import server.Server;
 import server.model.players.Client;
+import server.model.minigames.*;
 import server.util.Misc;
 import server.world.map.VirtualWorld;
 import server.event.EventManager;
 import server.event.Event;
 import server.event.EventContainer;
+import server.model.npcs.combat.*;
 
 public class NPCHandler {
 	public static int maxNPCs = 10000;
@@ -32,7 +34,7 @@ public class NPCHandler {
 		loadNPCList("./Data/CFG/npc.cfg");
 		loadAutoSpawn("./Data/CFG/spawn-config.cfg");
 	}
-	
+
 
 	/**
 	 *	Sends Graardor's Message using forceChat.
@@ -55,7 +57,7 @@ public class NPCHandler {
 
 		}
 	}
-	
+
 	/**
 	 *	Sends K'ril's Message using forceChat.
 	 *	@param random How many messages there are he can choose from to say.
@@ -78,7 +80,7 @@ public class NPCHandler {
 
 
 	}
-	
+
 	/**
 	 *	Sends Zilyana's Message using forceChat.
 	 *	@param random How many messages there are she can choose from to say.
@@ -112,10 +114,10 @@ public class NPCHandler {
 			default: return "GRAAAAAAAAAR!";
 		}
 	}
-	
+
 public void Summon(Client c, int npcType, int x, int y, int heightLevel, int WalkingType, int HP, int maxHit, boolean attackPlayer, int attack, int defence) {
-	
-		
+
+
 		// first, search for a free slot
 		int slot = -1;
 		for (int i = 1; i < maxNPCs; i++) {
@@ -140,9 +142,9 @@ public void Summon(Client c, int npcType, int x, int y, int heightLevel, int Wal
 		newNPC.maxHit = maxHit;
 				newNPC.attack = attack;
 		newNPC.defence = defence;
-	
+
 		newNPC.spawnedBy = c.getId();
-		
+
 		 newNPC.followPlayer = c.getId();
 //			followPlayer(npcType, c.getId());
 			newNPC.summon = true;
@@ -164,14 +166,14 @@ newNPC.npcslot = slot;
 				if(server.model.minigames.Barrows.COFFIN_AND_BROTHERS[c.randomCoffin][1] == newNPC.npcType) {
 					newNPC.forceChat("You dare steal from us!");
 				}
-				
+
 				newNPC.killerId = c.playerId;
 			}
 		}
 		npcs[slot] = newNPC;
 	}
-			
-	
+
+
 /*public void spawnNpc3(Client c, int npcType, int x, int y, int heightLevel, int WalkingType, int HP, int maxHit, int attack, int defence, boolean attackPlayer, boolean headIcon, boolean summonFollow) {
 		// first, search for a free slot
 		int slot = -1;
@@ -200,7 +202,7 @@ newNPC.npcslot = slot;
 		newNPC.spawnedBy = c.getId();
 		newNPC.underAttack = true;
 		newNPC.facePlayer(c.playerId);
-		if(headIcon) 
+		if(headIcon)
 			c.getPA().drawHeadicon(1, slot, 0, 0);
 		if (summonFollow) {
 			newNPC.summoner = true;
@@ -210,7 +212,7 @@ newNPC.npcslot = slot;
 		}
 		if(attackPlayer) {
 			newNPC.underAttack = true;
-			if(c != null) {			
+			if(c != null) {
 				newNPC.killerId = c.playerId;
 			}
 		}
@@ -232,9 +234,9 @@ newNPC.npcslot = slot;
 					break;
 				}
 			}
-		}	
+		}
 	}
-	
+
 	public void multiAttackGfx(int i, int gfx) {
 		if (npcs[i].projectileId < 0)
 			return;
@@ -250,12 +252,12 @@ newNPC.npcslot = slot;
 					int pY = c.getY();
 					int offX = (nY - pY)* -1;
 					int offY = (nX - pX)* -1;
-					c.getPA().createPlayersProjectile(nX, nY, offX, offY, 50, getProjectileSpeed(i), npcs[i].projectileId, 43, 31, -c.getId() - 1, 65);					
+					c.getPA().createPlayersProjectile(nX, nY, offX, offY, 50, getProjectileSpeed(i), npcs[i].projectileId, 43, 31, -c.getId() - 1, 65);
 				}
-			}		
+			}
 		}
 	}
-	
+
 	public boolean switchesAttackers(int i) {
 		switch(npcs[i].npcType) {
 			case 6261:
@@ -275,9 +277,9 @@ newNPC.npcslot = slot;
 			case 6208:
 			case 6204:
 			return true;
-		
+
 		}
-	
+
 		return false;
 	}
 		public boolean ArmadylKC(int i) {
@@ -293,9 +295,9 @@ newNPC.npcslot = slot;
 			case 6233:
 			case 6231:
 			return true;
-		
+
 		}
-	
+
 		return false;
 	}
 		public boolean BandosKC(int i) {
@@ -313,9 +315,9 @@ newNPC.npcslot = slot;
 			case 6274:
 			case 6278:
 			return true;
-		
+
 		}
-	
+
 		return false;
 	}
 		public boolean ZammyKC(int i) {
@@ -331,9 +333,9 @@ newNPC.npcslot = slot;
 			case 6220:
 			case 6221:
 			return true;
-		
+
 		}
-	
+
 		return false;
 	}
 		public boolean SaraKC(int i) {
@@ -348,9 +350,9 @@ newNPC.npcslot = slot;
 			case 6256:
 			case 6258:
 			return true;
-		
+
 		}
-	
+
 		return false;
 	}
 		public int getNpcDeleteTime(int i) {
@@ -362,19 +364,19 @@ newNPC.npcslot = slot;
 			case 1851:
 			case 1857:
 			case 1854:
-		        return 2; 
+		        return 2;
 			case 82:
-                        return 3;			
+                        return 3;
 			case 103:
-			
+
                         return 0;
                         case 117:
-                        return 6; 			
+                        return 6;
 			default:
 			return 4;
 		}
 	}
-	
+
 	public void multiAttackDamage(int i) {
 		int max = getMaxHit(i);
 		for (int j = 0; j < Server.playerHandler.players.length; j++) {
@@ -388,10 +390,10 @@ newNPC.npcslot = slot;
 							if (Misc.random(500) + 200 > Misc.random(c.getCombat().mageDef())) {
 								int dam = Misc.random(max);
 								c.dealDamage(dam);
-								c.handleHitMask(dam);							
+								c.handleHitMask(dam);
 							} else {
 								c.dealDamage(0);
-								c.handleHitMask(0);							
+								c.handleHitMask(0);
 							}
 						} else {
 							c.dealDamage(0);
@@ -402,25 +404,25 @@ newNPC.npcslot = slot;
 							int dam = Misc.random(max);
 							if (Misc.random(500) + 200 > Misc.random(c.getCombat().calculateRangeDefence())) {
 								c.dealDamage(dam);
-								c.handleHitMask(dam);							
+								c.handleHitMask(dam);
 							} else {
 								c.dealDamage(0);
 								c.handleHitMask(0);
 							}
 						} else {
 							c.dealDamage(0);
-							c.handleHitMask(0);							
+							c.handleHitMask(0);
 						}
 					}
 					if (npcs[i].endGfx > 0) {
-						c.gfx0(npcs[i].endGfx);					
+						c.gfx0(npcs[i].endGfx);
 					}
 				}
 				c.getPA().refreshSkill(3);
-			}		
+			}
 		}
 	}
-	
+
 	public int getClosePlayer(int i) {
 		for (int j = 0; j < Server.playerHandler.players.length; j++) {
 			if (Server.playerHandler.players[j] != null) {
@@ -431,11 +433,11 @@ newNPC.npcslot = slot;
 						if (Server.playerHandler.players[j].heightLevel == npcs[i].heightLevel)
 							return j;
 				}
-			}	
+			}
 		}
 		return 0;
 	}
-	
+
 	public int getCloseRandomPlayer(int i) {
 		ArrayList<Integer> players = new ArrayList<Integer>();
 		for (int j = 0; j < Server.playerHandler.players.length; j++) {
@@ -453,14 +455,14 @@ newNPC.npcslot = slot;
 						if (Server.playerHandler.players[j].heightLevel == npcs[i].heightLevel)
 							players.add(j);
 				}
-			}	
+			}
 		}
 		if (players.size() > 0)
 			return players.get(Misc.random(players.size() -1));
 		else
 			return 0;
 	}
-	
+
 	public int npcSize(int i) {
 		switch (npcs[i].npcType) {
 		case 2883:
@@ -473,7 +475,7 @@ newNPC.npcslot = slot;
 		}
 		return 0;
 	}
-	
+
 	public boolean isAggressive(int i) {
 		switch (npcs[i].npcType) {
 
@@ -510,10 +512,10 @@ newNPC.npcslot = slot;
 			case 6206:
 			case 6208:
 			case 6204:
-		return true;	
+		return true;
 		}
 		return false;
-	}	
+	}
 
 	/**
 	* Summon npc, barrows, etc
@@ -542,7 +544,7 @@ newNPC.npcslot = slot;
 		newNPC.attack = attack;
 		newNPC.defence = defence;
 		newNPC.spawnedBy = c.getId();
-		if(headIcon) 
+		if(headIcon)
 			c.getPA().drawHeadicon(1, slot, 0, 0);
 		if(attackPlayer) {
 			newNPC.underAttack = true;
@@ -559,7 +561,7 @@ newNPC.npcslot = slot;
 				if(server.model.minigames.Barrows.COFFIN_AND_BROTHERS[c.randomCoffin][1] == newNPC.npcType) {
 					newNPC.forceChat("You dare steal from us!");
 				}
-				
+
 				newNPC.killerId = c.playerId;
 			}
 		}
@@ -578,7 +580,7 @@ newNPC.npcslot = slot;
 			}
 		}
 	}
-	
+
 	public void checkDt(int i) {
 		if(npcs[i] != null) {
 			Client c = (Client) Server.playerHandler.players[npcs[i].spawnedBy];
@@ -587,7 +589,7 @@ newNPC.npcslot = slot;
 			}
 		}
 	}
-	
+
 	public void spawnNpc2(int npcType, int x, int y, int heightLevel, int WalkingType, int HP, int maxHit, int attack, int defence) {
 		// first, search for a free slot
 		int slot = -1;
@@ -615,7 +617,7 @@ newNPC.npcslot = slot;
 		newNPC.defence = defence;
 		npcs[slot] = newNPC;
 	}
-	
+
 		public static void spawnNewNPC(int npcType, int x, int y, int heightLevel, int WalkingType, int HP, int maxHit, int attack, int defence, boolean needSpawn) {
 		int slot = -1;
 		for (int i = 1; i < maxNPCs; i++) {
@@ -667,947 +669,22 @@ newNPC.npcslot = slot;
 		}
 		npcs[form2].killedBy = npcs[form1].killedBy;
 	}
-	
-	
+
+
 	/**
 	* Emotes
 	**/
 	public int getBlockEmote(int id) {
-		switch(Server.npcHandler.npcs[id].npcType) {		
-			case 1158:
-			case 3835:
-				return 6232;
-				case 2037:
-				return 5489;
-
-case 10127:
-return 13170;
-case 10057:
-				
-						return 10818;
-
-
-					
-			case 1160:
-			case 3836:
-				return 6237;
-			case 2783:
-				return 2732;
-			case 8133: // corp beast
-				return 10058;
-			case 10141: // corp beast
-				return 13601;
-			case 8349: // torm demon
-				return 10923;
-case 9947:
-return 13771;
-				/**
-				* God Wars List
-				**/
-			//bandos
-			case 6260: //boss
-				return 7061;
-			case 6261:
-			case 6263:
-			case 6265:
-				return 6155;
-			//armadyl
-			case 6222: //boss
-				return 6974;
-			case 6223:
-			case 6225:
-			case 6227:
-				return 6952;
-			//zammy
-			case 6203:
-				return 6944;
-			case 6204:
-			case 6206:
-			case 6208:
-				return 65;
-			//Sara
-			case 6247:
-				return 6966;
-			case 6248:
-				return 6375;
-			case 6250:
-				return 7017;
-			case 6252:
-				return 4311;
-				
-			//armadyl npcs
-			//spiritual mages
-			case 6229:
-			case 6230:
-			case 6231:
-			//aviansies
-			case 6232:
-			case 6233:
-			case 6234:
-			case 6235:
-			case 6236:
-			case 6237:
-			case 6238:
-			case 6239:
-			case 6240:
-			case 6241:
-			case 6242:
-			case 6243:
-			case 6244:
-			case 6245:
-			case 6246:
-				return 6952;
-				
-			//bandos npcs
-			case 6267:
-				return 360;
-			case 6268:
-				return 2933;
-			case 6269:
-			case 6270:
-				return 4651;
-			case 6271:
-			case 6272:
-			case 6273:
-			case 6274:
-				return 4322;
-			case 6275:
-				return 165;
-			case 6276:
-			case 6277:
-			case 6278:
-				return 4322;
-			case 6279:
-			case 6280:
-				return 6183;
-			case 6281:
-				return 6136;
-			case 6282:
-				return 6189;
-			case 6283:
-				return 6183;
-				
-			//zamorak npcs
-			case 6210:
-				return 6578;
-			case 6211:
-				return 170;
-			case 6212:
-			case 6213:
-				return 6538;
-			case 6215:
-				return 1550;
-			case 6216:
-			case 6217:
-				return 1581;
-			case 6218:
-				return 4301;
-				
-			//sara npcs
-			case 6258:
-				return 2561;
-			
-			case 655:
-			return 129;
-case 10775:
-return 13154;
-			
-			default:
-                return 1834;//1834
-				
-		}
-	}
-	
-			public static int getAttackEmote(int i) {
-		switch(Server.npcHandler.npcs[i].npcType) {
-	
-case 6795:
-return 1010;
-
-
-
-case 10775:
-return 13151;
-
-case 2037:
-				return 5485;
-				
-case 6797:
-return 8104;
-	
-case 6799:
-return 8069;
-
-case 6801:
-return 7853;
-
-case 6803:
-return 8159;
-
-case 6805:
-return 7786;
-
-case 6807:
-return 8148;
-
-case 6810:
-return 7970;
-
-case 6812:
-return 7935;
-
-case 6814:
-return 7741;
-
-case 6816:
-return 8288;
-
-case 6819:
-return 7667;
-
-case 6821:
-return 7680;
-
-
-case 6823:
-return 6376;
-
-
-case 6826:
-return 5387;
-
-
-case 6828:
-return 8208;
-
-
-case 6830:
-return 8292;
-case 6832:
-return 7795;
-case 6834:
-return 8248;
-case 6836:
-return 8275;
-case 6838:
-return 6254;
-case 6856:
-return 4921;
-case 6858:
-return 5327;
-
-case 6860:
-case 6862:
-case 6864:
-return 7656;
-
-case 6868:
-return 7896;
-
-case 6870:
-return 8303;
-
-
-case 6872:
-return 7769;
-
-case 6874:
-return 5782;
-
-case 6890:
-return 7260;
-
-case 7330:
-return 8223;
-
-case 7332:
-return 8032;
-
-case 7338:
-return 5228;
-
-case 7352:
-return 8234;
-
-case 7354:
-return 7755;
-
-case 7355:
-return 7834;
-
-case 7358:
-return 7844;
-
-case 7359:
-return 8183;
-
-case 7362:
-return 8257;
-
-case 7364:
-case 7366:
-return 5228;
-
-case 7368:
-case 7369:
-
-return 8130;
-
-case 7371:
-return 8093;
-
-case 7374: 
-return 7994;
-
-case 7376:
-return 7946;
-
-
-			case 6260:
-				if (npcs[i].attackType == 0)
-					return 7060;
-				else
-					return 7063;
-			///Kq
-			case 1158:
-			case 3835:
-				if (npcs[i].attackType == 0)
-						return 6241;
-					else
-						return 6240;
-			case 1160:
-			case 3836:
-				if (npcs[i].attackType == 0)
-						return 6235;
-					else
-						return 6234;
-			
-			case 2892:
-
-			case 2894:
-			return 2868;
-			case 2627:
-			return 2621;
-			case 2630:
-			return 2625;
-			case 2631:
-			return 2633;
-			case 2741:
-			return 2637;
-			case 2746:
-			return 2637;
-			case 2607:
-			return 2611;
-			case 2743://360
-			return 2647;
-			
-			//bandos gwd
-			case 6261:
-			case 6263:
-			case 6265:
-			return 6154;
-			case 6267:
-			return 361;
-			case 6268:
-			return 2930;
-			case 6269:
-			case 6270:
-			return 4652;
-			case 6271:
-			case 6272:
-			case 6273:
-			case 6274:
-			return 4320;
-			case 6275:
-			return 164;
-			case 6276:
-			case 6277:
-			case 6278:
-			return 4320;
-			case 6279:
-			case 6280:
-			return 6184;
-			case 6281:
-			return 6134;
-			case 6282:
-			return 6188;
-			case 6283:
-			return 6184;
-			
-			//end of gwd
-			//zammy gwd
-			case 6203:
-			return 6945;
-			case 6204:
-			case 6206:
-			case 6208:
-			return 64;
-			case 6210:
-			return 6581;
-			case 6211:
-			return 169;
-			case 6212:
-			case 6213:
-			return 6536;
-			case 6215:
-			return 1552;
-			case 6216:
-			case 6217:
-			return 1582;
-			case 6218:
-			return 4300;
-			//end of zammy gwd
-			//arma gwd
-			case 6222:
-			return 6973;
-			case 6225:
-			return 6953;
-			case 6223:
-			return 6954;
-			case 6227:
-			return 6953;
-			//spiritual mages
-			case 6229:
-			case 6230:
-			case 6231:
-				return 6954;
-			//aviansies
-			case 6232:
-			case 6233:
-			case 6234:
-			case 6235:
-			case 6236:
-			case 6237:
-			case 6238:
-			case 6239:
-			case 6240:
-			case 6241:
-			case 6242:
-			case 6243:
-			case 6244:
-			case 6245:
-			case 6246:
-				return 6953;
-			//end of arma gwd
-			
-			//sara gwd
-			case 6247:
-				if (npcs[i].attackType == 2)
-						return 6967;
-					else
-						return 6964;
-
-
-			case 10057:
-				if (npcs[i].attackType == 1)
-						return 10817;
-					else
-						return 10816;
-
-					
-			case 6248:
-			return 6376;
-			case 6250:
-			return 7018;
-			case 6252:
-			return 7009;
-			//end of sara gwd
-			
-			case 13: //wizards
-			return 711;
-			
-			case 103:
-			return 123;
-			
-			case 1624:
-			return 1557;
-			
-			case 1648:
-			return 1590;
-			
-			case 2783: //dark beast
-			return 2731;
-			
-			case 1615: //abby demon
-			return 1537;
-			
-			case 1613: //nech
-			return 1528;
-			
-			case 1610: case 1611: //garg
-			return 1519;
-			
-			case 1616: //basilisk
-			return 1546;
-			
-			case 90: //skele
-			return 260;
-			
-			case 50://drags
-			case 53:
-
-			case 54:
-			case 55:
-			case 941:
-			case 1590:
-			case 1591:
-			case 1592:
-			return 80;
-			
-			case 124: //earth warrior
-			return 390;
-			
-			case 803: //monk
-			return 422;
-			
-			case 52: //baby drag
-			return 25;			
-
-			case 58: //Shadow Spider
-            case 59: //Giant Spider
-            case 60: //Giant Spider
-            case 61: //Spider
-            case 62: //Jungle Spider
-            case 63: //Deadly Red Spider
-            case 64: //Ice Spider
-            case 134:
-			return 143;	
-			
-			case 105: //Bear
-            case 106:  //Bear
-			return 41;
-			
-			case 412:
-			case 78:
-			return 30;
-			
-			case 2033: //rat
-			return 138;	
-			
-			case 2031: // bloodworm
-			return 2070;
-			
-			case 101: // goblin
-			return 309;	
-			
-			case 81: // cow
-			return 0x03B;
-			
-			case 21: // hero
-			return 451;	
-			
-			case 41: // chicken
-			return 55;	
-			
-			case 9: // guard
-			case 32: // guard
-			case 20: // paladin
-			return 451;	
-			
-			case 1338: // dagannoth
-			case 1340:
-			case 1342:
-			return 1341;
-		
-			case 19: // white knight
-			return 406;
-			
-			case 110:
-			case 111: // ice giant
-			case 112:
-			case 117:
-			return 128;
-			
-			case 2452:
-			return 1312;
-			
-			case 2889:
-			return 2859;
-			
-			case 118:
-			case 119:
-			return 99;
-			
-			case 82://Lesser Demon
-            case 83://Greater Demon
-            case 84://Black Demon
-            case 1472://jungle demon
-			return 64;
-			
-			case 1267:
-			case 1265:
-			return 1312;
-			
-			case 125: // ice warrior
-			case 178:
-			return 451;
-			
-			case 1153: //Kalphite Worker
-            case 1154: //Kalphite Soldier
-            case 1155: //Kalphite guardian
-            case 1156: //Kalphite worker
-            case 1157: //Kalphite guardian
-			return 1184;
-			
-			case 123:
-			case 122:
-			return 164;
-
-
-
-
-case 7334:
-return 8172;
-case 7336:
-return 7871;
-case 5228:
-return 5228;
-
-case 7340:
-return 7879;
-
-case 7342:
-return 7879;
-
-case 7344:
-return 8183;
-
-case 7346:
-return 8048;
-
-case 7348:
-return 5989;
-
-
-case 7350:
-return 7693;
-
-			
-			case 2028: // karil
-			return 2075;
-					
-			case 2025: // ahrim
-			return 729;
-			
-			case 2026: // dharok
-			return 2067;
-			
-			case 2027: // guthan
-			return 2080;
-			
-			case 2029: // torag
-			return 0x814;
-			
-			case 2030: // verac
-			return 2062;
-			
-			case 2881: //supreme
-			return 2855;
-			
-			case 2882: //prime
-			return 2854;
-			
-			case 2883: //rex
-			return 2851;
-			
-			case 3340: // giant mole test
-			return 3312;
-			
-			case 3200:
-			return 3146;
-			
-			case 3847:
-			if (npcs[i].attackType == 2)
-			return 3992;
-			if (npcs[i].attackType == 1)
-			return 3992;
-			
-			case 8349://tormented demon
-				if (npcs[i].attackType == 2)
-					return 10917;
-				else if (npcs[i].attackType == 1)
-					return 10918;
-				else if (npcs[i].attackType == 0)
-					return 10922;
-
-
-
-			
-					
-			case 8133://corp beast
-				if (npcs[i].attackType == 2)
-					return 10053;
-				else if (npcs[i].attackType == 1)
-					return 10059;
-				else if (npcs[i].attackType == 0)
-					return 10057;
-case 10127:
-if (npcs[i].attackType == 2)
-					return 13176;
-				else if (npcs[i].attackType == 0)
-					return 13169;
-
-case 9947:
-if (npcs[i].attackType == 2)
-					return 13770;
-				else if (npcs[i].attackType == 0)
-					return 13771;
-					
-case 10141://corp beast
-				if (npcs[i].attackType == 2)
-					return 10053;
-				else if (npcs[i].attackType == 0)
-					return 13599;
-				else if (npcs[i].attackType == 1)
-					return 13603;
-
-			
-			case 2745:
-			if (npcs[i].attackType == 2)
-			return 9300;
-			else if (npcs[i].attackType == 1)
-			return 9276;
-			else if (npcs[i].attackType == 0)
-			return 9277;
-			case 655:
-			return 129;
-			
-			default:
-			return 0x326;		
-		}
+		return NpcEmotes.getBlockEmote(id);
 	}
 
-	
-	public int getDeadEmote(int i) {
-		switch(npcs[i].npcType) {
-			case 8133: // corp beast
-				return 10059;
-case 10141:
-return 13602;
-case 10127:
-return 13171;
-case 10057:
-return 10815;
-			case 8349: // torm demon
-				return 10924;
-			//sara gwd
-			case 6247:
-			return 6965;
-case 10775:
-return 13153;
-case 9947:
-return 13772;
-			case 6248:
-			return 6377;
-			case 6250:
-			return 7016;
-			case 6252:
-			return 7011;
-			//bandos gwd
-			case 6261:
-			case 6263:
-			case 6265:
-			return 6156;
-			case 6260:
-			return 7062;
-			case 2892:
-			case 2894:
-			return 2865;
-			case 1612: //banshee
-			return 1524;
-			case 6203: //zammy gwd
-			return 6946;
-			case 6204:
-			case 6206:
-			case 6208:
-			return 67;
-			case 6222:
-			return 6975;
-			case 6223:
-			case 6225:
-			case 6227:
-			return 6956;
-			case 2607:
-			return 2607;
-			case 2627:
-			return 2620;
-			case 2630:
-			return 2627;
-			case 2631:
-			return 2630;
-			case 2738:
-			return 2627;
-			case 2741:
-			return 2638;
-			case 2746:
-			return 2638;
-			case 2743:
-			return 2646;
-			case 2745:
-			return 2654;
-			
-			case 6142:
-			case 6143:
-			case 6144:
-			case 6145:
-			return -1;
-			
-			case 3200:
-			return 3147;
-			
-			case 3847:
-			return 3993;
-			
-			case 2035: //spider
-			return 146;
-			
-			case 2033: //rat
-			return 141;
-			
-			case 2031: // bloodvel
-			return 2073;
-			
-			case 101: //goblin
-			return 313;
-			
-			case 81: // cow
-			return 0x03E;
-			
-			case 41: // chicken
-			return 57;
-			
-			case 1338: // dagannoth
-			case 1340:
-			case 1342:
-			return 1342;
-			
-			case 2881:
-			case 2882:
-			case 2883:
-			return 2856;
-			
-			case 111: // ice giant
-			return 131;
-			
-			case 125: // ice warrior
-			return 843;
-			
-			case 751://Zombies!!
-			return 302;
-			
-			case 1626:
-            case 1627:
-            case 1628:
-            case 1629:
-            case 1630:
-            case 1631:
-            case 1632: //turoth!
-            return 1597;
-			
-			case 1616: //basilisk
-            return 1548;
-			
-			case 1653: //hand
-            return 1590;
-			
-			case 82://demons
-			case 83:
-			case 84:
-			return 67;
-			
-			case 1605://abby spec
-			return 1508;
-			
-			case 51://baby drags
-			case 52:
-			case 1589:
-			case 3376:
-			return 28;
-			
-			case 1610:
-			case 1611:
-			return 1518;
-			
-			case 1618:
-			case 1619:
-			return 1553;
-			
-			case 1620: case 1621:
-			return 1563;
-			
-			case 2783:
-			return 2733;
-			
-			case 1615:
-			return 1538;
-			
-			case 1624:
-			return 1558;
-			
-			case 1613:
-			return 1530;
-			
-			case 1633: case 1634: case 1635: case 1636:
-			return 1580;
-			
-			case 1648: case 1649: case 1650: case 1651: case 1652: case 1654: case 1655: case 1656: case 1657:
-			return 1590;
-			
-			case 100: case 102:
-			return 313;
-			
-			case 105:
-			case 106:
-			return 44;
-			
-			case 412:
-			case 78:
-			return 36;
-			
-			case 122:
-			case 123:
-			return 167;
-			
-			case 58: case 59: case 60: case 61: case 62: case 63: case 64: case 134:
-			return 146;
-			
-			case 1153: case 1154: case 1155: case 1156: case 1157:
-			return 1190;
-			
-			case 103: case 104:
-			return 123;
-			
-			case 118: case 119:
-			return 102;
-			
-			case 3340:
-			return 3310;
-			
-			
-			case 50://drags
-			case 53:
-			case 54:
+			public int getAttackEmote(int i) {
+				return NpcEmotes.getAttackEmote(i);
+			}
+			public int getDeadEmote(int id) {
+				return NpcEmotes.getDeadEmote(id);
+			}
 
-			case 55:
-			case 941:
-			case 1590:
-			case 1591:
-			case 1592:
-			return 92;
-			
-			
-			case 1158:
-			case 3835:
-				return 6242;
-			case 1160:
-			case 3836:
-				return 6233;
-			
-			
-			default:
-			return 2304;
-		}
-	}
 	public boolean AttackNPC(int NPCID) {
 		if (Server.npcHandler.npcs[npcs[NPCID].attacknpc] != null) {
 			int EnemyX = Server.npcHandler.npcs[npcs[NPCID].attacknpc].absX;
@@ -1700,8 +777,8 @@ npcs[c].hitUpdateRequired = true;
 					npcs[i].oldIndexNPC = npcs[c].npcId;
 					startAnimation(getAttackEmote(i), i);
 					//c.getPA().removeAllWindows();
-				} 
-			} 
+				}
+			}
 		}
 	}
 	public void attacknpc(int i) {
@@ -1714,7 +791,7 @@ npcs[c].hitUpdateRequired = true;
 			}
 
 
-			
+
 
 			boolean special = false;//specialCase(c,i);
 			if(goodDistance(npcs[i].getX(), npcs[i].getY(), Server.npcHandler.npcs[npcs[i].attacknpc].getX(), Server.npcHandler.npcs[npcs[i].attacknpc].getY(), 1) || special) {
@@ -1761,10 +838,10 @@ Server.npcHandler.npcs[npcs[i].attacknpc].handleHitMask(Misc.random(Server.npcHa
 					//Server.npcHandler.npcs[npcs[i].attacknpc].facenpc(npcs[i].npcId);
 					startAnimation(getAttackEmote(i), i);
 Server.npcHandler.npcs[npcs[i].attacknpc].attacknpc = i;
-	
-					
-				} 
-			}			
+
+
+				}
+			}
 		}
 	}
 	/**
@@ -1816,12 +893,12 @@ Server.npcHandler.npcs[npcs[i].attacknpc].attacknpc = i;
 			//saradomin gw boss
 			case 6247:
 			return 3;
-			
+
 			default:
 			return 5;
 		}
 	}
-	
+
 	/**
 	* Hit delays
 	**/
@@ -1857,13 +934,13 @@ Server.npcHandler.npcs[npcs[i].attacknpc].attacknpc = i;
 			case 6221:
 
 			return 3;
-			
+
 			case 2745:
 			if (npcs[i].attackType == 1 || npcs[i].attackType == 2) {
 			return 5;
 			} else {
 			return 2;
-			} 			
+			}
 			case 2025:
 			return 4;
 			case 2028:
@@ -1875,7 +952,7 @@ Server.npcHandler.npcs[npcs[i].attacknpc].attacknpc = i;
 			return 2;
 		}
 	}
-	
+
 	public int getSummSpecialAnim(int id) {
 		switch(Server.npcHandler.npcs[id].npcType) {
 		case 6795:
@@ -1885,7 +962,7 @@ Server.npcHandler.npcs[npcs[i].attacknpc].attacknpc = i;
 			return -1;
 		}
 	}
-		
+
 	/**
 	* Npc respawn time
 	**/
@@ -1966,10 +1043,10 @@ Server.npcHandler.npcs[npcs[i].attacknpc].attacknpc = i;
 			return 25;
 		}
 	}
-	
-	
-	
-	
+
+
+
+
 	public void newNPC(int npcType, int x, int y, int heightLevel, int WalkingType, int HP, int maxHit, int attack, int defence) {
 		int slot = -1;
 		for (int i = 1; i < maxNPCs; i++) {
@@ -2012,16 +1089,16 @@ Server.npcHandler.npcs[npcs[i].attacknpc].attacknpc = i;
 		NpcList[slot] = newNPCList;
 	}
 
-	
+
 
 	public void process() {
 
 		for (int i = 0; i < maxNPCs; i++) {
 			if (npcs[i] == null) continue;
 			npcs[i].clearUpdateFlags();
-			
+
 		}
-		
+
 		for (int i = 0; i < maxNPCs; i++) {
 			if (npcs[i] != null) {
 
@@ -2030,8 +1107,8 @@ Server.npcHandler.npcs[npcs[i].attacknpc].attacknpc = i;
 
 
 if(npcs[i].summon == true) {
-							Client c = (Client)Server.playerHandler.players[npcs[i].spawnedBy];	
-						
+							Client c = (Client)Server.playerHandler.players[npcs[i].spawnedBy];
+
 
 if(c != null && c.npcIndex > 0) {
 
@@ -2050,8 +1127,8 @@ if(!Server.playerHandler.players[npcs[i].spawnedBy].goodDistance(npcs[i].getX(),
 followPlayer(i, c.playerId);
 }
 }
-	
-}			
+
+}
 
 
 				if(c != null && c.lastsummon > 0 && !Server.playerHandler.players[npcs[i].spawnedBy].goodDistance(npcs[i].getX(), npcs[i].getY(), Server.playerHandler.players[npcs[i].spawnedBy].getX(), Server.playerHandler.players[npcs[i].spawnedBy].getY(), 10) && npcs[i].summon == true && !npcs[i].isDead)
@@ -2097,7 +1174,7 @@ npcs[i].actionTimer = 7;
 }
 }
 }
-				
+
 				}
 				if (npcs[i].npcType == 6260) {
 					if (Misc.random(10) <= 1) {
@@ -2119,34 +1196,34 @@ npcs[i].actionTimer = 7;
 						npcs[i].forceChat(sTreeM());
 					}
 				}
-				
+
 				if (npcs[i].actionTimer > 0) {
 					npcs[i].actionTimer--;
 				}
-				
+
 				if (npcs[i].freezeTimer > 0) {
 					npcs[i].freezeTimer--;
 				}
-				
+
 				if (npcs[i].hitDelayTimer > 0) {
 					npcs[i].hitDelayTimer--;
 				}
-				
+
 				if (npcs[i].hitDelayTimer == 1) {
 					npcs[i].hitDelayTimer = 0;
 					applyDamage(i);
 				}
-				
+
 				if(npcs[i].attackTimer > 0) {
 					npcs[i].attackTimer--;
 				}
-			
+
 				if(npcs[i].spawnedBy > 0) { // delete summons npc
 					if(Server.playerHandler.players[npcs[i].spawnedBy] == null
-					|| Server.playerHandler.players[npcs[i].spawnedBy].heightLevel != npcs[i].heightLevel	
-					|| Server.playerHandler.players[npcs[i].spawnedBy].respawnTimer > 0 
+					|| Server.playerHandler.players[npcs[i].spawnedBy].heightLevel != npcs[i].heightLevel
+					|| Server.playerHandler.players[npcs[i].spawnedBy].respawnTimer > 0
 					|| !Server.playerHandler.players[npcs[i].spawnedBy].goodDistance(npcs[i].getX(), npcs[i].getY(), Server.playerHandler.players[npcs[i].spawnedBy].getX(), Server.playerHandler.players[npcs[i].spawnedBy].getY(), 10)) {
-							
+
 						if(Server.playerHandler.players[npcs[i].spawnedBy] != null) {
 							for(int o = 0; o < Server.playerHandler.players[npcs[i].spawnedBy].barrowsNpcs.length; o++){
 								if(npcs[i].npcType == Server.playerHandler.players[npcs[i].spawnedBy].barrowsNpcs[o][0]) {
@@ -2159,7 +1236,7 @@ npcs[i].actionTimer = 7;
 					}
 				}
 				if (npcs[i] == null) continue;
-				
+
 				/**
 				* Attacking player
 				**/
@@ -2168,15 +1245,15 @@ npcs[i].actionTimer = 7;
 				} else if (isAggressive(i) && !npcs[i].underAttack && !npcs[i].isDead && switchesAttackers(i)) {
 					npcs[i].killerId = getCloseRandomPlayer(i);
 				}
-				
+
 				if (System.currentTimeMillis() - npcs[i].lastDamageTaken > 5000)
 					npcs[i].underAttackBy = 0;
-				
+
 				if((npcs[i].killerId > 0 || npcs[i].underAttack) && !npcs[i].walkingHome && retaliates(npcs[i].npcType)) {
 					if(!npcs[i].isDead) {
 						int p = npcs[i].killerId;
 						if(Server.playerHandler.players[p] != null) {
-							Client c = (Client) Server.playerHandler.players[p];					
+							Client c = (Client) Server.playerHandler.players[p];
 							followPlayer(i, c.playerId);
 							if (npcs[i] == null) continue;
 							if(npcs[i].attackTimer == 0) {
@@ -2201,7 +1278,7 @@ npcs[i].actionTimer = 7;
 				if (npcs[i] == null) continue;
 				if((!npcs[i].underAttack || npcs[i].walkingHome) && npcs[i].randomWalk && !npcs[i].isDead) {
 					npcs[i].facePlayer(0);
-					npcs[i].killerId = 0;	
+					npcs[i].killerId = 0;
 					if(npcs[i].spawnedBy == 0) {
 						if((npcs[i].absX > npcs[i].makeX + Config.NPC_RANDOM_WALK_DISTANCE) || (npcs[i].absX < npcs[i].makeX - Config.NPC_RANDOM_WALK_DISTANCE) || (npcs[i].absY > npcs[i].makeY + Config.NPC_RANDOM_WALK_DISTANCE) || (npcs[i].absY < npcs[i].makeY - Config.NPC_RANDOM_WALK_DISTANCE)) {
 							npcs[i].walkingHome = true;
@@ -2213,13 +1290,13 @@ npcs[i].actionTimer = 7;
 					} else if(npcs[i].walkingHome) {
 						npcs[i].moveX = GetMove(npcs[i].absX, npcs[i].makeX);
 			      		npcs[i].moveY = GetMove(npcs[i].absY, npcs[i].makeY);
-						npcs[i].getNextNPCMovement(i); 
+						npcs[i].getNextNPCMovement(i);
 						npcs[i].updateRequired = true;
 					}
 					if(npcs[i].walkingType == 1) {
 						if(Misc.random(3)== 1 && !npcs[i].walkingHome) {
 							int MoveX = 0;
-							int MoveY = 0;			
+							int MoveY = 0;
 							int Rnd = Misc.random(9);
 							if (Rnd == 1) {
 								MoveX = 1;
@@ -2242,7 +1319,7 @@ npcs[i].actionTimer = 7;
 								MoveX = 1;
 								MoveY = -1;
 							}
-										
+
 							if (MoveX == 1) {
 								if (npcs[i].absX + MoveX < npcs[i].makeX + 1) {
 									npcs[i].moveX = MoveX;
@@ -2250,7 +1327,7 @@ npcs[i].actionTimer = 7;
 									npcs[i].moveX = 0;
 								}
 							}
-							
+
 							if (MoveX == -1) {
 								if (npcs[i].absX - MoveX > npcs[i].makeX - 1)  {
 									npcs[i].moveX = MoveX;
@@ -2258,7 +1335,7 @@ npcs[i].actionTimer = 7;
 									npcs[i].moveX = 0;
 								}
 							}
-							
+
 							if(MoveY == 1) {
 								if(npcs[i].absY + MoveY < npcs[i].makeY + 1) {
 									npcs[i].moveY = MoveY;
@@ -2266,7 +1343,7 @@ npcs[i].actionTimer = 7;
 									npcs[i].moveY = 0;
 								}
 							}
-							
+
 							if(MoveY == -1) {
 								if(npcs[i].absY - MoveY > npcs[i].makeY - 1)  {
 									npcs[i].moveY = MoveY;
@@ -2274,7 +1351,7 @@ npcs[i].actionTimer = 7;
 									npcs[i].moveY = 0;
 								}
 							}
-								
+
 
 							int x = (npcs[i].absX + npcs[i].moveX);
 							int y = (npcs[i].absY + npcs[i].moveY);
@@ -2284,12 +1361,12 @@ npcs[i].actionTimer = 7;
 							{
 								npcs[i].moveX = 0;
 								npcs[i].moveY = 0;
-							} 
+							}
 							npcs[i].updateRequired = true;
 						}
 					}
 				}
-				
+
 				if (npcs[i].isDead == true) {
 					if (npcs[i].actionTimer == 0 && npcs[i].applyDead == false && npcs[i].needRespawn == false) {
 						npcs[i].updateRequired = true;
@@ -2310,8 +1387,8 @@ npcs[i].summon = false;
 						if (npcs[i].npcType == 1158){
 							handleKalpite(i);
 						}
-						
-						
+
+
 					} else if (npcs[i] != null && npcs[i].actionTimer == 0 && npcs[i].applyDead == true &&  npcs[i].needRespawn == false) {
 						//if (npcs[i] != null) {
 						npcs[i].needRespawn = true;
@@ -2320,7 +1397,7 @@ npcs[i].summon = false;
 						appendSlayerExperience(i);
 						//appendKillCount(i);
 						npcs[i].absX = npcs[i].makeX;
-						npcs[i].absY = npcs[i].makeY;				
+						npcs[i].absY = npcs[i].makeY;
 						npcs[i].HP = npcs[i].MaxHP;
 						npcs[i].animNumber = 0x328;
 						npcs[i].updateRequired = true;
@@ -2337,7 +1414,7 @@ npcs[i].summon = false;
 						if (npcs[i].npcType == 3491) {
 							handleRFDDeath(i);
 						}
-						
+
 						if (npcs[i] != null && npcs[i].npcType != 1158){
 							if (!npcs[i].needRespawn){
 								npcs[i] = null;
@@ -2360,8 +1437,8 @@ npcs[i].summon = false;
 								}
 							}
 						}
-						
-					} else if (npcs[i].actionTimer == 0 && npcs[i].needRespawn == true) {					
+
+					} else if (npcs[i].actionTimer == 0 && npcs[i].needRespawn == true) {
 						if(npcs[i].spawnedBy > 0) {
 							npcs[i] = null;
 						} else {
@@ -2380,9 +1457,9 @@ npcs[i].summon = false;
 								int walk = npcs[i].walkingType;
 								int mHp = npcs[i].MaxHP;
 								int mHit = npcs[i].maxHit;
-								int attack = npcs[i].attack;	
+								int attack = npcs[i].attack;
 								int defence = npcs[i].defence;
-								
+
 								npcs[i] = null;
 								newNPC(type, x, y, height, walk, mHp, mHit, attack, defence);
 						}
@@ -2391,7 +1468,7 @@ npcs[i].summon = false;
 			}
 		}
 	}
-       
+
 	public boolean getsPulled(int i) {
 		switch (npcs[i].npcType) {
 			case 6260:
@@ -2401,7 +1478,7 @@ npcs[i].summon = false;
 		}
 		return true;
 	}
-	   
+
 	public boolean multiAttacks(int i) {
 		switch (npcs[i].npcType) {
 			case 6222://bandos?
@@ -2410,31 +1487,31 @@ npcs[i].summon = false;
 			case 8133: // Corporeal beast
 			if (npcs[i].attackType == 2)
 				return true;
-			
+
 			case 6247://saradomin?
 			if (npcs[i].attackType == 2)
 				return true;
-				
+
 			case 6260://armadyl?
 			if (npcs[i].attackType == 1)
-				return true;	
-				
+				return true;
+
 			default:
 			return false;
 		}
-	
-	
+
+
 	}
-	
+
 	/**
 	* Npc killer id?
 	**/
-	
+
 	public int getNpcKillerId(int npcId) {
 		int oldDamage = 0;
 		int count = 0;
 		int killerId = 0;
-		for (int p = 1; p < Config.MAX_PLAYERS; p++)  {	
+		for (int p = 1; p < Config.MAX_PLAYERS; p++)  {
 			if (Server.playerHandler.players[p] != null) {
 				if(Server.playerHandler.players[p].lastNpcAttacked == npcId) {
 					if(Server.playerHandler.players[p].totalDamageDealt > oldDamage) {
@@ -2442,30 +1519,21 @@ npcs[i].summon = false;
 						killerId = p;
 					}
 					Server.playerHandler.players[p].totalDamageDealt = 0;
-				}	
-			}
-		}				
-		return killerId;
-	}
-		
-	/**
-	 * 
-	 */
-	private void killedBarrow(int i) {
-		Client c = (Client)Server.playerHandler.players[npcs[i].killedBy];
-		if(c != null) {
-			for(int o = 0; o < c.barrowsNpcs.length; o++){
-				if(npcs[i].npcType == c.barrowsNpcs[o][0]) {
-					c.barrowsNpcs[o][1] = 2; // 2 for dead
-					c.barrowsKillCount++;	
-
 				}
 			}
 		}
+		return killerId;
 	}
 
-	
-	
+	/**
+	 *
+	 */
+	private void killedBarrow(int i) {
+		Barrows.killedBarrow(i);
+	}
+
+
+
 	private void killedTzhaar(int i) {
 		final Client c2 = (Client)Server.playerHandler.players[npcs[i].spawnedBy];
 		c2.tzhaarKilled++;
@@ -2477,11 +1545,11 @@ npcs[i].summon = false;
 				public void execute(EventContainer c) {
 					if (c2 != null) {
 						Server.fightCaves.spawnNextWave(c2);
-					}	
+					}
 					c.stop();
 				}
 			}, 7500);
-			
+
 		}
 	}
 
@@ -2496,14 +1564,14 @@ npcs[i].summon = false;
 				public void execute(EventContainer c) {
 					if (c2 != null) {
 						Server.rfd.spawnNextWave(c2);
-					}	
+					}
 					c.stop();
 				}
 			}, 7500);
-			
+
 		}
 	}
-	
+
 		public void handleShade(int i) {
 		Client c = (Client)Server.playerHandler.players[npcs[i].spawnedBy];
 		int random = Misc.random(50);
@@ -2521,7 +1589,7 @@ npcs[i].summon = false;
 			c.sendMessage("You hear the shade get closer to you");
 		}
 	}
-	
+
 	public void handleJadDeath(int i) {
 		Client c = (Client)Server.playerHandler.players[npcs[i].spawnedBy];
 		c.getItems().addItem(6570,1);
@@ -2536,16 +1604,16 @@ npcs[i].summon = false;
 		c.getPA().resetRFD();
 		c.waveId = 300;
 	}
-	
-	
+
+
 	/**
 	* Dropping Items!
 	**/
 	public boolean rareDrops(int i) {
 		return Misc.random(NPCDrops.dropRarity.get(npcs[i].npcType)) == 0;
 	}
-	
-	
+
+
 	public void dropItems(int i) {
 		int npc = 0;
 		//long start = System.currentTimeMillis();
@@ -2558,7 +1626,7 @@ npcs[i].summon = false;
 					Server.itemHandler.createGroundItem(c, item, npcs[i].absX, npcs[i].absY, 1, c.playerId);
 					//if (c.clanId >= 0)
 						//Server.clanChat.handleLootShare(c, item, 1);
-				}	
+				}
 			}
 						if(npcs[i].npcType > 0) {
 int random2 = Misc.random(8);
@@ -2597,7 +1665,7 @@ c.getItems().addItem(8851, 5);
 if (npcs[i].npcType == 425 || npcs[i].npcType == 427 || npcs[i].npcType == 428 || npcs[i].npcType == 430) {
 	if(c.getItems().freeSlots() > 0) {
 		c.getItems().addItem(c.getPA().randomShade(), 1);
-			} else if(c.getItems().freeSlots() == 0) {	
+			} else if(c.getItems().freeSlots() == 0) {
 				c.sendMessage("Not enough inventory space, sorry.");
 	}
 }
@@ -2675,21 +1743,21 @@ try {
 		}
 				} else {
 					int random = Misc.random(NPCDrops.normalDrops.get(npcs[i].npcType).length-1);
-						
+
 					Server.itemHandler.createGroundItem(c, NPCDrops.normalDrops.get(npcs[i].npcType)[random][0], npcs[i].absX, npcs[i].absY, NPCDrops.normalDrops.get(npcs[i].npcType)[random][1], c.playerId);
 					//Server.clanChat.handleLootShare(c, NPCDrops.normalDrops.get(npcs[i].npcType)[random][0], NPCDrops.normalDrops.get(npcs[i].npcType)[random][1]);
 				}
-			}	
-			
+			}
+
 		}
 
 		//System.out.println("Took: " + (System.currentTimeMillis() - start));
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 	//id of bones dropped by npcs
 	public int boneDrop(int type) {
 		switch (type) {
@@ -2764,7 +1832,7 @@ try {
 			return 6729;
 			default:
 			return -1;
-		}	
+		}
 	}
 
 	public int getStackedDropAmount(int itemId, int npcId) {
@@ -2813,13 +1881,13 @@ try {
 					return 500 + Misc.random(100);
 					case 20:
 					return 750 + Misc.random(100);
-					case 21: 
+					case 21:
 					return 890 + Misc.random(125);
 					case 117:
 					return 500 + Misc.random(250);
 					case 2607:
 					return 500 + Misc.random(350);
-				}			
+				}
 			break;
 			case 11212:
 			return 10 + Misc.random(4);
@@ -2841,15 +1909,15 @@ try {
 			return 100;
 			case 6522:
 			return 6 + Misc.random(5);
-			
+
 		}
-	
+
 		return 1;
 	}
-	
+
 	/**
 	* Slayer Experience
-	**/	
+	**/
 
 	public void appendSlayerExperience(int i) {
 		int npc = 0;
@@ -2887,11 +1955,11 @@ try {
 		}
 	}
 
-		
+
 		/**
 	* Npc names
 	**/
-	
+
 	public String getNpcName(int npcId) {
 		for (int i = 0; i < maxNPCs; i++) {
 			if (Server.npcHandler.NpcList[i] != null) {
@@ -2903,11 +1971,11 @@ try {
 		return "-1";
 	}
 
-	
+
 	/**
 	 *	Resets players in combat
 	 */
-	
+
 	public void resetPlayersInCombat(int i) {
 		for (int j = 0; j < Server.playerHandler.players.length; j++) {
 			if (Server.playerHandler.players[j] != null)
@@ -2915,13 +1983,13 @@ try {
 					Server.playerHandler.players[j].underAttackBy2 = 0;
 		}
 	}
-	
-	
+
+
 	/**
 	* Npc Follow Player
 	**/
-	
-	public int GetMove(int Place1,int Place2) { 
+
+	public int GetMove(int Place1,int Place2) {
 		if ((Place1 - Place2) == 0) {
             return 0;
 		} else if ((Place1 - Place2) < 0) {
@@ -2931,45 +1999,45 @@ try {
 		}
         	return 0;
    	 }
-	
+
 	public boolean followPlayer(int i) {
 		switch (npcs[i].npcType) {
-			
+
 			case 2892:
 			case 2894:
 			return false;
 		}
 		return true;
 	}
-	
+
 	public void followPlayer(int i, int playerId) {
 		if (Server.playerHandler.players[playerId] == null) {
 			return;
 		}
 		if (Server.playerHandler.players[playerId].respawnTimer > 0) {
 			npcs[i].facePlayer(0);
-			npcs[i].randomWalk = true; 
-	      	npcs[i].underAttack = false;	
+			npcs[i].randomWalk = true;
+	      	npcs[i].underAttack = false;
 			return;
 		}
-		
+
 		if (!followPlayer(i)) {
 			npcs[i].facePlayer(playerId);
 			return;
 		}
-		
+
 if(!goodDistance(npcs[i].getX(), npcs[i].getY(), Server.playerHandler.players[playerId].getX(), Server.playerHandler.players[playerId].getY(), 1) && npcs[i].npcType == 10127 && npcs[i].attackType == 0) {
 npcs[i].attackType = 2;
 return;
 }
-		
+
 		int playerX = Server.playerHandler.players[playerId].absX;
 		int playerY = Server.playerHandler.players[playerId].absY;
 		npcs[i].randomWalk = false;
 		if (goodDistance(npcs[i].getX(), npcs[i].getY(), playerX, playerY, distanceRequired(i)))
 			return;
 
-		
+
 
 		if((npcs[i].spawnedBy > 0) || ((npcs[i].absX < npcs[i].makeX + Config.NPC_FOLLOW_DISTANCE) && (npcs[i].absX > npcs[i].makeX - Config.NPC_FOLLOW_DISTANCE) && (npcs[i].absY < npcs[i].makeY + Config.NPC_FOLLOW_DISTANCE) && (npcs[i].absY > npcs[i].makeY - Config.NPC_FOLLOW_DISTANCE))) {
 			if(npcs[i].heightLevel == Server.playerHandler.players[playerId].heightLevel) {
@@ -2993,22 +2061,22 @@ return;
 							npcs[i].moveX = GetMove(npcs[i].absX, playerX);
 							npcs[i].moveY = GetMove(npcs[i].absY, playerY+1);
 							break;
-							
+
 							case 1:
 							npcs[i].moveX = GetMove(npcs[i].absX, playerX);
 							npcs[i].moveY = GetMove(npcs[i].absY, playerY-1);
 							break;
-							
+
 							case 2:
 							npcs[i].moveX = GetMove(npcs[i].absX, playerX+1);
 							npcs[i].moveY = GetMove(npcs[i].absY, playerY);
 							break;
-							
+
 							case 3:
 							npcs[i].moveX = GetMove(npcs[i].absX, playerX-1);
 							npcs[i].moveY = GetMove(npcs[i].absY, playerY);
 							break;
-						}	
+						}
 					}
 					int x = (npcs[i].absX + npcs[i].moveX);
 					int y = (npcs[i].absY + npcs[i].moveY);
@@ -3021,21 +2089,21 @@ return;
 					}
 					npcs[i].facePlayer(playerId);
 			      	npcs[i].updateRequired = true;
-				}	
+				}
 			}
 		} else {
 			npcs[i].facePlayer(0);
-			npcs[i].randomWalk = true; 
-		   	npcs[i].underAttack = false;	
+			npcs[i].randomWalk = true;
+		   	npcs[i].underAttack = false;
 		}
 	}
-	
+
 public void follownpc(int i, int playerId) {
 		if (npcs[playerId] == null) {
 			return;
 		}
 
-		
+
 		if (!followPlayer(i)) {
 			npcs[i].facePlayer(playerId);
 			return;
@@ -3045,14 +2113,14 @@ if(!goodDistance(npcs[i].getX(), npcs[i].getY(), npcs[playerId].getX(), npcs[pla
 npcs[i].attackType = 2;
 return;
 }
-		
+
 
 		npcs[i].randomWalk = false;
 
 		if (goodDistance(npcs[i].getX(), npcs[i].getY(), npcs[playerId].absX, npcs[playerId].absY, distanceRequired(i)))
 			return;
 
-		
+
 
 		if((npcs[i].spawnedBy > 0) || ((npcs[i].absX < npcs[i].makeX + Config.NPC_FOLLOW_DISTANCE) && (npcs[i].absX > npcs[i].makeX - Config.NPC_FOLLOW_DISTANCE) && (npcs[i].absY < npcs[i].makeY + Config.NPC_FOLLOW_DISTANCE) && (npcs[i].absY > npcs[i].makeY - Config.NPC_FOLLOW_DISTANCE))) {
 			if(npcs[i].heightLevel == npcs[playerId].heightLevel) {
@@ -3076,22 +2144,22 @@ return;
 							npcs[i].moveX = GetMove(npcs[i].absX, npcs[playerId].absX);
 							npcs[i].moveY = GetMove(npcs[i].absY, npcs[playerId].absY+1);
 							break;
-							
+
 							case 1:
 							npcs[i].moveX = GetMove(npcs[i].absX, npcs[playerId].absX);
 							npcs[i].moveY = GetMove(npcs[i].absY, npcs[playerId].absY-1);
 							break;
-							
+
 							case 2:
 							npcs[i].moveX = GetMove(npcs[i].absX, npcs[playerId].absX+1);
 							npcs[i].moveY = GetMove(npcs[i].absY, npcs[playerId].absY);
 							break;
-							
+
 							case 3:
 							npcs[i].moveX = GetMove(npcs[i].absX, npcs[playerId].absX-1);
 							npcs[i].moveY = GetMove(npcs[i].absY, npcs[playerId].absY);
 							break;
-						}	
+						}
 					}
 					int x = (npcs[i].absX + npcs[i].moveX);
 					int y = (npcs[i].absY + npcs[i].moveY);
@@ -3104,24 +2172,24 @@ return;
 					}
 					npcs[i].facePlayer(playerId);
 			      	npcs[i].updateRequired = true;
-				}	
+				}
 			}
 		} else {
 			npcs[i].facePlayer(0);
-			npcs[i].randomWalk = true; 
-		   	npcs[i].underAttack = false;	
+			npcs[i].randomWalk = true;
+		   	npcs[i].underAttack = false;
 		}
 	}
-	
-	
+
+
 	public boolean checkClipping(int i) {
 		NPC npc = npcs[i];
 		int size = npcSize(i);
-		
+
 		for (int x = 0; x < size; x++) {
 			for (int y = 0; y < size; y++) {
 				if (!VirtualWorld.I(npc.heightLevel, npc.absX + x, npc.absY + y, npc.absX + npc.moveX, npc.absY + npc.moveY, 0))
-					return false;				
+					return false;
 			}
 		}
 		return true;
@@ -3131,7 +2199,7 @@ return;
 	public NPCHandler(Client Client) {
 		this.v = Client;
 	}
-	
+
 	/**
 	* load spell
 	**/
@@ -3153,7 +2221,7 @@ return;
 			npcs[i].endGfx = 428;
 		}
 	}
-	
+
 	public void loadSpell(int i) {
 		Client c = (Client) Server.playerHandler.players[npcs[i].killerId];
 		switch(npcs[i].npcType) {
@@ -3166,13 +2234,13 @@ return;
 			case 1158:
 				for (int j = 0; j < Server.playerHandler.players.length; j++) {
 					if (Server.playerHandler.players[j] != null) {
-				
+
 						int kq1 = 0;
 				if (goodDistance(npcs[i].absX, npcs[i].absY, c.absX, c.absY, 2))
 				kq1 = Misc.random(2);
-					else 
+					else
 						kq1 = Misc.random(1);
-				if (kq1 == 0) {					
+				if (kq1 == 0) {
 				npcs[i].projectileId = 280; //mage
 				npcs[i].endGfx = 281;
 				npcs[i].attackType = 2;
@@ -3187,18 +2255,18 @@ return;
 					}
 				}
 					break;
-			
+
 					//kalphite queen form 2
 			case 1160:
 				for (int j = 0; j < Server.playerHandler.players.length; j++) {
 					if (Server.playerHandler.players[j] != null) {
-				
+
 						int kq1 = 0;
 				if (goodDistance(npcs[i].absX, npcs[i].absY, c.absX, c.absY, 2))
 				kq1 = Misc.random(2);
-					else 
+					else
 						kq1 = Misc.random(1);
-				if (kq1 == 0) {					
+				if (kq1 == 0) {
 				npcs[i].projectileId = 280; //mage
 				npcs[i].endGfx = 281;
 				npcs[i].attackType = 2;
@@ -3237,21 +2305,21 @@ case 6203:
 
 				}
 			break;
-			case 6206:				
+			case 6206:
 					npcs[i].attackType = 1;
-					npcs[i].projectileId = 1209;	
+					npcs[i].projectileId = 1209;
 			break;
-			case 6208:				
+			case 6208:
 					npcs[i].attackType = 2;
-					npcs[i].projectileId = 1213;	
+					npcs[i].projectileId = 1213;
 			break;
-			case 6256:				
+			case 6256:
 					npcs[i].attackType = 1;
-					npcs[i].projectileId = 16;	
+					npcs[i].projectileId = 16;
 			break;
-			case 6220:				
+			case 6220:
 					npcs[i].attackType = 1;
-					npcs[i].projectileId = 17;	
+					npcs[i].projectileId = 17;
 			break;
 			case 50:
 			int r5 = 0;
@@ -3280,11 +2348,11 @@ case 6203:
 				npcs[i].attackType = 2;
 			} else if (r5 == 4) {
 				npcs[i].projectileId = -1; //melee
-				npcs[i].attackType = 0;	
+				npcs[i].attackType = 0;
 			} else if (r5 == 5) {
 				npcs[i].projectileId = -1; //melee
-				npcs[i].attackType = 0;	
-			}			
+				npcs[i].attackType = 0;
+			}
 			break;
 			case 53:
 			case 54:
@@ -3293,7 +2361,7 @@ case 6203:
 			case 1590:
 			case 1591:
 			case 1592:
-			int r6 = 0;	
+			int r6 = 0;
 			if (goodDistance(npcs[i].absX, npcs[i].absY, Server.playerHandler.players[npcs[i].killerId].absX, Server.playerHandler.players[npcs[i].killerId].absY, 2))
 			r6 = Misc.random(2);
 			else
@@ -3306,8 +2374,8 @@ case 6203:
 				npcs[i].attackType = 3;
 			} else if (r6 == 2) {
 				npcs[i].projectileId = -1; //melee
-				npcs[i].attackType = 0;	
-			}				
+				npcs[i].attackType = 0;
+			}
 			break;
 			//arma npcs
 			case 6227://kilisa
@@ -3351,11 +2419,11 @@ case 6203:
 				random = Misc.random(1);
 				npcs[i].attackType = 1 + random;
 				if (npcs[i].attackType == 1) {
-					npcs[i].projectileId = 1197;				
+					npcs[i].projectileId = 1197;
 				} else {
 					npcs[i].attackType = 2;
 					npcs[i].projectileId = 1198;
-				}	
+				}
 			break;
 			//sara npcs
 			case 6247: //sara
@@ -3433,7 +2501,7 @@ case 6203:
 			break;
 			case 3495:
 				random = Misc.random(2);
-				if (random == 0 || random == 1) 
+				if (random == 0 || random == 1)
 					npcs[i].attackType = 0;
 				 else {
 			c.gfx0(369);
@@ -3509,18 +2577,18 @@ case 6203:
 				npcs[i].attackType = 1;
 				npcs[i].projectileId = 298;
 			break;
-			
+
 			case 2882://prime
 				npcs[i].attackType = 2;
 				npcs[i].projectileId = 162;
 				npcs[i].endGfx = 477;
 			break;
-			
+
 			case 2028:
 				npcs[i].attackType = 1;
 				npcs[i].projectileId = 27;
 			break;
-			
+
 			case 3200:
 			int r2 = Misc.random(5);
 			if (r2 == 0) {
@@ -3560,7 +2628,7 @@ case 6203:
 			} else if (r3 == 2) {
 				npcs[i].attackType = 0;
 				npcs[i].projectileId = -1;
-			}			
+			}
 			break;
 			case 8133:
 			if (goodDistance(npcs[i].absX, npcs[i].absY, Server.playerHandler.players[npcs[i].killerId].absX, Server.playerHandler.players[npcs[i].killerId].absY, 3))
@@ -3579,7 +2647,7 @@ case 6203:
 				npcs[i].attackType = 0;
 				npcs[i].gfx100(1834);
 				npcs[i].projectileId = -1;
-			}			
+			}
 			break;
 			case 3102:
 				npcs[i].attackType = 1;
@@ -3605,24 +2673,24 @@ case 6203:
 				npcs[i].attackType = 0;
 				npcs[i].gfx100(1886);
 				npcs[i].projectileId = -1;
-			}			
+			}
 			break;
 			case 2743:
 				npcs[i].attackType = 2;
 				npcs[i].projectileId = 445;
 				npcs[i].endGfx = 446;
 			break;
-			
+
 			case 2631:
 				npcs[i].attackType = 1;
 				npcs[i].projectileId = 443;
 			break;
 		}
 	}
-		
+
 	/**
 	* Distanced required to attack
-	**/	
+	**/
 	public int distanceRequired(int i) {
 		switch(npcs[i].npcType) {
 			case 2025:
@@ -3690,8 +2758,8 @@ case 6203:
 		}
 	}
 
-	
-	
+
+
 	public int followDistance(int i) {
 		switch (npcs[i].npcType) {
 			case 6260:
@@ -3748,26 +2816,26 @@ case 6203:
 			case 2881:
 			case 2882:
 			return 1;
-		
+
 		}
 		return 0;
-		
-	
+
+
 	}
-	
+
 	public int getProjectileSpeed(int i) {
 		switch(npcs[i].npcType) {
 			case 2881:
 			case 2882:
 			case 3200:
 			return 85;
-			
+
 			case 2745:
 			return 115;
 			case 1158:
 			case 1160:
 			return 90;
-			
+
 			case 50:
 			case 53:
 			case 54:
@@ -3777,25 +2845,25 @@ case 6203:
 			case 1591:
 			case 1592:
 			return 85;
-			
+
 			case 2025:
 			return 85;
 
 			case 3493:
 			return 85;
-			
+
 			case 2028:
 			return 80;
-			
+
 			default:
 			return 85;
 		}
 	}
-	
+
 	/**
 	*NPC Attacking Player
 	**/
-	
+
 	public void attackPlayer(Client c, int i) {
 		if(npcs[i] != null) {
 			if (npcs[i].isDead)
@@ -3860,7 +2928,7 @@ npcs[i].attackType = 2;
 {
 npcs[i].attackType = 1+Misc.random(1);
 			return;
-} 
+}
 			npcs[i].facePlayer(c.playerId);
 			boolean special = false;//specialCase(c,i);
 			if(goodDistance(npcs[i].getX(), npcs[i].getY(), c.getX(), c.getY(), distanceRequired(i)) || special) {
@@ -3895,11 +2963,11 @@ npcs[i].attackType = 1+Misc.random(1);
 					npcs[i].oldIndex = c.playerId;
 					startAnimation(getAttackEmote(i), i);
 					c.getPA().removeAllWindows();
-				} 
-			}			
+				}
+			}
 		}
 	}
-	
+
 	public int offset(int i) {
 		switch (npcs[i].npcType) {
 			case 2881:
@@ -3910,24 +2978,24 @@ npcs[i].attackType = 1+Misc.random(1);
 			case 2743:
 			case 8133:
 			case 50:
-			return 1;	
+			return 1;
 case 1158:
 			case 1160:
-				return 2;			
+				return 2;
 		}
 		return 0;
 	}
-	
-	public boolean specialCase(Client c, int i) { //responsible for npcs that much 
+
+	public boolean specialCase(Client c, int i) { //responsible for npcs that much
 		if (goodDistance(npcs[i].getX(), npcs[i].getY(), c.getX(), c.getY(), 8) && !goodDistance(npcs[i].getX(), npcs[i].getY(), c.getX(), c.getY(), distanceRequired(i)))
 			return true;
 		return false;
 	}
-	
+
 	public boolean retaliates(int npcType) {
 		return npcType < 6142 || npcType > 6145 && !(npcType >= 2440 && npcType <= 2446);
 	}
-	
+
 	public void applyDamage(int i) {
 		if(npcs[i] != null) {
 			if(Server.playerHandler.players[npcs[i].oldIndex] == null) {
@@ -3946,19 +3014,19 @@ case 1158:
 			if(c.attackTimer <= 3 || c.attackTimer == 0 && c.npcIndex == 0 && c.oldNpcIndex == 0) {
 				c.startAnimation(c.getCombat().getBlockEmote());
 			}
-			if(c.respawnTimer <= 0) {	
+			if(c.respawnTimer <= 0) {
 				int damage = 0;
 				if(npcs[i].attackType == 0) {
 					damage = Misc.random(npcs[i].maxHit);
 					if (10 + Misc.random(c.getCombat().calculateMeleeDefence()) > Misc.random(Server.npcHandler.npcs[i].attack)) {
 						damage = 0;
-					}				
+					}
 					if(c.prayerActive[18] || c.curseActive[9]) { // protect from melee
 						damage = 0;
-					}	
+					}
 					if(c.SolProtect >= 1) { // protect from melee
 						damage = (int)damage / 2;
-					}			
+					}
 					if (c.playerEquipment[c.playerShield] == 13740) {
 						damage = (int)damage * 70 / 100;
 					}
@@ -3966,23 +3034,23 @@ case 1158:
 					if(Misc.random(4) == 3) {
 					damage = (int)damage * 65 / 100;
 					}
-					}	
-					if (c.playerLevel[3] - damage < 0) { 
+					}
+					if (c.playerLevel[3] - damage < 0) {
 						damage = c.playerLevel[3];
 					}
 				}
-				
+
 				if(npcs[i].attackType == 1) { // range
 					damage = Misc.random(npcs[i].maxHit);
 					if (10 + Misc.random(c.getCombat().calculateRangeDefence()) > Misc.random(Server.npcHandler.npcs[i].attack)) {
 						damage = 0;
-					}					
+					}
 					if(c.prayerActive[17] || c.curseActive[8]) { // protect from range
 						damage = 0;
-					}		
+					}
 					if(c.SolProtect >= 1) { // protect from melee
 						damage = (int)damage / 2;
-					}	
+					}
 					if (c.playerEquipment[c.playerShield] == 13740) {
 						damage = (int)damage * 70 / 100;
 					}
@@ -3991,25 +3059,25 @@ case 1158:
 					damage = (int)damage * 65 / 100;
 					}
 					}
-					if (c.playerLevel[3] - damage < 0) { 
+					if (c.playerLevel[3] - damage < 0) {
 						damage = c.playerLevel[3];
 					}
 				}
-				
+
 				if(npcs[i].attackType == 2) { // magic
 					damage = Misc.random(npcs[i].maxHit);
 					boolean magicFailed = false;
 					if (10 + Misc.random(c.getCombat().mageDef()) > Misc.random(Server.npcHandler.npcs[i].attack)) {
 						damage = 0;
 						magicFailed = true;
-					}				
+					}
 					if(c.prayerActive[16] || c.curseActive[7]) { // protect from magic
 						damage = 0;
 						magicFailed = true;
-					}		
+					}
 					if(c.SolProtect >= 1) { // protect from melee
 						damage = (int)damage / 2;
-					}		
+					}
 					if (c.playerEquipment[c.playerShield] == 13740) {
 						damage = (int)damage * 70 / 100;
 					}
@@ -4018,10 +3086,10 @@ case 1158:
 					damage = (int)damage * 65 / 100;
 					}
 					}
-					if (c.playerLevel[3] - damage < 0) { 
+					if (c.playerLevel[3] - damage < 0) {
 						damage = c.playerLevel[3];
 					}
-					if (damage == 0) { 
+					if (damage == 0) {
 						c.gfx100(85);
 					}
 					if(npcs[i].endGfx > 0 && (!magicFailed )) {
@@ -4030,19 +3098,19 @@ case 1158:
 						//c.gfx100(85);
 					}
 				}
-				
+
 if (npcs[i].attackType == 3) { //fire breath
 					int anti = c.getPA().antiFire();
 					if (anti == 0) {
 						damage = Misc.random(30) + 10;
 						c.sendMessage("You are badly burnt by the dragon fire!");
 						c.getCombat().addCharge(c);
-				} else if (anti == 1)					
+				} else if (anti == 1)
 					damage = Misc.random(12);
-					
+
 					else if (anti == 2)
 						damage = Misc.random(6);
-					
+
 					if (c.playerLevel[3] - damage < 0)
 						damage = c.playerLevel[3];
 					//c.gfx100(npcs[i].endGfx);
@@ -4057,11 +3125,11 @@ if (npcs[i].attackType == 3) { //fire breath
 				c.playerLevel[3] -= damage;
 				c.getPA().refreshSkill(3);
 				c.updateRequired = true;
-				//c.setHitUpdateRequired(true);	
+				//c.setHitUpdateRequired(true);
 			}
 		}
 	}
-	
+
 	public void handleSpecialEffects(Client c, int i, int damage) {
 		if (npcs[i].npcType == 2892 || npcs[i].npcType == 2894) {
 			if (damage > 0) {
@@ -4071,20 +3139,20 @@ if (npcs[i].attackType == 3) { //fire breath
 						c.getPA().refreshSkill(5);
 						c.getPA().appendPoison(12);
 					}
-				}			
-			}	
+				}
+			}
 		}
-	
+
 	}
-		
-		
+
+
 
 	public void startAnimation(int animId, int i) {
 		npcs[i].animNumber = animId;
 		npcs[i].animUpdateRequired = true;
 		npcs[i].updateRequired = true;
 	}
-	
+
 	public boolean goodDistance(int objectX, int objectY, int playerX, int playerY, int distance) {
 		for (int i = 0; i <= distance; i++) {
 		  for (int j = 0; j <= distance; j++) {
@@ -4099,8 +3167,8 @@ if (npcs[i].attackType == 3) { //fire breath
 		}
 		return false;
 	}
-	
-      
+
+
 	public int getMaxHit(int i) {
 		switch (npcs[i].npcType) {
 			case 6222:
@@ -4134,8 +3202,8 @@ if (npcs[i].attackType == 3) { //fire breath
 		}
 		return 1;
 	}
-	
-	
+
+
 	public boolean loadAutoSpawn(String FileName) {
 		String line = "";
 		String token = "";
@@ -4173,7 +3241,7 @@ if (npcs[i].attackType == 3) { //fire breath
 				token3 = token2_2.split("\t");
 				if (token.equals("spawn")) {
 					newNPC(Integer.parseInt(token3[0]), Integer.parseInt(token3[1]), Integer.parseInt(token3[2]), Integer.parseInt(token3[3]), Integer.parseInt(token3[4]), getNpcListHP(Integer.parseInt(token3[0])), Integer.parseInt(token3[5]), Integer.parseInt(token3[6]), Integer.parseInt(token3[7]));
-				
+
 				}
 			} else {
 				if (line.equals("[ENDOFSPAWNLIST]")) {
@@ -4199,7 +3267,7 @@ if (npcs[i].attackType == 3) { //fire breath
 		}
 		return 0;
 	}
-	
+
 	public String getNpcListName(int npcId) {
 		for (int i = 0; i < maxListedNPCs; i++) {
 			if (NpcList[i] != null) {
@@ -4262,6 +3330,6 @@ if (npcs[i].attackType == 3) { //fire breath
 		try { characterfile.close(); } catch(IOException ioexception) { }
 		return false;
 	}
-	
+
 
 }

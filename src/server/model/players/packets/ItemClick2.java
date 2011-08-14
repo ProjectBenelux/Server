@@ -28,19 +28,46 @@ public class ItemClick2 implements PacketType {
 			c.sendMessage("Your shield has "+c.dfsCount+" charges");
 			break;
 
-			case 11694:
-
-				c.sendMessage("Dismantling has been disabled due to duping");
-			break;
-			case 11696:
-				c.sendMessage("Dismantling has been disabled due to duping");
-			break;
-			case 11698:
-				c.sendMessage("Dismantling has been disabled due to duping");
-			break;
-			case 11700:
-				c.sendMessage("Dismantling has been disabled due to duping");
-			break;
+                case 11694:/*AGS*/
+		if(c.getItems().freeSlots() < 1) {
+		c.sendMessage("You need atleast 2 free slot's to dismantle your godsword.");
+		} else if (c.getItems().playerHasItem(11694, 1)) {
+			c.getItems().deleteItem(11694,1);
+			c.getItems().addItem(11702,1);
+			c.getItems().addItem(11690,1);
+		} else {
+		}
+		break;
+			case 11696:/*BGS*/
+		if(c.getItems().freeSlots() < 1) {
+		c.sendMessage("You need atleast 2 free slot's to dismantle your godsword.");
+		} else if (c.getItems().playerHasItem(11696, 1)) {
+			c.getItems().deleteItem(11696,1);
+			c.getItems().addItem(11704,1);
+			c.getItems().addItem(11690,1);
+		} else {
+		}
+		break;
+			case 11698:/*SGS*/
+		if(c.getItems().freeSlots() < 1) {
+		c.sendMessage("You need atleast 2 free slot's to dismantle your godsword.");
+		} else if (c.getItems().playerHasItem(11698, 1)) {
+			c.getItems().deleteItem(11698,1);
+			c.getItems().addItem(11706,1);
+			c.getItems().addItem(11690,1);
+		} else {
+		}
+		break;
+			case 11700:/*ZGS*/
+		if(c.getItems().freeSlots() < 1) {
+		c.sendMessage("You need atleast 2 free slot's to dismantle your godsword.");
+		} else if (c.getItems().playerHasItem(11700, 1)) {
+			c.getItems().deleteItem(11700,1);
+			c.getItems().addItem(11708,1);
+			c.getItems().addItem(11690,1);
+		} else {
+		}
+		break;
 		default:
 			if (c.playerRights == 3)
 				Misc.println(c.playerName+ " - Item3rdOption: "+itemId);
