@@ -29,6 +29,9 @@ public int playerTradeWealth;
 	public int DCdown = 0, 	trade11;
 	
 	public int overloadcounter = 0;
+	//Shops
+	//Buying
+	public boolean buyingX; //Buy X 
 	//Minigames
 	//Party Room
 	public PartyItem[] partyItems = new PartyItem[9];

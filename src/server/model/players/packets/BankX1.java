@@ -22,10 +22,8 @@ public class BankX1 implements PacketType {
 			c.xRemoveId = c.getInStream().readSignedWordBigEndian();
 		}
 		if (c.xInterfaceId == 3900) {
-			c.getShops().buyItem(c.xRemoveId, c.xRemoveSlot, 50);//buy 20
-			c.xRemoveSlot = 0;
-			c.xInterfaceId = 0;
-			c.xRemoveId = 0;
+			c.buyingX = true;
+			c.outStream.createFrame(27);
 			return;
 		}
 			if(c.storing) {

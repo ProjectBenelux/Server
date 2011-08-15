@@ -17,6 +17,17 @@ public class BankX2 implements PacketType {
 			c.getGamble().playerBet = Xamount;
 			c.getGamble().blackJack(c);
 		}
+					if (c.buyingX) {
+			if (Xamount <= 1000) {
+				c.getShops().buyItem(c.xRemoveId, c.xRemoveSlot, Xamount);
+			} else {
+				c.sendMessage("You cannot buy more than 1000 at a time.");
+			}
+			c.xRemoveSlot = 0;
+			c.xInterfaceId = 0;
+			c.xRemoveId = 0;
+			c.buyingX = false;
+		}
 		switch (c.xInterfaceId) {
 			case 5064:
 			if(c.inTrade) {
@@ -31,7 +42,6 @@ public class BankX2 implements PacketType {
 			}
 			c.getItems().fromBank(c.bankItems[c.xRemoveSlot] , c.xRemoveSlot, Xamount);
 			break;
-
 			case 3322:
 			if(!c.getItems().playerHasItem(c.xRemoveId, Xamount)) {
 				Xamount = c.getItems().getItemAmount(c.xRemoveId);
