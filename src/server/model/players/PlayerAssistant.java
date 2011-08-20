@@ -1195,18 +1195,16 @@ public void writeEnergy() {
 				return;
 			}
 			if(c.getOutStream() != null && c != null) {
-				c.isBanking = true;
 				c.getItems().resetItems(5064);
 				c.getItems().rearrangeBank();
 				c.getItems().resetBank();
 				c.getItems().resetTempItems();
 				c.getOutStream().createFrame(248);
-				c.getOutStream().writeWordA(23000);
+				c.getOutStream().writeWordA(5292);
 				c.getOutStream().writeWord(5063);
 				c.flushOutStream();
 			}
-		
-	}
+		}
 	
 	/**
 	* Private Messaging

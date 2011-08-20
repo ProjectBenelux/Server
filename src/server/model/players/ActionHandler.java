@@ -1300,6 +1300,17 @@ break;
                     c.fishtimer = c.getFishing().fishtime(c.fishies, c.fishreqt);
                 }
 		switch(npcType) {
+		//Minigames
+		//Lottery
+		case 8206:
+			if (c.playerRights < 1) {
+				c.getDH().sendDialogues(185, 0);
+			} else {
+				c.sendMessage("Your rank is too high to participate in the lottery!");
+			}
+			break;
+				//Quests
+				//Desert Treasure
 				case 1918:
 				if(c.desertT == 2) {
 					c.getDH().sendDialogues(602, -1);

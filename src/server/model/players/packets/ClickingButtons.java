@@ -43,7 +43,7 @@ c.Lunar.Button(c, actionButtonId);
 		}
 	}
 		switch (actionButtonId){
-					case 28166:
+		case 28166:
 		c.getDT().questInformation();
 		break;
 		
@@ -1824,6 +1824,7 @@ c.sendMessage("You do not have a npc currently spawned");
 				} else if (c.dialogueAction == 11) {
 					c.getPA().spellTeleport(2786, 4839, 0);
 					c.dialogueAction = -1;
+
 				} else if (c.dialogueAction == 12) {
 					c.getPA().spellTeleport(2398, 4841, 0);
 					c.dialogueAction = -1;
@@ -2352,6 +2353,11 @@ break;
 
 
 			case 9157://barrows tele to tunnels
+			if (c.dialogueAction == 186) {
+					Server.Lottery.enterLottery(c);
+					c.getPA().removeAllWindows();
+					return;
+				}
 				//Desert Treasure
 				if(c.dtOption) {
 					c.getDH().sendDialogues(501, -1);

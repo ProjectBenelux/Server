@@ -137,6 +137,14 @@ public class DialogueHandler {
 			sendOption2("PK'er Scoreboard", "Skiller Scoreboard");
 			c.dialogueAction = 1337;
 		break;
+				case 185:
+			sendNpcChat4("Hello, im Lottie im in charge of Rune-X-Scape's Lottery.", "Entering costs 2 million gp but you could win up to", "250 million gp! you can enter up to 5 times per draw.", "Would you like to enter the lottery?", c.talkingNpc, "Lottie");
+			c.nextChat = 186;
+		break;
+		case 186:
+			sendOption2("Yes i would like to enter!", "No, Id rather not.");
+			c.dialogueAction = 186;
+		break;
 
 		case 80:
 sendStatement("Should I tele you ?");

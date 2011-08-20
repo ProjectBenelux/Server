@@ -3950,7 +3950,13 @@ if(!c.inFunPk()){
         }
         if (c.fullVoidEliteMelee() || c.fullVoidMelee() || c.fullStatius() || c.fullVesta() || c.fullTorva())
             attackLevel += c.getLevelForXP(c.playerXP[c.playerAttack]) * 0.2;
+
+
+
+
+
 		attackLevel *= c.specAccuracy;
+
         		int i = c.playerBonus[bestMeleeAtk()];
 		i += c.bonusAttack;
 		if (c.playerEquipment[c.playerAmulet] == 11128 && c.playerEquipment[c.playerWeapon] == 6528) {
@@ -3972,6 +3978,7 @@ if(!c.inFunPk()){
 		int strBonus = c.playerBonus[10];
 		int strength = c.playerLevel[2];
 		int lvlForXP = c.getLevelForXP(c.playerXP[2]);
+
 		if(c.prayerActive[1]) {
 			strength += (int)(lvlForXP * .05);
 		} else
@@ -4005,6 +4012,7 @@ if(!c.inFunPk()){
 		if(c.curseActive[16]) { // Leech Special
 			strength += (int)(lvlForXP * .10 + c.getstr);
 		}
+
 		if(c.curseActive[19]) { // turmoil
 			strength += (int)(lvlForXP * .25 + c.getstr);
 		}
@@ -4041,6 +4049,8 @@ if(!c.inFunPk()){
 		if (maxHit < 0)
 			maxHit = 1;
 
+
+
 		if (c.playerEquipment[c.playerAmulet] == 11128
 		&& c.playerEquipment[c.playerWeapon] == 6528)
 		{
@@ -4051,6 +4061,9 @@ if(!c.inFunPk()){
 		return (int)Math.floor(maxHit);
 
 	}
+
+
+
 
 	public int calculateMeleeDefence()
     {
@@ -4066,6 +4079,7 @@ if(!c.inFunPk()){
             defenceLevel += c.getLevelForXP(c.playerXP[c.playerDefence]) * 0.2;
         } else if (c.prayerActive[25]) {
             defenceLevel += c.getLevelForXP(c.playerXP[c.playerDefence]) * 0.25;
+
         }
         return (int)(defenceLevel + (defenceLevel * 0.15) + (i + i * 0.05));
     }
